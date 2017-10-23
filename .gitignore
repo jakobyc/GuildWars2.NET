@@ -7,3 +7,6 @@ GuildWars2.NET/bin/Debug/GuildWars2.NET.pdb
 
 GuildWars2.NET/obj/Debug/GuildWars2.NET.dll
 GuildWars2.NET/obj/Debug/GuildWars2.NET.pdb
+
+.vs/
+.vs/GuildWars2.NET/v15/.suo

@@ -1,5 +1,0 @@
-C:\Users\cjakoby\source\repos\Library\GuildWars2.NET\GuildWars2.NET\bin\Debug\GuildWars2.NET.dll
-C:\Users\cjakoby\source\repos\Library\GuildWars2.NET\GuildWars2.NET\bin\Debug\GuildWars2.NET.pdb
-C:\Users\cjakoby\source\repos\Library\GuildWars2.NET\GuildWars2.NET\obj\Debug\GuildWars2.NET.csproj.CoreCompileInputs.cache
-C:\Users\cjakoby\source\repos\Library\GuildWars2.NET\GuildWars2.NET\obj\Debug\GuildWars2.NET.dll
-C:\Users\cjakoby\source\repos\Library\GuildWars2.NET\GuildWars2.NET\obj\Debug\GuildWars2.NET.pdb

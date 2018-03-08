@@ -5,22 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using GuildWars2.NET.v2.Account.DTOs;
 using GuildWars2.NET.Serialization.JSON;
+using GuildWars2.NET.Data;
 
 namespace GuildWars2.NET.v2.Account.Repositories
 {
     // TODO: Add endpoints for gliders, mail carriers, mastery points, and pvp heroes:
-    public class AccountRepository
+    public class AccountRepository : GW2Repository
     {
-        private JsonDeserializer deserializer;
-        private JsonRetriever retriever; 
-
-        public AccountRepository() : this(new JsonDeserializer(), new JsonRetriever()) { }
-
-        public AccountRepository(JsonDeserializer deserializer, JsonRetriever retriever)
-        {
-            this.deserializer = deserializer;
-            this.retriever = retriever;
-        }
+        public AccountRepository() : base() { }
+        public AccountRepository(JsonDeserializer deserializer, JsonRetriever retriever) : base(deserializer, retriever) { }
 
         public AccountInfo GetAccountInfo(string accessToken)
         {
@@ -51,98 +44,82 @@ namespace GuildWars2.NET.v2.Account.Repositories
 
         public ICollection<BankItem> GetBankItems(string accessToken)
         {
-            string json = retriever.GetJson(new BankItem(), accessToken);
-            return deserializer.Deserialize<ICollection<BankItem>>(json);
+            return Retrieve<ICollection<BankItem>>(new BankItem(), accessToken);
         }
 
         public ICollection<string> GetCompletedDailyDungeons(string accessToken)
         {
-            string json = retriever.GetJson(new DailyDungeon(), accessToken);
-            return deserializer.Deserialize<ICollection<string>>(json);
+            return Retrieve<ICollection<string>>(new DailyDungeon(), accessToken);
         }
 
         public ICollection<string> GetDyes(string accessToken)
         {
-            string json = retriever.GetJson(new Dye(), accessToken);
-            return deserializer.Deserialize<ICollection<string>>(json);
+            return Retrieve<ICollection<string>>(new DailyDungeon(), accessToken);
         }
 
         public ICollection<Finisher> GetFinishers(string accessToken)
         {
-            string json = retriever.GetJson(new Finisher(), accessToken);
-            return deserializer.Deserialize<ICollection<Finisher>>(json);
+            return Retrieve<ICollection<Finisher>>(new Dye(), accessToken);
         }
 
         public ICollection<Cat> GetHomeCats(string accessToken)
         {
-            string json = retriever.GetJson(new Cat(), accessToken);
-            return deserializer.Deserialize<ICollection<Cat>>(json);
+            return Retrieve<ICollection<Cat>>(new Cat(), accessToken);
         }
 
         public ICollection<string> GetHomeNodes(string accessToken)
         {
-            string json = retriever.GetJson(new Node(), accessToken);
-            return deserializer.Deserialize<ICollection<string>>(json);
+            return Retrieve<ICollection<string>>(new Node(), accessToken);
         }
 
         public ICollection<SharedInventoryItem> GetSharedInventoryItems(string accessToken)
         {
-            string json = retriever.GetJson(new SharedInventoryItem(), accessToken);
-            return deserializer.Deserialize<ICollection<SharedInventoryItem>>(json);
+            return Retrieve<ICollection<SharedInventoryItem>>(new SharedInventoryItem(), accessToken);
         }
 
         public ICollection<Mastery> GetMasteries(string accessToken)
         {
-            string json = retriever.GetJson(new Mastery(), accessToken);
-            return deserializer.Deserialize<ICollection<Mastery>>(json);
+            return Retrieve<ICollection<Mastery>>(new Mastery(), accessToken);
         }
 
         public ICollection<Material> GetMaterials(string accessToken)
         {
-            string json = retriever.GetJson(new Material(), accessToken);
-            return deserializer.Deserialize<ICollection<Material>>(json);
+            return Retrieve<ICollection<Material>>(new Material(), accessToken);
         }
 
         public ICollection<string> GetMiniatures(string accessToken)
         {
-            string json = retriever.GetJson(new Miniature(), accessToken);
-            return deserializer.Deserialize<ICollection<string>>(json);
+            return Retrieve<ICollection<string>>(new Miniature(), accessToken);
         }
 
         public ICollection<string> GetOutfits(string accessToken)
         {
-            string json = retriever.GetJson(new Outfit(), accessToken);
-            return deserializer.Deserialize<ICollection<string>>(json);
+            return Retrieve<ICollection<string>>(new Outfit(), accessToken);
         }
 
         public ICollection<string> GetCompletedRaids(string accessToken)
         {
-            string json = retriever.GetJson(new Raid(), accessToken);
-            return deserializer.Deserialize<ICollection<string>>(json);
+            return Retrieve<ICollection<string>>(new Raid(), accessToken);
         }
 
         public ICollection<string> GetRecipes(string accessToken)
         {
-            string json = retriever.GetJson(new Recipe(), accessToken);
-            return deserializer.Deserialize<ICollection<string>>(json);
+            return Retrieve<ICollection<string>>(new Recipe(), accessToken);
         }
 
         public ICollection<string> GetSkins(string accessToken)
         {
-            string json = retriever.GetJson(new Skin(), accessToken);
-            return deserializer.Deserialize<ICollection<string>>(json);
+            return Retrieve<ICollection<string>>(new Skin(), accessToken);
         }
 
         public ICollection<string> GetTitles(string accessToken)
         {
-            string json = retriever.GetJson(new Title(), accessToken);
-            return deserializer.Deserialize<ICollection<string>>(json);
+            return Retrieve<ICollection<string>>(new Title(), accessToken);
         }
 
         public ICollection<WalletCurrency> GetWallet(string accessToken)
         {
-            string json = retriever.GetJson(new WalletCurrency(), accessToken);
-            return deserializer.Deserialize<ICollection<WalletCurrency>>(json);
+            return Retrieve<ICollection<WalletCurrency>>(new WalletCurrency(), accessToken);
         }
     }
 }

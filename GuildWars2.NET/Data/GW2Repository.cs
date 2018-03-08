@@ -25,5 +25,11 @@ namespace GuildWars2.NET.Data
             string json = retriever.GetJson(retrievableObject, accessToken);
             return deserializer.Deserialize<T>(json);
         }
+
+        public T Retrieve<T>(IRetrievable retrievableObject, string accessToken, string filter)
+        {
+            string json = retriever.GetJson(retrievableObject, accessToken, filter);
+            return deserializer.Deserialize<T>(json);
+        }
     }
 }

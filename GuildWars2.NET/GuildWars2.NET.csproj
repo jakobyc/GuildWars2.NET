@@ -85,11 +85,13 @@
     <Compile Include="v2\Characters\DTOs\Equipment.cs" />
     <Compile Include="v2\Characters\DTOs\InventoryBag.cs" />
     <Compile Include="v2\Characters\Repositories\CharacterRepository.cs" />
+    <Compile Include="v2\Skills\DTOs\Skill.cs" />
+    <Compile Include="v2\Skills\DTOs\SkillFact.cs" />
+    <Compile Include="v2\Skills\DTOs\TraitedSkillFact.cs" />
+    <Compile Include="v2\Skills\DTOs\Skills.cs" />
     <Compile Include="v2\Skills\Repositories\SkillRepository.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="v2\Skills\DTOs\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

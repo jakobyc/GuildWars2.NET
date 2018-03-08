@@ -12,7 +12,7 @@ namespace GuildWars2.NET.v2.Characters.DTOs
     public class Skills : IRetrievable
     {
         [DataMember(Name = "skills")]
-        SkillInfo SkillsInformation { get; set; }
+        public SkillInfo SkillsInformation { get; set; }
         
         public string Endpoint { get; private set; }
 

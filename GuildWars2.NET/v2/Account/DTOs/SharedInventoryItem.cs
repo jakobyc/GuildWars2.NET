@@ -11,7 +11,7 @@ namespace GuildWars2.NET.v2.Account.DTOs
     [DataContract]
     public class SharedInventoryItem : IRetrievable
     {
-        [DataMember(Name="id")]
+        [DataMember(Name= "id")]
         public int Id { get; set; }
         [DataMember(Name = "count")]
         public int Count { get; set; }

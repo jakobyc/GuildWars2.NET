@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace GuildWars2.NET.v2.Characters.DTOs
 {
     [DataContract]
-    public class SkillPvP : Skill
+    public class SkillPvP : CharacterSkill
     {
     }
 }

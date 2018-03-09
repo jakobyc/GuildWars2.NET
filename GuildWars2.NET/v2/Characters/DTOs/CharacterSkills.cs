@@ -9,14 +9,14 @@ using GuildWars2.NET.Serialization.JSON;
 namespace GuildWars2.NET.v2.Characters.DTOs
 {
     [DataContract]
-    public class Skills : IRetrievable
+    public class CharacterSkills : IRetrievable
     {
         [DataMember(Name = "skills")]
         public SkillInfo SkillsInformation { get; set; }
         
         public string Endpoint { get; private set; }
 
-        public Skills(string characterName)
+        public CharacterSkills(string characterName)
         {
             this.Endpoint = string.Format("characters/{0}/skills", characterName);
         }

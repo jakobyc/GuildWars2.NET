@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GuildWars2.NET.v2.Characters.DTOs
 {
     [DataContract]
-    public abstract class Skill : ISkill
+    public abstract class CharacterSkill : ISkill
     {
         [DataMember(Name = "heal")]
         public int HealId { get; set; }

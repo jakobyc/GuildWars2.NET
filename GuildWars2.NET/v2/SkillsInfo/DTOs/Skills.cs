@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuildWars2.NET.v2.Skills.DTOs
+namespace GuildWars2.NET.v2.SkillsInfo.DTOs
 {
     public class Skills : List<Skill>, ICollection<Skill>, IRetrievable
     {

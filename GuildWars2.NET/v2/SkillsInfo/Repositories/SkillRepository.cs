@@ -1,20 +1,20 @@
 ﻿using GuildWars2.NET.Data;
 using GuildWars2.NET.Serialization.JSON;
-using GuildWars2.NET.v2.Skills.DTOs;
+using GuildWars2.NET.v2.SkillsInfo.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuildWars2.NET.v2.Skills.Repositories
+namespace GuildWars2.NET.v2.SkillsInfo.Repositories
 {
     public class SkillRepository : GW2Repository
     {
         public SkillRepository() : base() { }
         public SkillRepository(JsonDeserializer deserializer, JsonRetriever retriever) : base(deserializer, retriever) { }
 
-        public v2.Skills.DTOs.Skills GetSkills(string accessToken, params string[] ids)
+        public Skills GetSkills(string accessToken, params string[] ids)
         {
             // TODO: Make a cleaner, reusable solution (parameter builder, etc.):
             string idParameter = "ids=";
@@ -31,7 +31,7 @@ namespace GuildWars2.NET.v2.Skills.Repositories
                     idParameter += ids[i];
                 }
             }
-            return Retrieve<v2.Skills.DTOs.Skills>(new v2.Skills.DTOs.Skills(), accessToken, idParameter);
+            return Retrieve<v2.SkillsInfo.DTOs.Skills>(new v2.SkillsInfo.DTOs.Skills(), accessToken, idParameter);
         }
     }
 }

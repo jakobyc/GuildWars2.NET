@@ -6,9 +6,18 @@ using System.Threading.Tasks;
 using GuildWars2.NET.Data;
 using GuildWars2.NET.Serialization.JSON;
 using GuildWars2.NET.v2.Characters.DTOs;
+using GuildWars2.NET.v2.SkillsInfo.Repositories;
+using GuildWars2.NET.v2.SkillsInfo.DTOs;
 
 namespace GuildWars2.NET.v2.Characters.Repositories
 {
+    public enum SkillType
+    {
+        PvE,
+        PvP,
+        WvW
+    }
+
     public class CharacterRepository : GW2Repository
     {
         public CharacterRepository() : base() { }
@@ -44,9 +53,45 @@ namespace GuildWars2.NET.v2.Characters.Repositories
             return Retrieve<Inventory>(new Inventory(characterName), accessToken);
         }
 
-        public v2.Characters.DTOs.Skills GetSkills(string characterName, string accessToken)
+        public Skills GetSkills(string characterName, SkillType type, string accessToken)
         {
-            return Retrieve<v2.Characters.DTOs.Skills>(new v2.Characters.DTOs.Skills(characterName), accessToken);
+            CharacterSkills characterSkills =  Retrieve<CharacterSkills>(new CharacterSkills(characterName), accessToken);
+
+            Skills skills = new v2.SkillsInfo.DTOs.Skills();
+            SkillRepository repository = new SkillRepository();
+            switch (type)
+            {
+                case (SkillType.PvE):
+                    skills = repository.GetSkills(accessToken, GetSkillIds(characterSkills.SkillsInformation.PvE));
+                    break;
+
+                case (SkillType.PvP):
+                    skills = repository.GetSkills(accessToken, GetSkillIds(characterSkills.SkillsInformation.PvP));
+                    break;
+
+                case (SkillType.WvW):
+                    skills = repository.GetSkills(accessToken, GetSkillIds(characterSkills.SkillsInformation.WvW));
+                    break;
+
+            }
+
+            return skills;
+        }
+
+        private string[] GetSkillIds(CharacterSkill skill)
+        {
+            ICollection<string> ids = new List<string>()
+                    {
+                        skill.EliteId.ToString(),
+                        skill.HealId.ToString()
+                    };
+
+            foreach (int skillId in skill.UtilitiesIDs)
+            {
+                ids.Add(skillId.ToString());
+            }
+
+            return ids.ToArray<string>();
         }
     }
 }

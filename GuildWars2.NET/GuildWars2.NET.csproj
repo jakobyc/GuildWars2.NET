@@ -76,20 +76,20 @@
     <Compile Include="v2\Characters\DTOs\Inventory.cs" />
     <Compile Include="v2\Characters\DTOs\InventoryItem.cs" />
     <Compile Include="v2\Characters\DTOs\ISkill.cs" />
-    <Compile Include="v2\Characters\DTOs\Skill.cs" />
+    <Compile Include="v2\Characters\DTOs\CharacterSkill.cs" />
     <Compile Include="v2\Characters\DTOs\SkillPvE.cs" />
     <Compile Include="v2\Characters\DTOs\SkillPvP.cs" />
-    <Compile Include="v2\Characters\DTOs\Skills.cs" />
+    <Compile Include="v2\Characters\DTOs\CharacterSkills.cs" />
     <Compile Include="v2\Characters\DTOs\SkillsInfo.cs" />
     <Compile Include="v2\Characters\DTOs\SkillWvW.cs" />
     <Compile Include="v2\Characters\DTOs\Equipment.cs" />
     <Compile Include="v2\Characters\DTOs\InventoryBag.cs" />
     <Compile Include="v2\Characters\Repositories\CharacterRepository.cs" />
-    <Compile Include="v2\Skills\DTOs\Skill.cs" />
-    <Compile Include="v2\Skills\DTOs\SkillFact.cs" />
-    <Compile Include="v2\Skills\DTOs\TraitedSkillFact.cs" />
-    <Compile Include="v2\Skills\DTOs\Skills.cs" />
-    <Compile Include="v2\Skills\Repositories\SkillRepository.cs" />
+    <Compile Include="v2\SkillsInfo\DTOs\Skill.cs" />
+    <Compile Include="v2\SkillsInfo\DTOs\SkillFact.cs" />
+    <Compile Include="v2\SkillsInfo\DTOs\TraitedSkillFact.cs" />
+    <Compile Include="v2\SkillsInfo\DTOs\Skills.cs" />
+    <Compile Include="v2\SkillsInfo\Repositories\SkillRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

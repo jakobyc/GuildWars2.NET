@@ -1,6 +1,7 @@
 bin/
 GuildWars2.NET/bin/Debug/GuildWars2.NET.dll
 
+src/bin
 obj/
 
 GuildWars2.NET/bin/Debug/GuildWars2.NET.pdb

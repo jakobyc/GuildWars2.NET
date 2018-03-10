@@ -15,6 +15,8 @@ namespace GuildWars2.NET.v2.Account.DTOs
         public ICollection<string> Guilds { get; set; }
         [DataMember(Name = "guild_leader")]
         public ICollection<string> GuildLeaderOf { get; set; }
+        [DataMember(Name = "access")]
+        public ICollection<string> Access { get; set; }
 
         [DataMember(Name = "id")]
         public string Id { get; set; }
@@ -22,8 +24,6 @@ namespace GuildWars2.NET.v2.Account.DTOs
         public string Name { get; set; }
         [DataMember(Name = "created")]
         public string Created { get; set; }
-        [DataMember(Name = "access")]
-        public string Access { get; set; }
 
         [DataMember(Name = "age")]
         public int Age { get; set; }

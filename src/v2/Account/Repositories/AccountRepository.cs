@@ -9,7 +9,7 @@ using GuildWars2.NET.Data;
 
 namespace GuildWars2.NET.v2.Account.Repositories
 {
-    // TODO: Add endpoints for gliders, mail carriers, mastery points, and pvp heroes:
+    // TODO: Add endpoints for pvp heroes:
     public class AccountRepository : GW2Repository
     {
         public AccountRepository() : base() { }
@@ -17,29 +17,18 @@ namespace GuildWars2.NET.v2.Account.Repositories
 
         public AccountInfo GetAccountInfo(string accessToken)
         {
-            AccountInfo account = new AccountInfo();
-
-            string json = retriever.GetJson(account, accessToken);
-            account = deserializer.Deserialize<AccountInfo>(json);
-
-            return account;
+            return Retrieve<AccountInfo>(new AccountInfo(), accessToken);
         }
 
         public ICollection<AccountAchievement> GetAchievements(string accessToken)
         {
-            string json = retriever.GetJson(new AccountAchievement(), accessToken);
-            return deserializer.Deserialize<ICollection<AccountAchievement>>(json);
+            return Retrieve<ICollection<AccountAchievement>>(new AccountAchievement(), accessToken);
         }
 
         public AccountAchievement GetAchievement(string accessToken, int id)
         {
-            AccountAchievement achievement = new AccountAchievement();
-
             string filter = string.Format("id={0}", id);
-            string json = retriever.GetJson(achievement, accessToken, filter);
-            achievement = deserializer.Deserialize<AccountAchievement>(json);
-
-            return achievement;
+            return Retrieve<AccountAchievement>(new AccountAchievement(), accessToken, filter);
         }
 
         public ICollection<BankItem> GetBankItems(string accessToken)
@@ -62,6 +51,12 @@ namespace GuildWars2.NET.v2.Account.Repositories
             return Retrieve<ICollection<Finisher>>(new Dye(), accessToken);
         }
 
+        // TODO: Resolve against v2/gliders:
+        public ICollection<int> GetGliders(string accessToken)
+        {
+            return Retrieve<ICollection<int>>(new Glider(), accessToken);
+        }
+
         public ICollection<Cat> GetHomeCats(string accessToken)
         {
             return Retrieve<ICollection<Cat>>(new Cat(), accessToken);
@@ -77,9 +72,20 @@ namespace GuildWars2.NET.v2.Account.Repositories
             return Retrieve<ICollection<SharedInventoryItem>>(new SharedInventoryItem(), accessToken);
         }
 
+        // TODO: Resolve against v2/mailcarriers
+        public ICollection<int> GetMailCarriers(string accessToken)
+        {
+            return Retrieve<ICollection<int>>(new MailCarrier(), accessToken);
+        }
+
         public ICollection<Mastery> GetMasteries(string accessToken)
         {
             return Retrieve<ICollection<Mastery>>(new Mastery(), accessToken);
+        }
+
+        public MasteryPoints GetMasteryPoints(string accessToken)
+        {
+            return Retrieve<MasteryPoints>(new MasteryPoints(), accessToken);
         }
 
         public ICollection<Material> GetMaterials(string accessToken)
@@ -95,6 +101,12 @@ namespace GuildWars2.NET.v2.Account.Repositories
         public ICollection<string> GetOutfits(string accessToken)
         {
             return Retrieve<ICollection<string>>(new Outfit(), accessToken);
+        }
+
+        // TODO: Resolve against v2/pvp/heroes:
+        public ICollection<int> GetPvPHeroes(string accessToken)
+        {
+            return Retrieve<ICollection<int>>(new PvPHero(), accessToken);
         }
 
         public ICollection<string> GetCompletedRaids(string accessToken)

@@ -20,13 +20,13 @@ namespace GuildWars2.NET.Data
             this.retriever = retriever;
         }
 
-        public T Retrieve<T>(IRetrievable retrievableObject, string accessToken)
+        protected T Retrieve<T>(IRetrievable retrievableObject, string accessToken)
         {
             string json = retriever.GetJson(retrievableObject, accessToken);
             return deserializer.Deserialize<T>(json);
         }
 
-        public T Retrieve<T>(IRetrievable retrievableObject, string accessToken, string filter)
+        protected T Retrieve<T>(IRetrievable retrievableObject, string accessToken, string filter)
         {
             string json = retriever.GetJson(retrievableObject, accessToken, filter);
             return deserializer.Deserialize<T>(json);

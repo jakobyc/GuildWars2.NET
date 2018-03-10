@@ -53,6 +53,11 @@
     <Compile Include="v2\Account\DTOs\DailyDungeon.cs" />
     <Compile Include="v2\Account\DTOs\Dye.cs" />
     <Compile Include="v2\Account\DTOs\Finisher.cs" />
+    <Compile Include="v2\Account\DTOs\PvPHero.cs" />
+    <Compile Include="v2\Account\DTOs\MasteryPointTotal.cs" />
+    <Compile Include="v2\Account\DTOs\MasteryPoints.cs" />
+    <Compile Include="v2\Account\DTOs\MailCarrier.cs" />
+    <Compile Include="v2\Account\DTOs\Glider.cs" />
     <Compile Include="v2\Account\DTOs\Mastery.cs" />
     <Compile Include="v2\Account\DTOs\Material.cs" />
     <Compile Include="v2\Account\DTOs\Miniature.cs" />
@@ -65,6 +70,11 @@
     <Compile Include="v2\Account\DTOs\Title.cs" />
     <Compile Include="v2\Account\DTOs\WalletCurrency.cs" />
     <Compile Include="v2\Account\Repositories\AccountRepository.cs" />
+    <Compile Include="v2\Achievements\DTOs\Achievement.cs" />
+    <Compile Include="v2\Achievements\DTOs\Bit.cs" />
+    <Compile Include="v2\Achievements\DTOs\Reward.cs" />
+    <Compile Include="v2\Achievements\DTOs\Tier.cs" />
+    <Compile Include="v2\Achievements\Repositories\AchievementRepository.cs" />
     <Compile Include="v2\Characters\DTOs\Attributes.cs" />
     <Compile Include="v2\Characters\DTOs\Backstory.cs" />
     <Compile Include="v2\Characters\DTOs\Core.cs" />

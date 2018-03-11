@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\Parameters\IParameterBuilder.cs" />
+    <Compile Include="Builders\Parameters\ParameterBuilder.cs" />
     <Compile Include="Data\GW2Repository.cs" />
     <Compile Include="Serialization\JSON\IRetrievable.cs" />
     <Compile Include="Serialization\JSON\JsonDeserializer.cs" />
@@ -95,11 +97,11 @@
     <Compile Include="v2\Characters\DTOs\Equipment.cs" />
     <Compile Include="v2\Characters\DTOs\InventoryBag.cs" />
     <Compile Include="v2\Characters\Repositories\CharacterRepository.cs" />
-    <Compile Include="v2\SkillsInfo\DTOs\Skill.cs" />
-    <Compile Include="v2\SkillsInfo\DTOs\SkillFact.cs" />
-    <Compile Include="v2\SkillsInfo\DTOs\TraitedSkillFact.cs" />
-    <Compile Include="v2\SkillsInfo\DTOs\Skills.cs" />
-    <Compile Include="v2\SkillsInfo\Repositories\SkillRepository.cs" />
+    <Compile Include="v2\Achievements\DTOs\Category.cs" />
+    <Compile Include="v2\Skills\DTOs\Skill.cs" />
+    <Compile Include="v2\Skills\DTOs\SkillFact.cs" />
+    <Compile Include="v2\Skills\DTOs\TraitedSkillFact.cs" />
+    <Compile Include="v2\Skills\Repositories\SkillRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

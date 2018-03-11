@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuildWars2.NET.v2.SkillsInfo.DTOs
+namespace GuildWars2.NET.v2.Skills.DTOs
 {
     [DataContract]
     public class SkillFact

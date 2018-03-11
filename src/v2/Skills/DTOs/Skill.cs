@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuildWars2.NET.v2.SkillsInfo.DTOs
+namespace GuildWars2.NET.v2.Skills.DTOs
 {
     [DataContract]
     public class Skill : IRetrievable
@@ -62,21 +62,7 @@ namespace GuildWars2.NET.v2.SkillsInfo.DTOs
 
         public Skill(params string[] ids)
         {
-            string queryString = string.Empty;
-            for (int i = 0; i < ids.Length; i++)
-            {
-                // If the current index is not the last:
-                if (i < ids.Length - 1)
-                {
-                    queryString += ids[i] + ',';
-                }
-                // Else don't add a comma
-                else
-                {
-                    queryString += ids[i];
-                }
-            }
-            Endpoint = string.Format("skills?ids={0}", queryString);
+            Endpoint = "skills";
         }
     }
 }

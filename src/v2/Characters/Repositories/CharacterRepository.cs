@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using GuildWars2.NET.Data;
 using GuildWars2.NET.Serialization.JSON;
 using GuildWars2.NET.v2.Characters.DTOs;
-using GuildWars2.NET.v2.SkillsInfo.Repositories;
-using GuildWars2.NET.v2.SkillsInfo.DTOs;
+using GuildWars2.NET.v2.Skills.Repositories;
+using GuildWars2.NET.v2.Skills.DTOs;
 
 namespace GuildWars2.NET.v2.Characters.Repositories
 {
@@ -53,24 +53,24 @@ namespace GuildWars2.NET.v2.Characters.Repositories
             return Retrieve<Inventory>(new Inventory(characterName), accessToken);
         }
 
-        public Skills GetSkills(string characterName, SkillType type, string accessToken)
+        public ICollection<Skill> GetSkills(string characterName, SkillType type, string accessToken)
         {
             CharacterSkills characterSkills =  Retrieve<CharacterSkills>(new CharacterSkills(characterName), accessToken);
 
-            Skills skills = new v2.SkillsInfo.DTOs.Skills();
+            ICollection<Skill> skills = new List<Skill>();
             SkillRepository repository = new SkillRepository();
             switch (type)
             {
                 case (SkillType.PvE):
-                    skills = repository.GetSkills(accessToken, GetSkillIds(characterSkills.SkillsInformation.PvE));
+                    skills = repository.GetSkills(GetSkillIds(characterSkills.SkillsInformation.PvE));
                     break;
 
                 case (SkillType.PvP):
-                    skills = repository.GetSkills(accessToken, GetSkillIds(characterSkills.SkillsInformation.PvP));
+                    skills = repository.GetSkills(GetSkillIds(characterSkills.SkillsInformation.PvP));
                     break;
 
                 case (SkillType.WvW):
-                    skills = repository.GetSkills(accessToken, GetSkillIds(characterSkills.SkillsInformation.WvW));
+                    skills = repository.GetSkills(GetSkillIds(characterSkills.SkillsInformation.WvW));
                     break;
 
             }

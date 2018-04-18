@@ -20,45 +20,45 @@ namespace GuildWars2.NET.v2.Characters.Repositories
 
     public class CharacterRepository : GW2Repository
     {
-        public CharacterRepository() : base() { }
-        public CharacterRepository(JsonDeserializer deserializer, JsonRetriever retriever) : base(deserializer, retriever) { }
+        public CharacterRepository(string apiKey) : base(apiKey) { }
+        public CharacterRepository(string apiKey, JsonDeserializer deserializer, JsonRetriever retriever) : base(apiKey, deserializer, retriever) { }
 
-        public Backstory GetBackstory(string characterName, string accessToken)
+        public Backstory GetBackstory(string characterName)
         {
-            return Retrieve<Backstory>(new Backstory(characterName), accessToken);
+            return Retrieve<Backstory>(new Backstory(characterName), ApiKey);
         }
 
-        public Core GetCoreInformation(string characterName, string accessToken)
+        public Core GetCoreInformation(string characterName)
         {
-            return Retrieve<Core>(new Core(characterName), accessToken);
+            return Retrieve<Core>(new Core(characterName), ApiKey);
         }
 
-        public CraftingInfo GetCraftingInformation(string characterName, string accessToken)
+        public CraftingInfo GetCraftingInformation(string characterName)
         {
-            return Retrieve<CraftingInfo>(new CraftingInfo(characterName), accessToken);
+            return Retrieve<CraftingInfo>(new CraftingInfo(characterName), ApiKey);
         }
 
-        public Equipment GetEquipment(string characterName, string accessToken)
+        public Equipment GetEquipment(string characterName)
         {
-            return Retrieve<Equipment>(new Equipment(characterName), accessToken);
+            return Retrieve<Equipment>(new Equipment(characterName), ApiKey);
         }
 
-        public ICollection<string> GetHeroPoints(string characterName, string accessToken)
+        public ICollection<string> GetHeroPoints(string characterName)
         {
-            return Retrieve<ICollection<string>>(new HeroPoint(characterName), accessToken);
+            return Retrieve<ICollection<string>>(new HeroPoint(characterName), ApiKey);
         }
 
-        public Inventory GetInventory(string characterName, string accessToken)
+        public Inventory GetInventory(string characterName)
         {
-            return Retrieve<Inventory>(new Inventory(characterName), accessToken);
+            return Retrieve<Inventory>(new Inventory(characterName), ApiKey);
         }
 
-        public ICollection<Skill> GetSkills(string characterName, SkillType type, string accessToken)
+        public ICollection<Skill> GetSkills(string characterName, SkillType type)
         {
-            CharacterSkills characterSkills =  Retrieve<CharacterSkills>(new CharacterSkills(characterName), accessToken);
+            CharacterSkills characterSkills =  Retrieve<CharacterSkills>(new CharacterSkills(characterName), ApiKey);
 
             ICollection<Skill> skills = new List<Skill>();
-            SkillRepository repository = new SkillRepository();
+            SkillRepository repository = new SkillRepository(ApiKey);
             switch (type)
             {
                 case (SkillType.PvE):

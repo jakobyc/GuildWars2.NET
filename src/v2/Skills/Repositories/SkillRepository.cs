@@ -12,14 +12,14 @@ namespace GuildWars2.NET.v2.Skills.Repositories
 {
     public class SkillRepository : GW2Repository
     {
-        public SkillRepository() : base() { }
-        public SkillRepository(JsonDeserializer deserializer, JsonRetriever retriever) : base(deserializer, retriever) { }
+        public SkillRepository(string apiKey) : base(apiKey) { }
+        public SkillRepository(string apiKey, JsonDeserializer deserializer, JsonRetriever retriever) : base(apiKey, deserializer, retriever) { }
 
         public ICollection<Skill> GetSkills(params string[] ids)
         {
             string idParameter = ParameterBuilder.Build("ids", ids);
 
-            return Retrieve<ICollection<Skill>>(new Skill(), string.Empty, idParameter);
+            return Retrieve<ICollection<Skill>>(new Skill(), idParameter);
         }
     }
 }

@@ -14,32 +14,43 @@ namespace GuildWars2.NET.Data
 
         private JsonDeserializer deserializer;
         private JsonRetriever retriever;
+        protected string ApiKey;
 
-        public GW2Repository() : this(new JsonDeserializer(), new JsonRetriever()) { }
+        public GW2Repository(string apiKey) : this(apiKey, new JsonDeserializer(), new JsonRetriever()) { }
 
-        public GW2Repository(JsonDeserializer deserializer, JsonRetriever retriever)
+        public GW2Repository(string apiKey, JsonDeserializer deserializer, JsonRetriever retriever)
         {
+            this.ApiKey = apiKey;
             this.deserializer = deserializer;
             this.retriever = retriever;
 
             ParameterBuilder = new ParameterBuilder();
         }
 
+        /// <summary>
+        /// Retrieve without an API key.
+        /// </summary>
         protected T Retrieve<T>(IRetrievable retrievableObject)
         {
             string json = retriever.GetJson(retrievableObject);
             return deserializer.Deserialize<T>(json);
         }
 
-        protected T Retrieve<T>(IRetrievable retrievableObject, string accessToken)
+        /// <summary>
+        /// Retrieve with an API key.
+        /// </summary>
+        protected T RetrieveWithKey<T>(IRetrievable retrievableObject)
         {
-            string json = retriever.GetJson(retrievableObject, accessToken);
+            string json = retriever.GetJson(retrievableObject, ApiKey);
             return deserializer.Deserialize<T>(json);
         }
 
-        protected T Retrieve<T>(IRetrievable retrievableObject, string accessToken, string filter)
+        /// <summary>
+        /// Retrieve with an API key and a filter.
+        /// </summary>
+        protected T Retrieve<T>(IRetrievable retrievableObject, string filter)
         {
-            string json = retriever.GetJson(retrievableObject, accessToken, filter);
+            string json = retriever.GetJson(retrievableObject, ApiKey, filter);
             return deserializer.Deserialize<T>(json);
         }
     }

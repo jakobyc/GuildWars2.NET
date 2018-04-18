@@ -32,7 +32,7 @@ namespace GuildWars2.NET.Serialization.JSON
         {
             using (WebClient client = new WebClient())
             {
-                return client.DownloadString(string.Format("{0}{1}", requestUrl, obj.Endpoint));
+                return client.DownloadString($"{requestUrl}{obj.Endpoint}");
             }
         }
 
@@ -40,7 +40,7 @@ namespace GuildWars2.NET.Serialization.JSON
         {
             using (WebClient client = new WebClient())
             {
-                return client.DownloadString(string.Format("{0}{1}?access_token={2}", requestUrl, obj.Endpoint, accessToken));
+                return client.DownloadString($"{requestUrl}{obj.Endpoint}?access_token={accessToken}");
             }
         }
 
@@ -48,7 +48,7 @@ namespace GuildWars2.NET.Serialization.JSON
         {
             using (WebClient client = new WebClient())
             {
-                return client.DownloadString(string.Format("{0}{1}?access_token={2}&{3}", requestUrl, obj.Endpoint, accessToken, filter));
+                return client.DownloadString($"{requestUrl}{obj.Endpoint}?access_token={accessToken}&{filter}");
             }
         }
     }

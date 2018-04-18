@@ -12,126 +12,126 @@ namespace GuildWars2.NET.v2.Account.Repositories
     // TODO: Add endpoints for pvp heroes:
     public class AccountRepository : GW2Repository
     {
-        public AccountRepository() : base() { }
-        public AccountRepository(JsonDeserializer deserializer, JsonRetriever retriever) : base(deserializer, retriever) { }
+        public AccountRepository(string apiKey) : base(apiKey) { }
+        public AccountRepository(string apiKey, JsonDeserializer deserializer, JsonRetriever retriever) : base(apiKey, deserializer, retriever) { }
 
-        public AccountInfo GetAccountInfo(string accessToken)
+        public AccountInfo GetAccountInfo()
         {
-            return Retrieve<AccountInfo>(new AccountInfo(), accessToken);
+            return Retrieve<AccountInfo>(new AccountInfo(), ApiKey);
         }
 
-        public ICollection<AccountAchievement> GetAchievements(string accessToken)
+        public ICollection<AccountAchievement> GetAchievements()
         {
-            return Retrieve<ICollection<AccountAchievement>>(new AccountAchievement(), accessToken);
+            return Retrieve<ICollection<AccountAchievement>>(new AccountAchievement(), ApiKey);
         }
 
-        public AccountAchievement GetAchievement(string accessToken, int id)
+        public AccountAchievement GetAchievement(int id)
         {
             string filter = string.Format("id={0}", id);
-            return Retrieve<AccountAchievement>(new AccountAchievement(), accessToken, filter);
+            return Retrieve<AccountAchievement>(new AccountAchievement(), filter);
         }
 
-        public ICollection<BankItem> GetBankItems(string accessToken)
+        public ICollection<BankItem> GetBankItems()
         {
-            return Retrieve<ICollection<BankItem>>(new BankItem(), accessToken);
+            return Retrieve<ICollection<BankItem>>(new BankItem(), ApiKey);
         }
 
-        public ICollection<string> GetCompletedDailyDungeons(string accessToken)
+        public ICollection<string> GetCompletedDailyDungeons()
         {
-            return Retrieve<ICollection<string>>(new DailyDungeon(), accessToken);
+            return Retrieve<ICollection<string>>(new DailyDungeon(), ApiKey);
         }
 
-        public ICollection<string> GetDyes(string accessToken)
+        public ICollection<string> GetDyes()
         {
-            return Retrieve<ICollection<string>>(new DailyDungeon(), accessToken);
+            return Retrieve<ICollection<string>>(new DailyDungeon(), ApiKey);
         }
 
-        public ICollection<Finisher> GetFinishers(string accessToken)
+        public ICollection<Finisher> GetFinishers()
         {
-            return Retrieve<ICollection<Finisher>>(new Dye(), accessToken);
+            return Retrieve<ICollection<Finisher>>(new Dye(), ApiKey);
         }
 
         // TODO: Resolve against v2/gliders:
-        public ICollection<int> GetGliders(string accessToken)
+        public ICollection<int> GetGliders()
         {
-            return Retrieve<ICollection<int>>(new Glider(), accessToken);
+            return Retrieve<ICollection<int>>(new Glider(), ApiKey);
         }
 
-        public ICollection<Cat> GetHomeCats(string accessToken)
+        public ICollection<Cat> GetHomeCats()
         {
-            return Retrieve<ICollection<Cat>>(new Cat(), accessToken);
+            return Retrieve<ICollection<Cat>>(new Cat(), ApiKey);
         }
 
-        public ICollection<string> GetHomeNodes(string accessToken)
+        public ICollection<string> GetHomeNodes()
         {
-            return Retrieve<ICollection<string>>(new Node(), accessToken);
+            return Retrieve<ICollection<string>>(new Node(), ApiKey);
         }
 
-        public ICollection<SharedInventoryItem> GetSharedInventoryItems(string accessToken)
+        public ICollection<SharedInventoryItem> GetSharedInventoryItems()
         {
-            return Retrieve<ICollection<SharedInventoryItem>>(new SharedInventoryItem(), accessToken);
+            return Retrieve<ICollection<SharedInventoryItem>>(new SharedInventoryItem(), ApiKey);
         }
 
         // TODO: Resolve against v2/mailcarriers
-        public ICollection<int> GetMailCarriers(string accessToken)
+        public ICollection<int> GetMailCarriers()
         {
-            return Retrieve<ICollection<int>>(new MailCarrier(), accessToken);
+            return Retrieve<ICollection<int>>(new MailCarrier(), ApiKey);
         }
 
-        public ICollection<Mastery> GetMasteries(string accessToken)
+        public ICollection<Mastery> GetMasteries()
         {
-            return Retrieve<ICollection<Mastery>>(new Mastery(), accessToken);
+            return Retrieve<ICollection<Mastery>>(new Mastery(), ApiKey);
         }
 
-        public MasteryPoints GetMasteryPoints(string accessToken)
+        public MasteryPoints GetMasteryPoints()
         {
-            return Retrieve<MasteryPoints>(new MasteryPoints(), accessToken);
+            return Retrieve<MasteryPoints>(new MasteryPoints(), ApiKey);
         }
 
-        public ICollection<Material> GetMaterials(string accessToken)
+        public ICollection<Material> GetMaterials()
         {
-            return Retrieve<ICollection<Material>>(new Material(), accessToken);
+            return Retrieve<ICollection<Material>>(new Material(), ApiKey);
         }
 
-        public ICollection<string> GetMiniatures(string accessToken)
+        public ICollection<string> GetMiniatures()
         {
-            return Retrieve<ICollection<string>>(new Miniature(), accessToken);
+            return Retrieve<ICollection<string>>(new Miniature(), ApiKey);
         }
 
-        public ICollection<string> GetOutfits(string accessToken)
+        public ICollection<string> GetOutfits()
         {
-            return Retrieve<ICollection<string>>(new Outfit(), accessToken);
+            return Retrieve<ICollection<string>>(new Outfit(), ApiKey);
         }
 
         // TODO: Resolve against v2/pvp/heroes:
-        public ICollection<int> GetPvPHeroes(string accessToken)
+        public ICollection<int> GetPvPHeroes()
         {
-            return Retrieve<ICollection<int>>(new PvPHero(), accessToken);
+            return Retrieve<ICollection<int>>(new PvPHero(), ApiKey);
         }
 
-        public ICollection<string> GetCompletedRaids(string accessToken)
+        public ICollection<string> GetCompletedRaids()
         {
-            return Retrieve<ICollection<string>>(new Raid(), accessToken);
+            return Retrieve<ICollection<string>>(new Raid(), ApiKey);
         }
 
-        public ICollection<string> GetRecipes(string accessToken)
+        public ICollection<string> GetRecipes()
         {
-            return Retrieve<ICollection<string>>(new Recipe(), accessToken);
+            return Retrieve<ICollection<string>>(new Recipe(), ApiKey);
         }
 
-        public ICollection<string> GetSkins(string accessToken)
+        public ICollection<string> GetSkins()
         {
-            return Retrieve<ICollection<string>>(new Skin(), accessToken);
+            return Retrieve<ICollection<string>>(new Skin(), ApiKey);
         }
 
-        public ICollection<string> GetTitles(string accessToken)
+        public ICollection<string> GetTitles()
         {
-            return Retrieve<ICollection<string>>(new Title(), accessToken);
+            return Retrieve<ICollection<string>>(new Title(), ApiKey);
         }
 
-        public ICollection<WalletCurrency> GetWallet(string accessToken)
+        public ICollection<WalletCurrency> GetWallet()
         {
-            return Retrieve<ICollection<WalletCurrency>>(new WalletCurrency(), accessToken);
+            return Retrieve<ICollection<WalletCurrency>>(new WalletCurrency(), ApiKey);
         }
     }
 }

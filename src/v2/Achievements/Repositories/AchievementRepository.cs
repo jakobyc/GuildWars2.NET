@@ -12,8 +12,8 @@ namespace GuildWars2.NET.v2.Achievements.Repositories
 {
     public class AchievementRepository : GW2Repository
     {
-        public AchievementRepository() : base() { }
-        public AchievementRepository(JsonDeserializer deserializer, JsonRetriever retriever) : base(deserializer, retriever) { }
+        public AchievementRepository(string apiKey) : base(apiKey) { }
+        public AchievementRepository(string apiKey, JsonDeserializer deserializer, JsonRetriever retriever) : base(apiKey, deserializer, retriever) { }
 
         /// <summary>
         /// Retrieve achievement information for selected achievement IDs.
@@ -24,7 +24,7 @@ namespace GuildWars2.NET.v2.Achievements.Repositories
         {
             string idParameter = ParameterBuilder.Build("ids", ids);
 
-            return Retrieve<ICollection<Achievement>>(new Achievement(), string.Empty, idParameter);
+            return Retrieve<ICollection<Achievement>>(new Achievement(), idParameter);
         }
 
         public ICollection<Category> GetCategories()
@@ -36,7 +36,7 @@ namespace GuildWars2.NET.v2.Achievements.Repositories
 
             if (categoryIds.Length > 0)
             {
-                categories = Retrieve<ICollection<Category>>(new Category(), string.Empty, idParameter);
+                categories = Retrieve<ICollection<Category>>(new Category(), idParameter);
             }
             return categories;
         }

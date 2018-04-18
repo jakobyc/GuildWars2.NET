@@ -43,12 +43,12 @@ namespace GuildWars2.NET.v2.Account.Repositories
 
         public ICollection<string> GetDyes()
         {
-            return Retrieve<ICollection<string>>(new DailyDungeon(), ApiKey);
+            return Retrieve<ICollection<string>>(new Dye(), ApiKey);
         }
 
         public ICollection<Finisher> GetFinishers()
         {
-            return Retrieve<ICollection<Finisher>>(new Dye(), ApiKey);
+            return Retrieve<ICollection<Finisher>>(new Finisher(), ApiKey);
         }
 
         // TODO: Resolve against v2/gliders:

@@ -53,6 +53,24 @@ namespace GuildWars2.NET.Core.v2.Characters.Repositories
             return Retrieve<Inventory>(new Inventory(characterName), ApiKey);
         }
 
+        /// <summary>
+        /// Get recipes for a character.
+        /// </summary>
+        /// <param name="characterName">Case-sensitive character name.</param>
+        public CharacterRecipes GetRecipes(string characterName)
+        {
+            return Retrieve<CharacterRecipes>(new CharacterRecipes(characterName), ApiKey);
+        }
+
+        /// <summary>
+        /// Get Super Adventure Box info for a character.
+        /// </summary>
+        /// <param name="characterName">Case-sensitive character name.</param>
+        public CharacterSAB GetSABInfo(string characterName)
+        {
+            return Retrieve<CharacterSAB>(new CharacterSAB(characterName), ApiKey);
+        }
+
         public ICollection<Skill> GetSkills(string characterName, SkillType type)
         {
             CharacterSkills characterSkills =  Retrieve<CharacterSkills>(new CharacterSkills(characterName), ApiKey);

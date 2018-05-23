@@ -42,6 +42,7 @@ namespace GuildWars2.NET.Core.TestClient
                     break;
             }
 
+            Console.WriteLine();
             Console.WriteLine("Input 1 to restart application, or anything else to exit.");
             string endChoice = Console.ReadLine();
 

@@ -14,6 +14,11 @@ namespace GuildWars2.NET.Core.v2.Skills.Repositories
         public SkillRepository(string apiKey) : base(apiKey) { }
         public SkillRepository(string apiKey, JsonDeserializer deserializer, JsonRetriever retriever) : base(apiKey, deserializer, retriever) { }
 
+        public ICollection<int> GetAllSkills()
+        {
+            return Retrieve<ICollection<int>>(new Skill());
+        }
+
         public ICollection<Skill> GetSkills(params string[] ids)
         {
             string idParameter = ParameterBuilder.Build("ids", ids);

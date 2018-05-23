@@ -34,19 +34,65 @@ namespace GuildWars2.NET.Core.TestClient
             // Input parameters:
             foreach (ParameterInfo param in chosenMethod.GetParameters())
             {
-                Console.WriteLine($"Insert value for parameter, {param.Name}({param.ParameterType}).");
+                Type elementType = param.ParameterType.GetElementType();
 
-                string input = Console.ReadLine();
-                object castedInput = Convert.ChangeType(input, param.ParameterType);
+                if (param.ParameterType.IsArray)
+                {
+                    if (elementType == typeof(string))
+                    {
+                        ICollection<string> collection = HandleArrayParams<string>(param);
+                        parameters.Add(collection.ToArray());
+                    }
+                    else if (elementType == typeof(int))
+                    {
+                        ICollection<int> collection = HandleArrayParams<int>(param);
+                        parameters.Add(collection.ToArray());
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Insert value for parameter, {param.Name}({param.ParameterType}).");
 
-                parameters.Add(castedInput);
+                    string input = Console.ReadLine();
+                    object castedInput = Convert.ChangeType(input, param.ParameterType);
+
+                    parameters.Add(castedInput);
+                }
             }
 
             // Invoke method and get results:
             var instance = Activator.CreateInstance(type, apiKey);
             var results = chosenMethod.Invoke(instance, parameters.ToArray());
 
-            Console.ReadLine();
+            if (results != null)
+            {
+                Console.WriteLine($"{chosenMethod.Name} invoked successfully.");
+            }
+        }
+
+        private static ICollection<T> HandleArrayParams<T>(ParameterInfo param)
+        {
+            ICollection<T> collection = new List<T>();
+            AddElement<T>(collection, param);
+
+            return collection;
+        }
+
+        private static void AddElement<T>(ICollection<T> collection, ParameterInfo param)
+        {
+            Console.WriteLine($"Insert element value for parameter, {param.Name}({param.ParameterType}).");
+
+            string input = Console.ReadLine();
+            T castedInput = (T)Convert.ChangeType(input, param.ParameterType.GetElementType());
+
+            collection.Add(castedInput);
+
+            Console.WriteLine("Input 1 to add another element, anything else to continue.");
+            string choice = Console.ReadLine();
+            if (choice == "1")
+            {
+                AddElement<T>(collection, param);
+            }
         }
     }
 }

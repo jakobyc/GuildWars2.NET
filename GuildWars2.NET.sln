@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuildWars2.NET", "src\GuildWars2.NET\GuildWars2.NET.csproj", "{AE306A88-1B35-4F1F-8CCF-863898189105}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuildWars2.NET.Core", "src\GuildWars2.NET.Core\GuildWars2.NET.Core.csproj", "{3CF402B7-9F92-497A-BEE5-50DCF2CA93F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{AE306A88-1B35-4F1F-8CCF-863898189105}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE306A88-1B35-4F1F-8CCF-863898189105}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE306A88-1B35-4F1F-8CCF-863898189105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CF402B7-9F92-497A-BEE5-50DCF2CA93F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CF402B7-9F92-497A-BEE5-50DCF2CA93F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CF402B7-9F92-497A-BEE5-50DCF2CA93F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CF402B7-9F92-497A-BEE5-50DCF2CA93F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {846B2BB9-2D24-41C6-BA3E-95DF4618B55A}
 	EndGlobalSection
 EndGlobal

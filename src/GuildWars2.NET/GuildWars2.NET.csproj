@@ -79,7 +79,7 @@
     <Compile Include="v2\Achievements\Repositories\AchievementRepository.cs" />
     <Compile Include="v2\Characters\DTOs\Attributes.cs" />
     <Compile Include="v2\Characters\DTOs\Backstory.cs" />
-    <Compile Include="v2\Characters\DTOs\Core.cs" />
+    <Compile Include="v2\Characters\DTOs\CoreInformation.cs" />
     <Compile Include="v2\Characters\DTOs\CraftingInfo.cs" />
     <Compile Include="v2\Characters\DTOs\DisciplineInfo.cs" />
     <Compile Include="v2\Characters\DTOs\EquipmentInfo.cs" />

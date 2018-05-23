@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GuildWars2.NET.Data;
-using GuildWars2.NET.Serialization.JSON;
-using GuildWars2.NET.v2.Characters.DTOs;
-using GuildWars2.NET.v2.Skills.Repositories;
-using GuildWars2.NET.v2.Skills.DTOs;
+using GuildWars2.NET.Core.Data;
+using GuildWars2.NET.Core.Serialization.JSON;
+using GuildWars2.NET.Core.v2.Characters.DTOs;
+using GuildWars2.NET.Core.v2.Skills.Repositories;
+using GuildWars2.NET.Core.v2.Skills.DTOs;
 
-namespace GuildWars2.NET.v2.Characters.Repositories
+namespace GuildWars2.NET.Core.v2.Characters.Repositories
 {
     public enum SkillType
     {

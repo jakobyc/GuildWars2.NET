@@ -8,14 +8,6 @@ namespace GuildWars2.NET.Builders.Parameters
 {
     public class ParameterBuilder : IParameterBuilder
     {
-        private string parameter;
-
-        public ParameterBuilder()
-        {
-            parameter = string.Empty;
-        }
-
-
         public string Build(string parameterName, int[] queryValues)
         {
             string[] queryValuesParsed = queryValues.Select(x => x.ToString()).ToArray();
@@ -47,14 +39,6 @@ namespace GuildWars2.NET.Builders.Parameters
                     }
                 }
             }
-            return parameter;
-        }
-
-        /// <summary>
-        /// Returns a query string parameter.
-        /// </summary>
-        public string Build()
-        {
             return parameter;
         }
     }

@@ -21,9 +21,17 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
         /// <returns></returns>
         public ICollection<Achievement> GetAchievements(params string[] ids)
         {
-            string idParameter = ParameterBuilder.Build("ids", ids);
+            if (ids.Length > 0)
+            {
+                string idParameter = ParameterBuilder.Build("ids", ids);
 
-            return Retrieve<ICollection<Achievement>>(new Achievement(), idParameter);
+                return Retrieve<ICollection<Achievement>>(new Achievement(), idParameter);
+            }
+            else
+            {
+                return new List<Achievement>();
+            }
+
         }
 
         public ICollection<Category> GetCategories()

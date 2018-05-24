@@ -96,6 +96,30 @@ namespace GuildWars2.NET.Core.v2.Characters.Repositories
             return skills;
         }
 
+        public CharacterSpecializations GetSpecializations(string characterName)
+        {
+            return Retrieve<CharacterSpecializations>(new CharacterSpecializations(characterName), ApiKey);
+        }
+
+        /// <summary>
+        /// Get training progress for each skill tree for a character.
+        /// </summary>
+        /// <param name="characterName">Case-sensitive character name.</param>
+        public Training GetTrainingProgress(string characterName)
+        {
+            return Retrieve<Training>(new Training(characterName), ApiKey);
+        }
+
+        /// <summary>
+        /// Get an overview for a character.
+        /// </summary>
+        /// <param name="characterName">Case-sensitive character name.</param>
+        public void GetOverview(string characterName)
+        {
+            // TODO: This will be the last call implemented for CharacterRepository. Close issue #9 afterwards.
+            throw new NotImplementedException("Need to setup DTOs.");
+        }
+
         private string[] GetSkillIds(CharacterSkill skill)
         {
             ICollection<string> ids = new List<string>()

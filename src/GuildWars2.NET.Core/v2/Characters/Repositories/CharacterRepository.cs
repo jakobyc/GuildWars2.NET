@@ -114,10 +114,9 @@ namespace GuildWars2.NET.Core.v2.Characters.Repositories
         /// Get an overview for a character.
         /// </summary>
         /// <param name="characterName">Case-sensitive character name.</param>
-        public void GetOverview(string characterName)
+        public CharacterOverview GetOverview(string characterName)
         {
-            // TODO: This will be the last call implemented for CharacterRepository. Close issue #9 afterwards.
-            throw new NotImplementedException("Need to setup DTOs.");
+            return Retrieve<CharacterOverview>(new CharacterOverview(characterName), ApiKey);
         }
 
         private string[] GetSkillIds(CharacterSkill skill)

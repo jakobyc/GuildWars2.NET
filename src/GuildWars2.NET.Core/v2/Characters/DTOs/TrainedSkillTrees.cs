@@ -18,16 +18,5 @@ namespace GuildWars2.NET.Core.v2.Characters.DTOs
         {
             this.Endpoint = string.Format("characters/{0}/training", characterName);
         }
-
-        [DataContract]
-        public class SkillTree
-        {
-            [DataMember(Name = "id")]
-            public int Id { get; set; }
-            [DataMember(Name = "spent")]
-            public int Spent { get; set; }
-            [DataMember(Name = "done")]
-            public bool Done { get; set; }
-        }
     }
 }

@@ -18,43 +18,5 @@ namespace GuildWars2.NET.Core.v2.Characters.DTOs
         {
             this.Endpoint = string.Format("characters/{0}/specializations", characterName);
         }
-
-        [DataContract]
-        public class PvE
-        {
-            [DataMember(Name = "id")]
-            public int Id { get; set; }
-            [DataMember(Name = "traits")]
-            public ICollection<int> Traits { get; set; }
-        }
-
-        [DataContract]
-        public class PvP
-        {
-            [DataMember(Name = "id")]
-            public int Id { get; set; }
-            [DataMember(Name = "traits")]
-            public ICollection<int> Traits { get; set; }
-        }
-
-        [DataContract]
-        public class WvW
-        {
-            [DataMember(Name = "id")]
-            public int Id { get; set; }
-            [DataMember(Name = "traits")]
-            public ICollection<int> Traits { get; set; }
-        }
-
-        [DataContract]
-        public class Specializations
-        {
-            [DataMember(Name = "pve")]
-            public ICollection<PvE> PvE { get; set; }
-            [DataMember(Name = "pvp")]
-            public ICollection<PvP> PvP { get; set; }
-            [DataMember(Name = "wvw")]
-            public ICollection<WvW> WvW { get; set; }
-        }
     }
 }

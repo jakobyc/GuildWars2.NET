@@ -15,6 +15,14 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
         public AchievementRepository(string apiKey, JsonDeserializer deserializer, JsonRetriever retriever) : base(apiKey, deserializer, retriever) { }
 
         /// <summary>
+        /// Get all achievement ids.
+        /// </summary>
+        public ICollection<int> GetAchievements()
+        {
+            return Retrieve<ICollection<int>>(new Achievement());
+        }
+
+        /// <summary>
         /// Retrieve achievement information for selected achievement IDs.
         /// </summary>
         /// <param name="ids">Array of achievement IDs</param>
@@ -34,6 +42,11 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
 
         }
 
+        public Category GetCategory(string id)
+        {
+            return Retrieve<Category>(new Category(id));
+        }
+
         public ICollection<Category> GetCategories()
         {
             int[] categoryIds = Retrieve<ICollection<int>>(new Category()).ToArray<int>();
@@ -46,6 +59,16 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
                 categories = Retrieve<ICollection<Category>>(new Category(), idParameter);
             }
             return categories;
+        }
+
+        public Dailies GetDailies()
+        {
+            return Retrieve<Dailies>(new Dailies());
+        }
+
+        public Dailies GetTomorrowsDailies()
+        {
+            return Retrieve<Dailies>(new Dailies(true));
         }
     }
 }

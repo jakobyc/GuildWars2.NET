@@ -32,5 +32,10 @@ namespace GuildWars2.NET.Core.v2.Achievements.DTOs
         {
             Endpoint = "achievements/categories";
         }
+
+        public Category(string id)
+        {
+            Endpoint = $"achievements/categories/{id}";
+        }
     }
 }

@@ -16,7 +16,8 @@ namespace GuildWars2.NET.Core.Serialization.JSON
         {
             using (WebClient client = new WebClient())
             {
-                return client.DownloadString(string.Format("{0}{1}", requestUrl, endpoint));
+                return client.DownloadString($"{requestUrl}{endpoint}");
+
             }
         }
 

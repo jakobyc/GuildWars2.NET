@@ -37,6 +37,15 @@ namespace GuildWars2.NET.Core.Data
         }
 
         /// <summary>
+        /// Retrieve without an API key.
+        /// </summary>
+        protected T Retrieve<T>(string endpoint)
+        {
+            string json = retriever.GetJson(endpoint);
+            return deserializer.Deserialize<T>(json);
+        }
+
+        /// <summary>
         /// Retrieve with an API key.
         /// </summary>
         protected T RetrieveWithKey<T>(IRetrievable retrievableObject)

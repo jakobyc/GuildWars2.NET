@@ -42,11 +42,19 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
 
         }
 
+        /// <summary>
+        /// Get a specific achievement category.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Category GetCategory(string id)
         {
             return Retrieve<Category>(new Category(id));
         }
 
+        /// <summary>
+        /// Get all achievement categories.
+        /// </summary>
         public ICollection<Category> GetCategories()
         {
             int[] categoryIds = Retrieve<ICollection<int>>(new Category()).ToArray<int>();
@@ -60,12 +68,17 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
             }
             return categories;
         }
-
+        /// <summary>
+        /// Get the dailies for today.
+        /// </summary>
         public Dailies GetDailies()
         {
             return Retrieve<Dailies>(new Dailies());
         }
 
+        /// <summary>
+        /// Get the dailies for tomorrow.
+        /// </summary>
         public Dailies GetTomorrowsDailies()
         {
             return Retrieve<Dailies>(new Dailies(true));

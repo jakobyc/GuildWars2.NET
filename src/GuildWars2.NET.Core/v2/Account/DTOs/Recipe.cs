@@ -9,13 +9,8 @@ using GuildWars2.NET.Core.Serialization.JSON;
 namespace GuildWars2.NET.Core.v2.Account.DTOs
 {
     [DataContract]
-    public class Recipe : IRetrievable
+    public class Recipe
     {
-        public string Endpoint { get; private set; }
 
-        public Recipe()
-        {
-            this.Endpoint = "account/recipes";
-        }
     }
 }

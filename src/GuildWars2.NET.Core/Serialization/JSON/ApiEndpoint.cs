@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GuildWars2.NET.Core.Serialization.JSON
 {
-    public class ApiEndpoint : IRetrievableMock
+    public class ApiEndpoint : IRetrievable
     {
         public string Endpoint { get; set; }
         public string AccessToken { get; set; }

@@ -9,13 +9,8 @@ using GuildWars2.NET.Core.Serialization.JSON;
 namespace GuildWars2.NET.Core.v2.Account.DTOs
 {
     [DataContract]
-    public class Node : IRetrievable
+    public class Node
     {
-        public string Endpoint { get; private set; }
 
-        public Node()
-        {
-            this.Endpoint = "account/home/nodes";
-        }
     }
 }

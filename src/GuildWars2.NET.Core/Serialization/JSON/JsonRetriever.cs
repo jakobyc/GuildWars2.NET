@@ -29,7 +29,7 @@ namespace GuildWars2.NET.Core.Serialization.JSON
             }
         }
 
-        public string GetJson(IRetrievable obj)
+        /*public string GetJson(IRetrievable obj)
         {
             using (WebClient client = new WebClient())
             {
@@ -51,9 +51,9 @@ namespace GuildWars2.NET.Core.Serialization.JSON
             {
                 return client.DownloadString($"{requestUrl}{obj.Endpoint}?access_token={accessToken}&{filter}");
             }
-        }
+        }*/
 
-        public string GetJson(IRetrievableMock retrievable)
+        public string GetJson(IRetrievable retrievable)
         {
             string endpoint = string.Empty;
 
@@ -69,9 +69,16 @@ namespace GuildWars2.NET.Core.Serialization.JSON
                 if (retrievable.Parameters.Count > 0)
                 {
                     endpoint += "?";
-                    foreach (string parameter in retrievable.Parameters)
+                    for (int i = 0; i < retrievable.Parameters.Count; i++)
                     {
-                        endpoint += parameter;
+                        if (i < retrievable.Parameters.Count - 1)
+                        {
+                            endpoint += retrievable.Parameters.ElementAt(i) + "&";
+                        }
+                        else
+                        {
+                            endpoint += retrievable.Parameters.ElementAt(i);
+                        }
                     }
                 }
 

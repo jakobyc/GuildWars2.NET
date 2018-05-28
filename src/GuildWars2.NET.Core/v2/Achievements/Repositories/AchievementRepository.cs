@@ -19,7 +19,7 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
         /// </summary>
         public ICollection<int> GetAchievements()
         {
-            return Retrieve<ICollection<int>>(new Achievement());
+            return Retrieve<ICollection<int>>(CreateEndpoint($"achievements"));
         }
 
         /// <summary>
@@ -31,9 +31,10 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
         {
             if (ids.Length > 0)
             {
-                string idParameter = ParameterBuilder.Build("ids", ids);
+                ICollection<string> parameters = new List<string>();
+                parameters.Add(ParameterBuilder.Build("ids", ids));
 
-                return Retrieve<ICollection<Achievement>>(new Achievement(), idParameter);
+                return Retrieve<ICollection<Achievement>>(CreateEndpoint($"achievements", parameters));
             }
             else
             {
@@ -49,7 +50,7 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
         /// <returns></returns>
         public Category GetCategory(string id)
         {
-            return Retrieve<Category>(new Category(id));
+            return Retrieve<Category>(CreateEndpoint($"achievements/categories/{id}"));
         }
 
         /// <summary>
@@ -57,14 +58,15 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
         /// </summary>
         public ICollection<Category> GetCategories()
         {
-            int[] categoryIds = Retrieve<ICollection<int>>(new Category()).ToArray<int>();
+            int[] categoryIds = Retrieve<ICollection<int>>(CreateEndpoint($"achievements/categories")).ToArray<int>();
             ICollection<Category> categories = new List<Category>();
 
-            string idParameter = ParameterBuilder.Build("ids", categoryIds);
+            ICollection<string> parameters = new List<string>();
+            parameters.Add(ParameterBuilder.Build("ids", categoryIds));
 
             if (categoryIds.Length > 0)
             {
-                categories = Retrieve<ICollection<Category>>(new Category(), idParameter);
+                categories = Retrieve<ICollection<Category>>(CreateEndpoint($"achievements/categories", parameters));
             }
             return categories;
         }
@@ -73,7 +75,7 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
         /// </summary>
         public Dailies GetDailies()
         {
-            return Retrieve<Dailies>(new Dailies());
+            return Retrieve<Dailies>(CreateEndpoint($"achievements/daily"));
         }
 
         /// <summary>
@@ -81,7 +83,7 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
         /// </summary>
         public Dailies GetTomorrowsDailies()
         {
-            return Retrieve<Dailies>(new Dailies(true));
+            return Retrieve<Dailies>(CreateEndpoint($"achievements/daily/tomorrow"));
         }
     }
 }

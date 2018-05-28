@@ -9,13 +9,8 @@ using GuildWars2.NET.Core.Serialization.JSON;
 namespace GuildWars2.NET.Core.v2.Account.DTOs
 {
     [DataContract]
-    public class Miniature : IRetrievable
+    public class Miniature
     {
-        public string Endpoint { get; private set; }
 
-        public Miniature()
-        {
-            this.Endpoint = "account/minis";
-        }
     }
 }

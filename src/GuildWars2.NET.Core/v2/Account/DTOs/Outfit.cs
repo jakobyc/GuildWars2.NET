@@ -9,13 +9,8 @@ using GuildWars2.NET.Core.Serialization.JSON;
 namespace GuildWars2.NET.Core.v2.Account.DTOs
 {
     [DataContract]
-    public class Outfit : IRetrievable
+    public class Outfit
     {
-        public string Endpoint { get; private set; }
 
-        public Outfit()
-        {
-            this.Endpoint = "account/outfits";
-        }
     }
 }

@@ -9,13 +9,8 @@ using GuildWars2.NET.Core.Serialization.JSON;
 namespace GuildWars2.NET.Core.v2.Account.DTOs
 {
     [DataContract]
-    public class Raid : IRetrievable
+    public class Raid
     {
-        public string Endpoint { get; private set; }
-
-        public Raid()
-        {
-            this.Endpoint = "account/raids";
-        }
+ 
     }
 }

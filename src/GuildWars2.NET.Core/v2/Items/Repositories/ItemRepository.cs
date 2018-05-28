@@ -15,7 +15,7 @@ namespace GuildWars2.NET.Core.v2.Items.Repositories
         /// </summary>
         public Recipe GetRecipe(string id)
         {
-            return Retrieve<Recipe>(new Recipe(id));
+            return Retrieve<Recipe>($"recipes/{id}");
         }
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace GuildWars2.NET.Core.v2.Items.Repositories
         /// </summary>
         public ICollection<int> GetRecipes()
         {
-            return Retrieve<ICollection<int>>(new Recipe());
+            return Retrieve<ICollection<int>>("recipes");
         }
 
         /// <summary>

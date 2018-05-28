@@ -9,7 +9,7 @@ using GuildWars2.NET.Core.Serialization.JSON;
 namespace GuildWars2.NET.Core.v2.Account.DTOs
 {
     [DataContract]
-    public class Finisher : IRetrievable
+    public class Finisher
     {
         [DataMember(Name="id")]
         public int Id { get; set; }
@@ -18,12 +18,5 @@ namespace GuildWars2.NET.Core.v2.Account.DTOs
 
         [DataMember(Name = "permanent")]
         public bool Permanent { get; set; }
-
-        public string Endpoint { get; private set; }
-
-        public Finisher()
-        {
-            this.Endpoint = "account/finishers";
-        }
     }
 }

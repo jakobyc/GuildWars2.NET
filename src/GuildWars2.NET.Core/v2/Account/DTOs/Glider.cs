@@ -9,13 +9,8 @@ using System.Threading.Tasks;
 namespace GuildWars2.NET.Core.v2.Account.DTOs
 {
     [DataContract]
-    public class Glider : IRetrievable
+    public class Glider
     {
-        public string Endpoint { get; set; }
 
-        public Glider()
-        {
-            this.Endpoint = "account/gliders";
-        }
     }
 }

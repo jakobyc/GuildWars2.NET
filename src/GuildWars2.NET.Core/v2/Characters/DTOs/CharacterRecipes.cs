@@ -7,16 +7,9 @@ using System.Text;
 namespace GuildWars2.NET.Core.v2.Characters.DTOs
 {
     [DataContract]
-    public class CharacterRecipes : IRetrievable
+    public class CharacterRecipes
     {
         [DataMember(Name = "recipes")]
         public ICollection<int> Ids { get; set; }
-
-        public string Endpoint { get; private set; }
-
-        public CharacterRecipes(string characterName)
-        {
-            this.Endpoint = string.Format("characters/{0}/recipes", characterName);
-        }
     }
 }

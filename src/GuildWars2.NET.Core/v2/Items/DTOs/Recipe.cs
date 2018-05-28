@@ -7,7 +7,7 @@ using System.Text;
 namespace GuildWars2.NET.Core.v2.Items.DTOs
 {
     [DataContract]
-    public class Recipe : IRetrievable
+    public class Recipe
     {
         [DataMember(Name = "type")]
         public string Type { get; set; }
@@ -29,19 +29,6 @@ namespace GuildWars2.NET.Core.v2.Items.DTOs
         public int Id { get; set; }
         [DataMember(Name = "chat_link")]
         public string ChatLink { get; set; }
-
-        public string Endpoint { get; private set; }
-
-        public Recipe()
-        {
-            Endpoint = "recipes";
-        }
-
-        public Recipe(string id)
-        {
-            Endpoint = $"recipes/{id}";
-        }
-
 
         [DataContract]
         public class Ingredient

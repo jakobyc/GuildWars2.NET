@@ -9,7 +9,7 @@ using GuildWars2.NET.Core.Serialization.JSON;
 namespace GuildWars2.NET.Core.v2.Account.DTOs
 {
     [DataContract]
-    public class Material : IRetrievable
+    public class Material
     {
         [DataMember(Name = "id")]
         public int Id { get; set; }
@@ -17,12 +17,5 @@ namespace GuildWars2.NET.Core.v2.Account.DTOs
         public int Category { get; set; }
         [DataMember(Name = "count")]
         public int Count { get; set; }
-
-        public string Endpoint { get; private set; }
-
-        public Material()
-        {
-            this.Endpoint = "account/materials";
-        }
     }
 }

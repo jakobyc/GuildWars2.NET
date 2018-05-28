@@ -7,7 +7,7 @@ using System.Text;
 namespace GuildWars2.NET.Core.v2.Achievements.DTOs
 {
     [DataContract]
-    public class Dailies : IRetrievable
+    public class Dailies
     {
         [DataMember(Name = "pve")]
         public ICollection<Daily> PvE { get; set; }
@@ -19,24 +19,5 @@ namespace GuildWars2.NET.Core.v2.Achievements.DTOs
         public ICollection<Daily> Fractals { get; set; }
         [DataMember(Name = "special")]
         public ICollection<Daily> Special { get; set; }
-
-        public string Endpoint { get; private set; }
-
-        public Dailies()
-        {
-            Endpoint = "achievements/daily";
-        }
-
-        public Dailies(bool tomorrow)
-        {
-            if (tomorrow)
-            {
-                Endpoint = "achievements/daily/tomorrow";
-            }
-            else
-            {
-                Endpoint = "achievements/daily";
-            }
-        }
     }
 }

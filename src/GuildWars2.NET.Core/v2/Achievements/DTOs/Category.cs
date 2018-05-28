@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace GuildWars2.NET.Core.v2.Achievements.DTOs
 {
     [DataContract]
-    public class Category : IRetrievable
+    public class Category
     {
         [DataMember(Name = "name")]
         public string Name { get; set; }
@@ -25,17 +25,5 @@ namespace GuildWars2.NET.Core.v2.Achievements.DTOs
 
         [DataMember(Name = "achievements")]
         public ICollection<int> Achievements { get; set; }
-
-        public string Endpoint { get; set; }
-
-        public Category()
-        {
-            Endpoint = "achievements/categories";
-        }
-
-        public Category(string id)
-        {
-            Endpoint = $"achievements/categories/{id}";
-        }
     }
 }

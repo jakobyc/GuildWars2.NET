@@ -9,5 +9,7 @@ namespace GuildWars2.NET.Core.Serialization.JSON
     public interface IRetrievable
     {
         string Endpoint { get; }
+        ICollection<string> Parameters { get; }
+        string AccessToken { get; }
     }
 }

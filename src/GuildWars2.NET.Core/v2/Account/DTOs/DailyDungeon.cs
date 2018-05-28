@@ -9,13 +9,8 @@ using GuildWars2.NET.Core.Serialization.JSON;
 namespace GuildWars2.NET.Core.v2.Account.DTOs
 {
     [DataContract]
-    public class DailyDungeon : IRetrievable
+    public class DailyDungeon
     {
-        public string Endpoint { get; private set; }
-
-        public DailyDungeon()
-        {
-            this.Endpoint = "account/dungeons";
-        }
+        
     }
 }

@@ -9,7 +9,7 @@ using GuildWars2.NET.Core.Serialization.JSON;
 namespace GuildWars2.NET.Core.v2.Account.DTOs
 {
     [DataContract]
-    public class AccountAchievement : IRetrievable
+    public class AccountAchievement
     {
         [DataMember(Name = "bits")]
         public ICollection<string> bits { get; set; }
@@ -25,12 +25,5 @@ namespace GuildWars2.NET.Core.v2.Account.DTOs
 
         [DataMember(Name = "done")]
         public bool Done { get; set; }
-
-        public string Endpoint { get; private set; }
-
-        public AccountAchievement()
-        {
-            this.Endpoint = "account/achievements";
-        }
     }
 }

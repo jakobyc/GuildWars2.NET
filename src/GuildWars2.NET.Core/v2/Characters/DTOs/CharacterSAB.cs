@@ -7,7 +7,7 @@ using System.Text;
 namespace GuildWars2.NET.Core.v2.Characters.DTOs
 {
     [DataContract]
-    public class CharacterSAB : IRetrievable
+    public class CharacterSAB
     {
         [DataMember(Name = "zones")]
         public ICollection<Zone> Zones { get; set; }
@@ -15,13 +15,6 @@ namespace GuildWars2.NET.Core.v2.Characters.DTOs
         public ICollection<Unlock> Unlocks { get; set; }
         [DataMember(Name = "songs")]
         public ICollection<Song> Songs { get; set; }
-
-        public string Endpoint { get; private set; }
-
-        public CharacterSAB(string characterName)
-        {
-            this.Endpoint = string.Format("characters/{0}/sab", characterName);
-        }
 
         [DataContract]
         public class Zone

@@ -9,13 +9,8 @@ using System.Threading.Tasks;
 namespace GuildWars2.NET.Core.v2.Account.DTOs
 {
     [DataContract]
-    public class PvPHero : IRetrievable
+    public class PvPHero
     {
-        public string Endpoint { get; set; }
-
-        public PvPHero()
-        {
-            this.Endpoint = "account/pvp/heroes";
-        }
+  
     }
 }

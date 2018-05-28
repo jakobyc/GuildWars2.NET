@@ -7,7 +7,7 @@ using System.Text;
 namespace GuildWars2.NET.Core.v2.Characters.DTOs
 {
     [DataContract]
-    public class CharacterOverview : IRetrievable
+    public class CharacterOverview
     {
         [DataMember(Name = "name")]
         public string Name { get; set; }
@@ -52,13 +52,6 @@ namespace GuildWars2.NET.Core.v2.Characters.DTOs
         public ICollection<SkillTree> TrainingInfo { get; set; }
         [DataMember(Name = "bags")]
         public ICollection<InventoryBag> Bags { get; set; }
-
-        public string Endpoint { get; private set; }
-
-        public CharacterOverview(string characterName)
-        {
-            this.Endpoint = $"characters/{characterName}";
-        }
 
         [DataContract]
         public class EquipmentPvp

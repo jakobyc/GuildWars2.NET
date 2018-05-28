@@ -32,11 +32,11 @@ namespace GuildWars2.NET.Core.Data
         /// <summary>
         /// Retrieve without an API key.
         /// </summary>
-        protected T Retrieve<T>(IRetrievable retrievableObject)
+        /*protected T Retrieve<T>(IRetrievable retrievableObject)
         {
             string json = retriever.GetJson(retrievableObject);
             return deserializer.Deserialize<T>(json);
-        }
+        }*/
 
         /// <summary>
         /// Retrieve without an API key.
@@ -50,46 +50,46 @@ namespace GuildWars2.NET.Core.Data
         /// <summary>
         /// Retrieve with an API key.
         /// </summary>
-        protected T RetrieveWithKey<T>(IRetrievable retrievableObject)
+        /*protected T RetrieveWithKey<T>(IRetrievable retrievableObject)
         {
             string json = retriever.GetJson(retrievableObject, ApiKey);
             return deserializer.Deserialize<T>(json);
-        }
+        }*/
 
         /// <summary>
         /// Retrieve with an API key and a filter.
         /// </summary>
-        protected T Retrieve<T>(IRetrievable retrievableObject, string filter)
+        /*protected T Retrieve<T>(IRetrievable retrievableObject, string filter)
         {
             string json = retriever.GetJson(retrievableObject, ApiKey, filter);
             return deserializer.Deserialize<T>(json);
-        }
+        }*/
 
         /// <summary>
         /// Retrieve a type based on a retrievable object.
         /// </summary>
-        protected T Retrieve<T>(IRetrievableMock retrievable)
+        protected T Retrieve<T>(IRetrievable retrievable)
         {
             string json = retriever.GetJson(retrievable);
             return deserializer.Deserialize<T>(json);
         }
 
-        protected IRetrievableMock CreateEndpoint(string endpoint)
+        protected IRetrievable CreateEndpoint(string endpoint)
         {
             return CreateEndpoint(endpoint, null, null);
         }
 
-        protected IRetrievableMock CreateEndpoint(string endpoint, ICollection<string> parameters)
+        protected IRetrievable CreateEndpoint(string endpoint, ICollection<string> parameters)
         {
             return CreateEndpoint(endpoint, null, parameters);
         }
 
-        protected IRetrievableMock CreateEndpoint(string endpoint, string accessToken)
+        protected IRetrievable CreateEndpoint(string endpoint, string accessToken)
         {
             return CreateEndpoint(endpoint, accessToken, null);
         }
 
-        protected IRetrievableMock CreateEndpoint(string endpoint, string accessToken, ICollection<string> parameters)
+        protected IRetrievable CreateEndpoint(string endpoint, string accessToken, ICollection<string> parameters)
         {
             return new ApiEndpoint()
             {

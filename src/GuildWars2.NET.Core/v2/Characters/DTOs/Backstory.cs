@@ -9,16 +9,9 @@ using GuildWars2.NET.Core.Serialization.JSON;
 namespace GuildWars2.NET.Core.v2.Characters.DTOs
 {
     [DataContract]
-    public class Backstory : IRetrievable
+    public class Backstory
     {
         [DataMember(Name="backstory")]
         public ICollection<string> BackstoryInfo { get; set; }
-
-        public string Endpoint { get; private set; }
-
-        public Backstory(string characterName)
-        {
-            this.Endpoint = string.Format("characters/{0}/backstory", characterName);
-        }
     }
 }

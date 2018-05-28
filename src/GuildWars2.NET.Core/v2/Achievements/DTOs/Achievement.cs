@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace GuildWars2.NET.Core.v2.Achievements.DTOs
 {
     [DataContract]
-    public class Achievement : IRetrievable
+    public class Achievement
     {
         [DataMember(Name = "icon")]
         public string Icon { get; set; }
@@ -43,12 +43,5 @@ namespace GuildWars2.NET.Core.v2.Achievements.DTOs
 
         [DataMember(Name = "bits")]
         public ICollection<Bit> Bits { get; set; }
-
-        public string Endpoint { get; set; }
-
-        public Achievement()
-        {
-            Endpoint = "achievements";
-        }
     }
 }

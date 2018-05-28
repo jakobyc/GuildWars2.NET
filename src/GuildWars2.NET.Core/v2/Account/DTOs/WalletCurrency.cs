@@ -9,18 +9,11 @@ using GuildWars2.NET.Core.Serialization.JSON;
 namespace GuildWars2.NET.Core.v2.Account.DTOs
 {
     [DataContract]
-    public class WalletCurrency : IRetrievable
+    public class WalletCurrency
     {
         [DataMember(Name="id")]
         public int Id { get; set; }
         [DataMember(Name = "value")]
         public int Value { get; set; }
-
-        public string Endpoint { get; private set; }
-
-        public WalletCurrency()
-        {
-            this.Endpoint = "account/wallet";
-        }
     }
 }

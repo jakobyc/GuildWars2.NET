@@ -9,16 +9,9 @@ using GuildWars2.NET.Core.Serialization.JSON;
 namespace GuildWars2.NET.Core.v2.Characters.DTOs
 {
     [DataContract]
-    public class CraftingInfo : IRetrievable
+    public class CraftingInfo
     {
         [DataMember(Name="crafting")]
         public ICollection<DisciplineInfo> Disciplines { get; set; }
-
-        public string Endpoint { get; private set; }
-
-        public CraftingInfo(string characterName)
-        {
-            this.Endpoint = string.Format("characters/{0}/crafting", characterName);
-        }
     }
 }

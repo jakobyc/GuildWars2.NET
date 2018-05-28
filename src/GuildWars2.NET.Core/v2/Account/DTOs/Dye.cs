@@ -9,13 +9,7 @@ using GuildWars2.NET.Core.Serialization.JSON;
 namespace GuildWars2.NET.Core.v2.Account.DTOs
 {
     [DataContract]
-    public class Dye : IRetrievable
+    public class Dye
     {
-        public string Endpoint { get; private set; }
-
-        public Dye()
-        {
-            this.Endpoint = "account/dyes";
-        }
     }
 }

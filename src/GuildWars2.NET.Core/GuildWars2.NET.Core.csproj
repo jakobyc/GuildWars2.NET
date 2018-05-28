@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="v2\PvE\DTOs\" />
     <Folder Include="v2\PvP\DTOs\" />
   </ItemGroup>
 

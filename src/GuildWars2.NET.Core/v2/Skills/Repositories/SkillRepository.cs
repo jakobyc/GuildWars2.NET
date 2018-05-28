@@ -16,14 +16,15 @@ namespace GuildWars2.NET.Core.v2.Skills.Repositories
 
         public ICollection<int> GetAllSkills()
         {
-            return Retrieve<ICollection<int>>(new Skill());
+            return Retrieve<ICollection<int>>(CreateEndpoint("skills"));
         }
 
         public ICollection<Skill> GetSkills(params string[] ids)
         {
-            string idParameter = ParameterBuilder.Build("ids", ids);
+            ICollection<string> parameters = new List<string>();
+            parameters.Add(ParameterBuilder.Build("ids", ids));
 
-            return Retrieve<ICollection<Skill>>(new Skill(), idParameter);
+            return Retrieve<ICollection<Skill>>(CreateEndpoint("skills", parameters));
         }
     }
 }

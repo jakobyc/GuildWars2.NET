@@ -27,6 +27,8 @@ namespace GuildWars2.NET.Core.Data
             ParameterBuilder = new ParameterBuilder();
         }
 
+        // TODO: Remove IRetrievable from DTOs, create an Endpoint class that implements IRetrievable. Add filter and token variables to Endpoint.
+
         /// <summary>
         /// Retrieve without an API key.
         /// </summary>
@@ -61,6 +63,40 @@ namespace GuildWars2.NET.Core.Data
         {
             string json = retriever.GetJson(retrievableObject, ApiKey, filter);
             return deserializer.Deserialize<T>(json);
+        }
+
+        /// <summary>
+        /// Retrieve a type based on a retrievable object.
+        /// </summary>
+        protected T Retrieve<T>(IRetrievableMock retrievable)
+        {
+            string json = retriever.GetJson(retrievable);
+            return deserializer.Deserialize<T>(json);
+        }
+
+        protected IRetrievableMock CreateEndpoint(string endpoint)
+        {
+            return CreateEndpoint(endpoint, null, null);
+        }
+
+        protected IRetrievableMock CreateEndpoint(string endpoint, ICollection<string> parameters)
+        {
+            return CreateEndpoint(endpoint, null, parameters);
+        }
+
+        protected IRetrievableMock CreateEndpoint(string endpoint, string accessToken)
+        {
+            return CreateEndpoint(endpoint, accessToken, null);
+        }
+
+        protected IRetrievableMock CreateEndpoint(string endpoint, string accessToken, ICollection<string> parameters)
+        {
+            return new ApiEndpoint()
+            {
+                Endpoint = endpoint,
+                Parameters = parameters ?? new List<string>(),
+                AccessToken = accessToken
+            };
         }
     }
 }

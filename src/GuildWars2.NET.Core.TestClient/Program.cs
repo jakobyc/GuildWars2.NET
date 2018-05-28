@@ -2,6 +2,8 @@
 using GuildWars2.NET.Core.v2.Achievements.Repositories;
 using GuildWars2.NET.Core.v2.Characters.Repositories;
 using GuildWars2.NET.Core.v2.Items.Repositories;
+using GuildWars2.NET.Core.v2.PvE.Repositories;
+using GuildWars2.NET.Core.v2.PvP.Repositories;
 using GuildWars2.NET.Core.v2.Skills.Repositories;
 using System;
 
@@ -26,6 +28,8 @@ namespace GuildWars2.NET.Core.TestClient
             Console.WriteLine("3 for CharacterRepository");
             Console.WriteLine("4 for SkillRepository");
             Console.WriteLine("5 for ItemRepository");
+            Console.WriteLine("6 for PvERepository");
+            Console.WriteLine("7 for PvPRepository");
 
             string choice = Console.ReadLine();
 
@@ -45,6 +49,12 @@ namespace GuildWars2.NET.Core.TestClient
                     break;
                 case ("5"):
                     Init.Start(typeof(ItemRepository), apiKey);
+                    break;
+                case ("6"):
+                    Init.Start(typeof(PvERepository), apiKey);
+                    break;
+                case ("7"):
+                    Init.Start(typeof(PvPRepository), apiKey);
                     break;
             }
 

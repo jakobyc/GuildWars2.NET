@@ -1,4 +1,4 @@
-﻿using GuildWars2.NET.Serialization.JSON;
+﻿using GuildWars2.NET.Core.Serialization.JSON;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +6,10 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuildWars2.NET.v2.Skills.DTOs
+namespace GuildWars2.NET.Core.v2.Skills.DTOs
 {
     [DataContract]
-    public class Skill : IRetrievable
+    public class Skill
     {
         [DataMember(Name = "id")]
         public string Id { get; set; }
@@ -57,12 +57,5 @@ namespace GuildWars2.NET.v2.Skills.DTOs
         public int NextChain { get; set; }
         [DataMember(Name = "prev_chain")]
         public int PreviousChain { get; set; }
-
-        public string Endpoint { get; private set; }
-
-        public Skill(params string[] ids)
-        {
-            Endpoint = "skills";
-        }
     }
 }

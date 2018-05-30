@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\GuildWars2.NET.Core\GuildWars2.NET.Core.csproj" />
+    <ProjectReference Include="..\GuildWars2.NET\GuildWars2.NET.csproj" />
   </ItemGroup>
 
 </Project>

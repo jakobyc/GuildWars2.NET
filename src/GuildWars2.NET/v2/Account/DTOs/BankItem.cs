@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
-using GuildWars2.NET.Serialization.JSON;
+using GuildWars2.NET.Core.Serialization.JSON;
 
-namespace GuildWars2.NET.v2.Account.DTOs
+namespace GuildWars2.NET.Core.v2.Account.DTOs
 {
     [DataContract]
-    public class BankItem : IRetrievable
+    public class BankItem
     {
         [DataMember(Name = "upgrades")]
         public ICollection<string> Upgrades { get; set; }
@@ -29,12 +29,5 @@ namespace GuildWars2.NET.v2.Account.DTOs
         public int Skin { get; set; }
         [DataMember(Name = "charges")]
         public int Charges { get; set; }
-
-        public string Endpoint { get; private set; }
-
-        public BankItem()
-        {
-            this.Endpoint = "account/bank";
-        }
     }
 }

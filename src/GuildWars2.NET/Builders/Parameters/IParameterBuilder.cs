@@ -1,4 +1,4 @@
-﻿namespace GuildWars2.NET.Builders.Parameters
+﻿namespace GuildWars2.NET.Core.Builders.Parameters
 {
     public interface IParameterBuilder
     {

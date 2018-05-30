@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
-using GuildWars2.NET.Serialization.JSON;
+using GuildWars2.NET.Core.Serialization.JSON;
 
-namespace GuildWars2.NET.Serialization.JSON
+namespace GuildWars2.NET.Core.Serialization.JSON
 {
     public class JsonRetriever
     {
@@ -16,7 +16,8 @@ namespace GuildWars2.NET.Serialization.JSON
         {
             using (WebClient client = new WebClient())
             {
-                return client.DownloadString(string.Format("{0}{1}", requestUrl, endpoint));
+                return client.DownloadString($"{requestUrl}{endpoint}");
+
             }
         }
 
@@ -28,7 +29,7 @@ namespace GuildWars2.NET.Serialization.JSON
             }
         }
 
-        public string GetJson(IRetrievable obj)
+        /*public string GetJson(IRetrievable obj)
         {
             using (WebClient client = new WebClient())
             {
@@ -49,6 +50,46 @@ namespace GuildWars2.NET.Serialization.JSON
             using (WebClient client = new WebClient())
             {
                 return client.DownloadString($"{requestUrl}{obj.Endpoint}?access_token={accessToken}&{filter}");
+            }
+        }*/
+
+        public string GetJson(IRetrievable retrievable)
+        {
+            string endpoint = string.Empty;
+
+            if (!string.IsNullOrEmpty(retrievable.Endpoint))
+            {
+                endpoint = requestUrl + retrievable.Endpoint;
+
+                if (!string.IsNullOrEmpty(retrievable.AccessToken))
+                {
+                    retrievable.Parameters.Add($"access_token={retrievable.AccessToken}");
+                }
+
+                if (retrievable.Parameters.Count > 0)
+                {
+                    endpoint += "?";
+                    for (int i = 0; i < retrievable.Parameters.Count; i++)
+                    {
+                        if (i < retrievable.Parameters.Count - 1)
+                        {
+                            endpoint += retrievable.Parameters.ElementAt(i) + "&";
+                        }
+                        else
+                        {
+                            endpoint += retrievable.Parameters.ElementAt(i);
+                        }
+                    }
+                }
+
+                using (WebClient client = new WebClient())
+                {
+                    return client.DownloadString(endpoint);
+                }
+            }
+            else
+            {
+                throw new Exception("Please provide an endpoint.");
             }
         }
     }

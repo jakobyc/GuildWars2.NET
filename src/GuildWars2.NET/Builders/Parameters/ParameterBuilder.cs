@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuildWars2.NET.Builders.Parameters
+namespace GuildWars2.NET.Core.Builders.Parameters
 {
     public class ParameterBuilder : IParameterBuilder
     {

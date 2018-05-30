@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GuildWars2.NET.Data;
-using GuildWars2.NET.Serialization.JSON;
-using GuildWars2.NET.v2.Characters.DTOs;
-using GuildWars2.NET.v2.Skills.Repositories;
-using GuildWars2.NET.v2.Skills.DTOs;
+using GuildWars2.NET.Core.Data;
+using GuildWars2.NET.Core.Serialization.JSON;
+using GuildWars2.NET.Core.v2.Characters.DTOs;
+using GuildWars2.NET.Core.v2.Skills.Repositories;
+using GuildWars2.NET.Core.v2.Skills.DTOs;
 
-namespace GuildWars2.NET.v2.Characters.Repositories
+namespace GuildWars2.NET.Core.v2.Characters.Repositories
 {
     public enum SkillType
     {
@@ -25,37 +25,55 @@ namespace GuildWars2.NET.v2.Characters.Repositories
 
         public Backstory GetBackstory(string characterName)
         {
-            return Retrieve<Backstory>(new Backstory(characterName), ApiKey);
+            return Retrieve<Backstory>(CreateEndpoint($"characters/{characterName}/backstory", ApiKey));
         }
 
         public CoreInformation GetCoreInformation(string characterName)
         {
-            return Retrieve<CoreInformation>(new CoreInformation(characterName), ApiKey);
+            return Retrieve<CoreInformation>(CreateEndpoint($"characters/{characterName}/core", ApiKey));
         }
 
         public CraftingInfo GetCraftingInformation(string characterName)
         {
-            return Retrieve<CraftingInfo>(new CraftingInfo(characterName), ApiKey);
+            return Retrieve<CraftingInfo>(CreateEndpoint($"characters/{characterName}/crafting", ApiKey));
         }
 
         public Equipment GetEquipment(string characterName)
         {
-            return Retrieve<Equipment>(new Equipment(characterName), ApiKey);
+            return Retrieve<Equipment>(CreateEndpoint($"characters/{characterName}/equipment", ApiKey));
         }
 
         public ICollection<string> GetHeroPoints(string characterName)
         {
-            return Retrieve<ICollection<string>>(new HeroPoint(characterName), ApiKey);
+            return Retrieve<ICollection<string>>(CreateEndpoint($"characters/{characterName}/heropoints", ApiKey));
         }
 
         public Inventory GetInventory(string characterName)
         {
-            return Retrieve<Inventory>(new Inventory(characterName), ApiKey);
+            return Retrieve<Inventory>(CreateEndpoint($"characters/{characterName}/inventory", ApiKey));
+        }
+
+        /// <summary>
+        /// Get recipes for a character.
+        /// </summary>
+        /// <param name="characterName">Case-sensitive character name.</param>
+        public CharacterRecipes GetRecipes(string characterName)
+        {
+            return Retrieve<CharacterRecipes>(CreateEndpoint($"characters/{characterName}/recipes", ApiKey));
+        }
+
+        /// <summary>
+        /// Get Super Adventure Box info for a character.
+        /// </summary>
+        /// <param name="characterName">Case-sensitive character name.</param>
+        public CharacterSAB GetSABInfo(string characterName)
+        {
+            return Retrieve<CharacterSAB>(CreateEndpoint($"characters/{characterName}/sab", ApiKey));
         }
 
         public ICollection<Skill> GetSkills(string characterName, SkillType type)
         {
-            CharacterSkills characterSkills =  Retrieve<CharacterSkills>(new CharacterSkills(characterName), ApiKey);
+            CharacterSkills characterSkills =  Retrieve<CharacterSkills>(CreateEndpoint($"characters/{characterName}/skills", ApiKey));
 
             ICollection<Skill> skills = new List<Skill>();
             SkillRepository repository = new SkillRepository(ApiKey);
@@ -76,6 +94,29 @@ namespace GuildWars2.NET.v2.Characters.Repositories
             }
 
             return skills;
+        }
+
+        public CharacterSpecializations GetSpecializations(string characterName)
+        {
+            return Retrieve<CharacterSpecializations>(CreateEndpoint($"characters/{characterName}/specializations", ApiKey));
+        }
+
+        /// <summary>
+        /// Get training progress for each skill tree for a character.
+        /// </summary>
+        /// <param name="characterName">Case-sensitive character name.</param>
+        public Training GetTrainingProgress(string characterName)
+        {
+            return Retrieve<Training>(CreateEndpoint($"characters/{characterName}/training", ApiKey));
+        }
+
+        /// <summary>
+        /// Get an overview for a character.
+        /// </summary>
+        /// <param name="characterName">Case-sensitive character name.</param>
+        public CharacterOverview GetOverview(string characterName)
+        {
+            return Retrieve<CharacterOverview>(CreateEndpoint($"characters/{characterName}", ApiKey));
         }
 
         private string[] GetSkillIds(CharacterSkill skill)

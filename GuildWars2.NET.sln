@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuildWars2.NET", "src\Guild
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuildWars2.NET.TestClient", "src\GuildWars2.NET.TestClient\GuildWars2.NET.TestClient.csproj", "{05670A6C-50B2-44EA-9884-31D8E4D6D00A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuildWars2.NET.Test", "test\GuildWars2.NET.Test\GuildWars2.NET.Test.csproj", "{4C10214E-E4E6-43F5-9BF4-E3D05F0B987B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{05670A6C-50B2-44EA-9884-31D8E4D6D00A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05670A6C-50B2-44EA-9884-31D8E4D6D00A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05670A6C-50B2-44EA-9884-31D8E4D6D00A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C10214E-E4E6-43F5-9BF4-E3D05F0B987B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C10214E-E4E6-43F5-9BF4-E3D05F0B987B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C10214E-E4E6-43F5-9BF4-E3D05F0B987B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C10214E-E4E6-43F5-9BF4-E3D05F0B987B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

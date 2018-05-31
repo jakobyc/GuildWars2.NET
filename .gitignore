@@ -4,3 +4,5 @@ Properties/
 obj/
 .vs/
 .vs/GuildWars2.NET/v15/.suo
+
+Tests/config.json

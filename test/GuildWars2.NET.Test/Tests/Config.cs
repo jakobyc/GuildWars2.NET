@@ -11,15 +11,7 @@ namespace GuildWars2.NET.Test.Tests
     [DataContract]
     public class Config
     {
-        private static readonly Config instance = Load();
-
-        public static Config Instance
-        {
-            get
-            {
-                return instance;
-            }
-        }
+        public static Config Instance { get; } = Load();
 
         private Config() { }
 

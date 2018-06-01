@@ -11,10 +11,21 @@ namespace GuildWars2.NET.Test.Tests
     [DataContract]
     public class Config
     {
+        private static readonly Config instance = Load();
+
+        public static Config Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+
+        private Config() { }
+
         [DataMember(Name = "api_key")]
         public string ApiKey { get; private set; }
 
-        [Fact]
         public static Config Load()
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;

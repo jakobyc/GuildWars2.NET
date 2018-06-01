@@ -8,11 +8,11 @@ using Xunit;
 
 namespace GuildWars2.NET.Test.Tests
 {
-    public class Account : IClassFixture<RepositoryFactory>
+    public class AccountTest : ApiTest
     {
         private AccountRepository repository;
 
-        public Account(RepositoryFactory factory)
+        public AccountTest(RepositoryFactory factory)
         {
             this.repository = factory.GetAccountRepository();
         }
@@ -47,10 +47,6 @@ namespace GuildWars2.NET.Test.Tests
             AssertCall<WalletCurrency[]>(repository.GetWallet());
         }
 
-        private void AssertCall<T>(object o)
-        {
-            Assert.IsType<T>(o);
-            Assert.NotNull(o);
-        }
+
     }
 }

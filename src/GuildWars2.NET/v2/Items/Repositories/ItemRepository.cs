@@ -8,6 +8,7 @@ namespace GuildWars2.NET.Core.v2.Items.Repositories
 {
     public class ItemRepository : GW2Repository
     {
+        public ItemRepository() : base(string.Empty) { } 
         public ItemRepository(string apiKey) : base(apiKey) { }
 
         /// <summary>

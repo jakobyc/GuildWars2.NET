@@ -2,15 +2,19 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization;
 using System.Text;
 using Xunit;
 
 namespace GuildWars2.NET.Test.Tests
 {
+    [DataContract]
     public class Config
     {
+        [DataMember(Name = "api_key")]
         public string ApiKey { get; private set; }
 
+        [Fact]
         public static Config Load()
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;
@@ -33,6 +37,8 @@ namespace GuildWars2.NET.Test.Tests
 
                             string json = reader.ReadToEnd();
                             Config config = deserializer.Deserialize<Config>(json);
+                            Assert.NotNull(config.ApiKey);
+
                             return config;
                         }
                     }

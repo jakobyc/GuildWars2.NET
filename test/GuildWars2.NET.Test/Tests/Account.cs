@@ -1,4 +1,5 @@
-﻿using GuildWars2.NET.Core.v2.Account.Repositories;
+﻿using GuildWars2.NET.Core.v2.Account.DTOs;
+using GuildWars2.NET.Core.v2.Account.Repositories;
 using GuildWars2.NET.Test.Dependencies;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,35 @@ namespace GuildWars2.NET.Test.Tests
         {
             Assert.NotNull(repository);
 
-            repository.GetAccountInfo();
+            AssertCall<AccountInfo>(repository.GetAccountInfo());
+            AssertCall<AccountAchievement>(repository.GetAchievement(1));
+            AssertCall<AccountAchievement[]>(repository.GetAchievements());
+            AssertCall<BankItem[]>(repository.GetBankItems());
+            AssertCall<string[]>(repository.GetCompletedDailyDungeons());
+            AssertCall<string[]>(repository.GetCompletedRaids());
+            AssertCall<string[]>(repository.GetDyes());
+            AssertCall<Finisher[]>(repository.GetFinishers());
+            AssertCall<int[]>(repository.GetGliders());
+            AssertCall<Cat[]>(repository.GetHomeCats());
+            AssertCall<string[]>(repository.GetHomeNodes());
+            AssertCall<int[]>(repository.GetMailCarriers());
+            AssertCall<Mastery[]>(repository.GetMasteries());
+            AssertCall<MasteryPoints>(repository.GetMasteryPoints());
+            AssertCall<Material[]>(repository.GetMaterials());
+            AssertCall<string[]>(repository.GetMiniatures());
+            AssertCall<string[]>(repository.GetOutfits());
+            AssertCall<int[]>(repository.GetPvPHeroes());
+            AssertCall<string[]>(repository.GetRecipes());
+            AssertCall<SharedInventoryItem[]>(repository.GetSharedInventoryItems());
+            AssertCall<string[]>(repository.GetSkins());
+            AssertCall<string[]>(repository.GetTitles());
+            AssertCall<WalletCurrency[]>(repository.GetWallet());
+        }
+
+        private void AssertCall<T>(object o)
+        {
+            Assert.IsType<T>(o);
+            Assert.NotNull(o);
         }
     }
 }

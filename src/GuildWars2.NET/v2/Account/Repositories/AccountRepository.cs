@@ -61,7 +61,7 @@ namespace GuildWars2.NET.Core.v2.Account.Repositories
 
         public ICollection<Cat> GetHomeCats()
         {
-            return Retrieve<ICollection<Cat>>(CreateEndpoint("account/cats", ApiKey));
+            return Retrieve<ICollection<Cat>>(CreateEndpoint("account/home/cats", ApiKey));
         }
 
         public ICollection<string> GetHomeNodes()

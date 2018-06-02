@@ -18,6 +18,9 @@ namespace GuildWars2.NET.Test.Tests
         [DataMember(Name = "api_key")]
         public string ApiKey { get; private set; }
 
+        [DataMember(Name = "character")]
+        public string Character { get; private set; }
+
         public static Config Load()
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;

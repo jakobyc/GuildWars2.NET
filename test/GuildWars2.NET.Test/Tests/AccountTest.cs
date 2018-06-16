@@ -1,4 +1,4 @@
-﻿using GuildWars2.NET.Core.v2.Account.DTOs;
+﻿using GuildWars2.NET.Core.v2.Account.Entities;
 using GuildWars2.NET.Core.v2.Account.Repositories;
 using GuildWars2.NET.Test.Dependencies;
 using System;

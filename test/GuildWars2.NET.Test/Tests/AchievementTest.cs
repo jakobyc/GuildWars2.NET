@@ -1,4 +1,4 @@
-﻿using GuildWars2.NET.Core.v2.Achievements.DTOs;
+﻿using GuildWars2.NET.Core.v2.Achievements.Entities;
 using GuildWars2.NET.Core.v2.Achievements.Repositories;
 using GuildWars2.NET.Test.Dependencies;
 using System;

@@ -1,4 +1,4 @@
-﻿using GuildWars2.NET.Core.v2.Items.DTOs;
+﻿using GuildWars2.NET.Core.v2.Items.Entities;
 using GuildWars2.NET.Core.v2.Items.Repositories;
 using GuildWars2.NET.Test.Dependencies;
 using System;
@@ -17,14 +17,15 @@ namespace GuildWars2.NET.Test.Tests
             this.repository = factory.GetItemRepository();
         }
 
-        [Fact]
-        public void Get()
+        [Theory]
+        [InlineData("1", "19699")]
+        public void Get(string recipeId, string itemId)
         {
             Assert.NotNull(repository);
 
-            AssertCall<Recipe>(repository.GetRecipe("1"));
+            AssertCall<Recipe>(repository.GetRecipe(recipeId));
             AssertCall<int[]>(repository.GetRecipes());
-            AssertCall<int[]>(repository.GetRecipes("19699", true));
+            AssertCall<int[]>(repository.GetRecipes(itemId, true));
         }
     }
 }

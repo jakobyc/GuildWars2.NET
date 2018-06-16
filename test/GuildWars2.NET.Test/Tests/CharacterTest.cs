@@ -1,4 +1,4 @@
-﻿using GuildWars2.NET.Core.v2.Characters.DTOs;
+﻿using GuildWars2.NET.Core.v2.Characters.Entities;
 using GuildWars2.NET.Core.v2.Characters.Repositories;
 using GuildWars2.NET.Test.Dependencies;
 using System;
@@ -31,9 +31,9 @@ namespace GuildWars2.NET.Test.Tests
             AssertCall<CharacterOverview>(repository.GetOverview(Config.Instance.Character));
             AssertCall<CharacterRecipes>(repository.GetRecipes(Config.Instance.Character));
             AssertCall<CharacterSAB>(repository.GetSABInfo(Config.Instance.Character));
-            AssertCall<Core.v2.Skills.DTOs.Skill[]>(repository.GetSkills(Config.Instance.Character, SkillType.PvE));
-            AssertCall<Core.v2.Skills.DTOs.Skill[]>(repository.GetSkills(Config.Instance.Character, SkillType.PvP));
-            AssertCall<Core.v2.Skills.DTOs.Skill[]>(repository.GetSkills(Config.Instance.Character, SkillType.WvW));
+            AssertCall<Core.v2.Skills.Entities.Skill[]>(repository.GetSkills(Config.Instance.Character, SkillType.PvE));
+            AssertCall<Core.v2.Skills.Entities.Skill[]>(repository.GetSkills(Config.Instance.Character, SkillType.PvP));
+            AssertCall<Core.v2.Skills.Entities.Skill[]>(repository.GetSkills(Config.Instance.Character, SkillType.WvW));
             AssertCall<CharacterSpecializations>(repository.GetSpecializations(Config.Instance.Character));
             AssertCall<Training>(repository.GetTrainingProgress(Config.Instance.Character));
         }

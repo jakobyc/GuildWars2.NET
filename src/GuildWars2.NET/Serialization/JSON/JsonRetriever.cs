@@ -29,30 +29,6 @@ namespace GuildWars2.NET.Core.Serialization.JSON
             }
         }
 
-        /*public string GetJson(IRetrievable obj)
-        {
-            using (WebClient client = new WebClient())
-            {
-                return client.DownloadString($"{requestUrl}{obj.Endpoint}");
-            }
-        }
-
-        public string GetJson(IRetrievable obj, string accessToken)
-        {
-            using (WebClient client = new WebClient())
-            {
-                return client.DownloadString($"{requestUrl}{obj.Endpoint}?access_token={accessToken}");
-            }
-        }
-
-        public string GetJson(IRetrievable obj, string accessToken, string filter)
-        {
-            using (WebClient client = new WebClient())
-            {
-                return client.DownloadString($"{requestUrl}{obj.Endpoint}?access_token={accessToken}&{filter}");
-            }
-        }*/
-
         public string GetJson(IRetrievable retrievable)
         {
             string endpoint = string.Empty;

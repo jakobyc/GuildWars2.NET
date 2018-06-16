@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using GuildWars2.NET.Core.Data;
 using GuildWars2.NET.Core.Serialization.JSON;
-using GuildWars2.NET.Core.v2.Characters.DTOs;
+using GuildWars2.NET.Core.v2.Characters.Entities;
 using GuildWars2.NET.Core.v2.Skills.Repositories;
-using GuildWars2.NET.Core.v2.Skills.DTOs;
+using GuildWars2.NET.Core.v2.Skills.Entities;
 
 namespace GuildWars2.NET.Core.v2.Characters.Repositories
 {

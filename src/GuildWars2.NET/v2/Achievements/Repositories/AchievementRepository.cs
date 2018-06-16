@@ -1,6 +1,6 @@
 ﻿using GuildWars2.NET.Core.Data;
 using GuildWars2.NET.Core.Serialization.JSON;
-using GuildWars2.NET.Core.v2.Achievements.DTOs;
+using GuildWars2.NET.Core.v2.Achievements.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

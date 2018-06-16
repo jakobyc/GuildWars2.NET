@@ -1,5 +1,5 @@
 ﻿using GuildWars2.NET.Core.Data;
-using GuildWars2.NET.Core.v2.PvE.DTOs;
+using GuildWars2.NET.Core.v2.PvE.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;

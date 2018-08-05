@@ -7,9 +7,69 @@ using System.Text;
 
 namespace GuildWars2.NET.Core.v2.PvP.Repositories
 {
+    public enum WvWTeam
+    {
+        Blue,
+        Green,
+        Red
+    }
+
     public class PvPRepository : GW2Repository
     {
         public PvPRepository() : base() { }
+
+        public Match GetMatch(string id)
+        {
+            return Retrieve<Match>($"wvw/matches/{id}");
+        }
+
+        public MatchOverview GetMatchOverview(string worldId)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/matches/overview")
+                                                            .AddParameter("world", worldId);
+            return Retrieve<MatchOverview>(builder);
+        }
+
+        public MatchScores GetMatchScores(string worldId)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/matches/scores")
+                                                            .AddParameter("world", worldId);
+            return Retrieve<MatchScores>(builder);
+        }
+
+        public MatchStats GetMatchStats(string worldId)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/matches/stats")
+                                                            .AddParameter("world", worldId);
+            return Retrieve<MatchStats>(builder);
+        }
+
+        public ICollection<string> GetMatches()
+        {
+            return Retrieve<ICollection<string>>("wvw/matches");
+        }
+
+        public ICollection<Match> GetMatches(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/matches")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<Match>>(builder);
+        }
+
+        public ICollection<GuildStats> GetTopGuildKDR(string matchId, WvWTeam team)
+        {
+            return Retrieve<ICollection<GuildStats>>($"wvw/matches/stats/{matchId}/teams/{GetTeam(team)}/top/kdr");
+        }
+
+        public ICollection<GuildStats> GetTopGuildKills(string matchId, WvWTeam team)
+        {
+            return Retrieve<ICollection<GuildStats>>($"wvw/matches/stats/{matchId}/teams/{GetTeam(team)}/top/kills");
+        }
+
+        public WvWAbility GetWvWAbility(string id)
+        {
+            return Retrieve<WvWAbility>($"wvw/abilities/{id}");
+        }
 
         public ICollection<int> GetWvWAbilities()
         {
@@ -21,6 +81,20 @@ namespace GuildWars2.NET.Core.v2.PvP.Repositories
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/abilities")
                                                             .AddParameter("ids", ids);
             return Retrieve<ICollection<WvWAbility>>(builder);
+        }
+
+        private string GetTeam(WvWTeam team)
+        {
+            switch(team)
+            {
+                case (WvWTeam.Blue):
+                    return "blue";
+                case (WvWTeam.Green):
+                    return "green";
+                case (WvWTeam.Red):
+                    return "red";
+            }
+            return string.Empty;
         }
     }
 }

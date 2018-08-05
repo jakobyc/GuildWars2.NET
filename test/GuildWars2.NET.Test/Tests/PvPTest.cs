@@ -17,6 +17,68 @@ namespace GuildWars2.NET.Test.Tests
             this.repository = factory.GetPvPRepository();
         }
 
+        [Theory]
+        [InlineData("1-1")]
+        public void GetMatch(string id)
+        {
+            AssertCall<Match>(repository.GetMatch(id));
+        }
+
+        [Theory]
+        [InlineData("1008")]
+        public void GetMatchOverview(string worldId)
+        {
+            AssertCall<MatchOverview>(repository.GetMatchOverview(worldId));
+        }
+
+        [Theory]
+        [InlineData("1008")]
+        public void GetMatchScores(string worldId)
+        {
+            AssertCall<MatchScores>(repository.GetMatchScores(worldId));
+        }
+
+        [Theory]
+        [InlineData("1008")]
+        public void GetMatchStats(string worldId)
+        {
+            AssertCall<MatchStats>(repository.GetMatchStats(worldId));
+        }
+
+        [Fact]
+        public void GetMatches()
+        {
+            AssertCall<string[]>(repository.GetMatches());
+        }
+
+        [Theory]
+        [InlineData("1-1", "2-1")]
+        public void GetMatchesById(params string[] ids)
+        {
+            AssertCall<Match[]>(repository.GetMatches(ids));
+        }
+
+        [Theory]
+        [InlineData("1-1", WvWTeam.Red)]
+        public void GetTopGuildKDR(string matchId, WvWTeam team)
+        {
+            AssertCall<GuildStats[]>(repository.GetTopGuildKDR(matchId, team));
+        }
+
+        [Theory]
+        [InlineData("1-1", WvWTeam.Red)]
+        public void GetTopGuildKills(string matchId, WvWTeam team)
+        {
+            AssertCall<GuildStats[]>(repository.GetTopGuildKills(matchId, team));
+        }
+
+        [Theory]
+        [InlineData("2")]
+        public void GetWvWAbility(string id)
+        {
+            AssertCall<WvWAbility>(repository.GetWvWAbility(id));
+        }
+
         [Fact]
         public void GetWvWAbilities()
         {

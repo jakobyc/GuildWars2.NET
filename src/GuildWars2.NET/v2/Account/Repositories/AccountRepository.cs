@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using GuildWars2.NET.Core.v2.Account.Entities;
 using GuildWars2.NET.Core.Serialization.JSON;
 using GuildWars2.NET.Core.Data;
+using GuildWars2.NET.Builders.Endpoints;
 
 namespace GuildWars2.NET.Core.v2.Account.Repositories
 {
-    // TODO: Add endpoints for pvp heroes:
     public class AccountRepository : GW2Repository
     {
         public AccountRepository(string apiKey) : base(apiKey) { }
@@ -17,123 +17,123 @@ namespace GuildWars2.NET.Core.v2.Account.Repositories
 
         public AccountInfo GetAccountInfo()
         {
-            return Retrieve<AccountInfo>(CreateEndpoint("account", ApiKey));
+            return Retrieve<AccountInfo>("account");
         }
 
         public ICollection<AccountAchievement> GetAchievements()
         {
-            return Retrieve<ICollection<AccountAchievement>>(CreateEndpoint("account/achievements", ApiKey));
+            return Retrieve<ICollection<AccountAchievement>>("account/achievements");
         }
 
         public AccountAchievement GetAchievement(int id)
         {
-            ICollection<string> parameters = new List<string>();
-            parameters.Add(string.Format("id={0}", id));
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("account/achievements")
+                                                            .AddParameter("id", id);
 
-            return Retrieve<AccountAchievement>(CreateEndpoint("account/achievements", ApiKey, parameters));
+            return Retrieve<AccountAchievement>(builder);
         }
 
         public ICollection<BankItem> GetBankItems()
         {
-            return Retrieve<ICollection<BankItem>>(CreateEndpoint("account/bank", ApiKey));
+            return Retrieve<ICollection<BankItem>>("account/bank");
         }
 
         public ICollection<string> GetCompletedDailyDungeons()
         {
-            return Retrieve<ICollection<string>>(CreateEndpoint("account/dungeons", ApiKey));
+            return Retrieve<ICollection<string>>("account/dungeons");
         }
 
         public ICollection<string> GetDyes()
         {
-            return Retrieve<ICollection<string>>(CreateEndpoint("account/dyes", ApiKey));
+            return Retrieve<ICollection<string>>("account/dyes");
         }
 
         public ICollection<Finisher> GetFinishers()
         {
-            return Retrieve<ICollection<Finisher>>(CreateEndpoint("account/finishers", ApiKey));
+            return Retrieve<ICollection<Finisher>>("account/finishers");
         }
 
         // TODO: Resolve against v2/gliders:
         public ICollection<int> GetGliders()
         {
-            return Retrieve<ICollection<int>>(CreateEndpoint("account/gliders", ApiKey));
+            return Retrieve<ICollection<int>>("account/gliders");
         }
 
         public ICollection<Cat> GetHomeCats()
         {
-            return Retrieve<ICollection<Cat>>(CreateEndpoint("account/home/cats", ApiKey));
+            return Retrieve<ICollection<Cat>>("account/home/cats");
         }
 
         public ICollection<string> GetHomeNodes()
         {
-            return Retrieve<ICollection<string>>(CreateEndpoint("account/home/nodes", ApiKey));
+            return Retrieve<ICollection<string>>("account/home/nodes");
         }
 
         public ICollection<SharedInventoryItem> GetSharedInventoryItems()
         {
-            return Retrieve<ICollection<SharedInventoryItem>>(CreateEndpoint("account/inventory", ApiKey));
+            return Retrieve<ICollection<SharedInventoryItem>>("account/inventory");
         }
 
         // TODO: Resolve against v2/mailcarriers
         public ICollection<int> GetMailCarriers()
         {
-            return Retrieve<ICollection<int>>(CreateEndpoint("account/mailcarriers", ApiKey));
+            return Retrieve<ICollection<int>>("account/mailcarriers");
         }
 
         public ICollection<Mastery> GetMasteries()
         {
-            return Retrieve<ICollection<Mastery>>(CreateEndpoint("account/masteries", ApiKey));
+            return Retrieve<ICollection<Mastery>>("account/masteries");
         }
 
         public MasteryPoints GetMasteryPoints()
         {
-            return Retrieve<MasteryPoints>(CreateEndpoint("account/mastery/points", ApiKey));
+            return Retrieve<MasteryPoints>("account/mastery/points");
         }
 
         public ICollection<Material> GetMaterials()
         {
-            return Retrieve<ICollection<Material>>(CreateEndpoint("account/materials", ApiKey));
+            return Retrieve<ICollection<Material>>("account/materials");
         }
 
         public ICollection<string> GetMiniatures()
         {
-            return Retrieve<ICollection<string>>(CreateEndpoint("account/minis", ApiKey));
+            return Retrieve<ICollection<string>>("account/minis");
         }
 
         public ICollection<string> GetOutfits()
         {
-            return Retrieve<ICollection<string>>(CreateEndpoint("account/outfits", ApiKey));
+            return Retrieve<ICollection<string>>("account/outfits");
         }
 
         // TODO: Resolve against v2/pvp/heroes:
         public ICollection<int> GetPvPHeroes()
         {
-            return Retrieve<ICollection<int>>(CreateEndpoint("account/pvp/heroes", ApiKey));
+            return Retrieve<ICollection<int>>("account/pvp/heroes");
         }
 
         public ICollection<string> GetCompletedRaids()
         {
-            return Retrieve<ICollection<string>>(CreateEndpoint("account/raids", ApiKey));
+            return Retrieve<ICollection<string>>("account/raids");
         }
 
         public ICollection<string> GetRecipes()
         {
-            return Retrieve<ICollection<string>>(CreateEndpoint("account/recipes", ApiKey));
+            return Retrieve<ICollection<string>>("account/recipes");
         }
 
         public ICollection<string> GetSkins()
         {
-            return Retrieve<ICollection<string>>(CreateEndpoint("account/skins", ApiKey));
+            return Retrieve<ICollection<string>>("account/skins");
         }
 
         public ICollection<string> GetTitles()
         {
-            return Retrieve<ICollection<string>>(CreateEndpoint("account/titles", ApiKey));
+            return Retrieve<ICollection<string>>("account/titles");
         }
 
         public ICollection<WalletCurrency> GetWallet()
         {
-            return Retrieve<ICollection<WalletCurrency>>(CreateEndpoint("account/wallet", ApiKey));
+            return Retrieve<ICollection<WalletCurrency>>("account/wallet");
         }
     }
 }

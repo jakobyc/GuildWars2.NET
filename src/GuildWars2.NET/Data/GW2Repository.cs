@@ -37,48 +37,19 @@ namespace GuildWars2.NET.Core.Data
         /// </summary>
         protected T Retrieve<T>(string endpoint)
         {
-            string json = retriever.GetJson(endpoint);
-            return deserializer.Deserialize<T>(json);
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint(endpoint);
+
+            return Retrieve<T>(builder);
         }
 
         protected T Retrieve<T>(IEndpointBuilder builder)
         {
+            if (!string.IsNullOrEmpty(ApiKey))
+            {
+                builder.AddParameter("access_token", ApiKey);
+            }
             string json = retriever.GetJson(builder.Build());
             return deserializer.Deserialize<T>(json);
-        }
-
-        /// <summary>
-        /// Retrieve a type based on a retrievable object.
-        /// </summary>
-        protected T Retrieve<T>(IRetrievable retrievable)
-        {
-            string json = retriever.GetJson(retrievable);
-            return deserializer.Deserialize<T>(json);
-        }
-
-        protected IRetrievable CreateEndpoint(string endpoint)
-        {
-            return CreateEndpoint(endpoint, null, null);
-        }
-
-        protected IRetrievable CreateEndpoint(string endpoint, ICollection<string> parameters)
-        {
-            return CreateEndpoint(endpoint, null, parameters);
-        }
-
-        protected IRetrievable CreateEndpoint(string endpoint, string accessToken)
-        {
-            return CreateEndpoint(endpoint, accessToken, null);
-        }
-
-        protected IRetrievable CreateEndpoint(string endpoint, string accessToken, ICollection<string> parameters)
-        {
-            return new ApiEndpoint()
-            {
-                Endpoint = endpoint,
-                Parameters = parameters ?? new List<string>(),
-                AccessToken = accessToken
-            };
         }
     }
 }

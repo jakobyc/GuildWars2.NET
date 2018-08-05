@@ -25,32 +25,32 @@ namespace GuildWars2.NET.Core.v2.Characters.Repositories
         
         public Backstory GetBackstory(string characterName)
         {
-            return Retrieve<Backstory>(CreateEndpoint($"characters/{characterName}/backstory", ApiKey));
+            return Retrieve<Backstory>($"characters/{characterName}/backstory");
         }
 
         public CoreInformation GetCoreInformation(string characterName)
         {
-            return Retrieve<CoreInformation>(CreateEndpoint($"characters/{characterName}/core", ApiKey));
+            return Retrieve<CoreInformation>($"characters/{characterName}/core");
         }
 
         public CraftingInfo GetCraftingInformation(string characterName)
         {
-            return Retrieve<CraftingInfo>(CreateEndpoint($"characters/{characterName}/crafting", ApiKey));
+            return Retrieve<CraftingInfo>($"characters/{characterName}/crafting");
         }
 
         public Equipment GetEquipment(string characterName)
         {
-            return Retrieve<Equipment>(CreateEndpoint($"characters/{characterName}/equipment", ApiKey));
+            return Retrieve<Equipment>($"characters/{characterName}/equipment");
         }
 
         public ICollection<string> GetHeroPoints(string characterName)
         {
-            return Retrieve<ICollection<string>>(CreateEndpoint($"characters/{characterName}/heropoints", ApiKey));
+            return Retrieve<ICollection<string>>($"characters/{characterName}/heropoints");
         }
 
         public Inventory GetInventory(string characterName)
         {
-            return Retrieve<Inventory>(CreateEndpoint($"characters/{characterName}/inventory", ApiKey));
+            return Retrieve<Inventory>($"characters/{characterName}/inventory");
         }
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace GuildWars2.NET.Core.v2.Characters.Repositories
         /// <param name="characterName">Case-sensitive character name.</param>
         public CharacterRecipes GetRecipes(string characterName)
         {
-            return Retrieve<CharacterRecipes>(CreateEndpoint($"characters/{characterName}/recipes", ApiKey));
+            return Retrieve<CharacterRecipes>($"characters/{characterName}/recipes");
         }
 
         /// <summary>
@@ -68,12 +68,12 @@ namespace GuildWars2.NET.Core.v2.Characters.Repositories
         /// <param name="characterName">Case-sensitive character name.</param>
         public CharacterSAB GetSABInfo(string characterName)
         {
-            return Retrieve<CharacterSAB>(CreateEndpoint($"characters/{characterName}/sab", ApiKey));
+            return Retrieve<CharacterSAB>($"characters/{characterName}/sab");
         }
 
         public ICollection<Skill> GetSkills(string characterName, SkillType type)
         {
-            CharacterSkills characterSkills =  Retrieve<CharacterSkills>(CreateEndpoint($"characters/{characterName}/skills", ApiKey));
+            CharacterSkills characterSkills =  Retrieve<CharacterSkills>($"characters/{characterName}/skills");
 
             ICollection<Skill> skills = new List<Skill>();
             SkillRepository repository = new SkillRepository(ApiKey);
@@ -98,7 +98,7 @@ namespace GuildWars2.NET.Core.v2.Characters.Repositories
 
         public CharacterSpecializations GetSpecializations(string characterName)
         {
-            return Retrieve<CharacterSpecializations>(CreateEndpoint($"characters/{characterName}/specializations", ApiKey));
+            return Retrieve<CharacterSpecializations>($"characters/{characterName}/specializations");
         }
 
         /// <summary>
@@ -107,7 +107,7 @@ namespace GuildWars2.NET.Core.v2.Characters.Repositories
         /// <param name="characterName">Case-sensitive character name.</param>
         public Training GetTrainingProgress(string characterName)
         {
-            return Retrieve<Training>(CreateEndpoint($"characters/{characterName}/training", ApiKey));
+            return Retrieve<Training>($"characters/{characterName}/training");
         }
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace GuildWars2.NET.Core.v2.Characters.Repositories
         /// <param name="characterName">Case-sensitive character name.</param>
         public CharacterOverview GetOverview(string characterName)
         {
-            return Retrieve<CharacterOverview>(CreateEndpoint($"characters/{characterName}", ApiKey));
+            return Retrieve<CharacterOverview>($"characters/{characterName}");
         }
 
         private string[] GetSkillIds(CharacterSkill skill)

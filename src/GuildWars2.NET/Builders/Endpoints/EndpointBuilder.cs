@@ -25,7 +25,7 @@ namespace GuildWars2.NET.Builders.Endpoints
             return this;
         }
 
-        public IEndpointBuilder AddParameter(string parameterName, string[] values)
+        public IEndpointBuilder AddParameter(string parameterName, params string[] values)
         {
             if (values != null)
             {
@@ -48,7 +48,7 @@ namespace GuildWars2.NET.Builders.Endpoints
             return this;
         }
 
-        public IEndpointBuilder AddParameter(string parameterName, int[] values)
+        public IEndpointBuilder AddParameter(string parameterName, params int[] values)
         {
             AddParameter(parameterName, values.Select(x => x.ToString()).ToArray());
 

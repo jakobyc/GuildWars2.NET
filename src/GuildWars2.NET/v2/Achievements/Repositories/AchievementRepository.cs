@@ -58,7 +58,7 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
         /// </summary>
         public ICollection<Category> GetCategories()
         {
-            int[] categoryIds = Retrieve<ICollection<int>>(CreateEndpoint($"achievements/categories")).ToArray<int>();
+            int[] categoryIds = Retrieve<ICollection<int>>($"achievements/categories").ToArray();
             ICollection<Category> categories = new List<Category>();
 
             if (categoryIds.Length > 0)

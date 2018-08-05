@@ -58,6 +58,26 @@ namespace GuildWars2.NET.Test.Tests
             AssertCall<Match[]>(repository.GetMatches(ids));
         }
 
+        [Fact]
+        public void GetObjectives()
+        {
+            AssertCall<string[]>(repository.GetObjectives());
+        }
+
+        [Theory]
+        [InlineData("1099-99")]
+        public void GetObjective(string id)
+        {
+            AssertCall<WvWObjective>(repository.GetObjective(id));
+        }
+
+        [Theory]
+        [InlineData("1099-99", "96-35")]
+        public void GetObjectivesById(params string[] ids)
+        {
+            AssertCall<WvWObjective[]>(repository.GetObjectives(ids));
+        }
+
         [Theory]
         [InlineData("1-1", WvWTeam.Red)]
         public void GetTopGuildKDR(string matchId, WvWTeam team)

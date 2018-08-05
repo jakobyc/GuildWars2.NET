@@ -56,6 +56,23 @@ namespace GuildWars2.NET.Core.v2.PvP.Repositories
             return Retrieve<ICollection<Match>>(builder);
         }
 
+        public ICollection<string> GetObjectives()
+        {
+            return Retrieve<ICollection<string>>("wvw/objectives");
+        }
+
+        public WvWObjective GetObjective(string objectiveId)
+        {
+            return Retrieve<WvWObjective>($"wvw/objectives/{objectiveId}");
+        }
+
+        public ICollection<WvWObjective> GetObjectives(params string[] objectiveIds)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/objectives")
+                                                            .AddParameter("ids", objectiveIds);
+            return Retrieve<ICollection<WvWObjective>>(builder);
+        }
+
         public ICollection<GuildStats> GetTopGuildKDR(string matchId, WvWTeam team)
         {
             return Retrieve<ICollection<GuildStats>>($"wvw/matches/stats/{matchId}/teams/{GetTeam(team)}/top/kdr");

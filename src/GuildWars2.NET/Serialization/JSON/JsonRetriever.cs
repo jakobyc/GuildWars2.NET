@@ -9,14 +9,13 @@ namespace GuildWars2.NET.Core.Serialization.JSON
 {
     public class JsonRetriever
     {
-        private const string requestUrl = "https://api.guildwars2.com/v2/";
+        private const string baseUrl = "https://api.guildwars2.com/v2/";
 
         public string GetJson(string endpoint)
         {
             using (WebClient client = new WebClient())
             {
-                return client.DownloadString($"{requestUrl}{endpoint}");
-
+                return client.DownloadString($"{baseUrl}{endpoint}");
             }
         }
     }

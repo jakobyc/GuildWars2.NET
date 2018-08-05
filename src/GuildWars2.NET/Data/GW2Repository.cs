@@ -21,15 +21,12 @@ namespace GuildWars2.NET.Core.Data
             this.deserializer = deserializer;
             this.retriever = retriever;
         }
-        public GW2Repository(string apiKey) : this(new JsonDeserializer(), new JsonRetriever())
+        public GW2Repository(string apiKey) : this(apiKey, new JsonDeserializer(), new JsonRetriever())
         {
-            this.ApiKey = apiKey;
         }
-        public GW2Repository(string apiKey, JsonDeserializer deserializer, JsonRetriever retriever)
+        public GW2Repository(string apiKey, JsonDeserializer deserializer, JsonRetriever retriever) : this(deserializer, retriever)
         {
             this.ApiKey = apiKey;
-            this.deserializer = deserializer;
-            this.retriever = retriever;
         }
 
         /// <summary>

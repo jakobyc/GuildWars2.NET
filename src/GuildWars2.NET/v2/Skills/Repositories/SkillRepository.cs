@@ -17,7 +17,7 @@ namespace GuildWars2.NET.Core.v2.Skills.Repositories
 
         public ICollection<int> GetAllSkills()
         {
-            return Retrieve<ICollection<int>>(CreateEndpoint("skills"));
+            return Retrieve<ICollection<int>>("skills");
         }
 
         public ICollection<Skill> GetSkills(params string[] ids)

@@ -12,15 +12,14 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
 {
     public class AchievementRepository : GW2Repository
     {
-        public AchievementRepository(string apiKey) : base(apiKey) { }
-        public AchievementRepository(string apiKey, JsonDeserializer deserializer, JsonRetriever retriever) : base(apiKey, deserializer, retriever) { }
+        public AchievementRepository() : base() { }
 
         /// <summary>
         /// Get all achievement ids.
         /// </summary>
         public ICollection<int> GetAchievements()
         {
-            return Retrieve<ICollection<int>>(CreateEndpoint($"achievements"));
+            return Retrieve<ICollection<int>>($"achievements");
         }
 
         /// <summary>
@@ -51,7 +50,7 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
         /// <returns></returns>
         public Category GetCategory(string id)
         {
-            return Retrieve<Category>(CreateEndpoint($"achievements/categories/{id}"));
+            return Retrieve<Category>($"achievements/categories/{id}");
         }
 
         /// <summary>
@@ -76,7 +75,7 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
         /// </summary>
         public Dailies GetDailies()
         {
-            return Retrieve<Dailies>(CreateEndpoint($"achievements/daily"));
+            return Retrieve<Dailies>($"achievements/daily");
         }
 
         /// <summary>
@@ -84,7 +83,7 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
         /// </summary>
         public Dailies GetTomorrowsDailies()
         {
-            return Retrieve<Dailies>(CreateEndpoint($"achievements/daily/tomorrow"));
+            return Retrieve<Dailies>($"achievements/daily/tomorrow");
         }
     }
 }

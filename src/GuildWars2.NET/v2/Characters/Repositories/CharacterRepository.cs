@@ -22,7 +22,7 @@ namespace GuildWars2.NET.Core.v2.Characters.Repositories
     {
         public CharacterRepository(string apiKey) : base(apiKey) { }
         public CharacterRepository(string apiKey, JsonDeserializer deserializer, JsonRetriever retriever) : base(apiKey, deserializer, retriever) { }
-
+        
         public Backstory GetBackstory(string characterName)
         {
             return Retrieve<Backstory>(CreateEndpoint($"characters/{characterName}/backstory", ApiKey));

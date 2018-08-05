@@ -13,7 +13,7 @@ namespace GuildWars2.NET.Core.v2.PvP.Repositories
 
         public ICollection<int> GetWvWAbilities()
         {
-            return Retrieve<ICollection<int>>(CreateEndpoint("wvw/abilities"));
+            return Retrieve<ICollection<int>>("wvw/abilities");
         }
 
         public ICollection<WvWAbility> GetWvWAbilities(params string[] ids)

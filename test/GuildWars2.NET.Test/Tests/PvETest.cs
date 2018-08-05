@@ -24,9 +24,15 @@ namespace GuildWars2.NET.Test.Tests
             AssertCall<BackstoryAnswer>(repository.GetBackstoryAnswer(id));
         }
 
+        [Fact]
+        public void GetBackstoryAnswers()
+        {
+            AssertCall<string[]>(repository.GetBackstoryAnswers());
+        }
+
         [Theory]
         [InlineData("7-54", "22-109")]
-        public void GetBackstoryAnswers(params string[] ids)
+        public void GetBackstoryAnswersById(params string[] ids)
         {
             AssertCall<BackstoryAnswer[]>(repository.GetBackstoryAnswers(ids));
         }

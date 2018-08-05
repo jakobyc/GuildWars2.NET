@@ -23,7 +23,7 @@ namespace GuildWars2.NET.Test.Dependencies
 
         public AchievementRepository GetAchievementRepository()
         {
-            return new AchievementRepository(Config.Instance.ApiKey);
+            return new AchievementRepository();
         }
 
         public CharacterRepository GetCharacterRepository()

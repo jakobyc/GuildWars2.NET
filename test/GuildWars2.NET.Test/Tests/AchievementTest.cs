@@ -18,14 +18,32 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void Get()
+        public void GetAchievements()
         {
-            Assert.NotNull(repository);
-
             AssertCall<int[]>(repository.GetAchievements());
+        }
+
+        [Fact]
+        public void GetCategories()
+        {
             AssertCall<Category[]>(repository.GetCategories());
+        }
+
+        [Fact]
+        public void GetCategory()
+        {
             AssertCall<Category>(repository.GetCategory("1"));
+        }
+
+        [Fact]
+        public void GetDailies()
+        {
             AssertCall<Dailies>(repository.GetDailies());
+        }
+
+        [Fact]
+        public void GetTomorrowsDailies()
+        {
             AssertCall<Dailies>(repository.GetTomorrowsDailies());
         }
     }

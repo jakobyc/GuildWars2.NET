@@ -13,12 +13,12 @@ namespace GuildWars2.NET.Core.v2.PvE.Repositories
 
         public ICollection<string> GetBackstoryAnswers()
         {
-            return Retrieve<ICollection<string>>(CreateEndpoint("backstory/answers"));
+            return Retrieve<ICollection<string>>("backstory/answers");
         }
 
         public BackstoryAnswer GetBackstoryAnswer(string id)
         {
-            return Retrieve<BackstoryAnswer>(CreateEndpoint($"backstory/answers/{id}"));
+            return Retrieve<BackstoryAnswer>($"backstory/answers/{id}");
         }
 
         public ICollection<BackstoryAnswer> GetBackstoryAnswers(params string[] ids)

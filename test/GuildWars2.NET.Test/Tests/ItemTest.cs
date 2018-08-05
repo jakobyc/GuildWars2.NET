@@ -18,13 +18,22 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Theory]
-        [InlineData("1", "19699")]
-        public void Get(string recipeId, string itemId)
+        [InlineData("1")]
+        public void GetRecipe(string recipeId)
         {
-            Assert.NotNull(repository);
-
             AssertCall<Recipe>(repository.GetRecipe(recipeId));
+        }
+
+        [Fact]
+        public void GetRecipes()
+        {
             AssertCall<int[]>(repository.GetRecipes());
+        }
+
+        [Theory]
+        [InlineData("19699")]
+        public void GetRecipesByIds(string itemId)
+        {
             AssertCall<int[]>(repository.GetRecipes(itemId, true));
         }
     }

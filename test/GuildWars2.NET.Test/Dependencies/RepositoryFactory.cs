@@ -2,6 +2,8 @@
 using GuildWars2.NET.Core.v2.Achievements.Repositories;
 using GuildWars2.NET.Core.v2.Characters.Repositories;
 using GuildWars2.NET.Core.v2.Items.Repositories;
+using GuildWars2.NET.Core.v2.PvE.Repositories;
+using GuildWars2.NET.Core.v2.PvP.Repositories;
 using GuildWars2.NET.Test.Tests;
 using System;
 using System.Collections.Generic;
@@ -32,6 +34,16 @@ namespace GuildWars2.NET.Test.Dependencies
         public ItemRepository GetItemRepository()
         {
             return new ItemRepository();
+        }
+
+        public PvERepository GetPvERepository()
+        {
+            return new PvERepository();
+        }
+
+        public PvPRepository GetPvPRepository()
+        {
+            return new PvPRepository();
         }
     }
 }

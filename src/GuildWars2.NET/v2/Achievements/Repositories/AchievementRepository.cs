@@ -1,4 +1,5 @@
-﻿using GuildWars2.NET.Core.Data;
+﻿using GuildWars2.NET.Builders.Endpoints;
+using GuildWars2.NET.Core.Data;
 using GuildWars2.NET.Core.Serialization.JSON;
 using GuildWars2.NET.Core.v2.Achievements.Entities;
 using System;
@@ -31,10 +32,10 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
         {
             if (ids.Length > 0)
             {
-                ICollection<string> parameters = new List<string>();
-                parameters.Add(ParameterBuilder.Build("ids", ids));
+                IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("achievements")
+                                                                .AddParameter("ids", ids);
 
-                return Retrieve<ICollection<Achievement>>(CreateEndpoint($"achievements", parameters));
+                return Retrieve<ICollection<Achievement>>(builder);
             }
             else
             {
@@ -61,12 +62,12 @@ namespace GuildWars2.NET.Core.v2.Achievements.Repositories
             int[] categoryIds = Retrieve<ICollection<int>>(CreateEndpoint($"achievements/categories")).ToArray<int>();
             ICollection<Category> categories = new List<Category>();
 
-            ICollection<string> parameters = new List<string>();
-            parameters.Add(ParameterBuilder.Build("ids", categoryIds));
-
             if (categoryIds.Length > 0)
             {
-                categories = Retrieve<ICollection<Category>>(CreateEndpoint($"achievements/categories", parameters));
+                IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("achievements")
+                                                                .AddParameter("ids", categoryIds);
+
+                categories = Retrieve<ICollection<Category>>(builder);
             }
             return categories;
         }

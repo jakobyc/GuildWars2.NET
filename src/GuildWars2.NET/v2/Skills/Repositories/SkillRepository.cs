@@ -1,4 +1,5 @@
-﻿using GuildWars2.NET.Core.Data;
+﻿using GuildWars2.NET.Builders.Endpoints;
+using GuildWars2.NET.Core.Data;
 using GuildWars2.NET.Core.Serialization.JSON;
 using GuildWars2.NET.Core.v2.Skills.Entities;
 using System;
@@ -21,10 +22,10 @@ namespace GuildWars2.NET.Core.v2.Skills.Repositories
 
         public ICollection<Skill> GetSkills(params string[] ids)
         {
-            ICollection<string> parameters = new List<string>();
-            parameters.Add(ParameterBuilder.Build("ids", ids));
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("skills")
+                                                            .AddParameter("ids", ids);
 
-            return Retrieve<ICollection<Skill>>(CreateEndpoint("skills", parameters));
+            return Retrieve<ICollection<Skill>>(builder);
         }
     }
 }

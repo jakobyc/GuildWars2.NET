@@ -1,4 +1,4 @@
-﻿using GuildWars2.NET.Core.Serialization.JSON;
+﻿using GuildWars2.NET.Serialization.JSON;
 using System;
 using System.Collections.Generic;
 using System.Text;

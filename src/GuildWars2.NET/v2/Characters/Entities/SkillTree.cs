@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace GuildWars2.NET.Core.v2.Characters.Entities
+namespace GuildWars2.NET.v2.Characters.Entities
 {
     [DataContract]
     public class SkillTree

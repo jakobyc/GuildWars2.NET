@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GuildWars2.NET.Core.v2.Account.Entities;
-using GuildWars2.NET.Core.Serialization.JSON;
-using GuildWars2.NET.Core.Data;
+using GuildWars2.NET.v2.Account.Entities;
+using GuildWars2.NET.Serialization.JSON;
+using GuildWars2.NET.Data;
 using GuildWars2.NET.Builders.Endpoints;
 
-namespace GuildWars2.NET.Core.v2.Account.Repositories
+namespace GuildWars2.NET.v2.Account.Repositories
 {
     public class AccountRepository : GW2Repository
     {

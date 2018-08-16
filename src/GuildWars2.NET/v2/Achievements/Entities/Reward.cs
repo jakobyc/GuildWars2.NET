@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuildWars2.NET.Core.v2.Achievements.Entities
+namespace GuildWars2.NET.v2.Achievements.Entities
 {
     [DataContract]
     public class Reward

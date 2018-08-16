@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
 
-namespace GuildWars2.NET.Core.Serialization.JSON
+namespace GuildWars2.NET.Serialization.JSON
 {
     public class JsonRetriever
     {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
-using GuildWars2.NET.Core.Serialization.JSON;
+using GuildWars2.NET.Serialization.JSON;
 
-namespace GuildWars2.NET.Core.v2.Characters.Entities
+namespace GuildWars2.NET.v2.Characters.Entities
 {
     [DataContract]
     public class EquipmentStats

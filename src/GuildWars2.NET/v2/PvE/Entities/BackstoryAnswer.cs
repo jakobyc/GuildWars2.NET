@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace GuildWars2.NET.Core.v2.PvE.Entities
+namespace GuildWars2.NET.v2.PvE.Entities
 {
     [DataContract]
     public class BackstoryAnswer

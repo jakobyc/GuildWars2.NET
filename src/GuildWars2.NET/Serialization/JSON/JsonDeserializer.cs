@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Runtime.Serialization.Json;
 
-namespace GuildWars2.NET.Core.Serialization.JSON
+namespace GuildWars2.NET.Serialization.JSON
 {
     public class JsonDeserializer
     {

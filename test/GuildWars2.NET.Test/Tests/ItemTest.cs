@@ -1,5 +1,5 @@
-﻿using GuildWars2.NET.Core.v2.Items.Entities;
-using GuildWars2.NET.Core.v2.Items.Repositories;
+﻿using GuildWars2.NET.v2.Items.Entities;
+using GuildWars2.NET.v2.Items.Repositories;
 using GuildWars2.NET.Test.Dependencies;
 using System;
 using System.Collections.Generic;

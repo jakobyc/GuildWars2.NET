@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace GuildWars2.NET.Core.v2.Characters.Entities
+namespace GuildWars2.NET.v2.Characters.Entities
 {
     public interface ISkill
     {

@@ -60,8 +60,16 @@ namespace GuildWars2.NET.Core.TestClient
                 }
             }
 
+            object instance;
             // Invoke method and get results:
-            var instance = Activator.CreateInstance(type, apiKey);
+            if (!string.IsNullOrEmpty(apiKey))
+            {
+                instance = Activator.CreateInstance(type, apiKey);
+            }
+            else
+            {
+                instance = Activator.CreateInstance(type);
+            }
             var results = chosenMethod.Invoke(instance, parameters.ToArray());
 
             if (results != null)

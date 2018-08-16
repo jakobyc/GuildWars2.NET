@@ -39,22 +39,22 @@ namespace GuildWars2.NET.Core.TestClient
                     Init.Start(typeof(AccountRepository), apiKey);
                     break;
                 case ("2"):
-                    Init.Start(typeof(AchievementRepository), apiKey);
+                    Init.Start(typeof(AchievementRepository), string.Empty);
                     break;
                 case ("3"):
                     Init.Start(typeof(CharacterRepository), apiKey);
                     break;
                 case ("4"):
-                    Init.Start(typeof(SkillRepository), apiKey);
+                    Init.Start(typeof(SkillRepository), string.Empty);
                     break;
                 case ("5"):
-                    Init.Start(typeof(ItemRepository), apiKey);
+                    Init.Start(typeof(ItemRepository), string.Empty);
                     break;
                 case ("6"):
-                    Init.Start(typeof(PvERepository), apiKey);
+                    Init.Start(typeof(PvERepository), string.Empty);
                     break;
                 case ("7"):
-                    Init.Start(typeof(PvPRepository), apiKey);
+                    Init.Start(typeof(PvPRepository), string.Empty);
                     break;
             }
 

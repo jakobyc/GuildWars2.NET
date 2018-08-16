@@ -4,6 +4,7 @@ using GuildWars2.NET.v2.PvP.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace GuildWars2.NET.Core.v2.PvP.Repositories
 {
@@ -21,6 +22,11 @@ namespace GuildWars2.NET.Core.v2.PvP.Repositories
         public Match GetMatch(string id)
         {
             return Retrieve<Match>($"wvw/matches/{id}");
+        }
+
+        public async Task<Match> GetMatchAsync(string id)
+        {
+            return await RetrieveAsync<Match>($"wvw/matches/{id}");
         }
 
         public MatchOverview GetMatchOverview(string worldId)

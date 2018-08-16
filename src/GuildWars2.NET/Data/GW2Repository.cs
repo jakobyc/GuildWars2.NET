@@ -39,6 +39,13 @@ namespace GuildWars2.NET.Core.Data
             return Retrieve<T>(builder);
         }
 
+        protected async Task<T> RetrieveAsync<T>(string endpoint)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint(endpoint);
+
+            return await RetrieveAsync<T>(builder);
+        }
+
         protected T Retrieve<T>(IEndpointBuilder builder)
         {
             if (!string.IsNullOrEmpty(ApiKey))
@@ -46,6 +53,16 @@ namespace GuildWars2.NET.Core.Data
                 builder.AddParameter("access_token", ApiKey);
             }
             string json = retriever.GetJson(builder.Build());
+            return deserializer.Deserialize<T>(json);
+        }
+
+        protected async Task<T> RetrieveAsync<T>(IEndpointBuilder builder)
+        {
+            if (!string.IsNullOrEmpty(ApiKey))
+            {
+                builder.AddParameter("access_token", ApiKey);
+            }
+            string json = await retriever.GetJsonAsync(builder.Build());
             return deserializer.Deserialize<T>(json);
         }
     }

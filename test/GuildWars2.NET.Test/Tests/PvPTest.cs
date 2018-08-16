@@ -4,6 +4,7 @@ using GuildWars2.NET.v2.PvP.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace GuildWars2.NET.Test.Tests
@@ -22,6 +23,13 @@ namespace GuildWars2.NET.Test.Tests
         public void GetMatch(string id)
         {
             AssertCall<Match>(repository.GetMatch(id));
+        }
+
+        [Theory]
+        [InlineData("1-1")]
+        public async Task GetMatchAsync(string id)
+        {
+            AssertCall<Match>(await repository.GetMatchAsync(id));
         }
 
         [Theory]

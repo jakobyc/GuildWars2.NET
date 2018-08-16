@@ -12,7 +12,7 @@ namespace GuildWars2.NET.v2.Skills.Repositories
 {
     public class SkillRepository : GW2Repository
     {
-        public SkillRepository(string apiKey) : base() { }
+        public SkillRepository() : base() { }
 
         public ICollection<int> GetAllSkills()
         {

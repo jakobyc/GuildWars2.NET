@@ -76,7 +76,7 @@ namespace GuildWars2.NET.v2.Characters.Repositories
             CharacterSkills characterSkills =  Retrieve<CharacterSkills>($"characters/{characterName}/skills");
 
             ICollection<Skill> skills = new List<Skill>();
-            SkillRepository repository = new SkillRepository(ApiKey);
+            SkillRepository repository = new SkillRepository();
             switch (type)
             {
                 case (SkillType.PvE):

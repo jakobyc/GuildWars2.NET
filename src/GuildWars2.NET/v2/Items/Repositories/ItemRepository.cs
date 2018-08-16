@@ -1,15 +1,14 @@
-﻿using GuildWars2.NET.Core.Data;
-using GuildWars2.NET.Core.v2.Items.Entities;
+﻿using GuildWars2.NET.Data;
+using GuildWars2.NET.v2.Items.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GuildWars2.NET.Core.v2.Items.Repositories
+namespace GuildWars2.NET.v2.Items.Repositories
 {
     public class ItemRepository : GW2Repository
     {
-        public ItemRepository() : base(string.Empty) { } 
-        public ItemRepository(string apiKey) : base(apiKey) { }
+        public ItemRepository() : base() { } 
 
         /// <summary>
         /// Get a specific recipe by id.

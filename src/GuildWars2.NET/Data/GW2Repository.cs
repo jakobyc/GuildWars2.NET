@@ -1,12 +1,12 @@
 ﻿using GuildWars2.NET.Builders.Endpoints;
-using GuildWars2.NET.Core.Serialization.JSON;
+using GuildWars2.NET.Serialization.JSON;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuildWars2.NET.Core.Data
+namespace GuildWars2.NET.Data
 {
     public abstract class GW2Repository
     {

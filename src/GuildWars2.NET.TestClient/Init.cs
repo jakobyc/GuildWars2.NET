@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace GuildWars2.NET.Core.TestClient
+namespace GuildWars2.NET.TestClient
 {
     internal class Init
     {

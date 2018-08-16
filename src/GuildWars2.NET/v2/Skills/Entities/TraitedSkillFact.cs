@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GuildWars2.NET.Core.v2.Skills.Entities
+namespace GuildWars2.NET.v2.Skills.Entities
 {
     [DataContract]
     public class TraitedSkillFact : SkillFact

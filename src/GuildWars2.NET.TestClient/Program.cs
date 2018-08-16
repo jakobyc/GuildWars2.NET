@@ -1,13 +1,13 @@
-﻿using GuildWars2.NET.Core.v2.Account.Repositories;
-using GuildWars2.NET.Core.v2.Achievements.Repositories;
-using GuildWars2.NET.Core.v2.Characters.Repositories;
-using GuildWars2.NET.Core.v2.Items.Repositories;
-using GuildWars2.NET.Core.v2.PvE.Repositories;
-using GuildWars2.NET.Core.v2.PvP.Repositories;
-using GuildWars2.NET.Core.v2.Skills.Repositories;
+﻿using GuildWars2.NET.v2.Account.Repositories;
+using GuildWars2.NET.v2.Achievements.Repositories;
+using GuildWars2.NET.v2.Characters.Repositories;
+using GuildWars2.NET.v2.Items.Repositories;
+using GuildWars2.NET.v2.PvE.Repositories;
+using GuildWars2.NET.v2.PvP.Repositories;
+using GuildWars2.NET.v2.Skills.Repositories;
 using System;
 
-namespace GuildWars2.NET.Core.TestClient
+namespace GuildWars2.NET.TestClient
 {
     internal class Program
     {

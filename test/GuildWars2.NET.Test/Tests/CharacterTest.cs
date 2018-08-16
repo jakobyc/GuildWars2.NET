@@ -1,5 +1,5 @@
-﻿using GuildWars2.NET.Core.v2.Characters.Entities;
-using GuildWars2.NET.Core.v2.Characters.Repositories;
+﻿using GuildWars2.NET.v2.Characters.Entities;
+using GuildWars2.NET.v2.Characters.Repositories;
 using GuildWars2.NET.Test.Dependencies;
 using System;
 using System.Collections.Generic;
@@ -74,19 +74,19 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetPvESkills()
         {
-            AssertCall<Core.v2.Skills.Entities.Skill[]>(repository.GetSkills(Config.Instance.Character, SkillType.PvE));
+            AssertCall<v2.Skills.Entities.Skill[]>(repository.GetSkills(Config.Instance.Character, SkillType.PvE));
         }
 
         [Fact]
         public void GetPvPSkills()
         {
-            AssertCall<Core.v2.Skills.Entities.Skill[]>(repository.GetSkills(Config.Instance.Character, SkillType.PvP));
+            AssertCall<v2.Skills.Entities.Skill[]>(repository.GetSkills(Config.Instance.Character, SkillType.PvP));
         }
 
         [Fact]
         public void GetWvWSkills()
         {
-            AssertCall<Core.v2.Skills.Entities.Skill[]>(repository.GetSkills(Config.Instance.Character, SkillType.WvW));
+            AssertCall<v2.Skills.Entities.Skill[]>(repository.GetSkills(Config.Instance.Character, SkillType.WvW));
         }
 
         [Fact]

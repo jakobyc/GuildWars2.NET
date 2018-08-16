@@ -1,11 +1,11 @@
 ﻿using GuildWars2.NET.Builders.Endpoints;
-using GuildWars2.NET.Core.Data;
-using GuildWars2.NET.Core.v2.PvE.Entities;
+using GuildWars2.NET.Data;
+using GuildWars2.NET.v2.PvE.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GuildWars2.NET.Core.v2.PvE.Repositories
+namespace GuildWars2.NET.v2.PvE.Repositories
 {
     public class PvERepository : GW2Repository
     {

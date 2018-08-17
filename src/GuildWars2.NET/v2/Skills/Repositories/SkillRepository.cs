@@ -1,6 +1,5 @@
 ﻿using GuildWars2.NET.Builders.Endpoints;
 using GuildWars2.NET.Data;
-using GuildWars2.NET.Serialization.JSON;
 using GuildWars2.NET.v2.Skills.Entities;
 using System;
 using System.Collections.Generic;

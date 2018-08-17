@@ -43,8 +43,8 @@ namespace GuildWars2.NET.v2.Skills.Entities
         public ICollection<string> TransformSkills { get; set; }
         [DataMember(Name = "bundle_skills")]
         public ICollection<string> BundleSkills { get; set; }
-        [DataMember(Name = "toolbelt_skill")]
-        public ICollection<string> ToolbeltSkill { get; set; }
+        [DataMember(Name = "flags")]
+        public ICollection<string> Flags { get; set; }
 
         [DataMember(Name = "cost")]
         public int Cost { get; set; }
@@ -56,5 +56,7 @@ namespace GuildWars2.NET.v2.Skills.Entities
         public int NextChain { get; set; }
         [DataMember(Name = "prev_chain")]
         public int PreviousChain { get; set; }
+        [DataMember(Name = "toolbelt_skill")]
+        public int ToolbeltSkill { get; set; }
     }
 }

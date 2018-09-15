@@ -1,56 +1,31 @@
-﻿using GuildWars2.NET.Serialization.JSON;
+﻿using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Runtime.Serialization;
-using System.Text;
-using Xunit;
 
 namespace GuildWars2.NET.Test.Tests
 {
     [DataContract]
     public class Config
     {
-        public static Config Instance { get; } = Load();
+        private static IConfiguration instance { get; } = Init();
 
         private Config() { }
 
-        [DataMember(Name = "api_key")]
-        public string ApiKey { get; private set; }
-
-        [DataMember(Name = "character")]
-        public string Character { get; private set; }
-
-        public static Config Load()
+        public static string GetApiKey()
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory;
-            int index = path.IndexOf("\\GuildWars2.NET\\");
-            if (index != -1)
-            {
-                // Get root:
-                path = path.Substring(0, index + ("\\GuildWars2.NET\\".Length));
-                // Append 
-                path += "test\\GuildWars2.NET.Test\\Tests\\config.json";
+            return instance?["apiKey"];
+        }
 
-                Assert.True(File.Exists(path), $"File not found at the set path ({path}).");
-                if (File.Exists(path))
-                {
-                    using (FileStream stream = new FileStream(path, FileMode.Open))
-                    {
-                        using (StreamReader reader = new StreamReader(stream))
-                        {
-                            JsonDeserializer deserializer = new JsonDeserializer();
+        public static string GetCharacter()
+        {
+            return instance?["character"];
+        }
 
-                            string json = reader.ReadToEnd();
-                            Config config = deserializer.Deserialize<Config>(json);
-                            Assert.NotNull(config.ApiKey);
-
-                            return config;
-                        }
-                    }
-                }
-            }
-            return null;
+        public static IConfiguration Init()
+        {
+            return new ConfigurationBuilder().AddJsonFile("appsettings.test.json")
+                                             .Build();
         }
     }
 }

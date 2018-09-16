@@ -1,37 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace GuildWars2.NET.v2.PvP.Entities
 {
-    [DataContract]
     public class MatchStats
     {
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public string Id { get; set; }
 
 
-        [DataMember(Name = "deaths")]
+        [JsonProperty("deaths")]
         public WvWStats Deaths { get; set; }
-        [DataMember(Name = "kills")]
+        [JsonProperty("kills")]
         public WvWStats Kills { get; set; }
 
-        [DataMember(Name = "maps")]
+        [JsonProperty("maps")]
         public ICollection<Map> Maps { get; set; }
 
-        [DataContract]
         public class Map
         {
-            [DataMember(Name = "id")]
+            [JsonProperty("id")]
             public int Id { get; set; }
 
-            [DataMember(Name = "type")]
+            [JsonProperty("type")]
             public string Type { get; set; }
 
-            [DataMember(Name = "deaths")]
+            [JsonProperty("deaths")]
             public WvWStats Deaths { get; set; }
-            [DataMember(Name = "kills")]
+            [JsonProperty("kills")]
             public WvWStats Kills { get; set; }
         }
     }

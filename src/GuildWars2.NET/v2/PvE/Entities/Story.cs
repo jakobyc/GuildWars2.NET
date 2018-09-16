@@ -1,39 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace GuildWars2.NET.v2.PvE.Entities
 {
-    [DataContract]
     public class Story
     {
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public string Id { get; set; }
-        [DataMember(Name = "season")]
+        [JsonProperty("season")]
         public string Season { get; set; }
-        [DataMember(Name = "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DataMember(Name = "description")]
+        [JsonProperty("description")]
         public string Description { get; set; }
-        [DataMember(Name = "timeline")]
+        [JsonProperty("timeline")]
         public string Timeline { get; set; }
 
-        [DataMember(Name = "level")]
+        [JsonProperty("level")]
         public int Level { get; set; }
-        [DataMember(Name = "order")]
+        [JsonProperty("order")]
         public int Order { get; set; }
 
-        [DataMember(Name = "races")]
+        [JsonProperty("races")]
         public ICollection<string> Races { get; set; }
 
-        [DataMember(Name = "chapters")]
+        [JsonProperty("chapters")]
         public ICollection<Chapter> Chapters { get; set; }
 
-        [DataContract]
         public class Chapter
         {
-            [DataMember(Name = "name")]
+            [JsonProperty("name")]
             public string Name { get; set; }
         }
     }

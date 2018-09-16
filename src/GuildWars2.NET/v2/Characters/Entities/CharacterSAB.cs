@@ -1,49 +1,45 @@
 ﻿using GuildWars2.NET.Serialization.JSON;
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace GuildWars2.NET.v2.Characters.Entities
 {
-    [DataContract]
     public class CharacterSAB
     {
-        [DataMember(Name = "zones")]
+        [JsonProperty("zones")]
         public ICollection<Zone> Zones { get; set; }
-        [DataMember(Name = "unlocks")]
+        [JsonProperty("unlocks")]
         public ICollection<Unlock> Unlocks { get; set; }
-        [DataMember(Name = "songs")]
+        [JsonProperty("songs")]
         public ICollection<Song> Songs { get; set; }
 
-        [DataContract]
         public class Zone
         {
-            [DataMember(Name = "id")]
+            [JsonProperty("id")]
             public int Id { get; set; }
-            [DataMember(Name = "mode")]
+            [JsonProperty("mode")]
             public string Mode { get; set; }
-            [DataMember(Name = "world")]
+            [JsonProperty("world")]
             public int World { get; set; }
-            [DataMember(Name = "zone")]
+            [JsonProperty("zone")]
             public int ZoneNumber { get; set; }
         }
 
-        [DataContract]
         public class Unlock
         {
-            [DataMember(Name = "id")]
+            [JsonProperty("id")]
             public int Id { get; set; }
-            [DataMember(Name = "name")]
+            [JsonProperty("name")]
             public string Name { get; set; }
         }
 
-        [DataContract]
         public class Song
         {
-            [DataMember(Name = "id")]
+            [JsonProperty("id")]
             public int Id { get; set; }
-            [DataMember(Name = "name")]
+            [JsonProperty("name")]
             public string Name { get; set; }
         }
     }

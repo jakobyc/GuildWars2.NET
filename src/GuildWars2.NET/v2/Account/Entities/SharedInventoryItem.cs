@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using GuildWars2.NET.Serialization.JSON;
 
 namespace GuildWars2.NET.v2.Account.Entities
 {
-    [DataContract]
     public class SharedInventoryItem
     {
-        [DataMember(Name= "id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
-        [DataMember(Name = "count")]
+        [JsonProperty("count")]
         public int Count { get; set; }
 
-        [DataMember(Name = "binding")]
+        [JsonProperty("binding")]
         public string Binding { get; set; }
     }
 }

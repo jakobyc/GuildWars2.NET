@@ -1,28 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace GuildWars2.NET.v2.PvE.Entities
 {
-    [DataContract]
     public class BackstoryAnswer
     {
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public string Id { get; set; }
-        [DataMember(Name = "title")]
+        [JsonProperty("title")]
         public string Title { get; set; }
-        [DataMember(Name = "description")]
+        [JsonProperty("description")]
         public string Description { get; set; }
-        [DataMember(Name = "journal")]
+        [JsonProperty("journal")]
         public string Journal { get; set; }
 
-        [DataMember(Name = "professions")]
+        [JsonProperty("professions")]
         public ICollection<string> Professions { get; set; }
-        [DataMember(Name = "races")]
+        [JsonProperty("races")]
         public ICollection<string> Races { get; set; }
 
-        [DataMember(Name = "question")]
+        [JsonProperty("question")]
         public int Question { get; set; }
 
     }

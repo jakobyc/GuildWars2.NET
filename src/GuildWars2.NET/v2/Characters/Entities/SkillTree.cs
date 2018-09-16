@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace GuildWars2.NET.v2.Characters.Entities
 {
-    [DataContract]
     public class SkillTree
     {
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
-        [DataMember(Name = "spent")]
+        [JsonProperty("spent")]
         public int Spent { get; set; }
-        [DataMember(Name = "done")]
+        [JsonProperty("done")]
         public bool Done { get; set; }
     }
 }

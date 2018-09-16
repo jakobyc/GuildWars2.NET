@@ -3,31 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using GuildWars2.NET.Serialization.JSON;
 
 namespace GuildWars2.NET.v2.Characters.Entities
 {
-    [DataContract]
     public class Attributes
     {
-        [DataMember(Name = "Power")]
+        [JsonProperty("Power")]
         public int Power { get; set; }
-        [DataMember(Name = "Precision")]
+        [JsonProperty("Precision")]
         public int Precision { get; set; }
-        [DataMember(Name = "Toughness")]
+        [JsonProperty("Toughness")]
         public int Toughness { get; set; }
-        [DataMember(Name = "Vitality")]
+        [JsonProperty("Vitality")]
         public int Vitality { get; set; }
-        [DataMember(Name = "Condition Damage")]
+        [JsonProperty("Condition Damage")]
         public int ConditionDamage { get; set; }
-        [DataMember(Name = "Condition Duration")]
+        [JsonProperty("Condition Duration")]
         public int ConditionDuration { get; set; }
-        [DataMember(Name = "Healing")]
+        [JsonProperty("Healing")]
         public int Healing { get; set; }
-        [DataMember(Name = "BoonDuration")]
+        [JsonProperty("BoonDuration")]
         public int BoonDuration { get; set; }
-        [DataMember(Name = "CritDamage")]
+        [JsonProperty("CritDamage")]
         public int CriticalDamage { get; set; }
     }
 }

@@ -2,28 +2,27 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GuildWars2.NET.v2.Achievements.Entities
 {
-    [DataContract]
     public class Category
     {
-        [DataMember(Name = "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DataMember(Name = "description")]
+        [JsonProperty("description")]
         public string Description { get; set; }
-        [DataMember(Name = "icon")]
+        [JsonProperty("icon")]
         public string Icon { get; set; }
 
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
-        [DataMember(Name = "order")]
+        [JsonProperty("order")]
         public int Order { get; set; }
 
-        [DataMember(Name = "achievements")]
+        [JsonProperty("achievements")]
         public ICollection<int> Achievements { get; set; }
     }
 }

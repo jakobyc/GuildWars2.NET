@@ -20,13 +20,13 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetAchievements()
         {
-            AssertCall<int[]>(repository.GetAchievements());
+            AssertCall<List<int>>(repository.GetAchievements());
         }
 
         [Fact]
         public void GetCategories()
         {
-            AssertCall<Category[]>(repository.GetCategories());
+            AssertCall<List<Category>>(repository.GetCategories());
         }
 
         [Fact]

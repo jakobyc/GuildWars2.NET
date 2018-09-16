@@ -3,36 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using GuildWars2.NET.Serialization.JSON;
 
 namespace GuildWars2.NET.v2.Characters.Entities
 {
-    [DataContract]
     public class EquipmentInfo
     {
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
-        [DataMember(Name = "skin")]
+        [JsonProperty("skin")]
         public int Skin { get; set; }
-        [DataMember(Name = "charges")]
+        [JsonProperty("charges")]
         public int Charges { get; set; }
 
-        [DataMember(Name = "slot")]
+        [JsonProperty("slot")]
         public string Slot { get; set; }
-        [DataMember(Name = "binding")]
+        [JsonProperty("binding")]
         public string Binding { get; set; }
-        [DataMember(Name = "bound_to")]
+        [JsonProperty("bound_to")]
         public string BoundTo { get; set; }
 
-        [DataMember(Name = "infusions")]
+        [JsonProperty("infusions")]
         public ICollection<string> InfusionIDs { get; set; }
-        [DataMember(Name = "upgrades")]
+        [JsonProperty("upgrades")]
         public ICollection<string> UpgradesIDs { get; set; }
-        [DataMember(Name = "dyes")]
+        [JsonProperty("dyes")]
         public ICollection<string> Dyes { get; set; }
 
-        [DataMember(Name = "stats")]
+        [JsonProperty("stats")]
         public EquipmentStats Stats { get; set; }
     }
 }

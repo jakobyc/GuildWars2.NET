@@ -27,14 +27,14 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetRecipes()
         {
-            AssertCall<int[]>(repository.GetRecipes());
+            AssertCall<List<int>>(repository.GetRecipes());
         }
 
         [Theory]
         [InlineData("19699")]
         public void GetRecipesByIds(string itemId)
         {
-            AssertCall<int[]>(repository.GetRecipes(itemId, true));
+            AssertCall<List<int>>(repository.GetRecipes(itemId, true));
         }
     }
 }

@@ -3,26 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 
 namespace GuildWars2.NET.v2.Account.Entities
 {
-    [DataContract]
     public class AccountAchievement
     {
-        [DataMember(Name = "bits")]
+        [JsonProperty("bits")]
         public ICollection<string> bits { get; set; }
 
-        [DataMember(Name="id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
-        [DataMember(Name = "current")]
+        [JsonProperty("current")]
         public int Current { get; set; }
-        [DataMember(Name = "max")]
+        [JsonProperty("max")]
         public int Max { get; set; }
-        [DataMember(Name = "repeated")]
+        [JsonProperty("repeated")]
         public int Repeated { get; set; }
 
-        [DataMember(Name = "done")]
+        [JsonProperty("done")]
         public bool Done { get; set; }
     }
 }

@@ -21,14 +21,14 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetTitles()
         {
-            AssertCall<string[]>(repository.GetTitles());
+            AssertCall<List<string>>(repository.GetTitles());
         }
 
         [Theory]
         [InlineData("40", "90")]
         public void GetTitlesById(params string[] ids)
         {
-            AssertCall<Title[]>(repository.GetTitles(ids));
+            AssertCall<List<Title>>(repository.GetTitles(ids));
         }
 
         [Theory]

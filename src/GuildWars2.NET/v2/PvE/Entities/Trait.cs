@@ -1,64 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace GuildWars2.NET.v2.PvE.Entities
 {
-    [DataContract]
     public class Trait
     {
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
-        [DataMember(Name = "tier")]
+        [JsonProperty("tier")]
         public int Tier { get; set; }
-        [DataMember(Name = "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DataMember(Name = "description")]
+        [JsonProperty("description")]
         public string Description { get; set; }
-        [DataMember(Name = "slot")]
+        [JsonProperty("slot")]
         public string Slot { get; set; }
-        [DataMember(Name = "specialization")]
+        [JsonProperty("specialization")]
         public int Specialization { get; set; }
-        [DataMember(Name = "icon")]
+        [JsonProperty("icon")]
         public string Icon { get; set; }
-        [DataMember(Name = "facts")]
+        [JsonProperty("facts")]
         public List<Fact> Facts { get; set; }
-        [DataMember(Name = "traited_facts")]
+        [JsonProperty("traited_facts")]
         public List<TraitedFact> TraitedFacts { get; set; }
 
 
-        [DataContract]
         public class Fact
         {
-            [DataMember(Name = "text")]
+            [JsonProperty("text")]
             public string Text { get; set; }
-            [DataMember(Name = "type")]
+            [JsonProperty("type")]
             public string Type { get; set; }
-            [DataMember(Name = "icon")]
+            [JsonProperty("icon")]
             public string Icon { get; set; }
-            [DataMember(Name = "percent")]
+            [JsonProperty("percent")]
             public int Percent { get; set; }
-            [DataMember(Name = "value")]
+            [JsonProperty("value")]
             public int? Value { get; set; }
-            [DataMember(Name = "target")]
+            [JsonProperty("target")]
             public string Target { get; set; }
         }
 
-        [DataContract]
         public class TraitedFact
         {
-            [DataMember(Name = "text")]
+            [JsonProperty("text")]
             public string Text { get; set; }
-            [DataMember(Name = "type")]
+            [JsonProperty("type")]
             public string Type { get; set; }
-            [DataMember(Name = "icon")]
+            [JsonProperty("icon")]
             public string Icon { get; set; }
-            [DataMember(Name = "value")]
+            [JsonProperty("value")]
             public int Value { get; set; }
-            [DataMember(Name = "requires_trait")]
+            [JsonProperty("requires_trait")]
             public int RequiresTrait { get; set; }
-            [DataMember(Name = "target")]
+            [JsonProperty("target")]
             public string Target { get; set; }
         }
     }

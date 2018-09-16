@@ -3,34 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using GuildWars2.NET.Serialization.JSON;
 
 namespace GuildWars2.NET.v2.Characters.Entities
 {
-    [DataContract]
     public class CoreInformation
     {
-        [DataMember(Name = "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DataMember(Name = "race")]
+        [JsonProperty("race")]
         public string Race { get; set; }
-        [DataMember(Name = "gender")]
+        [JsonProperty("gender")]
         public string Gender { get; set; }
-        [DataMember(Name = "profession")]
+        [JsonProperty("profession")]
         public string Profession { get; set; }
-        [DataMember(Name = "guild")]
+        [JsonProperty("guild")]
         public string CurrentGuild { get; set; }
-        [DataMember(Name = "created")]
+        [JsonProperty("created")]
         public string Created { get; set; }
 
-        [DataMember(Name = "level")]
+        [JsonProperty("level")]
         public int Level { get; set; }
-        [DataMember(Name = "age")]
+        [JsonProperty("age")]
         public int Age { get; set; }
-        [DataMember(Name = "deaths")]
+        [JsonProperty("deaths")]
         public int Deaths { get; set; }
-        [DataMember(Name = "title")]
+        [JsonProperty("title")]
         public int CurrentTitleId { get; set; }
     }
 }

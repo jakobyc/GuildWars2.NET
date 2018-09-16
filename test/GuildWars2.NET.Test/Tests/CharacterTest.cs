@@ -44,7 +44,7 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetHeroPoints()
         {
-            AssertCall<string[]>(repository.GetHeroPoints(Config.GetCharacter()));
+            AssertCall<List<string>>(repository.GetHeroPoints(Config.GetCharacter()));
         }
 
         [Fact]
@@ -74,19 +74,19 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetPvESkills()
         {
-            AssertCall<v2.Skills.Entities.Skill[]>(repository.GetSkills(Config.GetCharacter(), SkillType.PvE));
+            AssertCall<List<v2.Skills.Entities.Skill>>(repository.GetSkills(Config.GetCharacter(), SkillType.PvE));
         }
 
         [Fact]
         public void GetPvPSkills()
         {
-            AssertCall<v2.Skills.Entities.Skill[]>(repository.GetSkills(Config.GetCharacter(), SkillType.PvP));
+            AssertCall<List<v2.Skills.Entities.Skill>>(repository.GetSkills(Config.GetCharacter(), SkillType.PvP));
         }
 
         [Fact]
         public void GetWvWSkills()
         {
-            AssertCall<v2.Skills.Entities.Skill[]>(repository.GetSkills(Config.GetCharacter(), SkillType.WvW));
+            AssertCall<List<v2.Skills.Entities.Skill>>(repository.GetSkills(Config.GetCharacter(), SkillType.WvW));
         }
 
         [Fact]

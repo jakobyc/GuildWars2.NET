@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace GuildWars2.NET.v2.PvP.Entities
@@ -8,18 +8,17 @@ namespace GuildWars2.NET.v2.PvP.Entities
     /// <summary>
     /// WvW Guild Stats
     /// </summary>
-    [DataContract]
     public class GuildStats
     {
-        [DataMember(Name = "guild_id")]
+        [JsonProperty("guild_id")]
         public string GuildId { get; set; }
 
-        [DataMember(Name = "deaths")]
+        [JsonProperty("deaths")]
         public WvWStats Deaths { get; set; }
-        [DataMember(Name = "kills")]
+        [JsonProperty("kills")]
         public WvWStats Kills { get; set; }
 
-        [DataMember(Name = "wilson")]
+        [JsonProperty("wilson")]
         public decimal Wilson { get; set; }
     }
 }

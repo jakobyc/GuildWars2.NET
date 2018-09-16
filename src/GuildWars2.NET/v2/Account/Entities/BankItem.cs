@@ -3,30 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 
 namespace GuildWars2.NET.v2.Account.Entities
 {
-    [DataContract]
     public class BankItem
     {
-        [DataMember(Name = "upgrades")]
+        [JsonProperty("upgrades")]
         public ICollection<string> Upgrades { get; set; }
-        [DataMember(Name = "infusions")]
+        [JsonProperty("infusions")]
         public ICollection<string> Infusions { get; set; }
 
-        [DataMember(Name = "binding")]
+        [JsonProperty("binding")]
         public string Binding { get; set; }
-        [DataMember(Name = "bound_to")]
+        [JsonProperty("bound_to")]
         public string BoundTo { get; set; }
 
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
-        [DataMember(Name = "count")]
+        [JsonProperty("count")]
         public int Count { get; set; }
-        [DataMember(Name = "skin")]
+        [JsonProperty("skin")]
         public int Skin { get; set; }
-        [DataMember(Name = "charges")]
+        [JsonProperty("charges")]
         public int Charges { get; set; }
     }
 }

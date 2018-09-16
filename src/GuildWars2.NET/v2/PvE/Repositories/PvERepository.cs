@@ -28,6 +28,23 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<ICollection<BackstoryAnswer>>(builder);
         }
 
+        public ICollection<string> GetRaids()
+        {
+            return Retrieve<ICollection<string>>("raids");
+        }
+
+        public ICollection<Raid> GetRaids(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("raids")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<Raid>>(builder);
+        }
+
+        public Raid GetRaid(string id)
+        {
+            return Retrieve<Raid>($"raids/{id}");
+        }
+
         public ICollection<Specialization> GetSpecializations(params string[] ids)
         {
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("specializations")

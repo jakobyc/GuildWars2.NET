@@ -37,6 +37,26 @@ namespace GuildWars2.NET.Test.Tests
             AssertCall<BackstoryAnswer>(repository.GetBackstoryAnswer(id));
         }
 
+        [Fact]
+        public void GetRaids()
+        {
+            AssertCall<List<string>>(repository.GetRaids());
+        }
+
+        [Theory]
+        [InlineData("forsaken_thicket", "bastion_of_the_penitent", "hall_of_chains")]
+        public void GetRaidsById(params string[] ids)
+        {
+            AssertCall<List<Raid>>(repository.GetRaids(ids));
+        }
+
+        [Theory]
+        [InlineData("forsaken_thicket")]
+        public void GetRaid(string id)
+        {
+            AssertCall<Raid>(repository.GetRaid(id));
+        }
+
         [Theory]
         [InlineData("1", "2", "3")]
         public void GetSpecializations(params string[] ids)

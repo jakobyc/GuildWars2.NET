@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace GuildWars2.NET.v2.PvP.Entities
+namespace GuildWars2.NET.v2.Misc.Entities
 {
     [DataContract]
     public class TokenInfo

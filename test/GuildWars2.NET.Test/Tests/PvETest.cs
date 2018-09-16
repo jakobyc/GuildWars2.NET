@@ -38,6 +38,26 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetTraits()
+        {
+            AssertCall<int[]>(repository.GetTraits());
+        }
+
+        [Theory]
+        [InlineData("214", "221", "222")]
+        public void GetTraitsById(params string[] ids)
+        {
+            AssertCall<Trait[]>(repository.GetTraits(ids));
+        }
+
+        [Theory]
+        [InlineData("214")]
+        public void GetTrait(string id)
+        {
+            AssertCall<Trait>(repository.GetTrait(id));
+        }
+
+        [Fact]
         public void GetWorlds()
         {
             AssertCall<int[]>(repository.GetWorlds());

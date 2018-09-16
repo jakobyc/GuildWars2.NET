@@ -45,6 +45,23 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<Story>($"stories/{id}");
         }
 
+        public ICollection<string> GetStorySeasons()
+        {
+            return Retrieve<ICollection<string>>("stories/seasons");
+        }
+
+        public ICollection<StorySeason> GetStorySeasons(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("stories/seasons")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<StorySeason>>(builder);
+        }
+
+        public StorySeason GetStorySeason(string id)
+        {
+            return Retrieve<StorySeason>($"stories/seasons/{id}");
+        }
+
         public ICollection<string> GetTraits()
         {
             return Retrieve<ICollection<string>>("traits");

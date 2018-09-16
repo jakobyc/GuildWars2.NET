@@ -25,11 +25,24 @@ namespace GuildWars2.NET.v2.PvE.Repositories
         {
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("backstory/answers")
                                                             .AddParameter("ids", ids);
-
-            /*ICollection<string> parameters = new List<string>();
-            parameters.Add(ParameterBuilder.Build("ids", ids));*/
-
             return Retrieve<ICollection<BackstoryAnswer>>(builder);
+        }
+
+        public ICollection<int> GetWorlds()
+        {
+            return Retrieve<ICollection<int>>("worlds");
+        }
+
+        public ICollection<World> GetWorlds(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("worlds")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<World>>(builder);
+        }
+
+        public World GetWorld(string id)
+        {
+            return Retrieve<World>($"worlds/{id}");
         }
     }
 }

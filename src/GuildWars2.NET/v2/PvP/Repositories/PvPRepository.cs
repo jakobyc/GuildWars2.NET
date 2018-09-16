@@ -106,6 +106,23 @@ namespace GuildWars2.NET.v2.PvP.Repositories
             return Retrieve<ICollection<WvWAbility>>(builder);
         }
 
+        public ICollection<int> GetWvWRanks()
+        {
+            return Retrieve<ICollection<int>>("wvw/ranks");
+        }
+
+        public ICollection<WvWRank> GetWvWRanks(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/ranks")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<WvWRank>>(builder);
+        }
+
+        public WvWRank GetWvWRank(string id)
+        {
+            return Retrieve<WvWRank>($"wvw/ranks/{id}");
+        }
+
         private string GetTeam(WvWTeam team)
         {
             switch(team)

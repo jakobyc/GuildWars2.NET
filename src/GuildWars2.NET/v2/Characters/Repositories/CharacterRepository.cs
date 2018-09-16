@@ -90,7 +90,6 @@ namespace GuildWars2.NET.v2.Characters.Repositories
                 case (SkillType.WvW):
                     skills = repository.GetSkills(GetSkillIds(characterSkills.SkillsInformation.WvW));
                     break;
-
             }
 
             return skills;

@@ -26,7 +26,7 @@ namespace GuildWars2.NET.v2.PvP.Entities
         [DataMember(Name = "map_id")]
         public int MapId { get; set; }
         [DataMember(Name = "upgrade_id")]
-        public int Upgrade_id { get; set; }
+        public int UpgradeId { get; set; }
 
         [DataMember(Name = "coord")]
         public ICollection<double> Coord { get; set; }

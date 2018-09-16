@@ -36,5 +36,25 @@ namespace GuildWars2.NET.Test.Tests
         {
             AssertCall<List<int>>(repository.GetRecipes(itemId, true));
         }
+
+        [Fact]
+        public void GetSkins()
+        {
+            AssertCall<List<string>>(repository.GetSkins());
+        }
+
+        [Theory]
+        [InlineData("1", "2", "500", "501", "502")]
+        public void GetSkinsById(params string[] ids)
+        {
+            AssertCall<List<Skin>>(repository.GetSkins(ids));
+        }
+
+        [Theory]
+        [InlineData("10")]
+        public void GetSkin(string id)
+        {
+            AssertCall<Skin>(repository.GetSkin(id));
+        }
     }
 }

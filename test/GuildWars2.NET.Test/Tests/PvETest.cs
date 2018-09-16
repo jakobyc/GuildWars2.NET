@@ -17,13 +17,6 @@ namespace GuildWars2.NET.Test.Tests
             this.repository = factory.GetPvERepository();
         }
 
-        [Theory]
-        [InlineData("7-54")]
-        public void GetBackstoryAnswer(string id)
-        {
-            AssertCall<BackstoryAnswer>(repository.GetBackstoryAnswer(id));
-        }
-
         [Fact]
         public void GetBackstoryAnswers()
         {
@@ -35,6 +28,33 @@ namespace GuildWars2.NET.Test.Tests
         public void GetBackstoryAnswersById(params string[] ids)
         {
             AssertCall<BackstoryAnswer[]>(repository.GetBackstoryAnswers(ids));
+        }
+
+        [Theory]
+        [InlineData("7-54")]
+        public void GetBackstoryAnswer(string id)
+        {
+            AssertCall<BackstoryAnswer>(repository.GetBackstoryAnswer(id));
+        }
+
+        [Fact]
+        public void GetWorlds()
+        {
+            AssertCall<int[]>(repository.GetWorlds());
+        }
+
+        [Theory]
+        [InlineData("1001", "1002")]
+        public void GetWorldsById(params string[] ids)
+        {
+            AssertCall<World[]>(repository.GetWorlds(ids));
+        }
+
+        [Theory]
+        [InlineData("1003")]
+        public void GetWorld(string id)
+        {
+            AssertCall<World>(repository.GetWorld(id));
         }
     }
 }

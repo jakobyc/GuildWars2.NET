@@ -37,6 +37,20 @@ namespace GuildWars2.NET.Test.Tests
             AssertCall<BackstoryAnswer>(repository.GetBackstoryAnswer(id));
         }
 
+        [Theory]
+        [InlineData("1", "2", "3")]
+        public void GetSpecializations(params string[] ids)
+        {
+            AssertCall<Specialization[]>(repository.GetSpecializations(ids));
+        }
+
+        [Theory]
+        [InlineData("1")]
+        public void GetSpecialization(string id)
+        {
+            AssertCall<Specialization>(repository.GetSpecialization(id));
+        }
+
         [Fact]
         public void GetStories()
         {

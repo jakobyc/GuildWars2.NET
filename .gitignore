@@ -1,8 +1,10 @@
-bin/*
+
+bin/*
 bin/
 Properties/
 obj/
 .vs/
 .vs/GuildWars2.NET/v15/.suo
+.vscode
 
 **/Tests/config.json

@@ -1,4 +1,5 @@
-﻿using GuildWars2.NET.Data;
+﻿using GuildWars2.NET.Builders.Endpoints;
+using GuildWars2.NET.Data;
 using GuildWars2.NET.v2.Items.Entities;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,25 @@ namespace GuildWars2.NET.v2.Items.Repositories
             }
 
             return Retrieve<ICollection<int>>($"recipes/search?{filter}");
+        }
+
+        public ICollection<string> GetSkins()
+        {
+            return Retrieve<ICollection<string>>("skins");
+        }
+
+        public ICollection<Skin> GetSkins(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("skins")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<Skin>>(builder);
+        }
+
+        public Skin GetSkin(string id)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("skins")
+                                                            .AddParameter("id", id);
+            return Retrieve<Skin>(builder);
         }
     }
 }

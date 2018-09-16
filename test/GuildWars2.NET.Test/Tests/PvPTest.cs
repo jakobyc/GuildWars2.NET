@@ -139,5 +139,25 @@ namespace GuildWars2.NET.Test.Tests
         {
             AssertCall<WvWRank>(repository.GetWvWRank(id));
         }
+
+        [Fact]
+        public void GetWvWUpgrades()
+        {
+            AssertCall<int[]>(repository.GetWvWUpgrades());
+        }
+
+        [Theory]
+        [InlineData("15", "16", "17")]
+        public void GetWvWUpgradesByIds(params string[] ids)
+        {
+            AssertCall<WvWUpgrade[]>(repository.GetWvWUpgrades(ids));
+        }
+
+        [Theory]
+        [InlineData("15")]
+        public void GetWvWUpgrade(string id)
+        {
+            AssertCall<WvWUpgrade>(repository.GetWvWUpgrade(id));
+        }
     }
 }

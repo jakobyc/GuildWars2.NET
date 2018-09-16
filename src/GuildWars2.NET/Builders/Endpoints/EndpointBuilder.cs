@@ -41,7 +41,7 @@ namespace GuildWars2.NET.Builders.Endpoints
                     parameter += $"{value},";
                 }
                 parameter = parameter.Remove(parameter.LastIndexOf(","));
-
+                
                 resource += parameter;
                 hasParameter = true;
             }

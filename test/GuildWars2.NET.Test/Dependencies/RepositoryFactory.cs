@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
+using GuildWars2.NET.v2.Misc.Repositories;
 
 namespace GuildWars2.NET.Test.Dependencies
 {
@@ -34,6 +35,11 @@ namespace GuildWars2.NET.Test.Dependencies
         public ItemRepository GetItemRepository()
         {
             return new ItemRepository();
+        }
+
+        public MiscRepository GetMiscRepository()
+        {
+            return new MiscRepository();
         }
 
         public PvERepository GetPvERepository()

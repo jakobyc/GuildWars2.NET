@@ -38,9 +38,29 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetStories()
+        {
+            AssertCall<string[]>(repository.GetStories());
+        }
+
+        [Theory]
+        [InlineData("1", "2", "3", "41")]
+        public void GetStoriesById(params string[] ids)
+        {
+            AssertCall<Story[]>(repository.GetStories(ids));
+        }
+
+        [Theory]
+        [InlineData("1")]
+        public void GetStory(string id)
+        {
+            AssertCall<Story>(repository.GetStory(id));
+        }
+
+        [Fact]
         public void GetTraits()
         {
-            AssertCall<int[]>(repository.GetTraits());
+            AssertCall<string[]>(repository.GetTraits());
         }
 
         [Theory]

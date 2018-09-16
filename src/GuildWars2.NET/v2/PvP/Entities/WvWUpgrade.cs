@@ -1,39 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace GuildWars2.NET.v2.PvP.Entities
 {
-    [DataContract]
     public class WvWUpgrade
     {
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public string Id { get; set; }
 
-        [DataMember(Name = "tiers")]
+        [JsonProperty("tiers")]
         public ICollection<WvWUpgradeTier> Tiers { get; set; }
 
-        [DataContract]
         public class WvWUpgradeTier
         {
-            [DataMember(Name = "name")]
+            [JsonProperty("name")]
             public string Name { get; set; }
 
-            [DataMember(Name = "yaks_required")]
+            [JsonProperty("yaks_required")]
             public int YaksRequired { get; set; }
 
-            [DataMember(Name = "upgrades")]
+            [JsonProperty("upgrades")]
             public ICollection<TierUpgrade> Upgrades { get; set; }
 
-            [DataContract]
             public class TierUpgrade
             {
-                [DataMember(Name = "name")]
+                [JsonProperty("name")]
                 public string Name { get; set; }
-                [DataMember(Name = "description")]
+                [JsonProperty("description")]
                 public string Description { get; set; }
-                [DataMember(Name = "icon")]
+                [JsonProperty("icon")]
                 public string Icon { get; set; }
             }
         }

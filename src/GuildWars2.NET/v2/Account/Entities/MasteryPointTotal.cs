@@ -2,21 +2,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GuildWars2.NET.v2.Account.Entities
 {
-    [DataContract]
     public class MasteryPointTotal
     {
-        [DataMember(Name = "region")]
+        [JsonProperty("region")]
         public string Region { get; set; }
 
-        [DataMember(Name = "spent")]
+        [JsonProperty("spent")]
         public int Spent { get; set; }
-        [DataMember(Name = "earned")]
+        [JsonProperty("earned")]
         public int Earned { get; set; }
     }
 }

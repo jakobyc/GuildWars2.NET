@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace GuildWars2.NET.v2.Misc.Entities
 {
-    [DataContract]
     public class TokenInfo
     {
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public string Id { get; set; }
 
-        [DataMember(Name = "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
 
-        [DataMember(Name = "permissions")]
+        [JsonProperty("permissions")]
         public ICollection<string> Permissions { get; set; }
     }
 }

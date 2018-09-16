@@ -1,36 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace GuildWars2.NET.v2.PvP.Entities
 {
-    [DataContract]
     public class WvWObjective
     {
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public string Id { get; set; }
-        [DataMember(Name = "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DataMember(Name = "type")]
+        [JsonProperty("type")]
         public string Type { get; set; }
-        [DataMember(Name = "map_type")]
+        [JsonProperty("map_type")]
         public string Map_type { get; set; }
-        [DataMember(Name = "marker")]
+        [JsonProperty("marker")]
         public string Marker { get; set; }
-        [DataMember(Name = "chat_link")]
+        [JsonProperty("chat_link")]
         public string ChatLink { get; set; }
 
-        [DataMember(Name = "sector_id")]
+        [JsonProperty("sector_id")]
         public int SectorId { get; set; }
-        [DataMember(Name = "map_id")]
+        [JsonProperty("map_id")]
         public int MapId { get; set; }
-        [DataMember(Name = "upgrade_id")]
+        [JsonProperty("upgrade_id")]
         public int UpgradeId { get; set; }
 
-        [DataMember(Name = "coord")]
+        [JsonProperty("coord")]
         public ICollection<double> Coord { get; set; }
-        [DataMember(Name = "label_coord")]
+        [JsonProperty("label_coord")]
         public ICollection<double> LabelCoord { get; set; }
 
     }

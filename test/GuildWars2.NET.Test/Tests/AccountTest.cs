@@ -32,67 +32,67 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetAchievements()
         {
-            AssertCall<AccountAchievement[]>(repository.GetAchievements());
+            AssertCall<List<AccountAchievement>>(repository.GetAchievements());
         }
 
         [Fact]
         public void GetBankitems()
         {
-            AssertCall<BankItem[]>(repository.GetBankItems());
+            AssertCall<List<BankItem>>(repository.GetBankItems());
         }
 
         [Fact]
         public void GetCompletedDailyDungeons()
         {
-            AssertCall<string[]>(repository.GetCompletedDailyDungeons());
+            AssertCall<List<string>>(repository.GetCompletedDailyDungeons());
         }
 
         [Fact]
         public void GetCompletedRaids()
         {
-            AssertCall<string[]>(repository.GetCompletedRaids());
+            AssertCall<List<string>>(repository.GetCompletedRaids());
         }
 
         [Fact]
         public void GetDyes()
         {
-            AssertCall<string[]>(repository.GetDyes());
+            AssertCall<List<string>>(repository.GetDyes());
         }
 
         [Fact]
         public void GetFinishers()
         {
-            AssertCall<Finisher[]>(repository.GetFinishers());
+            AssertCall<List<Finisher>>(repository.GetFinishers());
         }
 
         [Fact]
         public void GetGliders()
         {
-            AssertCall<int[]>(repository.GetGliders());
+            AssertCall<List<int>>(repository.GetGliders());
         }
 
         [Fact]
         public void GetHomeCats()
         {
-            AssertCall<Cat[]>(repository.GetHomeCats());
+            AssertCall<List<Cat>>(repository.GetHomeCats());
         }
 
         [Fact]
         public void GetHomeNodes()
         {
-            AssertCall<string[]>(repository.GetHomeNodes());
+            AssertCall<List<string>>(repository.GetHomeNodes());
         }
 
         [Fact]
         public void GetMailCarriers()
         {
-            AssertCall<int[]>(repository.GetMailCarriers());
+            AssertCall<List<int>>(repository.GetMailCarriers());
         }
 
         [Fact]
         public void GetMasteries()
         {
-            AssertCall<Mastery[]>(repository.GetMasteries());
+            AssertCall<List<Mastery>>(repository.GetMasteries());
         }
 
         [Fact]
@@ -104,55 +104,55 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetMaterials()
         {
-            AssertCall<Material[]>(repository.GetMaterials());
+            AssertCall<List<Material>>(repository.GetMaterials());
         }
 
         [Fact]
         public void GetMiniatures()
         {
-            AssertCall<string[]>(repository.GetMiniatures());
+            AssertCall<List<string>>(repository.GetMiniatures());
         }
 
         [Fact]
         public void GetOutfits()
         {
-            AssertCall<string[]>(repository.GetOutfits());
+            AssertCall<List<string>>(repository.GetOutfits());
         }
 
         [Fact]
         public void GetPvPHeroes()
         {
-            AssertCall<int[]>(repository.GetPvPHeroes());
+            AssertCall<List<int>>(repository.GetPvPHeroes());
         }
 
         [Fact]
         public void GetRecipes()
         {
-            AssertCall<string[]>(repository.GetRecipes());
+            AssertCall<List<string>>(repository.GetRecipes());
         }
 
         [Fact]
         public void GetSharedInventoryItems()
         {
-            AssertCall<SharedInventoryItem[]>(repository.GetSharedInventoryItems());
+            AssertCall<List<SharedInventoryItem>>(repository.GetSharedInventoryItems());
         }
 
         [Fact]
         public void GetSkins()
         {
-            AssertCall<string[]>(repository.GetSkins());
+            AssertCall<List<string>>(repository.GetSkins());
         }
 
         [Fact]
         public void GetTitles()
         {
-            AssertCall<string[]>(repository.GetTitles());
+            AssertCall<List<string>>(repository.GetTitles());
         }
 
         [Fact]
         public void GetWallet()
         {
-            AssertCall<WalletCurrency[]>(repository.GetWallet());
+            AssertCall<List<WalletCurrency>>(repository.GetWallet());
         }
     }
 }

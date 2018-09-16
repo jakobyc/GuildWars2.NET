@@ -2,46 +2,45 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GuildWars2.NET.v2.Achievements.Entities
 {
-    [DataContract]
     public class Achievement
     {
-        [DataMember(Name = "icon")]
+        [JsonProperty("icon")]
         public string Icon { get; set; }
-        [DataMember(Name = "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DataMember(Name = "description")]
+        [JsonProperty("description")]
         public string Description { get; set; }
-        [DataMember(Name = "requirement")]
+        [JsonProperty("requirement")]
         public string Requirement { get; set; }
-        [DataMember(Name = "locked_text")]
+        [JsonProperty("locked_text")]
         public string LockedText { get; set; }
-        [DataMember(Name = "type")]
+        [JsonProperty("type")]
         public string Type { get; set; }
 
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
-        [DataMember(Name = "point_cap")]
+        [JsonProperty("point_cap")]
         public int PointCap { get; set; }
 
-        [DataMember(Name = "flags")]
+        [JsonProperty("flags")]
         public ICollection<string> Flags { get; set; }
 
-        [DataMember(Name = "tiers")]
+        [JsonProperty("tiers")]
         public ICollection<Tier> Tiers { get; set; }
 
-        [DataMember(Name = "prerequisites")]
+        [JsonProperty("prerequisites")]
         public ICollection<int> Prerequisites { get; set; }
 
-        [DataMember(Name = "rewards")]
+        [JsonProperty("rewards")]
         public ICollection<Reward> Rewards { get; set; }
 
-        [DataMember(Name = "bits")]
+        [JsonProperty("bits")]
         public ICollection<Bit> Bits { get; set; }
     }
 }

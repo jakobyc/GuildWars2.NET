@@ -1,62 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GuildWars2.NET.v2.Skills.Entities
 {
-    [DataContract]
     public class Skill
     {
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public string Id { get; set; }
-        [DataMember(Name = "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DataMember(Name = "description")]
+        [JsonProperty("description")]
         public string Description { get; set; }
-        [DataMember(Name = "icon")]
+        [JsonProperty("icon")]
         public string Icon { get; set; }
-        [DataMember(Name = "chat_link")]
+        [JsonProperty("chat_link")]
         public string ChatLink { get; set; }
-        [DataMember(Name = "type")]
+        [JsonProperty("type")]
         public string Type { get; set; }
-        [DataMember(Name = "weapon_type")]
+        [JsonProperty("weapon_type")]
         public string WeaponType { get; set; }
-        [DataMember(Name = "slot")]
+        [JsonProperty("slot")]
         public string Slot { get; set; }
-        [DataMember(Name = "attunement")]
+        [JsonProperty("attunement")]
         public string Attunement { get; set; }
-        [DataMember(Name = "dual_wield")]
+        [JsonProperty("dual_wield")]
         public string DualWield { get; set; }
 
-        [DataMember(Name = "professions")]
+        [JsonProperty("professions")]
         public ICollection<string> Professions { get; set; }
-        [DataMember(Name = "facts")]
+        [JsonProperty("facts")]
         public ICollection<SkillFact> Facts { get; set; }
-        [DataMember(Name = "traited_facts")]
+        [JsonProperty("traited_facts")]
         public ICollection<TraitedSkillFact> TraitedFacts { get; set; }
-        [DataMember(Name = "categories")]
+        [JsonProperty("categories")]
         public ICollection<string> Categories { get; set; }
-        [DataMember(Name = "transform_skills")]
+        [JsonProperty("transform_skills")]
         public ICollection<string> TransformSkills { get; set; }
-        [DataMember(Name = "bundle_skills")]
+        [JsonProperty("bundle_skills")]
         public ICollection<string> BundleSkills { get; set; }
-        [DataMember(Name = "flags")]
+        [JsonProperty("flags")]
         public ICollection<string> Flags { get; set; }
 
-        [DataMember(Name = "cost")]
+        [JsonProperty("cost")]
         public int Cost { get; set; }
-        [DataMember(Name = "flip_skill")]
+        [JsonProperty("flip_skill")]
         public int FlipSkill { get; set; }
-        [DataMember(Name = "initiative")]
+        [JsonProperty("initiative")]
         public int Initiative { get; set; }
-        [DataMember(Name = "next_chain")]
+        [JsonProperty("next_chain")]
         public int NextChain { get; set; }
-        [DataMember(Name = "prev_chain")]
+        [JsonProperty("prev_chain")]
         public int PreviousChain { get; set; }
-        [DataMember(Name = "toolbelt_skill")]
+        [JsonProperty("toolbelt_skill")]
         public int ToolbeltSkill { get; set; }
     }
 }

@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GuildWars2.NET.v2.Skills.Entities
 {
-    [DataContract]
     public class TraitedSkillFact : SkillFact
     {
-        [DataMember(Name = "requires_trait")]
+        [JsonProperty("requires_trait")]
         public int RequiresTrait { get; set; }
-        [DataMember(Name = "overrides")]
+        [JsonProperty("overrides")]
         public int Overrides { get; set; }
     }
 }

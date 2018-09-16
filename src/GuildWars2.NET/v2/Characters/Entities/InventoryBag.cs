@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 
 namespace GuildWars2.NET.v2.Characters.Entities
 {
-    [DataContract]
     public class InventoryBag
     {
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
-        [DataMember(Name = "size")]
+        [JsonProperty("size")]
         public int Size { get; set; }
 
-        [DataMember(Name = "inventory")]
+        [JsonProperty("inventory")]
         public ICollection<InventoryItem> Items { get; set; }
     }
 }

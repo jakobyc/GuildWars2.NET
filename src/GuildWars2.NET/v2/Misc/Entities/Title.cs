@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace GuildWars2.NET.v2.Misc.Entities
 {
-    [DataContract]
     public class Title
     {
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public string Id { get; set; }
-        [DataMember(Name = "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DataMember(Name = "achievement")]
+        [JsonProperty("achievement")]
         public string AchievementId { get; set; }
 
-        [DataMember(Name = "achievements")]
+        [JsonProperty("achievements")]
         public ICollection<string> AchievementIds { get; set; }
     }
 }

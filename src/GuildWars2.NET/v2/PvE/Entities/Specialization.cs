@@ -1,30 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace GuildWars2.NET.v2.PvE.Entities
 {
-    [DataContract]
     public class Specialization
     {
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public string Id { get; set; }
-        [DataMember(Name = "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DataMember(Name = "profession")]
+        [JsonProperty("profession")]
         public string Profession { get; set; }
-        [DataMember(Name = "icon")]
+        [JsonProperty("icon")]
         public string Icon { get; set; }
-        [DataMember(Name = "background")]
+        [JsonProperty("background")]
         public string Background { get; set; }
 
-        [DataMember(Name = "elite")]
+        [JsonProperty("elite")]
         public bool Elite { get; set; }
 
-        [DataMember(Name = "minor_traits")]
+        [JsonProperty("minor_traits")]
         public ICollection<string> MinorTraitIds { get; set; }
-        [DataMember(Name = "major_traits")]
+        [JsonProperty("major_traits")]
         public ICollection<string> MajorTraitIds { get; set; }
     }
 }

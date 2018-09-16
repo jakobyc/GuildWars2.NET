@@ -56,20 +56,20 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetMatches()
         {
-            AssertCall<string[]>(repository.GetMatches());
+            AssertCall<List<string>>(repository.GetMatches());
         }
 
         [Theory]
         [InlineData("1-1", "2-1")]
         public void GetMatchesById(params string[] ids)
         {
-            AssertCall<Match[]>(repository.GetMatches(ids));
+            AssertCall<List<Match>>(repository.GetMatches(ids));
         }
 
         [Fact]
         public void GetObjectives()
         {
-            AssertCall<string[]>(repository.GetObjectives());
+            AssertCall<List<string>>(repository.GetObjectives());
         }
 
         [Theory]
@@ -83,21 +83,21 @@ namespace GuildWars2.NET.Test.Tests
         [InlineData("1099-99", "96-35")]
         public void GetObjectivesById(params string[] ids)
         {
-            AssertCall<WvWObjective[]>(repository.GetObjectives(ids));
+            AssertCall<List<WvWObjective>>(repository.GetObjectives(ids));
         }
 
         [Theory]
         [InlineData("1-1", WvWTeam.Red)]
         public void GetTopGuildKDR(string matchId, WvWTeam team)
         {
-            AssertCall<GuildStats[]>(repository.GetTopGuildKDR(matchId, team));
+            AssertCall<List<GuildStats>>(repository.GetTopGuildKDR(matchId, team));
         }
 
         [Theory]
         [InlineData("1-1", WvWTeam.Red)]
         public void GetTopGuildKills(string matchId, WvWTeam team)
         {
-            AssertCall<GuildStats[]>(repository.GetTopGuildKills(matchId, team));
+            AssertCall<List<GuildStats>>(repository.GetTopGuildKills(matchId, team));
         }
 
         [Theory]
@@ -110,27 +110,27 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetWvWAbilities()
         {
-            AssertCall<int[]>(repository.GetWvWAbilities());
+            AssertCall<List<int>>(repository.GetWvWAbilities());
         }
 
         [Theory]
         [InlineData("4", "24")]
         public void GetWvWAbilitiesByIds(params string[] ids)
         {
-            AssertCall<WvWAbility[]>(repository.GetWvWAbilities(ids));
+            AssertCall<List<WvWAbility>>(repository.GetWvWAbilities(ids));
         }
 
         [Fact]
         public void GetWvWRanks()
         {
-            AssertCall<int[]>(repository.GetWvWRanks());
+            AssertCall<List<int>>(repository.GetWvWRanks());
         }
 
         [Theory]
         [InlineData("20", "21", "30", "105")]
         public void GetWvWRanksByIds(params string[] ids)
         {
-            AssertCall<WvWRank[]>(repository.GetWvWRanks(ids));
+            AssertCall<List<WvWRank>>(repository.GetWvWRanks(ids));
         }
 
         [Theory]
@@ -143,14 +143,14 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetWvWUpgrades()
         {
-            AssertCall<int[]>(repository.GetWvWUpgrades());
+            AssertCall<List<int>>(repository.GetWvWUpgrades());
         }
 
         [Theory]
         [InlineData("15", "16", "17")]
         public void GetWvWUpgradesByIds(params string[] ids)
         {
-            AssertCall<WvWUpgrade[]>(repository.GetWvWUpgrades(ids));
+            AssertCall<List<WvWUpgrade>>(repository.GetWvWUpgrades(ids));
         }
 
         [Theory]

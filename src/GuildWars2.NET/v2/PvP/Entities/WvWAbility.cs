@@ -1,33 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace GuildWars2.NET.v2.PvP.Entities
 {
-    [DataContract]
     public class WvWAbility
     {
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public int Id { get; set; }
 
-        [DataMember(Name = "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DataMember(Name = "description")]
+        [JsonProperty("description")]
         public string Description { get; set; }
-        [DataMember(Name = "icon")]
+        [JsonProperty("icon")]
         public string Icon { get; set; }
 
-        [DataMember(Name = "ranks")]
+        [JsonProperty("ranks")]
         public ICollection<Rank> Ranks { get; set; }
 
-        [DataContract]
         public class Rank
         {
-            [DataMember(Name = "cost")]
+            [JsonProperty("cost")]
             public int Cost { get; set; }
 
-            [DataMember(Name = "effect")]
+            [JsonProperty("effect")]
             public string Effect { get; set; }
         }
     }

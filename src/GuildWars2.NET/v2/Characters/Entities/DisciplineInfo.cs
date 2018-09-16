@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using GuildWars2.NET.Serialization.JSON;
 
 namespace GuildWars2.NET.v2.Characters.Entities
 {
-    [DataContract]
     public class DisciplineInfo
     {
-        [DataMember(Name = "discipline")]
+        [JsonProperty("discipline")]
         public string Discipline { get; set; }
 
-        [DataMember(Name = "rating")]
+        [JsonProperty("rating")]
         public int Rating { get; set; }
 
-        [DataMember(Name = "active")]
+        [JsonProperty("active")]
         public bool Active { get; set; }
     }
 }

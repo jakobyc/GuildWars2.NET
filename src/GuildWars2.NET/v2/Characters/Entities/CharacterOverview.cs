@@ -1,75 +1,72 @@
 ﻿using GuildWars2.NET.Serialization.JSON;
 using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 using System.Text;
 
 namespace GuildWars2.NET.v2.Characters.Entities
 {
-    [DataContract]
     public class CharacterOverview
     {
-        [DataMember(Name = "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DataMember(Name = "race")]
+        [JsonProperty("race")]
         public string Race { get; set; }
-        [DataMember(Name = "gender")]
+        [JsonProperty("gender")]
         public string Gender { get; set; }
-        [DataMember(Name = "flags")]
+        [JsonProperty("flags")]
         public ICollection<string> Flags { get; set; }
-        [DataMember(Name = "profession")]
+        [JsonProperty("profession")]
         public string Profession { get; set; }
-        [DataMember(Name = "level")]
+        [JsonProperty("level")]
         public int Level { get; set; }
-        [DataMember(Name = "guild")]
+        [JsonProperty("guild")]
         public string Guild { get; set; }
-        [DataMember(Name = "age")]
+        [JsonProperty("age")]
         public int Age { get; set; }
-        [DataMember(Name = "created")]
+        [JsonProperty("created")]
         public string Created { get; set; }
-        [DataMember(Name = "deaths")]
+        [JsonProperty("deaths")]
         public int Deaths { get; set; }
-        [DataMember(Name = "crafting")]
+        [JsonProperty("crafting")]
         public ICollection<DisciplineInfo> CraftingInfo { get; set; }
-        [DataMember(Name = "title")]
+        [JsonProperty("title")]
         public int Title { get; set; }
-        [DataMember(Name = "backstory")]
+        [JsonProperty("backstory")]
         public ICollection<string> Backstory { get; set; }
-        [DataMember(Name = "wvw_abilities")]
+        [JsonProperty("wvw_abilities")]
         public ICollection<WvWAbility> WvWAbilities { get; set; }
-        [DataMember(Name = "specializations")]
+        [JsonProperty("specializations")]
         public Specializations SpecializationInfo { get; set; }
-        [DataMember(Name = "skills")]
+        [JsonProperty("skills")]
         public SkillInfo SkillInfo { get; set; }
-        [DataMember(Name = "equipment")]
+        [JsonProperty("equipment")]
         public ICollection<EquipmentInfo> Equipment { get; set; }
-        [DataMember(Name = "recipes")]
+        [JsonProperty("recipes")]
         public ICollection<int> Recipes { get; set; }
-        [DataMember(Name = "equipment_pvp")]
+        [JsonProperty("equipment_pvp")]
         public EquipmentPvp Equipment_pvp { get; set; }
         // TODO: Not deserializing:
-        [DataMember(Name = "training")]
+        [JsonProperty("training")]
         public ICollection<SkillTree> TrainingInfo { get; set; }
-        [DataMember(Name = "bags")]
+        [JsonProperty("bags")]
         public ICollection<InventoryBag> Bags { get; set; }
 
-        [DataContract]
         public class EquipmentPvp
         {
-            [DataMember(Name = "amulet")]
+            [JsonProperty("amulet")]
             public int Amulet { get; set; }
-            [DataMember(Name = "rune")]
+            [JsonProperty("rune")]
             public int Rune { get; set; }
-            [DataMember(Name = "sigils")]
+            [JsonProperty("sigils")]
             public ICollection<int?> Sigils { get; set; }
         }
 
-        [DataContract]
         public class WvWAbility
         {
-            [DataMember(Name = "id")]
+            [JsonProperty("id")]
             public int Id { get; set; }
-            [DataMember(Name = "rank")]
+            [JsonProperty("rank")]
             public int Rank { get; set; }
         }
     }

@@ -3,41 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Runtime.Serialization;
+using Newtonsoft.Json;
 
 namespace GuildWars2.NET.v2.Account.Entities
 {
-    [DataContract]
     public class AccountInfo
     {
-        [DataMember(Name="guilds")]
+        [JsonProperty("guilds")]
         public ICollection<string> Guilds { get; set; }
-        [DataMember(Name = "guild_leader")]
+        [JsonProperty("guild_leader")]
         public ICollection<string> GuildLeaderOf { get; set; }
-        [DataMember(Name = "access")]
+        [JsonProperty("access")]
         public ICollection<string> Access { get; set; }
 
-        [DataMember(Name = "id")]
+        [JsonProperty("id")]
         public string Id { get; set; }
-        [DataMember(Name = "name")]
+        [JsonProperty("name")]
         public string Name { get; set; }
-        [DataMember(Name = "created")]
+        [JsonProperty("created")]
         public string Created { get; set; }
 
-        [DataMember(Name = "age")]
+        [JsonProperty("age")]
         public int Age { get; set; }
-        [DataMember(Name = "world")]
+        [JsonProperty("world")]
         public int WorldId { get; set; }
-        [DataMember(Name = "fractal_level")]
+        [JsonProperty("fractal_level")]
         public int FractalLevel { get; set; }
-        [DataMember(Name = "daily_ap")]
+        [JsonProperty("daily_ap")]
         public int DailyAP { get; set; }
-        [DataMember(Name = "monthly_ap")]
+        [JsonProperty("monthly_ap")]
         public int MonthlyAP { get; set; }
-        [DataMember(Name = "wvw_rank")]
+        [JsonProperty("wvw_rank")]
         public int WvwRank { get; set; }
 
-        [DataMember(Name = "commander")]
+        [JsonProperty("commander")]
         public bool Commander { get; set; }
     }
 }

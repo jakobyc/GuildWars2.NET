@@ -13,9 +13,27 @@ namespace GuildWars2.NET.v2.Skills.Repositories
     {
         public SkillRepository() : base() { }
 
-        public ICollection<int> GetAllSkills()
+        public ICollection<string> GetAllSkills()
         {
-            return Retrieve<ICollection<int>>("skills");
+            return Retrieve<ICollection<string>>("skills");
+        }
+
+        public ICollection<string> GetLegends()
+        {
+            return Retrieve<ICollection<string>>("legends");
+        }
+
+        public ICollection<Legend> GetLegends(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("legends")
+                                                            .AddParameter("ids", ids);
+
+            return Retrieve<ICollection<Legend>>(builder);
+        }
+
+        public Legend GetLegend(string id)
+        {
+            return Retrieve<Legend>($"legends/{id}");
         }
 
         public ICollection<Skill> GetSkills(params string[] ids)

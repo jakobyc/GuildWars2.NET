@@ -19,6 +19,26 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetQuaggans()
+        {
+            AssertCall<List<string>>(repository.GetQuaggans());
+        }
+
+        [Theory]
+        [InlineData("404", "hat", "box")]
+        public void GetQuaggansById(params string[] ids)
+        {
+            AssertCall<List<QuagganIcon>>(repository.GetQuaggans(ids));
+        }
+
+        [Theory]
+        [InlineData("404")]
+        public void GetQuaggan(string id)
+        {
+            AssertCall<QuagganIcon>(repository.GetQuaggan(id));
+        }
+
+        [Fact]
         public void GetTitles()
         {
             AssertCall<List<string>>(repository.GetTitles());

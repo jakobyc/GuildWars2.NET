@@ -19,6 +19,26 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetMailCarriers()
+        {
+            AssertCall<List<string>>(repository.GetMailCarriers());
+        }
+
+        [Fact]
+        public void GetMailCarriersById()
+        {
+            string[] ids = repository.GetMailCarriers().ToArray();
+            AssertCall<List<MailCarrier>>(repository.GetMailCarriers(ids));
+        }
+
+        [Theory]
+        [InlineData("6")]
+        public void GetMailCarrier(string id)
+        {
+            AssertCall<MailCarrier>(repository.GetMailCarrier(id));
+        }
+
+        [Fact]
         public void GetMaterialCategories()
         {
             AssertCall<List<string>>(repository.GetMaterialCategories());

@@ -11,6 +11,23 @@ namespace GuildWars2.NET.v2.Items.Repositories
     {
         public ItemRepository() : base() { }
 
+        public ICollection<string> GetMaterialCategories()
+        {
+            return Retrieve<ICollection<string>>("materials");
+        }
+
+        public ICollection<MaterialCategory> GetMaterialCategories(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("materials")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<MaterialCategory>>(builder);
+        }
+
+        public MaterialCategory GetMaterialCategory(string id)
+        {
+            return Retrieve<MaterialCategory>($"materials/{id}");
+        }
+
         public ICollection<string> GetMiniatures()
         {
             return Retrieve<ICollection<string>>("minis");

@@ -19,6 +19,26 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetMaterialCategories()
+        {
+            AssertCall<List<string>>(repository.GetMaterialCategories());
+        }
+
+        [Fact]
+        public void GetMaterialCategoriesById()
+        {
+            string[] ids = repository.GetMaterialCategories().ToArray();
+            AssertCall<List<MaterialCategory>>(repository.GetMaterialCategories(ids));
+        }
+
+        [Theory]
+        [InlineData("6")]
+        public void GetMaterialCategory(string id)
+        {
+            AssertCall<MaterialCategory>(repository.GetMaterialCategory(id));
+        }
+
+        [Fact]
         public void GetMiniatures()
         {
             AssertCall<List<string>>(repository.GetMiniatures());

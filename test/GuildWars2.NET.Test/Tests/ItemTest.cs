@@ -19,6 +19,46 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetMiniatures()
+        {
+            AssertCall<List<string>>(repository.GetMiniatures());
+        }
+
+        [Theory]
+        [InlineData("1", "2", "3", "40", "41")]
+        public void GetMiniaturesById(params string[] ids)
+        {
+            AssertCall<List<Miniature>>(repository.GetMiniatures(ids));
+        }
+
+        [Theory]
+        [InlineData("1")]
+        public void GetMiniature(string id)
+        {
+            AssertCall<Miniature>(repository.GetMiniature(id));
+        }
+
+        [Fact]
+        public void GetNodes()
+        {
+            AssertCall<List<string>>(repository.GetNodes());
+        }
+
+        [Fact]
+        public void GetNodesById()
+        {
+            string[] ids = repository.GetNodes().ToArray();
+            AssertCall<List<Node>>(repository.GetNodes(ids));
+        }
+
+        [Theory]
+        [InlineData("basic_harvesting_nodes")]
+        public void GetNode(string id)
+        {
+            AssertCall<Node>(repository.GetNode(id));
+        }
+
+        [Fact]
         public void GetOutfits()
         {
             AssertCall<List<string>>(repository.GetOutfits());

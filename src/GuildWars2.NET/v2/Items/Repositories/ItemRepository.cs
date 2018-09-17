@@ -11,6 +11,40 @@ namespace GuildWars2.NET.v2.Items.Repositories
     {
         public ItemRepository() : base() { }
 
+        public ICollection<string> GetMiniatures()
+        {
+            return Retrieve<ICollection<string>>("minis");
+        }
+
+        public ICollection<Miniature> GetMiniatures(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("minis")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<Miniature>>(builder);
+        }
+
+        public Miniature GetMiniature(string id)
+        {
+            return Retrieve<Miniature>($"minis/{id}");
+        }
+
+        public ICollection<string> GetNodes()
+        {
+            return Retrieve<ICollection<string>>("nodes");
+        }
+
+        public ICollection<Node> GetNodes(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("nodes")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<Node>>(builder);
+        }
+
+        public Node GetNode(string id)
+        {
+            return Retrieve<Node>($"nodes/{id}");
+        }
+
         public ICollection<string> GetOutfits()
         {
             return Retrieve<ICollection<string>>("outfits");

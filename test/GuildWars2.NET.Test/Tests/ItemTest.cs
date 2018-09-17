@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
+using System.Linq;
 
 namespace GuildWars2.NET.Test.Tests
 {
@@ -17,6 +18,26 @@ namespace GuildWars2.NET.Test.Tests
             this.repository = factory.GetItemRepository();
         }
 
+        [Fact]
+        public void GetOutfits()
+        {
+            AssertCall<List<string>>(repository.GetOutfits());
+        }
+
+        [Fact]
+        public void GetOutfitsById()
+        {
+            string[] ids = repository.GetOutfits().ToArray();
+            AssertCall<List<Outfit>>(repository.GetOutfits(ids));
+        }
+
+        [Theory]
+        [InlineData("10")]
+        public void GetOutfit(string id)
+        {
+            AssertCall<Outfit>(repository.GetOutfit(id));
+        }
+
         [Theory]
         [InlineData("1")]
         public void GetRecipe(string recipeId)
@@ -27,14 +48,14 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetRecipes()
         {
-            AssertCall<List<int>>(repository.GetRecipes());
+            AssertCall<List<string>>(repository.GetRecipes());
         }
 
         [Theory]
         [InlineData("19699")]
         public void GetRecipesByIds(string itemId)
         {
-            AssertCall<List<int>>(repository.GetRecipes(itemId, true));
+            AssertCall<List<string>>(repository.GetRecipes(itemId, true));
         }
 
         [Fact]

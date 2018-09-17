@@ -9,7 +9,24 @@ namespace GuildWars2.NET.v2.Items.Repositories
 {
     public class ItemRepository : GW2Repository
     {
-        public ItemRepository() : base() { } 
+        public ItemRepository() : base() { }
+
+        public ICollection<string> GetOutfits()
+        {
+            return Retrieve<ICollection<string>>("outfits");
+        }
+
+        public ICollection<Outfit> GetOutfits(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("outfits")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<Outfit>>(builder);
+        }
+
+        public Outfit GetOutfit(string id)
+        {
+            return Retrieve<Outfit>($"outfits/{id}");
+        }
 
         /// <summary>
         /// Get a specific recipe by id.
@@ -22,9 +39,9 @@ namespace GuildWars2.NET.v2.Items.Repositories
         /// <summary>
         /// Get the id's of all recipes.
         /// </summary>
-        public ICollection<int> GetRecipes()
+        public ICollection<string> GetRecipes()
         {
-            return Retrieve<ICollection<int>>("recipes");
+            return Retrieve<ICollection<string>>("recipes");
         }
 
         /// <summary>
@@ -32,7 +49,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
         /// </summary>
         /// <param name="itemId">Id of input/output item.</param>
         /// <param name="input">If true, item id is an ingredient. Else, item id is the output.</param>
-        public ICollection<int> GetRecipes(string itemId, bool input)
+        public ICollection<string> GetRecipes(string itemId, bool input)
         {
             string filter = string.Empty;
             if (input)
@@ -44,7 +61,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
                 filter = $"output={itemId}";
             }
 
-            return Retrieve<ICollection<int>>($"recipes/search?{filter}");
+            return Retrieve<ICollection<string>>($"recipes/search?{filter}");
         }
 
         public ICollection<string> GetSkins()

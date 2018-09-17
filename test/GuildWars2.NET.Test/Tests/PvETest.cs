@@ -32,14 +32,33 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetPets()
+        {
+            AssertCall<List<string>>(repository.GetPets());
+        }
+
+        [Fact]
+        public void GetPetsById()
+        {
+            string[] ids = repository.GetPets().ToArray();
+            AssertCall<List<Pet>>(repository.GetPets(ids));
+        }
+
+        [Theory]
+        [InlineData("33")]
+        public void GetPet(string id)
+        {
+            AssertCall<Pet>(repository.GetPet(id));
+        }
+
+        [Fact]
         public void GetProfessions()
         {
             AssertCall<List<string>>(repository.GetProfessions());
         }
 
         [Fact]
-        //[InlineData("Engineer", "Guardian")]
-        public void GetProfessionsById(/*params string[] ids*/)
+        public void GetProfessionsById()
         {
             string[] ids = repository.GetProfessions().ToArray();
             AssertCall<List<Profession>>(repository.GetProfessions(ids));

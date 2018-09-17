@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
+using System.Linq;
 
 namespace GuildWars2.NET.Test.Tests
 {
@@ -28,6 +29,27 @@ namespace GuildWars2.NET.Test.Tests
         public void GetBackstoryAnswersById(params string[] ids)
         {
             AssertCall<List<BackstoryAnswer>>(repository.GetBackstoryAnswers(ids));
+        }
+
+        [Fact]
+        public void GetProfessions()
+        {
+            AssertCall<List<string>>(repository.GetProfessions());
+        }
+
+        [Fact]
+        //[InlineData("Engineer", "Guardian")]
+        public void GetProfessionsById(/*params string[] ids*/)
+        {
+            string[] ids = repository.GetProfessions().ToArray();
+            AssertCall<List<Profession>>(repository.GetProfessions(ids));
+        }
+
+        [Theory]
+        [InlineData("Engineer")]
+        public void GetProfession(string id)
+        {
+            AssertCall<Profession>(repository.GetProfession(id));
         }
 
         [Fact]

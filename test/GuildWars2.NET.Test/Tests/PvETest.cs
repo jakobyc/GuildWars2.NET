@@ -32,6 +32,26 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetMaps()
+        {
+            AssertCall<List<string>>(repository.GetMaps());
+        }
+
+        [Theory]
+        [InlineData("15", "17", "63")]
+        public void GetMapsById(params string[] ids)
+        {
+            AssertCall<List<Map>>(repository.GetMaps(ids));
+        }
+
+        [Theory]
+        [InlineData("15")]
+        public void GetMap(string id)
+        {
+            AssertCall<Map>(repository.GetMap(id));
+        }
+
+        [Fact]
         public void GetMasteries()
         {
             AssertCall<List<string>>(repository.GetMasteries());

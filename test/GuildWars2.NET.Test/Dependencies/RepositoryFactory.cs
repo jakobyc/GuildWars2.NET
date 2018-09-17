@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using GuildWars2.NET.v2.Misc.Repositories;
+using GuildWars2.NET.v2.Skills.Repositories;
 
 namespace GuildWars2.NET.Test.Dependencies
 {
@@ -50,6 +51,11 @@ namespace GuildWars2.NET.Test.Dependencies
         public PvPRepository GetPvPRepository()
         {
             return new PvPRepository();
+        }
+
+        public SkillRepository GetSkillRepository()
+        {
+            return new SkillRepository();
         }
     }
 }

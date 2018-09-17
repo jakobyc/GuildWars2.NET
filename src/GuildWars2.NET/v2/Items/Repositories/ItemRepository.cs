@@ -11,6 +11,23 @@ namespace GuildWars2.NET.v2.Items.Repositories
     {
         public ItemRepository() : base() { }
 
+        public ICollection<string> GetItemStats()
+        {
+            return Retrieve<ICollection<string>>("itemstats");
+        }
+
+        public ICollection<ItemStat> GetItemStats(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("itemstats")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<ItemStat>>(builder);
+        }
+
+        public ItemStat GetItemStat(string id)
+        {
+            return Retrieve<ItemStat>($"itemstats/{id}");
+        }
+
         public ICollection<string> GetMailCarriers()
         {
             return Retrieve<ICollection<string>>("mailcarriers");

@@ -32,6 +32,26 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetMasteries()
+        {
+            AssertCall<List<string>>(repository.GetMasteries());
+        }
+
+        [Fact]
+        public void GetMasteriesById()
+        {
+            string[] ids = repository.GetMasteries().ToArray();
+            AssertCall<List<Mastery>>(repository.GetMasteries(ids));
+        }
+
+        [Theory]
+        [InlineData("1")]
+        public void GetMastery(string id)
+        {
+            AssertCall<Mastery>(repository.GetMastery(id));
+        }
+
+        [Fact]
         public void GetPets()
         {
             AssertCall<List<string>>(repository.GetPets());

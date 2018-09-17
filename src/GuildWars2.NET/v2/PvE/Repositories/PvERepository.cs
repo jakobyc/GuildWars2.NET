@@ -28,6 +28,23 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<ICollection<BackstoryAnswer>>(builder);
         }
 
+        public ICollection<string> GetProfessions()
+        {
+            return Retrieve<ICollection<string>>("professions");
+        }
+
+        public ICollection<Profession> GetProfessions(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("professions")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<Profession>>(builder);
+        }
+
+        public Profession GetProfession(string id)
+        {
+            return Retrieve<Profession>($"professions/{id}");
+        }
+
         public ICollection<string> GetRaces()
         {
             return Retrieve<ICollection<string>>("races");

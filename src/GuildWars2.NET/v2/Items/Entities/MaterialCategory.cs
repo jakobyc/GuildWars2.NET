@@ -17,6 +17,6 @@ namespace GuildWars2.NET.v2.Items.Entities
         public string[] Items { get; set; }
 
         [JsonProperty("order")]
-        public long Order { get; set; }
+        public int Order { get; set; }
     }
 }

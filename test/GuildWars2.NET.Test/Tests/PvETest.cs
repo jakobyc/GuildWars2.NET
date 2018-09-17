@@ -30,6 +30,26 @@ namespace GuildWars2.NET.Test.Tests
             AssertCall<List<BackstoryAnswer>>(repository.GetBackstoryAnswers(ids));
         }
 
+        [Fact]
+        public void GetRaces()
+        {
+            AssertCall<List<string>>(repository.GetRaces());
+        }
+
+        [Theory]
+        [InlineData("Asura", "Charr", "Human")]
+        public void GetRacesById(params string[] ids)
+        {
+            AssertCall<List<Race>>(repository.GetRaces(ids));
+        }
+
+        [Theory]
+        [InlineData("Asura")]
+        public void GetRace(string id)
+        {
+            AssertCall<Race>(repository.GetRace(id));
+        }
+
         [Theory]
         [InlineData("7-54")]
         public void GetBackstoryAnswer(string id)

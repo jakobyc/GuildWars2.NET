@@ -23,7 +23,7 @@ namespace GuildWars2.NET.v2.Items.Entities
         public string Rarity { get; set; }
 
         [JsonProperty("id")]
-        public long Id { get; set; }
+        public string Id { get; set; }
 
         [JsonProperty("icon")]
         public Uri Icon { get; set; }
@@ -56,7 +56,7 @@ namespace GuildWars2.NET.v2.Items.Entities
     public class Default
     {
         [JsonProperty("color_id")]
-        public long ColorId { get; set; }
+        public string ColorId { get; set; }
 
         [JsonProperty("material")]
         public string Material { get; set; }

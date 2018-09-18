@@ -19,6 +19,26 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetItems()
+        {
+            AssertCall<List<string>>(repository.GetItems());
+        }
+
+        [Theory]
+        [InlineData("24", "100", "103")]
+        public void GetItemsById(params string[] ids)
+        {
+            AssertCall<List<Item>>(repository.GetItems(ids));
+        }
+
+        [Theory]
+        [InlineData("46")]
+        public void GetItem(string id)
+        {
+            AssertCall<Item>(repository.GetItem(id));
+        }
+
+        [Fact]
         public void GetItemStats()
         {
             AssertCall<List<string>>(repository.GetItemStats());

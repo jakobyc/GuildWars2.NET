@@ -19,6 +19,26 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetGliders()
+        {
+            AssertCall<List<string>>(repository.GetGliders());
+        }
+
+        [Theory]
+        [InlineData("1", "3", "5")]
+        public void GetGlidersById(params string[] ids)
+        {
+            AssertCall<List<Glider>>(repository.GetGliders(ids));
+        }
+
+        [Theory]
+        [InlineData("46")]
+        public void GetGlider(string id)
+        {
+            AssertCall<Glider>(repository.GetGlider(id));
+        }
+
+        [Fact]
         public void GetItems()
         {
             AssertCall<List<string>>(repository.GetItems());

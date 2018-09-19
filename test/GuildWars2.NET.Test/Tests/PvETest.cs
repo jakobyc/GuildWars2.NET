@@ -32,6 +32,32 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetAllContinents()
+        {
+            AssertCall<List<Continent>>(repository.GetAllContinents());
+        }
+
+        [Fact]
+        public void GetContinents()
+        {
+            AssertCall<List<string>>(repository.GetContinents());
+        }
+
+        [Theory]
+        [InlineData("1", "2")]
+        public void GetContinentsById(params string[] ids)
+        {
+            AssertCall<List<Continent>>(repository.GetContinents(ids));
+        }
+
+        [Theory]
+        [InlineData("2")]
+        public void GetContinent(string id)
+        {
+            AssertCall<Continent>(repository.GetContinent(id));
+        }
+
+        [Fact]
         public void GetDungeons()
         {
             AssertCall<List<string>>(repository.GetDungeons());

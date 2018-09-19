@@ -144,6 +144,32 @@ namespace GuildWars2.NET.Test.Tests
             AssertCall<List<WvWObjective>>(repository.GetObjectives(ids));
         }
 
+        [Fact]
+        public void GetAllPvPRanks()
+        {
+            AssertCall<List<PvPRank>>(repository.GetAllPvPRanks());
+        }
+
+        [Fact]
+        public void GetPvPRanks()
+        {
+            AssertCall<List<string>>(repository.GetPvPRanks());
+        }
+
+        [Theory]
+        [InlineData("1", "2")]
+        public void GetPvPRanksById(params string[] ids)
+        {
+            AssertCall<List<PvPRank>>(repository.GetPvPRanks(ids));
+        }
+
+        [Theory]
+        [InlineData("3")]
+        public void GetPvPRank(string id)
+        {
+            AssertCall<PvPRank>(repository.GetPvPRank(id));
+        }
+
         [Theory]
         [InlineData("1-1", WvWTeam.Red)]
         public void GetTopGuildKDR(string matchId, WvWTeam team)

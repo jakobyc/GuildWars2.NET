@@ -132,6 +132,30 @@ namespace GuildWars2.NET.v2.PvP.Repositories
             return Retrieve<ICollection<WvWObjective>>(builder);
         }
 
+        public ICollection<PvPRank> GetAllPvPRanks()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/ranks")
+                                                            .AddParameter("ids", "all");
+            return Retrieve<ICollection<PvPRank>>(builder);
+        }
+
+        public ICollection<string> GetPvPRanks()
+        {
+            return Retrieve<ICollection<string>>("pvp/ranks");
+        }
+
+        public ICollection<PvPRank> GetPvPRanks(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/ranks")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<PvPRank>>(builder);
+        }
+
+        public PvPRank GetPvPRank(string id)
+        {
+            return Retrieve<PvPRank>($"pvp/ranks/{id}");
+        }
+
         public ICollection<GuildStats> GetTopGuildKDR(string matchId, WvWTeam team)
         {
             return Retrieve<ICollection<GuildStats>>($"wvw/matches/stats/{matchId}/teams/{GetTeam(team)}/top/kdr");

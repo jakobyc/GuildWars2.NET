@@ -11,6 +11,7 @@ using System.Text;
 using Xunit;
 using GuildWars2.NET.v2.Misc.Repositories;
 using GuildWars2.NET.v2.Skills.Repositories;
+using GuildWars2.NET.v2.Guilds.Repositories;
 
 namespace GuildWars2.NET.Test.Dependencies
 {
@@ -31,6 +32,11 @@ namespace GuildWars2.NET.Test.Dependencies
         public CharacterRepository GetCharacterRepository()
         {
             return new CharacterRepository(Config.GetApiKey());
+        }
+
+        public GuildRepository GetGuildRepository()
+        {
+            return new GuildRepository();
         }
 
         public ItemRepository GetItemRepository()

@@ -28,6 +28,23 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<ICollection<BackstoryAnswer>>(builder);
         }
 
+        public ICollection<string> GetDungeons()
+        {
+            return Retrieve<ICollection<string>>("dungeons");
+        }
+
+        public ICollection<Dungeon> GetDungeons(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("dungeons")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<Dungeon>>(builder);
+        }
+
+        public Dungeon GetDungeon(string id)
+        {
+            return Retrieve<Dungeon>($"dungeons/{id}");
+        }
+
         public ICollection<string> GetMaps()
         {
             return Retrieve<ICollection<string>>("maps");

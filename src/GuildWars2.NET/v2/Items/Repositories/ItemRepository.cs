@@ -35,6 +35,30 @@ namespace GuildWars2.NET.v2.Items.Repositories
             return Retrieve<Currency>($"currencies/{id}");
         }
 
+        public ICollection<Dye> GetAllDyes()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("colors")
+                                                            .AddParameter("ids", "all");
+            return Retrieve<ICollection<Dye>>(builder);
+        }
+
+        public ICollection<string> GetDyes()
+        {
+            return Retrieve<ICollection<string>>("colors");
+        }
+
+        public ICollection<Dye> GetDyes(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("colors")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<Dye>>(builder);
+        }
+
+        public Dye GetDye(string id)
+        {
+            return Retrieve<Dye>($"colors/{id}");
+        }
+
         public ICollection<string> GetFinishers()
         {
             return Retrieve<ICollection<string>>("finishers");

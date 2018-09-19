@@ -45,6 +45,32 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetAllDyes()
+        {
+            AssertCall<List<Dye>>(repository.GetAllDyes());
+        }
+
+        [Fact]
+        public void GetDyes()
+        {
+            AssertCall<List<string>>(repository.GetDyes());
+        }
+
+        [Theory]
+        [InlineData("2", "3", "4")]
+        public void GetDyesById(params string[] ids)
+        {
+            AssertCall<List<Dye>>(repository.GetDyes(ids));
+        }
+
+        [Theory]
+        [InlineData("1")]
+        public void GetDye(string id)
+        {
+            AssertCall<Dye>(repository.GetDye(id));
+        }
+
+        [Fact]
         public void GetFinishers()
         {
             AssertCall<List<string>>(repository.GetFinishers());

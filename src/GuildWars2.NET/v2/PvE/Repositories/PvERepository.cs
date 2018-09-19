@@ -28,6 +28,47 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<ICollection<BackstoryAnswer>>(builder);
         }
 
+        public ICollection<Continent> GetAllContinents()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("continents")
+                                                            .AddParameter("ids", "all");
+            return Retrieve<ICollection<Continent>>(builder);
+        }
+
+        public ICollection<string> GetContinents()
+        {
+            return Retrieve<ICollection<string>>("continents");
+        }
+
+        public ICollection<Continent> GetContinents(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("continents")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<Continent>>(builder);
+        }
+
+        public Continent GetContinent(string id)
+        {
+            return Retrieve<Continent>($"continents/{id}");
+        }
+
+        public ICollection<string> GetDungeons()
+        {
+            return Retrieve<ICollection<string>>("dungeons");
+        }
+
+        public ICollection<Dungeon> GetDungeons(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("dungeons")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<Dungeon>>(builder);
+        }
+
+        public Dungeon GetDungeon(string id)
+        {
+            return Retrieve<Dungeon>($"dungeons/{id}");
+        }
+
         public ICollection<string> GetMaps()
         {
             return Retrieve<ICollection<string>>("maps");

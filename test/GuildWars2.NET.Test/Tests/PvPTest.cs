@@ -50,6 +50,32 @@ namespace GuildWars2.NET.Test.Tests
             AssertCall<string[]>(repository.GetEndpoints());
         }
 
+        [Fact]
+        public void GetAllHeroes()
+        {
+            AssertCall<List<PvPHero>>(repository.GetAllHeroes());
+        }
+
+        [Fact]
+        public void GetHeroes()
+        {
+            AssertCall<List<string>>(repository.GetHeroes());
+        }
+
+        [Theory]
+        [InlineData("115C140F-C2F5-40EB-8EA2-C3773F2AE468", "B7EA9889-5F16-4636-9705-4FCAF8B39ECD")]
+        public void GetHeroesById(params string[] ids)
+        {
+            AssertCall<List<PvPHero>>(repository.GetHeroes(ids));
+        }
+
+        [Theory]
+        [InlineData("115C140F-C2F5-40EB-8EA2-C3773F2AE468")]
+        public void GetHero(string id)
+        {
+            AssertCall<PvPHero>(repository.GetHero(id));
+        }
+
         [Theory]
         [InlineData("1-1")]
         public void GetMatch(string id)

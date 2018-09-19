@@ -18,8 +18,7 @@ namespace GuildWars2.NET.v2.PvP.Repositories
     public class PvPRepository : GW2Repository
     {
         public PvPRepository() : base() { }
-
-
+ 
         public ICollection<PvPAmulet> GetAllAmulets()
         {
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/amulets")
@@ -47,6 +46,30 @@ namespace GuildWars2.NET.v2.PvP.Repositories
         public string[] GetEndpoints()
         {
             return Retrieve<string[]>($"pvp");
+        }
+
+        public ICollection<PvPHero> GetAllHeroes()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/heroes")
+                                                            .AddParameter("ids", "all");
+            return Retrieve<ICollection<PvPHero>>(builder);
+        }
+
+        public ICollection<string> GetHeroes()
+        {
+            return Retrieve<ICollection<string>>("pvp/heroes");
+        }
+
+        public ICollection<PvPHero> GetHeroes(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/heroes")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<PvPHero>>(builder);
+        }
+
+        public PvPHero GetHero(string id)
+        {
+            return Retrieve<PvPHero>($"pvp/heroes/{id}");
         }
 
         public Match GetMatch(string id)

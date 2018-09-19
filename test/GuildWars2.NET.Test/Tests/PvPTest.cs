@@ -170,6 +170,26 @@ namespace GuildWars2.NET.Test.Tests
             AssertCall<PvPRank>(repository.GetPvPRank(id));
         }
 
+        [Fact]
+        public void GetPvPSeasons()
+        {
+            AssertCall<List<string>>(repository.GetPvPSeasons());
+        }
+
+        [Theory]
+        [InlineData("44B85826-B5ED-4890-8C77-82DDF9F2CF2B", "95D5B290-798A-421E-A919-1C2A75F74B72")]
+        public void GetPvPSeasonsById(params string[] ids)
+        {
+            AssertCall<List<PvPSeason>>(repository.GetPvPSeasons(ids));
+        }
+
+        [Theory]
+        [InlineData("44B85826-B5ED-4890-8C77-82DDF9F2CF2B")]
+        public void GetPvPSeason(string id)
+        {
+            AssertCall<PvPSeason>(repository.GetPvPSeason(id));
+        }
+
         [Theory]
         [InlineData("1-1", WvWTeam.Red)]
         public void GetTopGuildKDR(string matchId, WvWTeam team)

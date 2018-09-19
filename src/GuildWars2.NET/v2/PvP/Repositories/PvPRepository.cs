@@ -153,7 +153,24 @@ namespace GuildWars2.NET.v2.PvP.Repositories
 
         public PvPRank GetPvPRank(string id)
         {
-            return Retrieve<PvPRank>($"pvp/ranks/{id}");
+            return Retrieve<PvPRank>($"pvp/seasons/{id}");
+        }
+
+        public ICollection<string> GetPvPSeasons()
+        {
+            return Retrieve<ICollection<string>>("pvp/seasons");
+        }
+
+        public ICollection<PvPSeason> GetPvPSeasons(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/seasons")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<PvPSeason>>(builder);
+        }
+
+        public PvPSeason GetPvPSeason(string id)
+        {
+            return Retrieve<PvPSeason>($"pvp/seasons/{id}");
         }
 
         public ICollection<GuildStats> GetTopGuildKDR(string matchId, WvWTeam team)

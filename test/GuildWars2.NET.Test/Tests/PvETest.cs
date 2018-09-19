@@ -19,6 +19,12 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetAllBackstoryAnswers()
+        {
+            AssertCall<List<BackstoryAnswer>>(repository.GetAllBackstoryAnswers());
+        }
+
+        [Fact]
         public void GetBackstoryAnswers()
         {
             AssertCall<List<string>>(repository.GetBackstoryAnswers());
@@ -29,6 +35,39 @@ namespace GuildWars2.NET.Test.Tests
         public void GetBackstoryAnswersById(params string[] ids)
         {
             AssertCall<List<BackstoryAnswer>>(repository.GetBackstoryAnswers(ids));
+        }
+
+        [Theory]
+        [InlineData("7-54")]
+        public void GetBackstoryAnswer(string id)
+        {
+            AssertCall<BackstoryAnswer>(repository.GetBackstoryAnswer(id));
+        }
+
+        [Fact]
+        public void GetAllBackstoryQuestions()
+        {
+            AssertCall<List<BackstoryQuestion>>(repository.GetAllBackstoryQuestions());
+        }
+
+        [Fact]
+        public void GetBackstoryQuestions()
+        {
+            AssertCall<List<string>>(repository.GetBackstoryQuestions());
+        }
+
+        [Theory]
+        [InlineData("7", "11")]
+        public void GetBackstoryQuestionsById(params string[] ids)
+        {
+            AssertCall<List<BackstoryQuestion>>(repository.GetBackstoryQuestions(ids));
+        }
+
+        [Theory]
+        [InlineData("185")]
+        public void GetBackstoryQuestion(string id)
+        {
+            AssertCall<BackstoryQuestion>(repository.GetBackstoryQuestion(id));
         }
 
         [Fact]
@@ -175,13 +214,6 @@ namespace GuildWars2.NET.Test.Tests
         public void GetRace(string id)
         {
             AssertCall<Race>(repository.GetRace(id));
-        }
-
-        [Theory]
-        [InlineData("7-54")]
-        public void GetBackstoryAnswer(string id)
-        {
-            AssertCall<BackstoryAnswer>(repository.GetBackstoryAnswer(id));
         }
 
         [Fact]

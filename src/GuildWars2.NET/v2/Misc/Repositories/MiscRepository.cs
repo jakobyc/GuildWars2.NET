@@ -11,6 +11,11 @@ namespace GuildWars2.NET.v2.Misc.Repositories
     {
         public MiscRepository() : base() { }
 
+        public Build GetBuild()
+        {
+            return Retrieve<Build>("build");
+        }
+
         public ICollection<Icon> GetAllIcons()
         {
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("files")

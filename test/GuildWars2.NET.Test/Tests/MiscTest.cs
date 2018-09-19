@@ -19,6 +19,12 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetBuild()
+        {
+            AssertCall<Build>(repository.GetBuild());
+        }
+
+        [Fact]
         public void GetAllIcons()
         {
             AssertCall<List<Icon>>(repository.GetAllIcons());

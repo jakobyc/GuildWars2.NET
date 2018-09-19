@@ -11,6 +11,30 @@ namespace GuildWars2.NET.v2.Items.Repositories
     {
         public ItemRepository() : base() { }
 
+        public ICollection<Currency> GetAllCurrencies()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("currencies")
+                                                            .AddParameter("ids", "all");
+            return Retrieve<ICollection<Currency>>(builder);
+        }
+
+        public ICollection<string> GetCurrencies()
+        {
+            return Retrieve<ICollection<string>>("currencies");
+        }
+
+        public ICollection<Currency> GetCurrencies(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("currencies")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<Currency>>(builder);
+        }
+
+        public Currency GetCurrency(string id)
+        {
+            return Retrieve<Currency>($"currencies/{id}");
+        }
+
         public ICollection<string> GetFinishers()
         {
             return Retrieve<ICollection<string>>("finishers");

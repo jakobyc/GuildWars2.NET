@@ -18,6 +18,38 @@ namespace GuildWars2.NET.Test.Tests
             this.repository = factory.GetPvPRepository();
         }
 
+        [Fact]
+        public void GetAllAmulets()
+        {
+            AssertCall<List<PvPAmulet>>(repository.GetAllAmulets());
+        }
+
+        [Fact]
+        public void GetAmulets()
+        {
+            AssertCall<List<string>>(repository.GetAmulets());
+        }
+
+        [Theory]
+        [InlineData("1", "4")]
+        public void GetAmuletsById(params string[] ids)
+        {
+            AssertCall<List<PvPAmulet>>(repository.GetAmulets(ids));
+        }
+
+        [Theory]
+        [InlineData("5")]
+        public void GetAmulet(string id)
+        {
+            AssertCall<PvPAmulet>(repository.GetAmulet(id));
+        }
+
+        [Fact]
+        public void GetEndpoints()
+        {
+            AssertCall<string[]>(repository.GetEndpoints());
+        }
+
         [Theory]
         [InlineData("1-1")]
         public void GetMatch(string id)

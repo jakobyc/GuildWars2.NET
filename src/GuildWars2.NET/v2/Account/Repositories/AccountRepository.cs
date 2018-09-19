@@ -105,6 +105,13 @@ namespace GuildWars2.NET.v2.Account.Repositories
             return Retrieve<ICollection<string>>("account/outfits");
         }
 
+        public ICollection<PvPGame> GetPvPGames()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/games")
+                                                            .AddParameter("ids", "all");
+            return Retrieve<ICollection<PvPGame>>(builder);
+        }
+
         // TODO: Resolve against v2/pvp/heroes:
         public ICollection<int> GetPvPHeroes()
         {

@@ -120,6 +120,12 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetPvPGames()
+        {
+            AssertCall<List<PvPGame>>(repository.GetPvPGames());
+        }
+
+        [Fact]
         public void GetPvPHeroes()
         {
             AssertCall<List<int>>(repository.GetPvPHeroes());

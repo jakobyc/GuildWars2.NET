@@ -19,6 +19,36 @@ namespace GuildWars2.NET.v2.PvP.Repositories
     {
         public PvPRepository() : base() { }
 
+
+        public ICollection<PvPAmulet> GetAllAmulets()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/amulets")
+                                                            .AddParameter("ids", "all");
+            return Retrieve<ICollection<PvPAmulet>>(builder);
+        }
+
+        public ICollection<string> GetAmulets()
+        {
+            return Retrieve<ICollection<string>>("pvp/amulets");
+        }
+
+        public ICollection<PvPAmulet> GetAmulets(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/amulets")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<PvPAmulet>>(builder);
+        }
+
+        public PvPAmulet GetAmulet(string id)
+        {
+            return Retrieve<PvPAmulet>($"pvp/amulets/{id}");
+        }
+
+        public string[] GetEndpoints()
+        {
+            return Retrieve<string[]>($"pvp");
+        }
+
         public Match GetMatch(string id)
         {
             return Retrieve<Match>($"wvw/matches/{id}");

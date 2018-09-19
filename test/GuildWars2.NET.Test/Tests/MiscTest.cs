@@ -19,6 +19,32 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetAllIcons()
+        {
+            AssertCall<List<Icon>>(repository.GetAllIcons());
+        }
+
+        [Fact]
+        public void GetIcons()
+        {
+            AssertCall<List<string>>(repository.GetIcons());
+        }
+
+        [Theory]
+        [InlineData("map_complete", "map_dungeon", "ui_coin_gold")]
+        public void GetIconsById(params string[] ids)
+        {
+            AssertCall<List<Icon>>(repository.GetIcons(ids));
+        }
+
+        [Theory]
+        [InlineData("ui_gem")]
+        public void GetIcon(string id)
+        {
+            AssertCall<Icon>(repository.GetIcon(id));
+        }
+
+        [Fact]
         public void GetQuaggans()
         {
             AssertCall<List<string>>(repository.GetQuaggans());

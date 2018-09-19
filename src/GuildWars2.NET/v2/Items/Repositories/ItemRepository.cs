@@ -11,6 +11,23 @@ namespace GuildWars2.NET.v2.Items.Repositories
     {
         public ItemRepository() : base() { }
 
+        public ICollection<string> GetFinishers()
+        {
+            return Retrieve<ICollection<string>>("finishers");
+        }
+
+        public ICollection<Finisher> GetFinishers(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("finishers")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<Finisher>>(builder);
+        }
+
+        public Finisher GetFinisher(string id)
+        {
+            return Retrieve<Finisher>($"finishers/{id}");
+        }
+
         public ICollection<string> GetGliders()
         {
             return Retrieve<ICollection<string>>("gliders");

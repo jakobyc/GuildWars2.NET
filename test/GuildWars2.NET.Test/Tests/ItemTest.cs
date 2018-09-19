@@ -19,6 +19,26 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetFinishers()
+        {
+            AssertCall<List<string>>(repository.GetFinishers());
+        }
+
+        [Theory]
+        [InlineData("1", "3", "5")]
+        public void GetFinishersById(params string[] ids)
+        {
+            AssertCall<List<Finisher>>(repository.GetFinishers(ids));
+        }
+
+        [Theory]
+        [InlineData("46")]
+        public void GetFinisher(string id)
+        {
+            AssertCall<Finisher>(repository.GetFinisher(id));
+        }
+
+        [Fact]
         public void GetGliders()
         {
             AssertCall<List<string>>(repository.GetGliders());

@@ -19,6 +19,32 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetAllCats()
+        {
+            AssertCall<List<Cat>>(repository.GetAllCats());
+        }
+
+        [Fact]
+        public void GetCats()
+        {
+            AssertCall<List<string>>(repository.GetCats());
+        }
+
+        [Theory]
+        [InlineData("2", "3", "4")]
+        public void GetCatsById(params string[] ids)
+        {
+            AssertCall<List<Cat>>(repository.GetCats(ids));
+        }
+
+        [Theory]
+        [InlineData("1")]
+        public void GetCat(string id)
+        {
+            AssertCall<Cat>(repository.GetCat(id));
+        }
+
+        [Fact]
         public void GetAllCurrencies()
         {
             AssertCall<List<Currency>>(repository.GetAllCurrencies());

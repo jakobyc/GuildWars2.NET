@@ -3,6 +3,7 @@ using GuildWars2.NET.v2.Guilds.Entities;
 using GuildWars2.NET.v2.Guilds.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Xunit;
 
@@ -69,6 +70,44 @@ namespace GuildWars2.NET.Test.Tests
         public void GetGuildId(string name)
         {
             AssertCall<string[]>(repository.GetGuildId(name));
+        }
+
+        [Fact]
+        public void GetLogs()
+        {
+            string guildId = Config.GetGuild();
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<GuildLog>>(repository.GetLogs(guildId, apiKey));
+            }
+            else
+            {
+                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+            }
+        }
+
+        [Fact]
+        public void GetLogsSince()
+        {
+            string guildId = Config.GetGuild();
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            {
+                var logs = repository.GetLogs(guildId, apiKey);
+                if (logs != null && logs.Count > 0)
+                {
+                    AssertCall<List<GuildLog>>(repository.GetLogsSince(guildId, apiKey, logs.First().Id));
+                }
+                else
+                {
+                    Assert.True(false, "No logs found.");
+                }
+            }
+            else
+            {
+                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+            }
         }
     }
 }

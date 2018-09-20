@@ -22,6 +22,11 @@ namespace GuildWars2.NET.Test.Tests
             return instance?["character"];
         }
 
+        public static string GetGuild()
+        {
+            return instance?["guild"];
+        }
+
         public static IConfiguration Init()
         {
             return new ConfigurationBuilder().AddJsonFile("appsettings.test.json")

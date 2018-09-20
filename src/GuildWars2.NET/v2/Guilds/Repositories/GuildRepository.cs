@@ -54,5 +54,26 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
         {
             return Retrieve<string[]>($"guild/search?name={name}");
         }
+
+        /// <summary>
+        /// Get guild logs of a guild if the account of the api key is a guild leader.
+        /// </summary>
+        public ICollection<GuildLog> GetLogs(string guildId, string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/log")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<GuildLog>>(builder);
+        }
+
+        /// <summary>
+        /// Get guild logs of a guild if the account of the api key is a guild leader, since a certain log ID.
+        /// </summary>
+        public ICollection<GuildLog> GetLogsSince(string guildId, string apiKey, string logId)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/log")
+                                                            .AddParameter("since", logId)
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<GuildLog>>(builder);
+        }
     }
 }

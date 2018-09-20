@@ -72,6 +72,21 @@ namespace GuildWars2.NET.v2.PvP.Repositories
             return Retrieve<PvPHero>($"pvp/heroes/{id}");
         }
 
+        /// <summary>
+        /// Get the leaderboards for a season.
+        /// </summary>
+        /// <param name="id">Season ID</param>
+        /// <returns></returns>
+        public ICollection<LeaderboardItem> GetLeaderboardsEU(string id)
+        {
+            return Retrieve<ICollection<LeaderboardItem>>($"pvp/seasons/{id}/leaderboards/ladder/eu");
+        }
+
+        public ICollection<LeaderboardItem> GetLeaderboardsNA(string id)
+        {
+            return Retrieve<ICollection<LeaderboardItem>>($"pvp/seasons/{id}/leaderboards/ladder/na");
+        }
+
         public Match GetMatch(string id)
         {
             return Retrieve<Match>($"wvw/matches/{id}");

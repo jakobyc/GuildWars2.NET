@@ -77,6 +77,20 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Theory]
+        [InlineData("A54849B7-7DBD-4958-91EF-72E18CD659BA")]
+        public void GetLeaderboardsEU(string id)
+        {
+            AssertCall<List<LeaderboardItem>>(repository.GetLeaderboardsEU(id));
+        }
+
+        [Theory]
+        [InlineData("A54849B7-7DBD-4958-91EF-72E18CD659BA")]
+        public void GetLeaderboardsNA(string id)
+        {
+            AssertCall<List<LeaderboardItem>>(repository.GetLeaderboardsNA(id));
+        }
+
+        [Theory]
         [InlineData("1-1")]
         public void GetMatch(string id)
         {

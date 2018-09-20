@@ -89,5 +89,12 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
                                                             .AddParameter("access_token", apiKey);
             return Retrieve<ICollection<GuildRank>>(builder);
         }
+
+        public ICollection<GuildStash> GetStash(string guildId, string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/stash")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<GuildStash>>(builder);
+        }
     }
 }

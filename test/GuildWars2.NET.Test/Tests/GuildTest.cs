@@ -139,5 +139,20 @@ namespace GuildWars2.NET.Test.Tests
                 Assert.True(false, "No guild id or API key found in appsettings.test.json.");
             }
         }
+
+        [Fact]
+        public void GetStash()
+        {
+            string guildId = Config.GetGuild();
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<GuildStash>>(repository.GetStash(guildId, apiKey));
+            }
+            else
+            {
+                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+            }
+        }
     }
 }

@@ -18,6 +18,74 @@ namespace GuildWars2.NET.v2.PvP.Repositories
     public class PvPRepository : GW2Repository
     {
         public PvPRepository() : base() { }
+ 
+        public ICollection<PvPAmulet> GetAllAmulets()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/amulets")
+                                                            .AddParameter("ids", "all");
+            return Retrieve<ICollection<PvPAmulet>>(builder);
+        }
+
+        public ICollection<string> GetAmulets()
+        {
+            return Retrieve<ICollection<string>>("pvp/amulets");
+        }
+
+        public ICollection<PvPAmulet> GetAmulets(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/amulets")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<PvPAmulet>>(builder);
+        }
+
+        public PvPAmulet GetAmulet(string id)
+        {
+            return Retrieve<PvPAmulet>($"pvp/amulets/{id}");
+        }
+
+        public string[] GetEndpoints()
+        {
+            return Retrieve<string[]>($"pvp");
+        }
+
+        public ICollection<PvPHero> GetAllHeroes()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/heroes")
+                                                            .AddParameter("ids", "all");
+            return Retrieve<ICollection<PvPHero>>(builder);
+        }
+
+        public ICollection<string> GetHeroes()
+        {
+            return Retrieve<ICollection<string>>("pvp/heroes");
+        }
+
+        public ICollection<PvPHero> GetHeroes(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/heroes")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<PvPHero>>(builder);
+        }
+
+        public PvPHero GetHero(string id)
+        {
+            return Retrieve<PvPHero>($"pvp/heroes/{id}");
+        }
+
+        /// <summary>
+        /// Get the leaderboards for a season.
+        /// </summary>
+        /// <param name="id">Season ID</param>
+        /// <returns></returns>
+        public ICollection<LeaderboardItem> GetLeaderboardsEU(string id)
+        {
+            return Retrieve<ICollection<LeaderboardItem>>($"pvp/seasons/{id}/leaderboards/ladder/eu");
+        }
+
+        public ICollection<LeaderboardItem> GetLeaderboardsNA(string id)
+        {
+            return Retrieve<ICollection<LeaderboardItem>>($"pvp/seasons/{id}/leaderboards/ladder/na");
+        }
 
         public Match GetMatch(string id)
         {
@@ -77,6 +145,47 @@ namespace GuildWars2.NET.v2.PvP.Repositories
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/objectives")
                                                             .AddParameter("ids", objectiveIds);
             return Retrieve<ICollection<WvWObjective>>(builder);
+        }
+
+        public ICollection<PvPRank> GetAllPvPRanks()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/ranks")
+                                                            .AddParameter("ids", "all");
+            return Retrieve<ICollection<PvPRank>>(builder);
+        }
+
+        public ICollection<string> GetPvPRanks()
+        {
+            return Retrieve<ICollection<string>>("pvp/ranks");
+        }
+
+        public ICollection<PvPRank> GetPvPRanks(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/ranks")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<PvPRank>>(builder);
+        }
+
+        public PvPRank GetPvPRank(string id)
+        {
+            return Retrieve<PvPRank>($"pvp/seasons/{id}");
+        }
+
+        public ICollection<string> GetPvPSeasons()
+        {
+            return Retrieve<ICollection<string>>("pvp/seasons");
+        }
+
+        public ICollection<PvPSeason> GetPvPSeasons(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/seasons")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<PvPSeason>>(builder);
+        }
+
+        public PvPSeason GetPvPSeason(string id)
+        {
+            return Retrieve<PvPSeason>($"pvp/seasons/{id}");
         }
 
         public ICollection<GuildStats> GetTopGuildKDR(string matchId, WvWTeam team)

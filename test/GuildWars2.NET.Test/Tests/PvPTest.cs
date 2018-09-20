@@ -18,6 +18,78 @@ namespace GuildWars2.NET.Test.Tests
             this.repository = factory.GetPvPRepository();
         }
 
+        [Fact]
+        public void GetAllAmulets()
+        {
+            AssertCall<List<PvPAmulet>>(repository.GetAllAmulets());
+        }
+
+        [Fact]
+        public void GetAmulets()
+        {
+            AssertCall<List<string>>(repository.GetAmulets());
+        }
+
+        [Theory]
+        [InlineData("1", "4")]
+        public void GetAmuletsById(params string[] ids)
+        {
+            AssertCall<List<PvPAmulet>>(repository.GetAmulets(ids));
+        }
+
+        [Theory]
+        [InlineData("5")]
+        public void GetAmulet(string id)
+        {
+            AssertCall<PvPAmulet>(repository.GetAmulet(id));
+        }
+
+        [Fact]
+        public void GetEndpoints()
+        {
+            AssertCall<string[]>(repository.GetEndpoints());
+        }
+
+        [Fact]
+        public void GetAllHeroes()
+        {
+            AssertCall<List<PvPHero>>(repository.GetAllHeroes());
+        }
+
+        [Fact]
+        public void GetHeroes()
+        {
+            AssertCall<List<string>>(repository.GetHeroes());
+        }
+
+        [Theory]
+        [InlineData("115C140F-C2F5-40EB-8EA2-C3773F2AE468", "B7EA9889-5F16-4636-9705-4FCAF8B39ECD")]
+        public void GetHeroesById(params string[] ids)
+        {
+            AssertCall<List<PvPHero>>(repository.GetHeroes(ids));
+        }
+
+        [Theory]
+        [InlineData("115C140F-C2F5-40EB-8EA2-C3773F2AE468")]
+        public void GetHero(string id)
+        {
+            AssertCall<PvPHero>(repository.GetHero(id));
+        }
+
+        [Theory]
+        [InlineData("A54849B7-7DBD-4958-91EF-72E18CD659BA")]
+        public void GetLeaderboardsEU(string id)
+        {
+            AssertCall<List<LeaderboardItem>>(repository.GetLeaderboardsEU(id));
+        }
+
+        [Theory]
+        [InlineData("A54849B7-7DBD-4958-91EF-72E18CD659BA")]
+        public void GetLeaderboardsNA(string id)
+        {
+            AssertCall<List<LeaderboardItem>>(repository.GetLeaderboardsNA(id));
+        }
+
         [Theory]
         [InlineData("1-1")]
         public void GetMatch(string id)
@@ -84,6 +156,52 @@ namespace GuildWars2.NET.Test.Tests
         public void GetObjectivesById(params string[] ids)
         {
             AssertCall<List<WvWObjective>>(repository.GetObjectives(ids));
+        }
+
+        [Fact]
+        public void GetAllPvPRanks()
+        {
+            AssertCall<List<PvPRank>>(repository.GetAllPvPRanks());
+        }
+
+        [Fact]
+        public void GetPvPRanks()
+        {
+            AssertCall<List<string>>(repository.GetPvPRanks());
+        }
+
+        [Theory]
+        [InlineData("1", "2")]
+        public void GetPvPRanksById(params string[] ids)
+        {
+            AssertCall<List<PvPRank>>(repository.GetPvPRanks(ids));
+        }
+
+        [Theory]
+        [InlineData("3")]
+        public void GetPvPRank(string id)
+        {
+            AssertCall<PvPRank>(repository.GetPvPRank(id));
+        }
+
+        [Fact]
+        public void GetPvPSeasons()
+        {
+            AssertCall<List<string>>(repository.GetPvPSeasons());
+        }
+
+        [Theory]
+        [InlineData("44B85826-B5ED-4890-8C77-82DDF9F2CF2B", "95D5B290-798A-421E-A919-1C2A75F74B72")]
+        public void GetPvPSeasonsById(params string[] ids)
+        {
+            AssertCall<List<PvPSeason>>(repository.GetPvPSeasons(ids));
+        }
+
+        [Theory]
+        [InlineData("44B85826-B5ED-4890-8C77-82DDF9F2CF2B")]
+        public void GetPvPSeason(string id)
+        {
+            AssertCall<PvPSeason>(repository.GetPvPSeason(id));
         }
 
         [Theory]

@@ -118,6 +118,11 @@ namespace GuildWars2.NET.v2.Account.Repositories
             return Retrieve<ICollection<int>>("account/pvp/heroes");
         }
 
+        public ICollection<PvPStandings> GetPvPStandings()
+        {
+            return Retrieve<ICollection<PvPStandings>>("pvp/standings");
+        }
+
         public ICollection<string> GetCompletedRaids()
         {
             return Retrieve<ICollection<string>>("account/raids");

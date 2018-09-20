@@ -138,6 +138,12 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
+        public void GetPvPStats()
+        {
+            AssertCall<PvPStats>(repository.GetPvPStats());
+        }
+
+        [Fact]
         public void GetRecipes()
         {
             AssertCall<List<string>>(repository.GetRecipes());

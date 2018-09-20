@@ -96,5 +96,12 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
                                                             .AddParameter("access_token", apiKey);
             return Retrieve<ICollection<GuildStash>>(builder);
         }
+
+        public ICollection<GuildStorage> GetStorage(string guildId, string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/storage")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<GuildStorage>>(builder);
+        }
     }
 }

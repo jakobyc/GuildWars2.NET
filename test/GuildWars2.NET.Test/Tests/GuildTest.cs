@@ -63,5 +63,12 @@ namespace GuildWars2.NET.Test.Tests
         {
             AssertCall<Guild>(repository.GetGuild(id));
         }
+
+        [Theory]
+        [InlineData("Edit Conflict")]
+        public void GetGuildId(string name)
+        {
+            AssertCall<string[]>(repository.GetGuildId(name));
+        }
     }
 }

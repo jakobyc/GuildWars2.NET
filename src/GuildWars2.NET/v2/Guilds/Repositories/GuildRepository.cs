@@ -49,5 +49,10 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
         {
             return Retrieve<Guild>($"guild/{id}");
         }
+
+        public string[] GetGuildId(string name)
+        {
+            return Retrieve<string[]>($"guild/search?name={name}");
+        }
     }
 }

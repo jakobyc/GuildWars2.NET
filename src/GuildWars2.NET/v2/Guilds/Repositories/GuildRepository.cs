@@ -82,5 +82,12 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
                                                             .AddParameter("access_token", apiKey);
             return Retrieve<ICollection<GuildMember>>(builder);
         }
+
+        public ICollection<GuildRank> GetRanks(string guildId, string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/ranks")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<GuildRank>>(builder);
+        }
     }
 }

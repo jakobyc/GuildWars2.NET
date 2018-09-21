@@ -69,6 +69,10 @@ namespace GuildWars2.NET.v2.Commerce.Repositories
             return Retrieve<ICollection<string>>("commerce/prices");
         }
 
+        /// <summary>
+        /// Get pricing information for items.
+        /// </summary>
+        /// <param name="ids">Item IDs</param>
         public ICollection<PricedItem> GetPricedItems(params string[] ids)
         {
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/prices")
@@ -76,6 +80,10 @@ namespace GuildWars2.NET.v2.Commerce.Repositories
             return Retrieve<ICollection<PricedItem>>(builder);
         }
 
+        /// <summary>
+        /// Get pricing information for an item.
+        /// </summary>
+        /// <param name="id">Item ID</param>
         public PricedItem GetPricedItem(string id)
         {
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/prices")

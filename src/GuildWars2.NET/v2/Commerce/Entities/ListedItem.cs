@@ -11,13 +11,13 @@ namespace GuildWars2.NET.v2.Commerce.Entities
         public string ItemId { get; set; }
 
         [JsonProperty("buys")]
-        public Buy[] Buys { get; set; }
+        public ListingInfo[] Buys { get; set; }
 
         [JsonProperty("sells")]
-        public Buy[] Sells { get; set; }
+        public ListingInfo[] Sells { get; set; }
     }
 
-    public class Buy
+    public class ListingInfo
     {
         [JsonProperty("listings")]
         public int Listings { get; set; }

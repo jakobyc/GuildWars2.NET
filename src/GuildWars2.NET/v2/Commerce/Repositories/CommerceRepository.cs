@@ -63,5 +63,24 @@ namespace GuildWars2.NET.v2.Commerce.Repositories
                                                             .AddParameter("id", id);
             return Retrieve<ListedItem>(builder);
         }
+
+        public ICollection<string> GetPricedItemIds()
+        {
+            return Retrieve<ICollection<string>>("commerce/prices");
+        }
+
+        public ICollection<PricedItem> GetPricedItems(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/prices")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<PricedItem>>(builder);
+        }
+
+        public PricedItem GetPricedItem(string id)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/prices")
+                                                            .AddParameter("id", id);
+            return Retrieve<PricedItem>(builder);
+        }
     }
 }

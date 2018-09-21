@@ -90,5 +90,61 @@ namespace GuildWars2.NET.Test.Tests
         {
             AssertCall<PricedItem>(repository.GetPricedItem(id));
         }
+
+        [Fact]
+        public void GetPurchaseHistory()
+        {
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<Transaction>>(repository.GetPurchaseHistory(apiKey));
+            }
+            else
+            {
+                Assert.True(false, "API key not found in appsettings.test.json.");
+            }
+        }
+
+        [Fact]
+        public void GetPurchaseOrders()
+        {
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<Transaction>>(repository.GetPurchaseOrders(apiKey));
+            }
+            else
+            {
+                Assert.True(false, "API key not found in appsettings.test.json.");
+            }
+        }
+
+        [Fact]
+        public void GetSalesHistory()
+        {
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<Transaction>>(repository.GetSalesHistory(apiKey));
+            }
+            else
+            {
+                Assert.True(false, "API key not found in appsettings.test.json.");
+            }
+        }
+
+        [Fact]
+        public void GetSalesOrders()
+        {
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<Transaction>>(repository.GetSalesOrders(apiKey));
+            }
+            else
+            {
+                Assert.True(false, "API key not found in appsettings.test.json.");
+            }
+        }
     }
 }

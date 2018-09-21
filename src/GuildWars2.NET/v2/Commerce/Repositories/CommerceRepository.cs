@@ -82,5 +82,45 @@ namespace GuildWars2.NET.v2.Commerce.Repositories
                                                             .AddParameter("id", id);
             return Retrieve<PricedItem>(builder);
         }
+
+        /// <summary>
+        /// Get transactions for historical purchases for past 90 days.
+        /// </summary>
+        public ICollection<Transaction> GetPurchaseHistory(string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/history/buys")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<Transaction>>(builder);
+        }
+
+        /// <summary>
+        /// Get transactions for current purchase orders.
+        /// </summary>
+        public ICollection<Transaction> GetPurchaseOrders(string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/current/buys")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<Transaction>>(builder);
+        }
+
+        /// <summary>
+        /// Get transactions for historical sales for past 90 days.
+        /// </summary>
+        public ICollection<Transaction> GetSalesHistory(string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/history/sells")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<Transaction>>(builder);
+        }
+
+        /// <summary>
+        /// Get transactions for current sales orders.
+        /// </summary>
+        public ICollection<Transaction> GetSalesOrders(string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/current/sells")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<Transaction>>(builder);
+        }
     }
 }

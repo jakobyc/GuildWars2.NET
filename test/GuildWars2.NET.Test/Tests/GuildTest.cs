@@ -201,7 +201,7 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetUpgradeIds()
+        public void GetUpgradeIdsByGuild()
         {
             string guildId = Config.GetGuild();
             string apiKey = Config.GetApiKey();
@@ -239,6 +239,32 @@ namespace GuildWars2.NET.Test.Tests
         public void GetPermission(string id)
         {
             AssertCall<GuildPermission>(repository.GetPermission(id));
+        }
+
+        [Fact]
+        public void GetUpgradeIds()
+        {
+            AssertCall<List<string>>(repository.GetUpgradeIds());
+        }
+
+        [Fact]
+        public void GetAllUpgrades()
+        {
+            AssertCall<List<GuildUpgrade>>(repository.GetAllUpgrades());
+        }
+
+        [Theory]
+        [InlineData("38", "43")]
+        public void GetUpgrades(params string[] ids)
+        {
+            AssertCall<List<GuildUpgrade>>(repository.GetUpgrades(ids));
+        }
+
+        [Theory]
+        [InlineData("44")]
+        public void GetUpgrade(string id)
+        {
+            AssertCall<GuildUpgrade>(repository.GetUpgrade(id));
         }
     }
 }

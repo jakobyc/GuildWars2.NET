@@ -125,6 +125,32 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
             return Retrieve<ICollection<string>>(builder);
         }
 
+        public ICollection<string> GetUpgradeIds()
+        {
+            return Retrieve<ICollection<string>>("guild/upgrades");
+        }
+
+        public ICollection<GuildUpgrade> GetAllUpgrades()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/upgrades")
+                                                            .AddParameter("ids", "all");
+            return Retrieve<ICollection<GuildUpgrade>>(builder);
+        }
+
+        public ICollection<GuildUpgrade> GetUpgrades(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/upgrades")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<GuildUpgrade>>(builder);
+        }
+
+        public GuildUpgrade GetUpgrade(string id)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/upgrades")
+                                                            .AddParameter("id", id);
+            return Retrieve<GuildUpgrade>(builder);
+        }
+
         public ICollection<string> GetPermissionIds()
         {
             return Retrieve<ICollection<string>>("guild/permissions");

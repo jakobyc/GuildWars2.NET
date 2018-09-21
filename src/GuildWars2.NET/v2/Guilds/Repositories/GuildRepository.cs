@@ -124,5 +124,31 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
                                                             .AddParameter("access_token", apiKey);
             return Retrieve<ICollection<string>>(builder);
         }
+
+        public ICollection<string> GetPermissionIds()
+        {
+            return Retrieve<ICollection<string>>("guild/permissions");
+        }
+
+        public ICollection<GuildPermission> GetAllPermissions()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/permissions")
+                                                            .AddParameter("ids", "all");
+            return Retrieve<ICollection<GuildPermission>>(builder);
+        }
+
+        public ICollection<GuildPermission> GetPermissions(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/permissions")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<GuildPermission>>(builder);
+        }
+
+        public GuildPermission GetPermission(string id)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/permissions")
+                                                            .AddParameter("id", id);
+            return Retrieve<GuildPermission>(builder);
+        }
     }
 }

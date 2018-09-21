@@ -214,5 +214,31 @@ namespace GuildWars2.NET.Test.Tests
                 Assert.True(false, "No guild id or API key found in appsettings.test.json.");
             }
         }
+
+        [Fact]
+        public void GetPermissionIds()
+        {
+            AssertCall<List<string>>(repository.GetPermissionIds());
+        }
+
+        [Fact]
+        public void GetAllPermissions()
+        {
+            AssertCall<List<GuildPermission>>(repository.GetAllPermissions());
+        }
+
+        [Theory]
+        [InlineData("ClaimableEditOptions", "EditBGM")]
+        public void GetPermissions(params string[] ids)
+        {
+            AssertCall<List<GuildPermission>>(repository.GetPermissions(ids));
+        }
+
+        [Theory]
+        [InlineData("ActivatePlaceables")]
+        public void GetPermission(string id)
+        {
+            AssertCall<GuildPermission>(repository.GetPermission(id));
+        }
     }
 }

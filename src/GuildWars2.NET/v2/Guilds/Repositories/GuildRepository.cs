@@ -117,5 +117,12 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
                                                             .AddParameter("access_token", apiKey);
             return Retrieve<ICollection<GuildTreasury>>(builder);
         }
+
+        public ICollection<string> GetUpgradeIds(string guildId, string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/upgrades")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<string>>(builder);
+        }
     }
 }

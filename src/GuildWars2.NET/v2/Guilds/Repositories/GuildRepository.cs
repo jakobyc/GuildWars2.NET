@@ -75,5 +75,106 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
                                                             .AddParameter("access_token", apiKey);
             return Retrieve<ICollection<GuildLog>>(builder);
         }
+
+        public ICollection<GuildMember> GetMembers(string guildId, string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/members")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<GuildMember>>(builder);
+        }
+
+        public ICollection<GuildRank> GetRanks(string guildId, string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/ranks")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<GuildRank>>(builder);
+        }
+
+        public ICollection<GuildStash> GetStash(string guildId, string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/stash")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<GuildStash>>(builder);
+        }
+
+        public ICollection<GuildStorage> GetStorage(string guildId, string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/storage")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<GuildStorage>>(builder);
+        }
+
+        public ICollection<GuildTeam> GetTeams(string guildId, string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/teams")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<GuildTeam>>(builder);
+        }
+
+        public ICollection<GuildTreasury> GetTreasury(string guildId, string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/treasury")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<GuildTreasury>>(builder);
+        }
+
+        public ICollection<string> GetUpgradeIds(string guildId, string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/upgrades")
+                                                            .AddParameter("access_token", apiKey);
+            return Retrieve<ICollection<string>>(builder);
+        }
+
+        public ICollection<string> GetUpgradeIds()
+        {
+            return Retrieve<ICollection<string>>("guild/upgrades");
+        }
+
+        public ICollection<GuildUpgrade> GetAllUpgrades()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/upgrades")
+                                                            .AddParameter("ids", "all");
+            return Retrieve<ICollection<GuildUpgrade>>(builder);
+        }
+
+        public ICollection<GuildUpgrade> GetUpgrades(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/upgrades")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<GuildUpgrade>>(builder);
+        }
+
+        public GuildUpgrade GetUpgrade(string id)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/upgrades")
+                                                            .AddParameter("id", id);
+            return Retrieve<GuildUpgrade>(builder);
+        }
+
+        public ICollection<string> GetPermissionIds()
+        {
+            return Retrieve<ICollection<string>>("guild/permissions");
+        }
+
+        public ICollection<GuildPermission> GetAllPermissions()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/permissions")
+                                                            .AddParameter("ids", "all");
+            return Retrieve<ICollection<GuildPermission>>(builder);
+        }
+
+        public ICollection<GuildPermission> GetPermissions(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/permissions")
+                                                            .AddParameter("ids", ids);
+            return Retrieve<ICollection<GuildPermission>>(builder);
+        }
+
+        public GuildPermission GetPermission(string id)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/permissions")
+                                                            .AddParameter("id", id);
+            return Retrieve<GuildPermission>(builder);
+        }
     }
 }

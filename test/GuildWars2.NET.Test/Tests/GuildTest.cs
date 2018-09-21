@@ -109,5 +109,162 @@ namespace GuildWars2.NET.Test.Tests
                 Assert.True(false, "No guild id or API key found in appsettings.test.json.");
             }
         }
+
+        [Fact]
+        public void GetMembers()
+        {
+            string guildId = Config.GetGuild();
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<GuildMember>>(repository.GetMembers(guildId, apiKey));
+            }
+            else
+            {
+                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+            }
+        }
+
+        [Fact]
+        public void GetRanks()
+        {
+            string guildId = Config.GetGuild();
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<GuildRank>>(repository.GetRanks(guildId, apiKey));
+            }
+            else
+            {
+                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+            }
+        }
+
+        [Fact]
+        public void GetStash()
+        {
+            string guildId = Config.GetGuild();
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<GuildStash>>(repository.GetStash(guildId, apiKey));
+            }
+            else
+            {
+                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+            }
+        }
+
+        [Fact]
+        public void GetStorage()
+        {
+            string guildId = Config.GetGuild();
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<GuildStorage>>(repository.GetStorage(guildId, apiKey));
+            }
+            else
+            {
+                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+            }
+        }
+
+        [Fact]
+        public void GetTeams()
+        {
+            string guildId = Config.GetGuild();
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<GuildTeam>>(repository.GetTeams(guildId, apiKey));
+            }
+            else
+            {
+                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+            }
+        }
+
+        [Fact]
+        public void GetTreasury()
+        {
+            string guildId = Config.GetGuild();
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<GuildTreasury>>(repository.GetTreasury(guildId, apiKey));
+            }
+            else
+            {
+                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+            }
+        }
+
+        [Fact]
+        public void GetUpgradeIdsByGuild()
+        {
+            string guildId = Config.GetGuild();
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<string>>(repository.GetUpgradeIds(guildId, apiKey));
+            }
+            else
+            {
+                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+            }
+        }
+
+        [Fact]
+        public void GetPermissionIds()
+        {
+            AssertCall<List<string>>(repository.GetPermissionIds());
+        }
+
+        [Fact]
+        public void GetAllPermissions()
+        {
+            AssertCall<List<GuildPermission>>(repository.GetAllPermissions());
+        }
+
+        [Theory]
+        [InlineData("ClaimableEditOptions", "EditBGM")]
+        public void GetPermissions(params string[] ids)
+        {
+            AssertCall<List<GuildPermission>>(repository.GetPermissions(ids));
+        }
+
+        [Theory]
+        [InlineData("ActivatePlaceables")]
+        public void GetPermission(string id)
+        {
+            AssertCall<GuildPermission>(repository.GetPermission(id));
+        }
+
+        [Fact]
+        public void GetUpgradeIds()
+        {
+            AssertCall<List<string>>(repository.GetUpgradeIds());
+        }
+
+        [Fact]
+        public void GetAllUpgrades()
+        {
+            AssertCall<List<GuildUpgrade>>(repository.GetAllUpgrades());
+        }
+
+        [Theory]
+        [InlineData("38", "43")]
+        public void GetUpgrades(params string[] ids)
+        {
+            AssertCall<List<GuildUpgrade>>(repository.GetUpgrades(ids));
+        }
+
+        [Theory]
+        [InlineData("44")]
+        public void GetUpgrade(string id)
+        {
+            AssertCall<GuildUpgrade>(repository.GetUpgrade(id));
+        }
     }
 }

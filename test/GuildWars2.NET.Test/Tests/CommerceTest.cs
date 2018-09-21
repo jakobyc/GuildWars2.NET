@@ -30,5 +30,25 @@ namespace GuildWars2.NET.Test.Tests
                 Assert.True(false, "API key not found in appsettings.test.json.");
             }
         }
+
+        [Fact]
+        public void GetCurrencyTypes()
+        {
+            AssertCall<List<string>>(repository.GetCurrencyTypes());
+        }
+
+        [Theory]
+        [InlineData(100)]
+        public void GetCoins(int gems)
+        {
+            AssertCall<Coins>(repository.GetCoins(gems));
+        }
+
+        [Theory]
+        [InlineData(10000)]
+        public void GetGems(int coins)
+        {
+            AssertCall<Gems>(repository.GetGems(coins));
+        }
     }
 }

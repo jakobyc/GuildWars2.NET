@@ -92,11 +92,6 @@ namespace GuildWars2.NET.v2.PvP.Repositories
             return Retrieve<Match>($"wvw/matches/{id}");
         }
 
-        public async Task<Match> GetMatchAsync(string id)
-        {
-            return await RetrieveAsync<Match>($"wvw/matches/{id}");
-        }
-
         public MatchOverview GetMatchOverview(string worldId)
         {
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/matches/overview")
@@ -248,6 +243,234 @@ namespace GuildWars2.NET.v2.PvP.Repositories
         {
             return Retrieve<WvWUpgrade>($"wvw/upgrades/{id}");
         }
+
+
+        #region Async
+        public async Task<ICollection<PvPAmulet>> GetAllAmuletsAsync()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/amulets")
+                                                            .AddParameter("ids", "all");
+            return await RetrieveAsync<ICollection<PvPAmulet>>(builder);
+        }
+
+        public async Task<ICollection<string>> GetAmuletIdsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("pvp/amulets");
+        }
+
+        public async Task<ICollection<PvPAmulet>> GetAmuletsAsync(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/amulets")
+                                                            .AddParameter("ids", ids);
+            return await RetrieveAsync<ICollection<PvPAmulet>>(builder);
+        }
+
+        public async Task<PvPAmulet> GetAmuletAsync(string id)
+        {
+            return await RetrieveAsync<PvPAmulet>($"pvp/amulets/{id}");
+        }
+
+        public async Task<string[]> GetEndpointsAsync()
+        {
+            return await RetrieveAsync<string[]>($"pvp");
+        }
+
+        public async Task<ICollection<PvPHero>> GetAllHeroesAsync()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/heroes")
+                                                            .AddParameter("ids", "all");
+            return await RetrieveAsync<ICollection<PvPHero>>(builder);
+        }
+
+        public async Task<ICollection<string>> GetHeroIdsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("pvp/heroes");
+        }
+
+        public async Task<ICollection<PvPHero>> GetHeroesAsync(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/heroes")
+                                                            .AddParameter("ids", ids);
+            return await RetrieveAsync<ICollection<PvPHero>>(builder);
+        }
+
+        public async Task<PvPHero> GetHeroAsync(string id)
+        {
+            return await RetrieveAsync<PvPHero>($"pvp/heroes/{id}");
+        }
+
+        /// <summary>
+        /// Get the leaderboards for a season.
+        /// </summary>
+        /// <param name="id">Season ID</param>
+        /// <returns></returns>
+        public async Task<ICollection<LeaderboardItem>> GetLeaderboardsEUAsync(string id)
+        {
+            return await RetrieveAsync<ICollection<LeaderboardItem>>($"pvp/seasons/{id}/leaderboards/ladder/eu");
+        }
+
+        public async Task<ICollection<LeaderboardItem>> GetLeaderboardsNAAsync(string id)
+        {
+            return await RetrieveAsync<ICollection<LeaderboardItem>>($"pvp/seasons/{id}/leaderboards/ladder/na");
+        }
+
+        public async Task<Match> GetMatchAsync(string id)
+        {
+            return await RetrieveAsync<Match>($"wvw/matches/{id}");
+        }
+
+        public async Task<MatchOverview> GetMatchOverviewAsync(string worldId)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/matches/overview")
+                                                            .AddParameter("world", worldId);
+            return await RetrieveAsync<MatchOverview>(builder);
+        }
+
+        public async Task<MatchScores> GetMatchScoresAsync(string worldId)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/matches/scores")
+                                                            .AddParameter("world", worldId);
+            return await RetrieveAsync<MatchScores>(builder);
+        }
+
+        public async Task<MatchStats> GetMatchStatsAsync(string worldId)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/matches/stats")
+                                                            .AddParameter("world", worldId);
+            return await RetrieveAsync<MatchStats>(builder);
+        }
+
+        public async Task<ICollection<string>> GetMatchIdsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("wvw/matches");
+        }
+
+        public async Task<ICollection<Match>> GetMatchesAsync(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/matches")
+                                                            .AddParameter("ids", ids);
+            return await RetrieveAsync<ICollection<Match>>(builder);
+        }
+
+        public async Task<ICollection<string>> GetObjectiveIdsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("wvw/objectives");
+        }
+
+        public async Task<WvWObjective> GetObjectiveAsync(string objectiveId)
+        {
+            return await RetrieveAsync<WvWObjective>($"wvw/objectives/{objectiveId}");
+        }
+
+        public async Task<ICollection<WvWObjective>> GetObjectivesAsync(params string[] objectiveIds)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/objectives")
+                                                            .AddParameter("ids", objectiveIds);
+            return await RetrieveAsync<ICollection<WvWObjective>>(builder);
+        }
+
+        public async Task<ICollection<PvPRank>> GetAllPvPRanksAsync()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/ranks")
+                                                            .AddParameter("ids", "all");
+            return await RetrieveAsync<ICollection<PvPRank>>(builder);
+        }
+
+        public async Task<ICollection<string>> GetPvPRankIdsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("pvp/ranks");
+        }
+
+        public async Task<ICollection<PvPRank>> GetPvPRanksAsync(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/ranks")
+                                                            .AddParameter("ids", ids);
+            return await RetrieveAsync<ICollection<PvPRank>>(builder);
+        }
+
+        public async Task<PvPRank> GetPvPRankAsync(string id)
+        {
+            return await RetrieveAsync<PvPRank>($"pvp/ranks/{id}");
+        }
+
+        public async Task<ICollection<string>> GetPvPSeasonIdsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("pvp/seasons");
+        }
+
+        public async Task<ICollection<PvPSeason>> GetPvPSeasonsAsync(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/seasons")
+                                                            .AddParameter("ids", ids);
+            return await RetrieveAsync<ICollection<PvPSeason>>(builder);
+        }
+
+        public async Task<PvPSeason> GetPvPSeasonAsync(string id)
+        {
+            return await RetrieveAsync<PvPSeason>($"pvp/seasons/{id}");
+        }
+
+        public async Task<ICollection<GuildStats>> GetTopGuildKDRAsync(string matchId, WvWTeam team)
+        {
+            return await RetrieveAsync<ICollection<GuildStats>>($"wvw/matches/stats/{matchId}/teams/{GetTeam(team)}/top/kdr");
+        }
+
+        public async Task<ICollection<GuildStats>> GetTopGuildKillsAsync(string matchId, WvWTeam team)
+        {
+            return await RetrieveAsync<ICollection<GuildStats>>($"wvw/matches/stats/{matchId}/teams/{GetTeam(team)}/top/kills");
+        }
+
+        public async Task<WvWAbility> GetWvWAbilityAsync(string id)
+        {
+            return await RetrieveAsync<WvWAbility>($"wvw/abilities/{id}");
+        }
+
+        public async Task<ICollection<string>> GetWvWAbilityIdsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("wvw/abilities");
+        }
+
+        public async Task<ICollection<WvWAbility>> GetWvWAbilitiesAsync(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/abilities")
+                                                            .AddParameter("ids", ids);
+            return await RetrieveAsync<ICollection<WvWAbility>>(builder);
+        }
+
+        public async Task<ICollection<string>> GetWvWRankIdsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("wvw/ranks");
+        }
+
+        public async Task<ICollection<WvWRank>> GetWvWRanksAsync(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/ranks")
+                                                            .AddParameter("ids", ids);
+            return await RetrieveAsync<ICollection<WvWRank>>(builder);
+        }
+
+        public async Task<WvWRank> GetWvWRankAsync(string id)
+        {
+            return await RetrieveAsync<WvWRank>($"wvw/ranks/{id}");
+        }
+
+        public async Task<ICollection<string>> GetWvWUpgradeIdsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("wvw/upgrades");
+        }
+
+        public async Task<ICollection<WvWUpgrade>> GetWvWUpgradesAsync(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("wvw/upgrades")
+                                                            .AddParameter("ids", ids);
+            return await RetrieveAsync<ICollection<WvWUpgrade>>(builder);
+        }
+
+        public async Task<WvWUpgrade> GetWvWUpgradeAsync(string id)
+        {
+            return await RetrieveAsync<WvWUpgrade>($"wvw/upgrades/{id}");
+        }
+        #endregion
 
         private string GetTeam(WvWTeam team)
         {

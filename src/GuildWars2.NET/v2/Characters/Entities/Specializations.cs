@@ -19,7 +19,7 @@ namespace GuildWars2.NET.v2.Characters.Entities
             [JsonProperty("id")]
             public int Id { get; set; }
             [JsonProperty("traits")]
-            public ICollection<int> Traits { get; set; }
+            public ICollection<string> Traits { get; set; }
         }
 
         public class PvP
@@ -27,7 +27,7 @@ namespace GuildWars2.NET.v2.Characters.Entities
             [JsonProperty("id")]
             public int Id { get; set; }
             [JsonProperty("traits")]
-            public ICollection<int> Traits { get; set; }
+            public ICollection<string> Traits { get; set; }
         }
 
         public class WvW
@@ -35,7 +35,7 @@ namespace GuildWars2.NET.v2.Characters.Entities
             [JsonProperty("id")]
             public int Id { get; set; }
             [JsonProperty("traits")]
-            public ICollection<int> Traits { get; set; }
+            public ICollection<string> Traits { get; set; }
         }
     }
 }

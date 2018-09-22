@@ -10,11 +10,11 @@ namespace GuildWars2.NET.v2.Characters.Entities
     public abstract class CharacterSkill : ISkill
     {
         [JsonProperty("heal")]
-        public int HealId { get; set; }
+        public string HealId { get; set; }
         [JsonProperty("elite")]
-        public int EliteId { get; set; }
+        public string EliteId { get; set; }
 
         [JsonProperty("utilities")]
-        public ICollection<int> UtilitiesIDs { get; set; }
+        public ICollection<string> UtilitiesIDs { get; set; }
     }
 }

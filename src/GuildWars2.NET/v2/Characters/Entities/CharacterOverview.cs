@@ -43,7 +43,7 @@ namespace GuildWars2.NET.v2.Characters.Entities
         [JsonProperty("equipment")]
         public ICollection<EquipmentInfo> Equipment { get; set; }
         [JsonProperty("recipes")]
-        public ICollection<int> Recipes { get; set; }
+        public ICollection<string> Recipes { get; set; }
         [JsonProperty("equipment_pvp")]
         public EquipmentPvp Equipment_pvp { get; set; }
         // TODO: Not deserializing:

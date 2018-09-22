@@ -68,7 +68,7 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetGliders()
         {
-            AssertCall<List<int>>(repository.GetGliders());
+            AssertCall<List<string>>(repository.GetGliders());
         }
 
         [Fact]
@@ -86,7 +86,7 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetMailCarriers()
         {
-            AssertCall<List<int>>(repository.GetMailCarriers());
+            AssertCall<List<string>>(repository.GetMailCarriers());
         }
 
         [Fact]
@@ -128,7 +128,7 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetPvPHeroes()
         {
-            AssertCall<List<int>>(repository.GetPvPHeroes());
+            AssertCall<List<string>>(repository.GetPvPHeroes());
         }
 
         [Fact]

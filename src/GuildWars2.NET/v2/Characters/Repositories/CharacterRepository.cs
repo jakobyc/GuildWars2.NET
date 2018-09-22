@@ -126,7 +126,7 @@ namespace GuildWars2.NET.v2.Characters.Repositories
                         skill.HealId.ToString()
                     };
 
-            foreach (int skillId in skill.UtilitiesIDs)
+            foreach (string skillId in skill.UtilitiesIDs)
             {
                 ids.Add(skillId.ToString());
             }

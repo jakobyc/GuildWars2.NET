@@ -54,9 +54,9 @@ namespace GuildWars2.NET.v2.Account.Repositories
         }
 
         // TODO: Resolve against v2/gliders:
-        public ICollection<int> GetGliders()
+        public ICollection<string> GetGliders()
         {
-            return Retrieve<ICollection<int>>("account/gliders");
+            return Retrieve<ICollection<string>>("account/gliders");
         }
 
         public ICollection<Cat> GetHomeCats()
@@ -75,9 +75,9 @@ namespace GuildWars2.NET.v2.Account.Repositories
         }
 
         // TODO: Resolve against v2/mailcarriers
-        public ICollection<int> GetMailCarriers()
+        public ICollection<string> GetMailCarriers()
         {
-            return Retrieve<ICollection<int>>("account/mailcarriers");
+            return Retrieve<ICollection<string>>("account/mailcarriers");
         }
 
         public ICollection<Mastery> GetMasteries()
@@ -113,9 +113,9 @@ namespace GuildWars2.NET.v2.Account.Repositories
         }
 
         // TODO: Resolve against v2/pvp/heroes:
-        public ICollection<int> GetPvPHeroes()
+        public ICollection<string> GetPvPHeroes()
         {
-            return Retrieve<ICollection<int>>("account/pvp/heroes");
+            return Retrieve<ICollection<string>>("account/pvp/heroes");
         }
 
         public ICollection<PvPStandings> GetPvPStandings()

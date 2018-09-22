@@ -18,7 +18,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
             return Retrieve<ICollection<Cat>>(builder);
         }
 
-        public ICollection<string> GetCats()
+        public ICollection<string> GetCatIds()
         {
             return Retrieve<ICollection<string>>("cats");
         }
@@ -42,7 +42,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
             return Retrieve<ICollection<Currency>>(builder);
         }
 
-        public ICollection<string> GetCurrencies()
+        public ICollection<string> GetCurrencyIds()
         {
             return Retrieve<ICollection<string>>("currencies");
         }
@@ -66,7 +66,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
             return Retrieve<ICollection<Dye>>(builder);
         }
 
-        public ICollection<string> GetDyes()
+        public ICollection<string> GetDyeIds()
         {
             return Retrieve<ICollection<string>>("colors");
         }
@@ -83,7 +83,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
             return Retrieve<Dye>($"colors/{id}");
         }
 
-        public ICollection<string> GetFinishers()
+        public ICollection<string> GetFinisherIds()
         {
             return Retrieve<ICollection<string>>("finishers");
         }
@@ -100,7 +100,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
             return Retrieve<Finisher>($"finishers/{id}");
         }
 
-        public ICollection<string> GetGliders()
+        public ICollection<string> GetGliderIds()
         {
             return Retrieve<ICollection<string>>("gliders");
         }
@@ -117,7 +117,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
             return Retrieve<Glider>($"gliders/{id}");
         }
 
-        public ICollection<string> GetItems()
+        public ICollection<string> GetItemIds()
         {
             return Retrieve<ICollection<string>>("items");
         }
@@ -134,7 +134,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
             return Retrieve<Item>($"items/{id}");
         }
 
-        public ICollection<string> GetItemStats()
+        public ICollection<string> GetItemStatIds()
         {
             return Retrieve<ICollection<string>>("itemstats");
         }
@@ -151,7 +151,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
             return Retrieve<ItemStat>($"itemstats/{id}");
         }
 
-        public ICollection<string> GetMailCarriers()
+        public ICollection<string> GetMailCarrierIds()
         {
             return Retrieve<ICollection<string>>("mailcarriers");
         }
@@ -168,7 +168,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
             return Retrieve<MailCarrier>($"mailcarriers/{id}");
         }
 
-        public ICollection<string> GetMaterialCategories()
+        public ICollection<string> GetMaterialCategoryIds()
         {
             return Retrieve<ICollection<string>>("materials");
         }
@@ -185,7 +185,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
             return Retrieve<MaterialCategory>($"materials/{id}");
         }
 
-        public ICollection<string> GetMiniatures()
+        public ICollection<string> GetMiniatureIds()
         {
             return Retrieve<ICollection<string>>("minis");
         }
@@ -202,7 +202,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
             return Retrieve<Miniature>($"minis/{id}");
         }
 
-        public ICollection<string> GetNodes()
+        public ICollection<string> GetNodeIds()
         {
             return Retrieve<ICollection<string>>("nodes");
         }
@@ -219,7 +219,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
             return Retrieve<Node>($"nodes/{id}");
         }
 
-        public ICollection<string> GetOutfits()
+        public ICollection<string> GetOutfitIds()
         {
             return Retrieve<ICollection<string>>("outfits");
         }
@@ -247,7 +247,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
         /// <summary>
         /// Get the id's of all recipes.
         /// </summary>
-        public ICollection<string> GetRecipes()
+        public ICollection<string> GetRecipeIds()
         {
             return Retrieve<ICollection<string>>("recipes");
         }
@@ -272,7 +272,7 @@ namespace GuildWars2.NET.v2.Items.Repositories
             return Retrieve<ICollection<string>>($"recipes/search?{filter}");
         }
 
-        public ICollection<string> GetSkins()
+        public ICollection<string> GetSkinIds()
         {
             return Retrieve<ICollection<string>>("skins");
         }

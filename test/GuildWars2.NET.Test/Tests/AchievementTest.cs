@@ -18,9 +18,9 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetAchievements()
+        public void GetAchievementIds()
         {
-            AssertCall<List<int>>(repository.GetAchievements());
+            AssertIds<List<string>>(repository.GetAchievements());
         }
 
         [Fact]

@@ -18,7 +18,7 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<ICollection<BackstoryAnswer>>(builder);
         }
 
-        public ICollection<string> GetBackstoryAnswers()
+        public ICollection<string> GetBackstoryAnswerIds()
         {
             return Retrieve<ICollection<string>>("backstory/answers");
         }
@@ -42,7 +42,7 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<ICollection<BackstoryQuestion>>(builder);
         }
 
-        public ICollection<string> GetBackstoryQuestions()
+        public ICollection<string> GetBackstoryQuestionIds()
         {
             return Retrieve<ICollection<string>>("backstory/questions");
         }
@@ -66,7 +66,7 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<ICollection<Continent>>(builder);
         }
 
-        public ICollection<string> GetContinents()
+        public ICollection<string> GetContinentIds()
         {
             return Retrieve<ICollection<string>>("continents");
         }
@@ -83,7 +83,7 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<Continent>($"continents/{id}");
         }
 
-        public ICollection<string> GetDungeons()
+        public ICollection<string> GetDungeonIds()
         {
             return Retrieve<ICollection<string>>("dungeons");
         }
@@ -100,7 +100,7 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<Dungeon>($"dungeons/{id}");
         }
 
-        public ICollection<string> GetMaps()
+        public ICollection<string> GetMapIds()
         {
             return Retrieve<ICollection<string>>("maps");
         }
@@ -117,7 +117,7 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<Map>($"maps/{id}");
         }
 
-        public ICollection<string> GetMasteries()
+        public ICollection<string> GetMasteryIds()
         {
             return Retrieve<ICollection<string>>("masteries");
         }
@@ -134,7 +134,7 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<Mastery>($"masteries/{id}");
         }
 
-        public ICollection<string> GetPets()
+        public ICollection<string> GetPetIds()
         {
             return Retrieve<ICollection<string>>("pets");
         }
@@ -151,7 +151,7 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<Pet>($"pets/{id}");
         }
 
-        public ICollection<string> GetProfessions()
+        public ICollection<string> GetProfessionIds()
         {
             return Retrieve<ICollection<string>>("professions");
         }
@@ -168,7 +168,7 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<Profession>($"professions/{id}");
         }
 
-        public ICollection<string> GetRaces()
+        public ICollection<string> GetRaceIds()
         {
             return Retrieve<ICollection<string>>("races");
         }
@@ -185,7 +185,7 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<Race>($"races/{id}");
         }
 
-        public ICollection<string> GetRaids()
+        public ICollection<string> GetRaidIds()
         {
             return Retrieve<ICollection<string>>("raids");
         }
@@ -214,7 +214,7 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<Specialization>($"specializations/{id}");
         }
 
-        public ICollection<string> GetStories()
+        public ICollection<string> GetStoryIds()
         {
             return Retrieve<ICollection<string>>("stories");
         }
@@ -231,7 +231,7 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<Story>($"stories/{id}");
         }
 
-        public ICollection<string> GetStorySeasons()
+        public ICollection<string> GetStorySeasonIds()
         {
             return Retrieve<ICollection<string>>("stories/seasons");
         }
@@ -248,7 +248,7 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<StorySeason>($"stories/seasons/{id}");
         }
 
-        public ICollection<string> GetTraits()
+        public ICollection<string> GetTraitIds()
         {
             return Retrieve<ICollection<string>>("traits");
         }
@@ -265,9 +265,9 @@ namespace GuildWars2.NET.v2.PvE.Repositories
             return Retrieve<Trait>($"traits/{id}");
         }
 
-        public ICollection<int> GetWorlds()
+        public ICollection<string> GetWorldIds()
         {
-            return Retrieve<ICollection<int>>("worlds");
+            return Retrieve<ICollection<string>>("worlds");
         }
 
         public ICollection<World> GetWorlds(params string[] ids)

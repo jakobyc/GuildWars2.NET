@@ -26,7 +26,7 @@ namespace GuildWars2.NET.v2.PvP.Repositories
             return Retrieve<ICollection<PvPAmulet>>(builder);
         }
 
-        public ICollection<string> GetAmulets()
+        public ICollection<string> GetAmuletIds()
         {
             return Retrieve<ICollection<string>>("pvp/amulets");
         }
@@ -55,7 +55,7 @@ namespace GuildWars2.NET.v2.PvP.Repositories
             return Retrieve<ICollection<PvPHero>>(builder);
         }
 
-        public ICollection<string> GetHeroes()
+        public ICollection<string> GetHeroIds()
         {
             return Retrieve<ICollection<string>>("pvp/heroes");
         }
@@ -118,7 +118,7 @@ namespace GuildWars2.NET.v2.PvP.Repositories
             return Retrieve<MatchStats>(builder);
         }
 
-        public ICollection<string> GetMatches()
+        public ICollection<string> GetMatchIds()
         {
             return Retrieve<ICollection<string>>("wvw/matches");
         }
@@ -130,7 +130,7 @@ namespace GuildWars2.NET.v2.PvP.Repositories
             return Retrieve<ICollection<Match>>(builder);
         }
 
-        public ICollection<string> GetObjectives()
+        public ICollection<string> GetObjectiveIds()
         {
             return Retrieve<ICollection<string>>("wvw/objectives");
         }
@@ -154,7 +154,7 @@ namespace GuildWars2.NET.v2.PvP.Repositories
             return Retrieve<ICollection<PvPRank>>(builder);
         }
 
-        public ICollection<string> GetPvPRanks()
+        public ICollection<string> GetPvPRankIds()
         {
             return Retrieve<ICollection<string>>("pvp/ranks");
         }
@@ -168,10 +168,10 @@ namespace GuildWars2.NET.v2.PvP.Repositories
 
         public PvPRank GetPvPRank(string id)
         {
-            return Retrieve<PvPRank>($"pvp/seasons/{id}");
+            return Retrieve<PvPRank>($"pvp/ranks/{id}");
         }
 
-        public ICollection<string> GetPvPSeasons()
+        public ICollection<string> GetPvPSeasonIds()
         {
             return Retrieve<ICollection<string>>("pvp/seasons");
         }
@@ -203,9 +203,9 @@ namespace GuildWars2.NET.v2.PvP.Repositories
             return Retrieve<WvWAbility>($"wvw/abilities/{id}");
         }
 
-        public ICollection<int> GetWvWAbilities()
+        public ICollection<string> GetWvWAbilityIds()
         {
-            return Retrieve<ICollection<int>>("wvw/abilities");
+            return Retrieve<ICollection<string>>("wvw/abilities");
         }
 
         public ICollection<WvWAbility> GetWvWAbilities(params string[] ids)
@@ -215,9 +215,9 @@ namespace GuildWars2.NET.v2.PvP.Repositories
             return Retrieve<ICollection<WvWAbility>>(builder);
         }
 
-        public ICollection<int> GetWvWRanks()
+        public ICollection<string> GetWvWRankIds()
         {
-            return Retrieve<ICollection<int>>("wvw/ranks");
+            return Retrieve<ICollection<string>>("wvw/ranks");
         }
 
         public ICollection<WvWRank> GetWvWRanks(params string[] ids)
@@ -232,9 +232,9 @@ namespace GuildWars2.NET.v2.PvP.Repositories
             return Retrieve<WvWRank>($"wvw/ranks/{id}");
         }
 
-        public ICollection<int> GetWvWUpgrades()
+        public ICollection<string> GetWvWUpgradeIds()
         {
-            return Retrieve<ICollection<int>>("wvw/upgrades");
+            return Retrieve<ICollection<string>>("wvw/upgrades");
         }
 
         public ICollection<WvWUpgrade> GetWvWUpgrades(params string[] ids)

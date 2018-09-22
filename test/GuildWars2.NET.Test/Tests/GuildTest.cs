@@ -19,14 +19,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetBackgroundEmblems()
+        public void GetBackgroundEmblemIds()
         {
-            AssertCall<List<string>>(repository.GetBackgroundEmblems());
+            AssertIds<List<string>>(repository.GetBackgroundEmblemIds());
         }
 
         [Theory]
         [InlineData("1", "3", "5")]
-        public void GetBackgroundEmblemsById(params string[] ids)
+        public void GetBackgroundEmblems(params string[] ids)
         {
             AssertCall<List<Emblem>>(repository.GetBackgroundEmblems(ids));
         }
@@ -39,14 +39,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetForegroundEmblems()
+        public void GetForegroundEmblemsIds()
         {
-            AssertCall<List<string>>(repository.GetForegroundEmblems());
+            AssertIds<List<string>>(repository.GetForegroundEmblemIds());
         }
 
         [Theory]
         [InlineData("1", "3", "5")]
-        public void GetForegroundEmblemsById(params string[] ids)
+        public void GetForegroundEmblems(params string[] ids)
         {
             AssertCall<List<Emblem>>(repository.GetForegroundEmblems(ids));
         }
@@ -218,7 +218,7 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetPermissionIds()
         {
-            AssertCall<List<string>>(repository.GetPermissionIds());
+            AssertIds<List<string>>(repository.GetPermissionIds());
         }
 
         [Fact]
@@ -244,7 +244,7 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetUpgradeIds()
         {
-            AssertCall<List<string>>(repository.GetUpgradeIds());
+            AssertIds<List<string>>(repository.GetUpgradeIds());
         }
 
         [Fact]

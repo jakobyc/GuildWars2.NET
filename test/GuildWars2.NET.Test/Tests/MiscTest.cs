@@ -31,14 +31,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetIcons()
+        public void GetIconIds()
         {
-            AssertCall<List<string>>(repository.GetIcons());
+            AssertIds<List<string>>(repository.GetIconIds());
         }
 
         [Theory]
         [InlineData("map_complete", "map_dungeon", "ui_coin_gold")]
-        public void GetIconsById(params string[] ids)
+        public void GetIcons(params string[] ids)
         {
             AssertCall<List<Icon>>(repository.GetIcons(ids));
         }
@@ -51,14 +51,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetQuaggans()
+        public void GetQuagganIds()
         {
-            AssertCall<List<string>>(repository.GetQuaggans());
+            AssertIds<List<string>>(repository.GetQuagganIds());
         }
 
         [Theory]
         [InlineData("404", "hat", "box")]
-        public void GetQuaggansById(params string[] ids)
+        public void GetQuaggans(params string[] ids)
         {
             AssertCall<List<QuagganIcon>>(repository.GetQuaggans(ids));
         }
@@ -71,14 +71,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetTitles()
+        public void GetTitleIds()
         {
-            AssertCall<List<string>>(repository.GetTitles());
+            AssertIds<List<string>>(repository.GetTitleIds());
         }
 
         [Theory]
         [InlineData("40", "90")]
-        public void GetTitlesById(params string[] ids)
+        public void GetTitles(params string[] ids)
         {
             AssertCall<List<Title>>(repository.GetTitles(ids));
         }

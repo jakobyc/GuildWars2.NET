@@ -11,7 +11,7 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
     {
         public GuildRepository() : base() { }
 
-        public ICollection<string> GetBackgroundEmblems()
+        public ICollection<string> GetBackgroundEmblemIds()
         {
             return Retrieve<ICollection<string>>("emblem/backgrounds");
         }
@@ -28,7 +28,7 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
             return Retrieve<Emblem>($"emblem/backgrounds/{id}");
         }
 
-        public ICollection<string> GetForegroundEmblems()
+        public ICollection<string> GetForegroundEmblemIds()
         {
             return Retrieve<ICollection<string>>("emblem/foregrounds");
         }

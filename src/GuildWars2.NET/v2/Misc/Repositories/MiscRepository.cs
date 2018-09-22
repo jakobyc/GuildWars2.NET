@@ -23,7 +23,7 @@ namespace GuildWars2.NET.v2.Misc.Repositories
             return Retrieve<ICollection<Icon>>(builder);
         }
 
-        public ICollection<string> GetIcons()
+        public ICollection<string> GetIconIds()
         {
             return Retrieve<ICollection<string>>("files");
         }
@@ -40,7 +40,7 @@ namespace GuildWars2.NET.v2.Misc.Repositories
             return Retrieve<Icon>($"files/{id}");
         }
 
-        public ICollection<string> GetQuaggans()
+        public ICollection<string> GetQuagganIds()
         {
             return Retrieve<ICollection<string>>("quaggans");
         }
@@ -57,7 +57,7 @@ namespace GuildWars2.NET.v2.Misc.Repositories
             return Retrieve<QuagganIcon>($"quaggans/{id}");
         }
 
-        public ICollection<string>GetTitles()
+        public ICollection<string>GetTitleIds()
         {
             return Retrieve<ICollection<string>>("titles");
         }

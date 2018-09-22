@@ -54,7 +54,7 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetListedItemIds()
         {
-            AssertCall<List<string>>(repository.GetListedItemIds());
+            AssertIds<List<string>>(repository.GetListedItemIds());
         }
 
         [Theory]
@@ -74,7 +74,7 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetPricedItemIds()
         {
-            AssertCall<List<string>>(repository.GetPricedItemIds());
+            AssertIds<List<string>>(repository.GetPricedItemIds());
         }
 
         [Theory]

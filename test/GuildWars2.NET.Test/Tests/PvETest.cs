@@ -25,14 +25,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetBackstoryAnswers()
+        public void GetBackstoryAnswerIds()
         {
-            AssertCall<List<string>>(repository.GetBackstoryAnswers());
+            AssertIds<List<string>>(repository.GetBackstoryAnswerIds());
         }
 
         [Theory]
         [InlineData("7-54", "22-109")]
-        public void GetBackstoryAnswersById(params string[] ids)
+        public void GetBackstoryAnswers(params string[] ids)
         {
             AssertCall<List<BackstoryAnswer>>(repository.GetBackstoryAnswers(ids));
         }
@@ -51,14 +51,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetBackstoryQuestions()
+        public void GetBackstoryQuestionIds()
         {
-            AssertCall<List<string>>(repository.GetBackstoryQuestions());
+            AssertIds<List<string>>(repository.GetBackstoryQuestionIds());
         }
 
         [Theory]
         [InlineData("7", "11")]
-        public void GetBackstoryQuestionsById(params string[] ids)
+        public void GetBackstoryQuestions(params string[] ids)
         {
             AssertCall<List<BackstoryQuestion>>(repository.GetBackstoryQuestions(ids));
         }
@@ -77,14 +77,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetContinents()
+        public void GetContinentIds()
         {
-            AssertCall<List<string>>(repository.GetContinents());
+            AssertIds<List<string>>(repository.GetContinentIds());
         }
 
         [Theory]
         [InlineData("1", "2")]
-        public void GetContinentsById(params string[] ids)
+        public void GetContinents(params string[] ids)
         {
             AssertCall<List<Continent>>(repository.GetContinents(ids));
         }
@@ -97,14 +97,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetDungeons()
+        public void GetDungeonIds()
         {
-            AssertCall<List<string>>(repository.GetDungeons());
+            AssertIds<List<string>>(repository.GetDungeonIds());
         }
 
         [Theory]
         [InlineData("caudecus_manor", "twilight_arbor", "sorrows_embrace")]
-        public void GetDungeonsById(params string[] ids)
+        public void GetDungeons(params string[] ids)
         {
             AssertCall<List<Dungeon>>(repository.GetDungeons(ids));
         }
@@ -117,14 +117,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetMaps()
+        public void GetMapIds()
         {
-            AssertCall<List<string>>(repository.GetMaps());
+            AssertIds<List<string>>(repository.GetMapIds());
         }
 
         [Theory]
         [InlineData("15", "17", "63")]
-        public void GetMapsById(params string[] ids)
+        public void GetMaps(params string[] ids)
         {
             AssertCall<List<Map>>(repository.GetMaps(ids));
         }
@@ -137,15 +137,15 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetMasteries()
+        public void GetMasteryIds()
         {
-            AssertCall<List<string>>(repository.GetMasteries());
+            AssertIds<List<string>>(repository.GetMasteryIds());
         }
 
         [Fact]
-        public void GetMasteriesById()
+        public void GetMasteries()
         {
-            string[] ids = repository.GetMasteries().ToArray();
+            string[] ids = repository.GetMasteryIds().ToArray();
             AssertCall<List<Mastery>>(repository.GetMasteries(ids));
         }
 
@@ -157,15 +157,15 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetPets()
+        public void GetPetIds()
         {
-            AssertCall<List<string>>(repository.GetPets());
+            AssertIds<List<string>>(repository.GetPetIds());
         }
 
         [Fact]
-        public void GetPetsById()
+        public void GetPets()
         {
-            string[] ids = repository.GetPets().ToArray();
+            string[] ids = repository.GetPetIds().ToArray();
             AssertCall<List<Pet>>(repository.GetPets(ids));
         }
 
@@ -177,15 +177,15 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetProfessions()
+        public void GetProfessionIds()
         {
-            AssertCall<List<string>>(repository.GetProfessions());
+            AssertIds<List<string>>(repository.GetProfessionIds());
         }
 
         [Fact]
-        public void GetProfessionsById()
+        public void GetProfessions()
         {
-            string[] ids = repository.GetProfessions().ToArray();
+            string[] ids = repository.GetProfessionIds().ToArray();
             AssertCall<List<Profession>>(repository.GetProfessions(ids));
         }
 
@@ -197,14 +197,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetRaces()
+        public void GetRaceIds()
         {
-            AssertCall<List<string>>(repository.GetRaces());
+            AssertIds<List<string>>(repository.GetRaceIds());
         }
 
         [Theory]
         [InlineData("Asura", "Charr", "Human")]
-        public void GetRacesById(params string[] ids)
+        public void GetRaces(params string[] ids)
         {
             AssertCall<List<Race>>(repository.GetRaces(ids));
         }
@@ -217,14 +217,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetRaids()
+        public void GetRaidIds()
         {
-            AssertCall<List<string>>(repository.GetRaids());
+            AssertIds<List<string>>(repository.GetRaidIds());
         }
 
         [Theory]
         [InlineData("forsaken_thicket", "bastion_of_the_penitent", "hall_of_chains")]
-        public void GetRaidsById(params string[] ids)
+        public void GetRaids(params string[] ids)
         {
             AssertCall<List<Raid>>(repository.GetRaids(ids));
         }
@@ -251,14 +251,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetStories()
+        public void GetStoryIds()
         {
-            AssertCall<List<string>>(repository.GetStories());
+            AssertIds<List<string>>(repository.GetStoryIds());
         }
 
         [Theory]
         [InlineData("1", "2", "3", "41")]
-        public void GetStoriesById(params string[] ids)
+        public void GetStories(params string[] ids)
         {
             AssertCall<List<Story>>(repository.GetStories(ids));
         }
@@ -271,14 +271,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetStorySeasons()
+        public void GetStorySeasonIds()
         {
-            AssertCall<List<string>>(repository.GetStorySeasons());
+            AssertIds<List<string>>(repository.GetStorySeasonIds());
         }
 
         [Theory]
         [InlineData("002C2D90-69B5-41A2-A422-8DB6F2EFC53E", "A515A1D3-4BD7-4594-AE30-2C5D05FF5960")]
-        public void GetStorySeasonsById(params string[] ids)
+        public void GetStorySeasons(params string[] ids)
         {
             AssertCall<List<StorySeason>>(repository.GetStorySeasons(ids));
         }
@@ -291,14 +291,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetTraits()
+        public void GetTraitIds()
         {
-            AssertCall<List<string>>(repository.GetTraits());
+            AssertIds<List<string>>(repository.GetTraitIds());
         }
 
         [Theory]
         [InlineData("214", "221", "222")]
-        public void GetTraitsById(params string[] ids)
+        public void GetTraits(params string[] ids)
         {
             AssertCall<List<Trait>>(repository.GetTraits(ids));
         }
@@ -311,14 +311,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetWorlds()
+        public void GetWorldIds()
         {
-            AssertCall<List<int>>(repository.GetWorlds());
+            AssertIds<List<string>>(repository.GetWorldIds());
         }
 
         [Theory]
         [InlineData("1001", "1002")]
-        public void GetWorldsById(params string[] ids)
+        public void GetWorlds(params string[] ids)
         {
             AssertCall<List<World>>(repository.GetWorlds(ids));
         }

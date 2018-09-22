@@ -13,12 +13,12 @@ namespace GuildWars2.NET.v2.Skills.Repositories
     {
         public SkillRepository() : base() { }
 
-        public ICollection<string> GetAllSkills()
+        public ICollection<string> GetSkillIds()
         {
             return Retrieve<ICollection<string>>("skills");
         }
 
-        public ICollection<string> GetLegends()
+        public ICollection<string> GetLegendIds()
         {
             return Retrieve<ICollection<string>>("legends");
         }

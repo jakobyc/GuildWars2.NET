@@ -17,9 +17,9 @@ namespace GuildWars2.NET.v2.Achievements.Repositories
         /// <summary>
         /// Get all achievement ids.
         /// </summary>
-        public ICollection<int> GetAchievements()
+        public ICollection<string> GetAchievements()
         {
-            return Retrieve<ICollection<int>>($"achievements");
+            return Retrieve<ICollection<string>>($"achievements");
         }
 
         /// <summary>

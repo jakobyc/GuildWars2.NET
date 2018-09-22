@@ -19,21 +19,21 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetAllSkills()
+        public void GetSkillIds()
         {
-            AssertCall<List<string>>(repository.GetAllSkills());
+            AssertIds<List<string>>(repository.GetSkillIds());
+        }
+
+        [Fact]
+        public void GetLegendIds()
+        {
+            AssertIds<List<string>>(repository.GetLegendIds());
         }
 
         [Fact]
         public void GetLegends()
         {
-            AssertCall<List<string>>(repository.GetLegends());
-        }
-
-        [Fact]
-        public void GetLegendsById()
-        {
-            string[] legends = repository.GetLegends().ToArray();
+            string[] legends = repository.GetLegendIds().ToArray();
             AssertCall<List<Legend>>(repository.GetLegends(legends));
         }
 

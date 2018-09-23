@@ -4,6 +4,7 @@ using GuildWars2.NET.v2.Commerce.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace GuildWars2.NET.Test.Tests
@@ -146,5 +147,137 @@ namespace GuildWars2.NET.Test.Tests
                 Assert.True(false, "API key not found in appsettings.test.json.");
             }
         }
+
+        #region Async
+        [Fact]
+        public async Task GetDeliveryBoxAsync()
+        {
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<DeliveryBox>(await repository.GetDeliveryBoxAsync(apiKey));
+            }
+            else
+            {
+                Assert.True(false, "API key not found in appsettings.test.json.");
+            }
+        }
+
+        [Fact]
+        public async Task GetCurrencyTypesAsync()
+        {
+            AssertCall<List<string>>(await repository.GetCurrencyTypesAsync());
+        }
+
+        [Theory]
+        [InlineData(100)]
+        public async Task GetCoinsAsync(int gems)
+        {
+            AssertCall<Coins>(await repository.GetCoinsAsync(gems));
+        }
+
+        [Theory]
+        [InlineData(10000)]
+        public async Task GetGemsAsync(int coins)
+        {
+            AssertCall<Gems>(await repository.GetGemsAsync(coins));
+        }
+
+        [Fact]
+        public async Task GetListedItemIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetListedItemIdsAsync());
+        }
+
+        [Theory]
+        [InlineData("24", "68")]
+        public async Task GetListedItemsAsync(params string[] ids)
+        {
+            AssertCall<List<ListedItem>>(await repository.GetListedItemsAsync(ids));
+        }
+
+        [Theory]
+        [InlineData("69")]
+        public async Task GetListedItemAsync(string id)
+        {
+            AssertCall<ListedItem>(await repository.GetListedItemAsync(id));
+        }
+
+        [Fact]
+        public async Task GetPricedItemIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetPricedItemIdsAsync());
+        }
+
+        [Theory]
+        [InlineData("24", "68")]
+        public async Task GetPricedItemsAsync(params string[] ids)
+        {
+            AssertCall<List<PricedItem>>(await repository.GetPricedItemsAsync(ids));
+        }
+
+        [Theory]
+        [InlineData("69")]
+        public async Task GetPricedItemAsync(string id)
+        {
+            AssertCall<PricedItem>(await repository.GetPricedItemAsync(id));
+        }
+
+        [Fact]
+        public async Task GetPurchaseHistoryAsync()
+        {
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<Transaction>>(await repository.GetPurchaseHistoryAsync(apiKey));
+            }
+            else
+            {
+                Assert.True(false, "API key not found in appsettings.test.json.");
+            }
+        }
+
+        [Fact]
+        public async Task GetPurchaseOrdersAsync()
+        {
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<Transaction>>(await repository.GetPurchaseOrdersAsync(apiKey));
+            }
+            else
+            {
+                Assert.True(false, "API key not found in appsettings.test.json.");
+            }
+        }
+
+        [Fact]
+        public async Task GetSalesHistoryAsync()
+        {
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<Transaction>>(await repository.GetSalesHistoryAsync(apiKey));
+            }
+            else
+            {
+                Assert.True(false, "API key not found in appsettings.test.json.");
+            }
+        }
+
+        [Fact]
+        public async Task GetSalesOrdersAsync()
+        {
+            string apiKey = Config.GetApiKey();
+            if (!string.IsNullOrEmpty(apiKey))
+            {
+                AssertCall<List<Transaction>>(await repository.GetSalesOrdersAsync(apiKey));
+            }
+            else
+            {
+                Assert.True(false, "API key not found in appsettings.test.json.");
+            }
+        }
+        #endregion
     }
 }

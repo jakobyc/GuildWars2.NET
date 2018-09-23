@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
+using System.Threading.Tasks;
 
 namespace GuildWars2.NET.Test.Tests
 {
@@ -172,5 +173,163 @@ namespace GuildWars2.NET.Test.Tests
         {
             AssertCall<List<WalletCurrency>>(repository.GetWallet());
         }
+
+        #region Async
+        [Fact]
+        public async Task GetAccountInfoAsync()
+        {
+            AssertCall<AccountInfo>(await repository.GetAccountInfoAsync());
+        }
+
+        [Fact]
+        public async Task GetAchievementAsync()
+        {
+            AssertCall<AccountAchievement>(await repository.GetAchievementAsync(1));
+        }
+
+        [Fact]
+        public async Task GetAchievementsAsync()
+        {
+            AssertCall<List<AccountAchievement>>(await repository.GetAchievementsAsync());
+        }
+
+        [Fact]
+        public async Task GetBankitemsAsync()
+        {
+            AssertCall<List<BankItem>>(await repository.GetBankItemsAsync());
+        }
+
+        [Fact]
+        public async Task GetCompletedDailyDungeonsAsync()
+        {
+            AssertCall<List<string>>(await repository.GetCompletedDailyDungeonsAsync());
+        }
+
+        [Fact]
+        public async Task GetCompletedRaidsAsync()
+        {
+            AssertCall<List<string>>(await repository.GetCompletedRaidsAsync());
+        }
+
+        [Fact]
+        public async Task GetDyesAsync()
+        {
+            AssertCall<List<string>>(await repository.GetDyesAsync());
+        }
+
+        [Fact]
+        public async Task GetFinishersAsync()
+        {
+            AssertCall<List<Finisher>>(await repository.GetFinishersAsync());
+        }
+
+        [Fact]
+        public async Task GetGlidersAsync()
+        {
+            AssertCall<List<string>>(await repository.GetGlidersAsync());
+        }
+
+        [Fact]
+        public async Task GetHomeCatsAsync()
+        {
+            AssertCall<List<Cat>>(await repository.GetHomeCatsAsync());
+        }
+
+        [Fact]
+        public async Task GetHomeNodesAsync()
+        {
+            AssertCall<List<string>>(await repository.GetHomeNodesAsync());
+        }
+
+        [Fact]
+        public async Task GetMailCarriersAsync()
+        {
+            AssertCall<List<string>>(await repository.GetMailCarriersAsync());
+        }
+
+        [Fact]
+        public async Task GetMasteriesAsync()
+        {
+            AssertCall<List<Mastery>>(await repository.GetMasteriesAsync());
+        }
+
+        [Fact]
+        public async Task GetMasteryPointsAsync()
+        {
+            AssertCall<MasteryPoints>(await repository.GetMasteryPointsAsync());
+        }
+
+        [Fact]
+        public async Task GetMaterialsAsync()
+        {
+            AssertCall<List<Material>>(await repository.GetMaterialsAsync());
+        }
+
+        [Fact]
+        public async Task GetMiniaturesAsync()
+        {
+            AssertCall<List<string>>(await repository.GetMiniaturesAsync());
+        }
+
+        [Fact]
+        public async Task GetOutfitsAsync()
+        {
+            AssertCall<List<string>>(await repository.GetOutfitsAsync());
+        }
+
+        [Fact]
+        public async Task GetPvPGamesAsync()
+        {
+            AssertCall<List<PvPGame>>(await repository.GetPvPGamesAsync());
+        }
+
+        [Fact]
+        public async Task GetPvPHeroesAsync()
+        {
+            AssertCall<List<string>>(await repository.GetPvPHeroesAsync());
+        }
+
+        [Fact]
+        public async Task GetPvPStandingsAsync()
+        {
+            AssertCall<List<PvPStandings>>(await repository.GetPvPStandingsAsync());
+        }
+
+        [Fact]
+        public async Task GetPvPStatsAsync()
+        {
+            AssertCall<PvPStats>(await repository.GetPvPStatsAsync());
+        }
+
+        [Fact]
+        public async Task GetRecipesAsync()
+        {
+            AssertCall<List<string>>(await repository.GetRecipesAsync());
+        }
+
+        [Fact]
+        public async Task GetSharedInventoryItemsAsync()
+        {
+            AssertCall<List<SharedInventoryItem>>(await repository.GetSharedInventoryItemsAsync());
+        }
+
+        [Fact]
+        public async Task GetSkinsAsync()
+        {
+            AssertCall<List<string>>(await repository.GetSkinsAsync());
+        }
+
+        [Fact]
+        public async Task GetTitlesAsync()
+        {
+            AssertCall<List<string>>(await repository.GetTitlesAsync());
+        }
+
+        [Fact]
+        public async Task GetWalletAsync()
+        {
+            AssertCall<List<WalletCurrency>>(await repository.GetWalletAsync());
+        }
+        #endregion
     }
 }

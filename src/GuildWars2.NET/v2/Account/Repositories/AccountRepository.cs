@@ -152,5 +152,145 @@ namespace GuildWars2.NET.v2.Account.Repositories
         {
             return Retrieve<ICollection<WalletCurrency>>("account/wallet");
         }
+
+        #region Async
+        public async Task<AccountInfo> GetAccountInfoAsync()
+        {
+            return await RetrieveAsync<AccountInfo>("account");
+        }
+
+        public async Task<ICollection<AccountAchievement>> GetAchievementsAsync()
+        {
+            return await RetrieveAsync<ICollection<AccountAchievement>>("account/achievements");
+        }
+
+        public async Task<AccountAchievement> GetAchievementAsync(int id)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("account/achievements")
+                                                            .AddParameter("id", id);
+
+            return await RetrieveAsync<AccountAchievement>(builder);
+        }
+
+        public async Task<ICollection<BankItem>> GetBankItemsAsync()
+        {
+            return await RetrieveAsync<ICollection<BankItem>>("account/bank");
+        }
+
+        public async Task<ICollection<string>> GetCompletedDailyDungeonsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("account/dungeons");
+        }
+
+        public async Task<ICollection<string>> GetDyesAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("account/dyes");
+        }
+
+        public async Task<ICollection<Finisher>> GetFinishersAsync()
+        {
+            return await RetrieveAsync<ICollection<Finisher>>("account/finishers");
+        }
+
+        // TODO: Resolve against v2/gliders:
+        public async Task<ICollection<string>> GetGlidersAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("account/gliders");
+        }
+
+        public async Task<ICollection<Cat>> GetHomeCatsAsync()
+        {
+            return await RetrieveAsync<ICollection<Cat>>("account/home/cats");
+        }
+
+        public async Task<ICollection<string>> GetHomeNodesAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("account/home/nodes");
+        }
+
+        public async Task<ICollection<SharedInventoryItem>> GetSharedInventoryItemsAsync()
+        {
+            return await RetrieveAsync<ICollection<SharedInventoryItem>>("account/inventory");
+        }
+
+        // TODO: Resolve against v2/mailcarriers
+        public async Task<ICollection<string>> GetMailCarriersAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("account/mailcarriers");
+        }
+
+        public async Task<ICollection<Mastery>> GetMasteriesAsync()
+        {
+            return await RetrieveAsync<ICollection<Mastery>>("account/masteries");
+        }
+
+        public async Task<MasteryPoints> GetMasteryPointsAsync()
+        {
+            return await RetrieveAsync<MasteryPoints>("account/mastery/points");
+        }
+
+        public async Task<ICollection<Material>> GetMaterialsAsync()
+        {
+            return await RetrieveAsync<ICollection<Material>>("account/materials");
+        }
+
+        public async Task<ICollection<string>> GetMiniaturesAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("account/minis");
+        }
+
+        public async Task<ICollection<string>> GetOutfitsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("account/outfits");
+        }
+
+        public async Task<ICollection<PvPGame>> GetPvPGamesAsync()
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/games")
+                                                            .AddParameter("ids", "all");
+            return await RetrieveAsync<ICollection<PvPGame>>(builder);
+        }
+
+        // TODO: Resolve against v2/pvp/heroes:
+        public async Task<ICollection<string>> GetPvPHeroesAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("account/pvp/heroes");
+        }
+
+        public async Task<ICollection<PvPStandings>> GetPvPStandingsAsync()
+        {
+            return await RetrieveAsync<ICollection<PvPStandings>>("pvp/standings");
+        }
+
+        public async Task<PvPStats> GetPvPStatsAsync()
+        {
+            return await RetrieveAsync<PvPStats>("pvp/stats");
+        }
+
+        public async Task<ICollection<string>> GetCompletedRaidsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("account/raids");
+        }
+
+        public async Task<ICollection<string>> GetRecipesAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("account/recipes");
+        }
+
+        public async Task<ICollection<string>> GetSkinsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("account/skins");
+        }
+
+        public async Task<ICollection<string>> GetTitlesAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("account/titles");
+        }
+
+        public async Task<ICollection<WalletCurrency>> GetWalletAsync()
+        {
+            return await RetrieveAsync<ICollection<WalletCurrency>>("account/wallet");
+        }
+        #endregion
     }
 }

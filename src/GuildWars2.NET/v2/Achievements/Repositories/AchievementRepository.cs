@@ -85,5 +85,79 @@ namespace GuildWars2.NET.v2.Achievements.Repositories
         {
             return Retrieve<Dailies>($"achievements/daily/tomorrow");
         }
+
+        #region Async
+        /// <summary>
+        /// Get all achievement ids.
+        /// </summary>
+        public async Task<ICollection<string>> GetAchievementsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>($"achievements");
+        }
+
+        /// <summary>
+        /// await RetrieveAsync achievement information for selected achievement IDs.
+        /// </summary>
+        /// <param name="ids">Array of achievement IDs</param>
+        /// <returns></returns>
+        public async Task<ICollection<Achievement>> GetAchievementsAsync(params string[] ids)
+        {
+            if (ids.Length > 0)
+            {
+                IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("achievements")
+                                                                .AddParameter("ids", ids);
+
+                return await RetrieveAsync<ICollection<Achievement>>(builder);
+            }
+            else
+            {
+                return new List<Achievement>();
+            }
+
+        }
+
+        /// <summary>
+        /// Get a specific achievement category.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public async Task<Category> GetCategoryAsync(string id)
+        {
+            return await RetrieveAsync<Category>($"achievements/categories/{id}");
+        }
+
+        /// <summary>
+        /// Get all achievement categories.
+        /// </summary>
+        public async Task<ICollection<Category>> GetCategoriesAsync()
+        {
+            ICollection<string> categoryIds = await RetrieveAsync<ICollection<string>>($"achievements/categories");
+            ICollection<Category> categories = new List<Category>();
+
+            if (categoryIds.Count > 0)
+            {
+                IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("achievements")
+                                                                .AddParameter("ids", categoryIds.ToArray());
+
+                categories = await RetrieveAsync<ICollection<Category>>(builder);
+            }
+            return categories;
+        }
+        /// <summary>
+        /// Get the dailies for today.
+        /// </summary>
+        public async Task<Dailies> GetDailiesAsync()
+        {
+            return await RetrieveAsync<Dailies>($"achievements/daily");
+        }
+
+        /// <summary>
+        /// Get the dailies for tomorrow.
+        /// </summary>
+        public async Task<Dailies> GetTomorrowsDailiesAsync()
+        {
+            return await RetrieveAsync<Dailies>($"achievements/daily/tomorrow");
+        }
+        #endregion
     }
 }

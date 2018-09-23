@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
+using System.Threading.Tasks;
 
 namespace GuildWars2.NET.Test.Tests
 {
@@ -46,5 +47,37 @@ namespace GuildWars2.NET.Test.Tests
         {
             AssertCall<Dailies>(repository.GetTomorrowsDailies());
         }
+
+        #region Async
+        [Fact]
+        public async Task GetAchievementIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetAchievementsAsync());
+        }
+
+        [Fact]
+        public async Task GetCategoriesAsync()
+        {
+            AssertCall<List<Category>>(await repository.GetCategoriesAsync());
+        }
+
+        [Fact]
+        public async Task GetCategoryAsync()
+        {
+            AssertCall<Category>(await repository.GetCategoryAsync("1"));
+        }
+
+        [Fact]
+        public async Task GetDailiesAsync()
+        {
+            AssertCall<Dailies>(await repository.GetDailiesAsync());
+        }
+
+        [Fact]
+        public async Task GetTomorrowsDailiesAsync()
+        {
+            AssertCall<Dailies>(await repository.GetTomorrowsDailiesAsync());
+        }
+        #endregion
     }
 }

@@ -72,7 +72,7 @@ namespace GuildWars2.NET.v2.PvP.Entities
             [JsonProperty("points_capture")]
             public int PointsCapture { get; set; }
             [JsonProperty("guild_upgrades")]
-            public ICollection<int> GuildUpgrades { get; set; }
+            public ICollection<string> GuildUpgrades { get; set; }
             [JsonProperty("yaks_delivered")]
             public int YaksDelivered { get; set; }
         }

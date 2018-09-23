@@ -4,6 +4,7 @@ using GuildWars2.NET.v2.Commerce.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace GuildWars2.NET.v2.Commerce.Repositories
 {
@@ -69,6 +70,10 @@ namespace GuildWars2.NET.v2.Commerce.Repositories
             return Retrieve<ICollection<string>>("commerce/prices");
         }
 
+        /// <summary>
+        /// Get pricing information for items.
+        /// </summary>
+        /// <param name="ids">Item IDs</param>
         public ICollection<PricedItem> GetPricedItems(params string[] ids)
         {
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/prices")
@@ -76,6 +81,10 @@ namespace GuildWars2.NET.v2.Commerce.Repositories
             return Retrieve<ICollection<PricedItem>>(builder);
         }
 
+        /// <summary>
+        /// Get pricing information for an item.
+        /// </summary>
+        /// <param name="id">Item ID</param>
         public PricedItem GetPricedItem(string id)
         {
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/prices")
@@ -122,5 +131,127 @@ namespace GuildWars2.NET.v2.Commerce.Repositories
                                                             .AddParameter("access_token", apiKey);
             return Retrieve<ICollection<Transaction>>(builder);
         }
+
+        #region Async
+        public async Task<DeliveryBox> GetDeliveryBoxAsync(string apiKey)
+        {
+            return await RetrieveAsync<DeliveryBox>($"commerce/delivery?access_token={apiKey}");
+        }
+
+        public async Task<ICollection<string>> GetCurrencyTypesAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("commerce/exchange");
+        }
+
+        /// <summary>
+        /// Get exchange rate for coins with gems.
+        /// </summary>
+        public async Task<Coins> GetCoinsAsync(int gems)
+        {
+            return await RetrieveAsync<Coins>($"commerce/exchange/gems?quantity={gems}");
+        }
+
+        /// <summary>
+        /// Get exchange rate for gems with coins.
+        /// </summary>
+        public async Task<Gems> GetGemsAsync(int coins)
+        {
+            return await RetrieveAsync<Gems>($"commerce/exchange/coins?quantity={coins}");
+        }
+
+        public async Task<ICollection<string>> GetListedItemIdsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("commerce/listings");
+        }
+
+        /// <summary>
+        /// Get listings for items.
+        /// </summary>
+        /// <param name="ids">Array of item IDs.</param>
+        public async Task<ICollection<ListedItem>> GetListedItemsAsync(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/listings")
+                                                            .AddParameter("ids", ids);
+            return await RetrieveAsync<ICollection<ListedItem>>(builder);
+        }
+
+        /// <summary>
+        /// Get listings for an item.
+        /// </summary>
+        /// <param name="ids">Item ID.</param>
+        public async Task<ListedItem> GetListedItemAsync(string id)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/listings")
+                                                            .AddParameter("id", id);
+            return await RetrieveAsync<ListedItem>(builder);
+        }
+
+        public async Task<ICollection<string>> GetPricedItemIdsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("commerce/prices");
+        }
+
+        /// <summary>
+        /// Get pricing information for items.
+        /// </summary>
+        /// <param name="ids">Item IDs</param>
+        public async Task<ICollection<PricedItem>> GetPricedItemsAsync(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/prices")
+                                                            .AddParameter("ids", ids);
+            return await RetrieveAsync<ICollection<PricedItem>>(builder);
+        }
+
+        /// <summary>
+        /// Get pricing information for an item.
+        /// </summary>
+        /// <param name="id">Item ID</param>
+        public async Task<PricedItem> GetPricedItemAsync(string id)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/prices")
+                                                            .AddParameter("id", id);
+            return await RetrieveAsync<PricedItem>(builder);
+        }
+
+        /// <summary>
+        /// Get transactions for historical purchases for past 90 days.
+        /// </summary>
+        public async Task<ICollection<Transaction>> GetPurchaseHistoryAsync(string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/history/buys")
+                                                            .AddParameter("access_token", apiKey);
+            return await RetrieveAsync<ICollection<Transaction>>(builder);
+        }
+
+        /// <summary>
+        /// Get transactions for current purchase orders.
+        /// </summary>
+        public async Task<ICollection<Transaction>> GetPurchaseOrdersAsync(string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/current/buys")
+                                                            .AddParameter("access_token", apiKey);
+            return await RetrieveAsync<ICollection<Transaction>>(builder);
+        }
+
+        /// <summary>
+        /// Get transactions for historical sales for past 90 days.
+        /// </summary>
+        public async Task<ICollection<Transaction>> GetSalesHistoryAsync(string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/history/sells")
+                                                            .AddParameter("access_token", apiKey);
+            return await RetrieveAsync<ICollection<Transaction>>(builder);
+        }
+
+        /// <summary>
+        /// Get transactions for current sales orders.
+        /// </summary>
+        public async Task<ICollection<Transaction>> GetSalesOrdersAsync(string apiKey)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/current/sells")
+                                                            .AddParameter("access_token", apiKey);
+            return await RetrieveAsync<ICollection<Transaction>>(builder);
+        }
+        #endregion
     }
 }

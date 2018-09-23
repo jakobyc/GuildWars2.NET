@@ -23,6 +23,6 @@ namespace GuildWars2.NET.v2.Achievements.Entities
         public int Order { get; set; }
 
         [JsonProperty("achievements")]
-        public ICollection<int> Achievements { get; set; }
+        public ICollection<string> Achievements { get; set; }
     }
 }

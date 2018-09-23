@@ -13,12 +13,12 @@ namespace GuildWars2.NET.v2.Skills.Repositories
     {
         public SkillRepository() : base() { }
 
-        public ICollection<string> GetAllSkills()
+        public ICollection<string> GetSkillIds()
         {
             return Retrieve<ICollection<string>>("skills");
         }
 
-        public ICollection<string> GetLegends()
+        public ICollection<string> GetLegendIds()
         {
             return Retrieve<ICollection<string>>("legends");
         }
@@ -43,5 +43,38 @@ namespace GuildWars2.NET.v2.Skills.Repositories
 
             return Retrieve<ICollection<Skill>>(builder);
         }
+
+        #region Async
+        public async Task<ICollection<string>> GetSkillIdsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("skills");
+        }
+
+        public async Task<ICollection<string>> GetLegendIdsAsync()
+        {
+            return await RetrieveAsync<ICollection<string>>("legends");
+        }
+
+        public async Task<ICollection<Legend>> GetLegendsAsync(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("legends")
+                                                            .AddParameter("ids", ids);
+
+            return await RetrieveAsync<ICollection<Legend>>(builder);
+        }
+
+        public async Task<Legend> GetLegendAsync(string id)
+        {
+            return await RetrieveAsync<Legend>($"legends/{id}");
+        }
+
+        public async Task<ICollection<Skill>> GetSkillsAsync(params string[] ids)
+        {
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("skills")
+                                                            .AddParameter("ids", ids);
+
+            return await RetrieveAsync<ICollection<Skill>>(builder);
+        }
+        #endregion
     }
 }

@@ -4,8 +4,8 @@ namespace GuildWars2.NET.v2.Characters.Entities
 {
     public interface ISkill
     {
-        int EliteId { get; set; }
-        int HealId { get; set; }
-        ICollection<int> UtilitiesIDs { get; set; }
+        string EliteId { get; set; }
+        string HealId { get; set; }
+        ICollection<string> UtilitiesIDs { get; set; }
     }
 }

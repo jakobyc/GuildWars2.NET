@@ -10,6 +10,8 @@ namespace GuildWars2.NET.Serialization.JSON
 {
     public class JsonRetriever
     {
+        // TODO: Make HttpClient a singleton. Right now, every repository will instantiate a new jsonRetriever, and
+        // therefore a new HttpClient, when there should only be one HttpClient.
         private HttpClient client;
         private const string baseUrl = "https://api.guildwars2.com/v2/";
 

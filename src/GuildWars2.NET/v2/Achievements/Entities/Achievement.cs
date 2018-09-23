@@ -35,7 +35,7 @@ namespace GuildWars2.NET.v2.Achievements.Entities
         public ICollection<Tier> Tiers { get; set; }
 
         [JsonProperty("prerequisites")]
-        public ICollection<int> Prerequisites { get; set; }
+        public ICollection<string> Prerequisites { get; set; }
 
         [JsonProperty("rewards")]
         public ICollection<Reward> Rewards { get; set; }

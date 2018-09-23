@@ -118,6 +118,103 @@ namespace GuildWars2.NET.v2.Characters.Repositories
             return Retrieve<CharacterOverview>($"characters/{characterName}");
         }
 
+        #region Async
+        public async Task<Backstory> GetBackstoryAsync(string characterName)
+        {
+            return await RetrieveAsync<Backstory>($"characters/{characterName}/backstory");
+        }
+
+        public async Task<CoreInformation> GetCoreInformationAsync(string characterName)
+        {
+            return await RetrieveAsync<CoreInformation>($"characters/{characterName}/core");
+        }
+
+        public async Task<CraftingInfo> GetCraftingInformationAsync(string characterName)
+        {
+            return await RetrieveAsync<CraftingInfo>($"characters/{characterName}/crafting");
+        }
+
+        public async Task<Equipment> GetEquipmentAsync(string characterName)
+        {
+            return await RetrieveAsync<Equipment>($"characters/{characterName}/equipment");
+        }
+
+        public async Task<ICollection<string>> GetHeroPointsAsync(string characterName)
+        {
+            return await RetrieveAsync<ICollection<string>>($"characters/{characterName}/heropoints");
+        }
+
+        public async Task<Inventory> GetInventoryAsync(string characterName)
+        {
+            return await RetrieveAsync<Inventory>($"characters/{characterName}/inventory");
+        }
+
+        /// <summary>
+        /// Get recipes for a character.
+        /// </summary>
+        /// <param name="characterName">Case-sensitive character name.</param>
+        public async Task<CharacterRecipes> GetRecipesAsync(string characterName)
+        {
+            return await RetrieveAsync<CharacterRecipes>($"characters/{characterName}/recipes");
+        }
+
+        /// <summary>
+        /// Get Super Adventure Box info for a character.
+        /// </summary>
+        /// <param name="characterName">Case-sensitive character name.</param>
+        public async Task<CharacterSAB> GetSABInfoAsync(string characterName)
+        {
+            return await RetrieveAsync<CharacterSAB>($"characters/{characterName}/sab");
+        }
+
+        public async Task<ICollection<Skill>> GetSkillsAsync(string characterName, SkillType type)
+        {
+            CharacterSkills characterSkills = await RetrieveAsync<CharacterSkills>($"characters/{characterName}/skills");
+
+            ICollection<Skill> skills = new List<Skill>();
+            SkillRepository repository = new SkillRepository();
+            switch (type)
+            {
+                case (SkillType.PvE):
+                    skills = repository.GetSkills(GetSkillIds(characterSkills.SkillsInformation.PvE));
+                    break;
+
+                case (SkillType.PvP):
+                    skills = repository.GetSkills(GetSkillIds(characterSkills.SkillsInformation.PvP));
+                    break;
+
+                case (SkillType.WvW):
+                    skills = repository.GetSkills(GetSkillIds(characterSkills.SkillsInformation.WvW));
+                    break;
+            }
+
+            return skills;
+        }
+
+        public async Task<CharacterSpecializations> GetSpecializationsAsync(string characterName)
+        {
+            return await RetrieveAsync<CharacterSpecializations>($"characters/{characterName}/specializations");
+        }
+
+        /// <summary>
+        /// Get training progress for each skill tree for a character.
+        /// </summary>
+        /// <param name="characterName">Case-sensitive character name.</param>
+        public async Task<Training> GetTrainingProgressAsync(string characterName)
+        {
+            return await RetrieveAsync<Training>($"characters/{characterName}/training");
+        }
+
+        /// <summary>
+        /// Get an overview for a character.
+        /// </summary>
+        /// <param name="characterName">Case-sensitive character name.</param>
+        public async Task<CharacterOverview> GetOverviewAsync(string characterName)
+        {
+            return await RetrieveAsync<CharacterOverview>($"characters/{characterName}");
+        }
+        #endregion
+
         private string[] GetSkillIds(CharacterSkill skill)
         {
             ICollection<string> ids = new List<string>()
@@ -126,7 +223,7 @@ namespace GuildWars2.NET.v2.Characters.Repositories
                         skill.HealId.ToString()
                     };
 
-            foreach (int skillId in skill.UtilitiesIDs)
+            foreach (string skillId in skill.UtilitiesIDs)
             {
                 ids.Add(skillId.ToString());
             }

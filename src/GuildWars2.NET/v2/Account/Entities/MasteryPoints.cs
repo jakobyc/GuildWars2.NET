@@ -14,6 +14,6 @@ namespace GuildWars2.NET.v2.Account.Entities
         public ICollection<MasteryPointTotal> Totals { get; set; }
 
         [JsonProperty("unlocked")]
-        public ICollection<int> Unlocked { get; set; }
+        public ICollection<string> Unlocked { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
+using System.Threading.Tasks;
 
 namespace GuildWars2.NET.Test.Tests
 {
@@ -100,5 +101,91 @@ namespace GuildWars2.NET.Test.Tests
         {
             AssertCall<Training>(repository.GetTrainingProgress(Config.GetCharacter()));
         }
+
+        #region Async
+        [Fact]
+        public async Task GetBackstoryAsync()
+        {
+            AssertCall<Backstory>(await repository.GetBackstoryAsync(Config.GetCharacter()));
+        }
+
+        [Fact]
+        public async Task GetCoreInformationAsync()
+        {
+            AssertCall<CoreInformation>(await repository.GetCoreInformationAsync(Config.GetCharacter()));
+        }
+
+        [Fact]
+        public async Task GetCraftingInformationAsync()
+        {
+            AssertCall<CraftingInfo>(await repository.GetCraftingInformationAsync(Config.GetCharacter()));
+        }
+
+        [Fact]
+        public async Task GetEquipmentAsync()
+        {
+            AssertCall<Equipment>(await repository.GetEquipmentAsync(Config.GetCharacter()));
+        }
+
+        [Fact]
+        public async Task GetHeroPointsAsync()
+        {
+            AssertCall<List<string>>(await repository.GetHeroPointsAsync(Config.GetCharacter()));
+        }
+
+        [Fact]
+        public async Task GetInventoryAsync()
+        {
+            AssertCall<Inventory>(await repository.GetInventoryAsync(Config.GetCharacter()));
+        }
+
+        [Fact]
+        public async Task GetOverviewAsync()
+        {
+            AssertCall<CharacterOverview>(await repository.GetOverviewAsync(Config.GetCharacter()));
+        }
+
+        [Fact]
+        public async Task GetRecipesAsync()
+        {
+            AssertCall<CharacterRecipes>(await repository.GetRecipesAsync(Config.GetCharacter()));
+        }
+
+        [Fact]
+        public async Task GetSABInfoAsync()
+        {
+            AssertCall<CharacterSAB>(await repository.GetSABInfoAsync(Config.GetCharacter()));
+        }
+
+        [Fact]
+        public async Task GetPvESkillsAsync()
+        {
+            AssertCall<List<v2.Skills.Entities.Skill>>(await repository.GetSkillsAsync(Config.GetCharacter(), SkillType.PvE));
+        }
+
+        [Fact]
+        public async Task GetPvPSkillsAsync()
+        {
+            AssertCall<List<v2.Skills.Entities.Skill>>(await repository.GetSkillsAsync(Config.GetCharacter(), SkillType.PvP));
+        }
+
+        [Fact]
+        public async Task GetWvWSkillsAsync()
+        {
+            AssertCall<List<v2.Skills.Entities.Skill>>(await repository.GetSkillsAsync(Config.GetCharacter(), SkillType.WvW));
+        }
+
+        [Fact]
+        public async Task GetSpecializationsAsync()
+        {
+            AssertCall<CharacterSpecializations>(await repository.GetSpecializationsAsync(Config.GetCharacter()));
+        }
+
+        [Fact]
+        public async Task GetTrainingProgressAsync()
+        {
+            AssertCall<Training>(await repository.GetTrainingProgressAsync(Config.GetCharacter()));
+        }
+        #endregion
     }
 }

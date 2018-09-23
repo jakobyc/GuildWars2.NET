@@ -9,6 +9,6 @@ namespace GuildWars2.NET.v2.Characters.Entities
     public class CharacterRecipes
     {
         [JsonProperty("recipes")]
-        public ICollection<int> Ids { get; set; }
+        public ICollection<string> Ids { get; set; }
     }
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace GuildWars2.NET.Test.Tests
 {
@@ -25,14 +26,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetCats()
+        public void GetCatIds()
         {
-            AssertCall<List<string>>(repository.GetCats());
+            AssertIds<List<string>>(repository.GetCatIds());
         }
 
         [Theory]
         [InlineData("2", "3", "4")]
-        public void GetCatsById(params string[] ids)
+        public void GetCats(params string[] ids)
         {
             AssertCall<List<Cat>>(repository.GetCats(ids));
         }
@@ -51,14 +52,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetCurrencies()
+        public void GetCurrencyIds()
         {
-            AssertCall<List<string>>(repository.GetCurrencies());
+            AssertIds<List<string>>(repository.GetCurrencyIds());
         }
 
         [Theory]
         [InlineData("1", "3", "5")]
-        public void GetCurrenciesById(params string[] ids)
+        public void GetCurrencies(params string[] ids)
         {
             AssertCall<List<Currency>>(repository.GetCurrencies(ids));
         }
@@ -77,14 +78,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetDyes()
+        public void GetDyeIds()
         {
-            AssertCall<List<string>>(repository.GetDyes());
+            AssertIds<List<string>>(repository.GetDyeIds());
         }
 
         [Theory]
         [InlineData("2", "3", "4")]
-        public void GetDyesById(params string[] ids)
+        public void GetDyes(params string[] ids)
         {
             AssertCall<List<Dye>>(repository.GetDyes(ids));
         }
@@ -97,14 +98,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetFinishers()
+        public void GetFinisherIds()
         {
-            AssertCall<List<string>>(repository.GetFinishers());
+            AssertIds<List<string>>(repository.GetFinisherIds());
         }
 
         [Theory]
         [InlineData("1", "3", "5")]
-        public void GetFinishersById(params string[] ids)
+        public void GetFinishers(params string[] ids)
         {
             AssertCall<List<Finisher>>(repository.GetFinishers(ids));
         }
@@ -117,14 +118,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetGliders()
+        public void GetGliderIds()
         {
-            AssertCall<List<string>>(repository.GetGliders());
+            AssertIds<List<string>>(repository.GetGliderIds());
         }
 
         [Theory]
         [InlineData("1", "3", "5")]
-        public void GetGlidersById(params string[] ids)
+        public void GetGliders(params string[] ids)
         {
             AssertCall<List<Glider>>(repository.GetGliders(ids));
         }
@@ -137,14 +138,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetItems()
+        public void GetItemIds()
         {
-            AssertCall<List<string>>(repository.GetItems());
+            AssertIds<List<string>>(repository.GetItemIds());
         }
 
         [Theory]
         [InlineData("24", "100", "103")]
-        public void GetItemsById(params string[] ids)
+        public void GetItems(params string[] ids)
         {
             AssertCall<List<Item>>(repository.GetItems(ids));
         }
@@ -157,14 +158,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetItemStats()
+        public void GetItemStatIds()
         {
-            AssertCall<List<string>>(repository.GetItemStats());
+            AssertIds<List<string>>(repository.GetItemStatIds());
         }
 
         [Theory]
         [InlineData("112", "1163", "1227")]
-        public void GetItemStatsById(params string[] ids)
+        public void GetItemStats(params string[] ids)
         {
             AssertCall<List<ItemStat>>(repository.GetItemStats(ids));
         }
@@ -177,15 +178,15 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetMailCarriers()
+        public void GetMailCarrierIds()
         {
-            AssertCall<List<string>>(repository.GetMailCarriers());
+            AssertIds<List<string>>(repository.GetMailCarrierIds());
         }
 
         [Fact]
-        public void GetMailCarriersById()
+        public void GetMailCarriers()
         {
-            string[] ids = repository.GetMailCarriers().ToArray();
+            string[] ids = repository.GetMailCarrierIds().ToArray();
             AssertCall<List<MailCarrier>>(repository.GetMailCarriers(ids));
         }
 
@@ -197,15 +198,15 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetMaterialCategories()
+        public void GetMaterialCategoryIds()
         {
-            AssertCall<List<string>>(repository.GetMaterialCategories());
+            AssertIds<List<string>>(repository.GetMaterialCategoryIds());
         }
 
         [Fact]
-        public void GetMaterialCategoriesById()
+        public void GetMaterialCategories()
         {
-            string[] ids = repository.GetMaterialCategories().ToArray();
+            string[] ids = repository.GetMaterialCategoryIds().ToArray();
             AssertCall<List<MaterialCategory>>(repository.GetMaterialCategories(ids));
         }
 
@@ -217,14 +218,14 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetMiniatures()
+        public void GetMiniatureIds()
         {
-            AssertCall<List<string>>(repository.GetMiniatures());
+            AssertIds<List<string>>(repository.GetMiniatureIds());
         }
 
         [Theory]
         [InlineData("1", "2", "3", "40", "41")]
-        public void GetMiniaturesById(params string[] ids)
+        public void GetMiniatures(params string[] ids)
         {
             AssertCall<List<Miniature>>(repository.GetMiniatures(ids));
         }
@@ -237,15 +238,15 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetNodes()
+        public void GetNodeIds()
         {
-            AssertCall<List<string>>(repository.GetNodes());
+            AssertIds<List<string>>(repository.GetNodeIds());
         }
 
         [Fact]
-        public void GetNodesById()
+        public void GetNodes()
         {
-            string[] ids = repository.GetNodes().ToArray();
+            string[] ids = repository.GetNodeIds().ToArray();
             AssertCall<List<Node>>(repository.GetNodes(ids));
         }
 
@@ -257,15 +258,15 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetOutfits()
+        public void GetOutfitIds()
         {
-            AssertCall<List<string>>(repository.GetOutfits());
+            AssertIds<List<string>>(repository.GetOutfitIds());
         }
 
         [Fact]
-        public void GetOutfitsById()
+        public void GetOutfits()
         {
-            string[] ids = repository.GetOutfits().ToArray();
+            string[] ids = repository.GetOutfitIds().ToArray();
             AssertCall<List<Outfit>>(repository.GetOutfits(ids));
         }
 
@@ -284,27 +285,27 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Fact]
-        public void GetRecipes()
+        public void GetRecipeIds()
         {
-            AssertCall<List<string>>(repository.GetRecipes());
+            AssertIds<List<string>>(repository.GetRecipeIds());
         }
 
         [Theory]
         [InlineData("19699")]
-        public void GetRecipesByIds(string itemId)
+        public void GetRecipess(string itemId)
         {
             AssertCall<List<string>>(repository.GetRecipes(itemId, true));
         }
 
         [Fact]
-        public void GetSkins()
+        public void GetSkinIds()
         {
-            AssertCall<List<string>>(repository.GetSkins());
+            AssertIds<List<string>>(repository.GetSkinIds());
         }
 
         [Theory]
         [InlineData("1", "2", "500", "501", "502")]
-        public void GetSkinsById(params string[] ids)
+        public void GetSkins(params string[] ids)
         {
             AssertCall<List<Skin>>(repository.GetSkins(ids));
         }
@@ -315,5 +316,305 @@ namespace GuildWars2.NET.Test.Tests
         {
             AssertCall<Skin>(repository.GetSkin(id));
         }
+
+        #region Async
+        [Fact]
+        public async Task GetAllCatsAsyncAsync()
+        {
+            AssertCall<List<Cat>>(await repository.GetAllCatsAsync());
+        }
+
+        [Fact]
+        public async Task GetCatIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetCatIdsAsync());
+        }
+
+        [Theory]
+        [InlineData("2", "3", "4")]
+        public async Task GetCatsAsync(params string[] ids)
+        {
+            AssertCall<List<Cat>>(await repository.GetCatsAsync(ids));
+        }
+
+        [Theory]
+        [InlineData("1")]
+        public async Task GetCatAsync(string id)
+        {
+            AssertCall<Cat>(await repository.GetCatAsync(id));
+        }
+
+        [Fact]
+        public async Task GetAllCurrenciesAsync()
+        {
+            AssertCall<List<Currency>>(await repository.GetAllCurrenciesAsync());
+        }
+
+        [Fact]
+        public async Task GetCurrencyIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetCurrencyIdsAsync());
+        }
+
+        [Theory]
+        [InlineData("1", "3", "5")]
+        public async Task GetCurrenciesAsync(params string[] ids)
+        {
+            AssertCall<List<Currency>>(await repository.GetCurrenciesAsync(ids));
+        }
+
+        [Theory]
+        [InlineData("44")]
+        public async Task GetCurrencyAsync(string id)
+        {
+            AssertCall<Currency>(await repository.GetCurrencyAsync(id));
+        }
+
+        [Fact]
+        public async Task GetAllDyesAsync()
+        {
+            AssertCall<List<Dye>>(await repository.GetAllDyesAsync());
+        }
+
+        [Fact]
+        public async Task GetDyeIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetDyeIdsAsync());
+        }
+
+        [Theory]
+        [InlineData("2", "3", "4")]
+        public async Task GetDyesAsync(params string[] ids)
+        {
+            AssertCall<List<Dye>>(await repository.GetDyesAsync(ids));
+        }
+
+        [Theory]
+        [InlineData("1")]
+        public async Task GetDyeAsync(string id)
+        {
+            AssertCall<Dye>(await repository.GetDyeAsync(id));
+        }
+
+        [Fact]
+        public async Task GetFinisherIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetFinisherIdsAsync());
+        }
+
+        [Theory]
+        [InlineData("1", "3", "5")]
+        public async Task GetFinishersAsync(params string[] ids)
+        {
+            AssertCall<List<Finisher>>(await repository.GetFinishersAsync(ids));
+        }
+
+        [Theory]
+        [InlineData("46")]
+        public async Task GetFinisherAsync(string id)
+        {
+            AssertCall<Finisher>(await repository.GetFinisherAsync(id));
+        }
+
+        [Fact]
+        public async Task GetGliderIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetGliderIdsAsync());
+        }
+
+        [Theory]
+        [InlineData("1", "3", "5")]
+        public async Task GetGlidersAsync(params string[] ids)
+        {
+            AssertCall<List<Glider>>(await repository.GetGlidersAsync(ids));
+        }
+
+        [Theory]
+        [InlineData("46")]
+        public async Task GetGliderAsync(string id)
+        {
+            AssertCall<Glider>(await repository.GetGliderAsync(id));
+        }
+
+        [Fact]
+        public async Task GetItemIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetItemIdsAsync());
+        }
+
+        [Theory]
+        [InlineData("24", "100", "103")]
+        public async Task GetItemsAsync(params string[] ids)
+        {
+            AssertCall<List<Item>>(await repository.GetItemsAsync(ids));
+        }
+
+        [Theory]
+        [InlineData("46")]
+        public async Task GetItemAsync(string id)
+        {
+            AssertCall<Item>(await repository.GetItemAsync(id));
+        }
+
+        [Fact]
+        public async Task GetItemStatIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetItemStatIdsAsync());
+        }
+
+        [Theory]
+        [InlineData("112", "1163", "1227")]
+        public async Task GetItemStatsAsync(params string[] ids)
+        {
+            AssertCall<List<ItemStat>>(await repository.GetItemStatsAsync(ids));
+        }
+
+        [Theory]
+        [InlineData("1222")]
+        public async Task GetItemStatAsync(string id)
+        {
+            AssertCall<ItemStat>(await repository.GetItemStatAsync(id));
+        }
+
+        [Fact]
+        public async Task GetMailCarrierIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetMailCarrierIdsAsync());
+        }
+
+        [Fact]
+        public async Task GetMailCarriersAsync()
+        {
+            ICollection<string> ids = await repository.GetMailCarrierIdsAsync();
+            AssertCall<List<MailCarrier>>(await repository.GetMailCarriersAsync(ids.ToArray()));
+        }
+
+        [Theory]
+        [InlineData("6")]
+        public async Task GetMailCarrierAsync(string id)
+        {
+            AssertCall<MailCarrier>(await repository.GetMailCarrierAsync(id));
+        }
+
+        [Fact]
+        public async Task GetMaterialCategoryIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetMaterialCategoryIdsAsync());
+        }
+
+        [Fact]
+        public async Task GetMaterialCategoriesAsync()
+        {
+            ICollection<string> ids = await repository.GetMaterialCategoryIdsAsync();
+            AssertCall<List<MaterialCategory>>(await repository.GetMaterialCategoriesAsync(ids.ToArray()));
+        }
+
+        [Theory]
+        [InlineData("6")]
+        public async Task GetMaterialCategoryAsync(string id)
+        {
+            AssertCall<MaterialCategory>(await repository.GetMaterialCategoryAsync(id));
+        }
+
+        [Fact]
+        public async Task GetMiniatureIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetMiniatureIdsAsync());
+        }
+
+        [Theory]
+        [InlineData("1", "2", "3", "40", "41")]
+        public async Task GetMiniaturesAsync(params string[] ids)
+        {
+            AssertCall<List<Miniature>>(await repository.GetMiniaturesAsync(ids));
+        }
+
+        [Theory]
+        [InlineData("1")]
+        public async Task GetMiniatureAsync(string id)
+        {
+            AssertCall<Miniature>(await repository.GetMiniatureAsync(id));
+        }
+
+        [Fact]
+        public async Task GetNodeIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetNodeIdsAsync());
+        }
+
+        [Fact]
+        public async Task GetNodesAsync()
+        {
+            ICollection<string> ids = await repository.GetNodeIdsAsync();
+            AssertCall<List<Node>>(await repository.GetNodesAsync(ids.ToArray()));
+        }
+
+        [Theory]
+        [InlineData("basic_harvesting_nodes")]
+        public async Task GetNodeAsync(string id)
+        {
+            AssertCall<Node>(await repository.GetNodeAsync(id));
+        }
+
+        [Fact]
+        public async Task GetOutfitIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetOutfitIdsAsync());
+        }
+
+        [Fact]
+        public async Task GetOutfitsAsync()
+        {
+            ICollection<string> ids = await repository.GetOutfitIdsAsync();
+            AssertCall<List<Outfit>>(await repository.GetOutfitsAsync(ids.ToArray()));
+        }
+
+        [Theory]
+        [InlineData("10")]
+        public async Task GetOutfitAsync(string id)
+        {
+            AssertCall<Outfit>(await repository.GetOutfitAsync(id));
+        }
+
+        [Theory]
+        [InlineData("1")]
+        public async Task GetRecipeAsync(string recipeId)
+        {
+            AssertCall<Recipe>(await repository.GetRecipeAsync(recipeId));
+        }
+
+        [Fact]
+        public async Task GetRecipeIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetRecipeIdsAsync());
+        }
+
+        [Theory]
+        [InlineData("19699")]
+        public async Task GetRecipessAsync(string itemId)
+        {
+            AssertCall<List<string>>(await repository.GetRecipesAsync(itemId, true));
+        }
+
+        [Fact]
+        public async Task GetSkinIdsAsync()
+        {
+            AssertIds<List<string>>(await repository.GetSkinIdsAsync());
+        }
+
+        [Theory]
+        [InlineData("1", "2", "500", "501", "502")]
+        public async Task GetSkinsAsync(params string[] ids)
+        {
+            AssertCall<List<Skin>>(await repository.GetSkinsAsync(ids));
+        }
+
+        [Theory]
+        [InlineData("10")]
+        public async Task GetSkinAsync(string id)
+        {
+            AssertCall<Skin>(await repository.GetSkinAsync(id));
+        }
+        #endregion
     }
 }

@@ -10,8 +10,8 @@ namespace GuildWars2.NET.Data
 {
     public abstract class GW2Repository
     {
-        private JsonDeserializer deserializer;
-        private JsonRetriever retriever;
+        private readonly JsonDeserializer deserializer;
+        private readonly JsonRetriever retriever;
         protected string ApiKey;
 
 

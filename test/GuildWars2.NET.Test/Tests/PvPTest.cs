@@ -1,5 +1,4 @@
 ﻿using GuildWars2.NET.v2.PvP.Repositories;
-using GuildWars2.NET.Test.Dependencies;
 using GuildWars2.NET.v2.PvP.Entities;
 using System;
 using System.Collections.Generic;

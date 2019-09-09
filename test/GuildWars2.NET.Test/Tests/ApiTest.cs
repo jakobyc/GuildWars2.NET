@@ -1,5 +1,4 @@
-﻿using GuildWars2.NET.Test.Dependencies;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;

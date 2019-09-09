@@ -1,6 +1,5 @@
 ﻿using GuildWars2.NET.v2.Characters.Entities;
 using GuildWars2.NET.v2.Characters.Repositories;
-using GuildWars2.NET.Test.Dependencies;
 using System;
 using System.Collections.Generic;
 using System.Text;

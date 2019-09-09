@@ -11,11 +11,11 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class AchievementsTest : ApiTest
     {
-        private AchievementRepository repository;
+        private readonly AchievementRepository repository;
 
-        public AchievementsTest(RepositoryFactory factory)
+        public AchievementsTest()
         {
-            this.repository = factory.GetAchievementRepository();
+            this.repository = Client.Achievements;
         }
 
         [Fact]

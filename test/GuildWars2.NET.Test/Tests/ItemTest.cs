@@ -12,11 +12,11 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class ItemTest : ApiTest
     {
-        private ItemRepository repository;
+        private readonly ItemRepository repository;
 
-        public ItemTest(RepositoryFactory factory)
+        public ItemTest()
         {
-            this.repository = factory.GetItemRepository();
+            this.repository = Client.Items;
         }
 
         [Fact]

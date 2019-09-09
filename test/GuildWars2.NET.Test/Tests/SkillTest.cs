@@ -12,11 +12,11 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class SkillTest : ApiTest
     {
-        private SkillRepository repository;
+        private readonly SkillRepository repository;
 
-        public SkillTest(RepositoryFactory factory)
+        public SkillTest()
         {
-            this.repository = factory.GetSkillRepository();
+            this.repository = Client.Skills;
         }
 
         [Fact]

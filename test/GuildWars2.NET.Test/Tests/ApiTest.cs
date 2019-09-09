@@ -7,8 +7,15 @@ using Xunit;
 
 namespace GuildWars2.NET.Test.Tests
 {
-    public abstract class ApiTest: IClassFixture<RepositoryFactory>
+    public abstract class ApiTest
     {
+        public GW2Client Client { get; }
+
+        public ApiTest()
+        {
+            Client = new GW2Client(Config.GetApiKey());
+        }
+
         protected void AssertCall<T>(object o)
         {
             Assert.IsType<T>(o);

@@ -12,11 +12,11 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class MiscTest : ApiTest
     {
-        private MiscRepository repository;
+        private readonly MiscRepository repository;
 
-        public MiscTest(RepositoryFactory factory)
+        public MiscTest()
         {
-            this.repository = factory.GetMiscRepository();
+            this.repository = Client.Misc;
         }
 
         [Fact]

@@ -1,5 +1,4 @@
 ﻿using GuildWars2.NET.v2.PvP.Repositories;
-using GuildWars2.NET.Test.Dependencies;
 using GuildWars2.NET.v2.PvP.Entities;
 using System;
 using System.Collections.Generic;
@@ -11,11 +10,11 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class PvPTest : ApiTest
     {
-        private PvPRepository repository;
+        private readonly PvPRepository repository;
 
-        public PvPTest(RepositoryFactory factory)
+        public PvPTest()
         {
-            this.repository = factory.GetPvPRepository();
+            this.repository = Client.PvP;
         }
 
         [Fact]
@@ -265,7 +264,7 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Theory]
-        [InlineData("15")]
+        [InlineData("5")]
         public void GetWvWUpgrade(string id)
         {
             AssertCall<WvWUpgrade>(repository.GetWvWUpgrade(id));
@@ -520,7 +519,7 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Theory]
-        [InlineData("15")]
+        [InlineData("5")]
         public async Task GetWvWUpgradeAsync(string id)
         {
             AssertCall<WvWUpgrade>(await repository.GetWvWUpgradeAsync(id));

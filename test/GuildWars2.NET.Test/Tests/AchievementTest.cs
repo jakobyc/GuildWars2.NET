@@ -1,6 +1,5 @@
 ﻿using GuildWars2.NET.v2.Achievements.Entities;
 using GuildWars2.NET.v2.Achievements.Repositories;
-using GuildWars2.NET.Test.Dependencies;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,11 +10,11 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class AchievementsTest : ApiTest
     {
-        private AchievementRepository repository;
+        private readonly AchievementRepository repository;
 
-        public AchievementsTest(RepositoryFactory factory)
+        public AchievementsTest()
         {
-            this.repository = factory.GetAchievementRepository();
+            this.repository = Client.Achievements;
         }
 
         [Fact]

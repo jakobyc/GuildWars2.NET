@@ -1,5 +1,4 @@
-﻿using GuildWars2.NET.Test.Dependencies;
-using GuildWars2.NET.v2.Misc.Entities;
+﻿using GuildWars2.NET.v2.Misc.Entities;
 using GuildWars2.NET.v2.Misc.Repositories;
 using GuildWars2.NET.v2.PvP.Entities;
 using System;
@@ -12,11 +11,11 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class MiscTest : ApiTest
     {
-        private MiscRepository repository;
+        private readonly MiscRepository repository;
 
-        public MiscTest(RepositoryFactory factory)
+        public MiscTest()
         {
-            this.repository = factory.GetMiscRepository();
+            this.repository = Client.Misc;
         }
 
         [Fact]

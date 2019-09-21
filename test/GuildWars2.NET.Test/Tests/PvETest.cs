@@ -1,6 +1,5 @@
 ﻿using GuildWars2.NET.v2.PvE.Entities;
 using GuildWars2.NET.v2.PvE.Repositories;
-using GuildWars2.NET.Test.Dependencies;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,11 +11,11 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class PvETest : ApiTest
     {
-        private PvERepository repository;
+        private readonly PvERepository repository;
 
-        public PvETest(RepositoryFactory factory)
+        public PvETest()
         {
-            this.repository = factory.GetPvERepository();
+            this.repository = Client.PvE;
         }
 
         [Fact]

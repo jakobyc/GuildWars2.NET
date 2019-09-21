@@ -1,5 +1,4 @@
-﻿using GuildWars2.NET.Test.Dependencies;
-using GuildWars2.NET.v2.Commerce.Entities;
+﻿using GuildWars2.NET.v2.Commerce.Entities;
 using GuildWars2.NET.v2.Commerce.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,11 +10,11 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class CommerceTest : ApiTest
     {
-        private CommerceRepository repository;
+        private readonly CommerceRepository repository;
 
-        public CommerceTest(RepositoryFactory factory)
+        public CommerceTest()
         {
-            repository = factory.GetCommerceRepository();
+            repository = Client.Commerce;
         }
 
         [Fact]
@@ -46,7 +45,7 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Theory]
-        [InlineData(10000)]
+        [InlineData(100000)]
         public void GetGems(int coins)
         {
             AssertCall<Gems>(repository.GetGems(coins));
@@ -177,7 +176,7 @@ namespace GuildWars2.NET.Test.Tests
         }
 
         [Theory]
-        [InlineData(10000)]
+        [InlineData(100000)]
         public async Task GetGemsAsync(int coins)
         {
             AssertCall<Gems>(await repository.GetGemsAsync(coins));

@@ -1,21 +1,21 @@
 ﻿using GuildWars2.NET.v2.Account.Entities;
 using GuildWars2.NET.v2.Account.Repositories;
-using GuildWars2.NET.Test.Dependencies;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using System.Threading.Tasks;
+using GuildWars2.NET.Data;
 
 namespace GuildWars2.NET.Test.Tests
 {
     public class AccountTest : ApiTest
     {
-        private AccountRepository repository;
+        private readonly AccountRepository repository;
 
-        public AccountTest(RepositoryFactory factory)
+        public AccountTest()
         {
-            this.repository = factory.GetAccountRepository();
+            this.repository = Client.Account;
         }
 
         [Fact]

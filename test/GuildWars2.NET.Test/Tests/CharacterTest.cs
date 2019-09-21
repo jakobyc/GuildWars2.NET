@@ -1,6 +1,5 @@
 ﻿using GuildWars2.NET.v2.Characters.Entities;
 using GuildWars2.NET.v2.Characters.Repositories;
-using GuildWars2.NET.Test.Dependencies;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,11 +10,11 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class CharacterTest : ApiTest
     {
-        private CharacterRepository repository;
+        private readonly CharacterRepository repository;
 
-        public CharacterTest(RepositoryFactory factory)
+        public CharacterTest()
         {
-            this.repository = factory.GetCharacterRepository();
+            this.repository = Client.Characters;
         }
 
         [Fact]

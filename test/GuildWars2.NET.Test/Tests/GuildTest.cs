@@ -1,5 +1,4 @@
-﻿using GuildWars2.NET.Test.Dependencies;
-using GuildWars2.NET.v2.Guilds.Entities;
+﻿using GuildWars2.NET.v2.Guilds.Entities;
 using GuildWars2.NET.v2.Guilds.Repositories;
 using System;
 using System.Collections.Generic;
@@ -12,11 +11,11 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class GuildTest : ApiTest
     {
-        private GuildRepository repository;
+        private readonly GuildRepository repository;
 
-        public GuildTest(RepositoryFactory factory)
+        public GuildTest()
         {
-            this.repository = factory.GetGuildRepository();
+            this.repository = Client.Guilds;
         }
 
         [Fact]

@@ -1,6 +1,5 @@
 ﻿using GuildWars2.NET.v2.Items.Entities;
 using GuildWars2.NET.v2.Items.Repositories;
-using GuildWars2.NET.Test.Dependencies;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -12,11 +11,11 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class ItemTest : ApiTest
     {
-        private ItemRepository repository;
+        private readonly ItemRepository repository;
 
-        public ItemTest(RepositoryFactory factory)
+        public ItemTest()
         {
-            this.repository = factory.GetItemRepository();
+            this.repository = Client.Items;
         }
 
         [Fact]

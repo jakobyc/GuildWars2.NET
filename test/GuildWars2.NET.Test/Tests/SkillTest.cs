@@ -1,5 +1,4 @@
-﻿using GuildWars2.NET.Test.Dependencies;
-using GuildWars2.NET.v2.Skills.Entities;
+﻿using GuildWars2.NET.v2.Skills.Entities;
 using GuildWars2.NET.v2.Skills.Repositories;
 using System;
 using System.Collections.Generic;
@@ -12,11 +11,11 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class SkillTest : ApiTest
     {
-        private SkillRepository repository;
+        private readonly SkillRepository repository;
 
-        public SkillTest(RepositoryFactory factory)
+        public SkillTest()
         {
-            this.repository = factory.GetSkillRepository();
+            this.repository = Client.Skills;
         }
 
         [Fact]

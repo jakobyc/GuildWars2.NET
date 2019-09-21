@@ -53,7 +53,6 @@ namespace GuildWars2.NET.v2.Account.Repositories
             return Retrieve<ICollection<Finisher>>("account/finishers");
         }
 
-        // TODO: Resolve against v2/gliders:
         public ICollection<string> GetGliders()
         {
             return Retrieve<ICollection<string>>("account/gliders");
@@ -74,7 +73,6 @@ namespace GuildWars2.NET.v2.Account.Repositories
             return Retrieve<ICollection<SharedInventoryItem>>("account/inventory");
         }
 
-        // TODO: Resolve against v2/mailcarriers
         public ICollection<string> GetMailCarriers()
         {
             return Retrieve<ICollection<string>>("account/mailcarriers");
@@ -112,7 +110,6 @@ namespace GuildWars2.NET.v2.Account.Repositories
             return Retrieve<ICollection<PvPGame>>(builder);
         }
 
-        // TODO: Resolve against v2/pvp/heroes:
         public ICollection<string> GetPvPHeroes()
         {
             return Retrieve<ICollection<string>>("account/pvp/heroes");
@@ -192,7 +189,6 @@ namespace GuildWars2.NET.v2.Account.Repositories
             return await RetrieveAsync<ICollection<Finisher>>("account/finishers");
         }
 
-        // TODO: Resolve against v2/gliders:
         public async Task<ICollection<string>> GetGlidersAsync()
         {
             return await RetrieveAsync<ICollection<string>>("account/gliders");
@@ -213,7 +209,6 @@ namespace GuildWars2.NET.v2.Account.Repositories
             return await RetrieveAsync<ICollection<SharedInventoryItem>>("account/inventory");
         }
 
-        // TODO: Resolve against v2/mailcarriers
         public async Task<ICollection<string>> GetMailCarriersAsync()
         {
             return await RetrieveAsync<ICollection<string>>("account/mailcarriers");
@@ -251,7 +246,6 @@ namespace GuildWars2.NET.v2.Account.Repositories
             return await RetrieveAsync<ICollection<PvPGame>>(builder);
         }
 
-        // TODO: Resolve against v2/pvp/heroes:
         public async Task<ICollection<string>> GetPvPHeroesAsync()
         {
             return await RetrieveAsync<ICollection<string>>("account/pvp/heroes");

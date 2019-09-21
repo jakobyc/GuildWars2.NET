@@ -5,10 +5,9 @@ using System.Runtime.Serialization;
 
 namespace GuildWars2.NET.Test.Tests
 {
-    [DataContract]
     public class Config
     {
-        private static IConfiguration instance { get; } = Init();
+        private readonly static IConfiguration instance = Init();
 
         private Config() { }
 

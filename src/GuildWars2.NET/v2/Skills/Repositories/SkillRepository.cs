@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GuildWars2.NET.v2.Skills.Repositories
 {
-    public class SkillRepository : GW2Repository
+    internal class SkillRepository : GW2Repository, ISkillRepository
     {
         public SkillRepository() : base() { }
 

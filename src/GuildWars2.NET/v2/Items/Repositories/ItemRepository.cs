@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GuildWars2.NET.v2.Items.Repositories
 {
-    public class ItemRepository : GW2Repository
+    internal class ItemRepository : GW2Repository, IItemRepository
     {
         public ItemRepository() : base() { }
 

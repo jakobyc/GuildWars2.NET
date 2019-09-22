@@ -10,7 +10,7 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class PvPTest : ApiTest
     {
-        private readonly PvPRepository repository;
+        private readonly IPvPRepository repository;
 
         public PvPTest()
         {

@@ -15,10 +15,10 @@ namespace GuildWars2.NET.v2.PvP.Repositories
         Red
     }
 
-    public class PvPRepository : GW2Repository
+    internal class PvPRepository : GW2Repository, IPvPRepository
     {
         public PvPRepository() : base() { }
- 
+
         public ICollection<PvPAmulet> GetAllAmulets()
         {
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("pvp/amulets")
@@ -474,7 +474,7 @@ namespace GuildWars2.NET.v2.PvP.Repositories
 
         private string GetTeam(WvWTeam team)
         {
-            switch(team)
+            switch (team)
             {
                 case (WvWTeam.Blue):
                     return "blue";

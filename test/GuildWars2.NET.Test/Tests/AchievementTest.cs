@@ -10,7 +10,7 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class AchievementsTest : ApiTest
     {
-        private readonly AchievementRepository repository;
+        private readonly IAchievementRepository repository;
 
         public AchievementsTest()
         {

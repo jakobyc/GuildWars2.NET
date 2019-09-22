@@ -10,7 +10,7 @@ using GuildWars2.NET.Builders.Endpoints;
 
 namespace GuildWars2.NET.v2.Account.Repositories
 {
-    public class AccountRepository : GW2Repository
+    internal class AccountRepository : GW2Repository, IAccountRepository
     {
         public AccountRepository(string apiKey) : base(apiKey) { }
         public AccountRepository(string apiKey, JsonDeserializer deserializer, JsonRetriever retriever) : base(apiKey, deserializer, retriever) { }

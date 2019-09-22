@@ -10,7 +10,7 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class CommerceTest : ApiTest
     {
-        private readonly CommerceRepository repository;
+        private readonly ICommerceRepository repository;
 
         public CommerceTest()
         {

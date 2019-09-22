@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GuildWars2.NET.v2.Achievements.Repositories
 {
-    public class AchievementRepository : GW2Repository
+    internal class AchievementRepository : GW2Repository, IAchievementRepository
     {
         public AchievementRepository() : base() { }
 

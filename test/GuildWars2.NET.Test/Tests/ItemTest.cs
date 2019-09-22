@@ -11,7 +11,7 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class ItemTest : ApiTest
     {
-        private readonly ItemRepository repository;
+        private readonly IItemRepository repository;
 
         public ItemTest()
         {

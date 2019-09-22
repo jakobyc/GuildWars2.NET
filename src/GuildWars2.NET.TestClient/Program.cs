@@ -33,28 +33,30 @@ namespace GuildWars2.NET.TestClient
 
             string choice = Console.ReadLine();
 
+            GW2Client client = new GW2Client(apiKey);
+
             switch (choice)
             {
                 case ("1"):
-                    Init.Start(typeof(AccountRepository), apiKey);
+                    Init.Start(client.Account.GetType(), apiKey);
                     break;
                 case ("2"):
-                    Init.Start(typeof(AchievementRepository), string.Empty);
+                    Init.Start(client.Achievements.GetType(), string.Empty);
                     break;
                 case ("3"):
-                    Init.Start(typeof(CharacterRepository), apiKey);
+                    Init.Start(client.Characters.GetType(), apiKey);
                     break;
                 case ("4"):
-                    Init.Start(typeof(SkillRepository), string.Empty);
+                    Init.Start(client.Skills.GetType(), string.Empty);
                     break;
                 case ("5"):
-                    Init.Start(typeof(ItemRepository), string.Empty);
+                    Init.Start(client.Items.GetType(), string.Empty);
                     break;
                 case ("6"):
-                    Init.Start(typeof(PvERepository), string.Empty);
+                    Init.Start(client.PvE.GetType(), string.Empty);
                     break;
                 case ("7"):
-                    Init.Start(typeof(PvPRepository), string.Empty);
+                    Init.Start(client.PvP.GetType(), string.Empty);
                     break;
             }
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GuildWars2.NET.v2.Guilds.Repositories
 {
-    public class GuildRepository : GW2Repository
+    internal class GuildRepository : GW2Repository, IGuildRepository
     {
         public GuildRepository() : base() { }
 

@@ -11,7 +11,7 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class MiscTest : ApiTest
     {
-        private readonly MiscRepository repository;
+        private readonly IMiscRepository repository;
 
         public MiscTest()
         {

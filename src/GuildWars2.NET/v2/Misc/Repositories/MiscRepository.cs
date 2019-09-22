@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GuildWars2.NET.v2.Misc.Repositories
 {
-    public class MiscRepository : GW2Repository
+    internal class MiscRepository : GW2Repository, IMiscRepository
     {
         public MiscRepository() : base() { }
 
@@ -58,7 +58,7 @@ namespace GuildWars2.NET.v2.Misc.Repositories
             return Retrieve<QuagganIcon>($"quaggans/{id}");
         }
 
-        public ICollection<string>GetTitleIds()
+        public ICollection<string> GetTitleIds()
         {
             return Retrieve<ICollection<string>>("titles");
         }

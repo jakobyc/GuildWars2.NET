@@ -10,7 +10,7 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class CharacterTest : ApiTest
     {
-        private readonly CharacterRepository repository;
+        private readonly ICharacterRepository repository;
 
         public CharacterTest()
         {

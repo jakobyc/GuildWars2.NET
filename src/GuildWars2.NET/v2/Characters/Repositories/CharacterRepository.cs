@@ -18,11 +18,11 @@ namespace GuildWars2.NET.v2.Characters.Repositories
         WvW
     }
 
-    public class CharacterRepository : GW2Repository
+    internal class CharacterRepository : GW2Repository, ICharacterRepository
     {
         public CharacterRepository(string apiKey) : base(apiKey) { }
         public CharacterRepository(string apiKey, JsonDeserializer deserializer, JsonRetriever retriever) : base(apiKey, deserializer, retriever) { }
-        
+
         public Backstory GetBackstory(string characterName)
         {
             return Retrieve<Backstory>($"characters/{characterName}/backstory");
@@ -73,7 +73,7 @@ namespace GuildWars2.NET.v2.Characters.Repositories
 
         public ICollection<Skill> GetSkills(string characterName, SkillType type)
         {
-            CharacterSkills characterSkills =  Retrieve<CharacterSkills>($"characters/{characterName}/skills");
+            CharacterSkills characterSkills = Retrieve<CharacterSkills>($"characters/{characterName}/skills");
 
             ICollection<Skill> skills = new List<Skill>();
             SkillRepository repository = new SkillRepository();

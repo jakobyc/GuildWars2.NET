@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GuildWars2.NET.v2.PvE.Repositories
 {
-    public class PvERepository : GW2Repository
+    internal class PvERepository : GW2Repository, IPvERepository
     {
         public PvERepository() : base() { }
 

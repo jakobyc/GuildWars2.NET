@@ -11,7 +11,7 @@ namespace GuildWars2.NET.Test.Tests
 {
     public class SkillTest : ApiTest
     {
-        private readonly SkillRepository repository;
+        private readonly ISkillRepository repository;
 
         public SkillTest()
         {

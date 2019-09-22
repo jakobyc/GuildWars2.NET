@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GuildWars2.NET.v2.Commerce.Repositories
 {
-    public class CommerceRepository : GW2Repository
+    internal class CommerceRepository : GW2Repository, ICommerceRepository
     {
         public CommerceRepository() : base() { }
 

@@ -32,35 +32,41 @@ namespace GuildWars2.NET.Data
         /// <summary>
         /// Retrieve without an API key.
         /// </summary>
-        protected T Retrieve<T>(string endpoint)
+        protected T Retrieve<T>(string endpoint, GW2RESTConfig config = null)
         {
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint(endpoint);
 
-            return Retrieve<T>(builder);
+            return Retrieve<T>(builder, config);
         }
 
-        protected async Task<T> RetrieveAsync<T>(string endpoint)
+        protected async Task<T> RetrieveAsync<T>(string endpoint, GW2RESTConfig config = null)
         {
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint(endpoint);
 
-            return await RetrieveAsync<T>(builder);
+            return await RetrieveAsync<T>(builder, config);
         }
 
-        protected T Retrieve<T>(IEndpointBuilder builder)
+        protected T Retrieve<T>(IEndpointBuilder builder, GW2RESTConfig config = null)
         {
             if (!string.IsNullOrEmpty(ApiKey))
             {
-                builder.AddParameter("access_token", ApiKey);
+                if (config == null || config.IgnoreAuthentication == false)
+                {
+                    builder.AddParameter("access_token", ApiKey);
+                }
             }
             string json = retriever.GetJson(builder);
             return deserializer.Deserialize<T>(json);
         }
 
-        protected async Task<T> RetrieveAsync<T>(IEndpointBuilder builder)
+        protected async Task<T> RetrieveAsync<T>(IEndpointBuilder builder, GW2RESTConfig config = null)
         {
             if (!string.IsNullOrEmpty(ApiKey))
             {
-                builder.AddParameter("access_token", ApiKey);
+                if (config == null || config.IgnoreAuthentication == false)
+                {
+                    builder.AddParameter("access_token", ApiKey);
+                }
             }
             string json = await retriever.GetJsonAsync(builder);
             return deserializer.Deserialize<T>(json);
@@ -73,5 +79,10 @@ namespace GuildWars2.NET.Data
                 throw new Exception("This call requires an API Key.");
             }
         }
+    }
+
+    public class GW2RESTConfig
+    {
+        public bool IgnoreAuthentication { get; set; }
     }
 }

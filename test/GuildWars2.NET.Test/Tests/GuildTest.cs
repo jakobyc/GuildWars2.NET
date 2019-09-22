@@ -76,14 +76,13 @@ namespace GuildWars2.NET.Test.Tests
         public void GetLogs()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<GuildLog>>(repository.GetLogs(guildId, apiKey));
+                AssertCall<List<GuildLog>>(repository.GetLogs(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -91,13 +90,12 @@ namespace GuildWars2.NET.Test.Tests
         public void GetLogsSince()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                var logs = repository.GetLogs(guildId, apiKey);
+                var logs = repository.GetLogs(guildId);
                 if (logs != null && logs.Count > 0)
                 {
-                    AssertCall<List<GuildLog>>(repository.GetLogsSince(guildId, apiKey, logs.First().Id));
+                    AssertCall<List<GuildLog>>(repository.GetLogsSince(guildId, logs.First().Id));
                 }
                 else
                 {
@@ -106,7 +104,7 @@ namespace GuildWars2.NET.Test.Tests
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -114,14 +112,13 @@ namespace GuildWars2.NET.Test.Tests
         public void GetMembers()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<GuildMember>>(repository.GetMembers(guildId, apiKey));
+                AssertCall<List<GuildMember>>(repository.GetMembers(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -129,14 +126,13 @@ namespace GuildWars2.NET.Test.Tests
         public void GetRanks()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<GuildRank>>(repository.GetRanks(guildId, apiKey));
+                AssertCall<List<GuildRank>>(repository.GetRanks(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -144,14 +140,13 @@ namespace GuildWars2.NET.Test.Tests
         public void GetStash()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<GuildStash>>(repository.GetStash(guildId, apiKey));
+                AssertCall<List<GuildStash>>(repository.GetStash(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -159,14 +154,13 @@ namespace GuildWars2.NET.Test.Tests
         public void GetStorage()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<GuildStorage>>(repository.GetStorage(guildId, apiKey));
+                AssertCall<List<GuildStorage>>(repository.GetStorage(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -174,14 +168,13 @@ namespace GuildWars2.NET.Test.Tests
         public void GetTeams()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<GuildTeam>>(repository.GetTeams(guildId, apiKey));
+                AssertCall<List<GuildTeam>>(repository.GetTeams(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -189,14 +182,13 @@ namespace GuildWars2.NET.Test.Tests
         public void GetTreasury()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<GuildTreasury>>(repository.GetTreasury(guildId, apiKey));
+                AssertCall<List<GuildTreasury>>(repository.GetTreasury(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -204,14 +196,13 @@ namespace GuildWars2.NET.Test.Tests
         public void GetUpgradeIdsByGuild()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<string>>(repository.GetUpgradeIds(guildId, apiKey));
+                AssertCall<List<string>>(repository.GetUpgradeIds(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -326,14 +317,13 @@ namespace GuildWars2.NET.Test.Tests
         public async Task GetLogsAsync()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<GuildLog>>(await repository.GetLogsAsync(guildId, apiKey));
+                AssertCall<List<GuildLog>>(await repository.GetLogsAsync(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -341,13 +331,12 @@ namespace GuildWars2.NET.Test.Tests
         public async Task GetLogsSinceAsync()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                var logs = await repository.GetLogsAsync(guildId, apiKey);
+                var logs = await repository.GetLogsAsync(guildId);
                 if (logs != null && logs.Count > 0)
                 {
-                    AssertCall<List<GuildLog>>(await repository.GetLogsSinceAsync(guildId, apiKey, logs.First().Id));
+                    AssertCall<List<GuildLog>>(await repository.GetLogsSinceAsync(guildId, logs.First().Id));
                 }
                 else
                 {
@@ -356,7 +345,7 @@ namespace GuildWars2.NET.Test.Tests
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -364,14 +353,13 @@ namespace GuildWars2.NET.Test.Tests
         public async Task GetMembersAsync()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<GuildMember>>(await repository.GetMembersAsync(guildId, apiKey));
+                AssertCall<List<GuildMember>>(await repository.GetMembersAsync(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -379,14 +367,13 @@ namespace GuildWars2.NET.Test.Tests
         public async Task GetRanksAsync()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<GuildRank>>(await repository.GetRanksAsync(guildId, apiKey));
+                AssertCall<List<GuildRank>>(await repository.GetRanksAsync(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -394,14 +381,13 @@ namespace GuildWars2.NET.Test.Tests
         public async Task GetStashAsync()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<GuildStash>>(await repository.GetStashAsync(guildId, apiKey));
+                AssertCall<List<GuildStash>>(await repository.GetStashAsync(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -409,14 +395,13 @@ namespace GuildWars2.NET.Test.Tests
         public async Task GetStorageAsync()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<GuildStorage>>(await repository.GetStorageAsync(guildId, apiKey));
+                AssertCall<List<GuildStorage>>(await repository.GetStorageAsync(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -424,14 +409,13 @@ namespace GuildWars2.NET.Test.Tests
         public async Task GetTeamsAsync()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<GuildTeam>>(await repository.GetTeamsAsync(guildId, apiKey));
+                AssertCall<List<GuildTeam>>(await repository.GetTeamsAsync(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -439,14 +423,13 @@ namespace GuildWars2.NET.Test.Tests
         public async Task GetTreasuryAsync()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<GuildTreasury>>(await repository.GetTreasuryAsync(guildId, apiKey));
+                AssertCall<List<GuildTreasury>>(await repository.GetTreasuryAsync(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 
@@ -454,14 +437,13 @@ namespace GuildWars2.NET.Test.Tests
         public async Task GetUpgradeIdsByGuildAsync()
         {
             string guildId = Config.GetGuild();
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(guildId) && !string.IsNullOrEmpty(apiKey))
+            if (!string.IsNullOrEmpty(guildId))
             {
-                AssertCall<List<string>>(await repository.GetUpgradeIdsAsync(guildId, apiKey));
+                AssertCall<List<string>>(await repository.GetUpgradeIdsAsync(guildId));
             }
             else
             {
-                Assert.True(false, "No guild id or API key found in appsettings.test.json.");
+                Assert.True(false, "No guild id found in appsettings.test.json.");
             }
         }
 

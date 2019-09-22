@@ -8,13 +8,13 @@ namespace GuildWars2.NET.TestClient
 {
     internal class Init
     {
-        public static void Start(Type type, string apiKey)
+        public static void Start(object obj, string apiKey)
         {
             IDictionary<int, MethodInfo> methodsDictionary = new Dictionary<int, MethodInfo>();
 
             // Add methods to a dictionary where the key is a number for the user to input:
-            MethodInfo[] methods = type.GetMethods();
-            for (int i = 0; i < type.GetMethods().Length; i++)
+            MethodInfo[] methods = obj.GetType().GetMethods();
+            for (int i = 0; i < obj.GetType().GetMethods().Length; i++)
             {
                 methodsDictionary.Add(i, methods[i]);
             }
@@ -60,18 +60,8 @@ namespace GuildWars2.NET.TestClient
                 }
             }
 
-            object instance;
             // Invoke method and get results:
-            if (!string.IsNullOrEmpty(apiKey))
-            {
-                instance = Activator.CreateInstance(type, apiKey);
-            }
-            else
-            {
-                instance = Activator.CreateInstance(type);
-            }
-            var results = chosenMethod.Invoke(instance, parameters.ToArray());
-
+            var results = chosenMethod.Invoke(obj, parameters.ToArray());
             if (results != null)
             {
                 Console.WriteLine($"{chosenMethod.Name} invoked successfully.");

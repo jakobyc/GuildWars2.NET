@@ -23,6 +23,9 @@ namespace GuildWars2.NET.TestClient
             Console.WriteLine("5 for ItemRepository");
             Console.WriteLine("6 for PvERepository");
             Console.WriteLine("7 for PvPRepository");
+            Console.WriteLine("8 for CommerceRepository");
+            Console.WriteLine("9 for GuildsRepository");
+            Console.WriteLine("10 for MiscRepository");
 
             string choice = Console.ReadLine();
 
@@ -31,25 +34,34 @@ namespace GuildWars2.NET.TestClient
             switch (choice)
             {
                 case ("1"):
-                    Init.Start(client.Account.GetType(), apiKey);
+                    Init.Start(client.Account, apiKey);
                     break;
                 case ("2"):
-                    Init.Start(client.Achievements.GetType(), string.Empty);
+                    Init.Start(client.Achievements, string.Empty);
                     break;
                 case ("3"):
-                    Init.Start(client.Characters.GetType(), apiKey);
+                    Init.Start(client.Characters, apiKey);
                     break;
                 case ("4"):
-                    Init.Start(client.Skills.GetType(), string.Empty);
+                    Init.Start(client.Skills, string.Empty);
                     break;
                 case ("5"):
-                    Init.Start(client.Items.GetType(), string.Empty);
+                    Init.Start(client.Items, string.Empty);
                     break;
                 case ("6"):
-                    Init.Start(client.PvE.GetType(), string.Empty);
+                    Init.Start(client.PvE, string.Empty);
                     break;
                 case ("7"):
-                    Init.Start(client.PvP.GetType(), string.Empty);
+                    Init.Start(client.PvP, string.Empty);
+                    break;
+                case ("8"):
+                    Init.Start(client.Commerce, string.Empty);
+                    break;
+                case ("9"):
+                    Init.Start(client.Guilds, string.Empty);
+                    break;
+                case ("10"):
+                    Init.Start(client.Misc, string.Empty);
                     break;
             }
 

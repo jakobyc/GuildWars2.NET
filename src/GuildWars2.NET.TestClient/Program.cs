@@ -1,11 +1,4 @@
-﻿using GuildWars2.NET.v2.Account.Repositories;
-using GuildWars2.NET.v2.Achievements.Repositories;
-using GuildWars2.NET.v2.Characters.Repositories;
-using GuildWars2.NET.v2.Items.Repositories;
-using GuildWars2.NET.v2.PvE.Repositories;
-using GuildWars2.NET.v2.PvP.Repositories;
-using GuildWars2.NET.v2.Skills.Repositories;
-using System;
+﻿using System;
 
 namespace GuildWars2.NET.TestClient
 {
@@ -34,7 +27,7 @@ namespace GuildWars2.NET.TestClient
             string choice = Console.ReadLine();
 
             GW2Client client = new GW2Client(apiKey);
-
+      
             switch (choice)
             {
                 case ("1"):

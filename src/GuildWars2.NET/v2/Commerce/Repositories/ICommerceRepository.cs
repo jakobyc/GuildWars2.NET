@@ -10,8 +10,8 @@ namespace GuildWars2.NET.v2.Commerce.Repositories
         Task<Coins> GetCoinsAsync(int gems);
         ICollection<string> GetCurrencyTypes();
         Task<ICollection<string>> GetCurrencyTypesAsync();
-        DeliveryBox GetDeliveryBox(string apiKey);
-        Task<DeliveryBox> GetDeliveryBoxAsync(string apiKey);
+        DeliveryBox GetDeliveryBox();
+        Task<DeliveryBox> GetDeliveryBoxAsync();
         Gems GetGems(int coins);
         Task<Gems> GetGemsAsync(int coins);
         ListedItem GetListedItem(string id);
@@ -26,13 +26,13 @@ namespace GuildWars2.NET.v2.Commerce.Repositories
         Task<ICollection<string>> GetPricedItemIdsAsync();
         ICollection<PricedItem> GetPricedItems(params string[] ids);
         Task<ICollection<PricedItem>> GetPricedItemsAsync(params string[] ids);
-        ICollection<Transaction> GetPurchaseHistory(string apiKey);
-        Task<ICollection<Transaction>> GetPurchaseHistoryAsync(string apiKey);
-        ICollection<Transaction> GetPurchaseOrders(string apiKey);
-        Task<ICollection<Transaction>> GetPurchaseOrdersAsync(string apiKey);
-        ICollection<Transaction> GetSalesHistory(string apiKey);
-        Task<ICollection<Transaction>> GetSalesHistoryAsync(string apiKey);
-        ICollection<Transaction> GetSalesOrders(string apiKey);
-        Task<ICollection<Transaction>> GetSalesOrdersAsync(string apiKey);
+        ICollection<Transaction> GetPurchaseHistory();
+        Task<ICollection<Transaction>> GetPurchaseHistoryAsync();
+        ICollection<Transaction> GetPurchaseOrders();
+        Task<ICollection<Transaction>> GetPurchaseOrdersAsync();
+        ICollection<Transaction> GetSalesHistory();
+        Task<ICollection<Transaction>> GetSalesHistoryAsync();
+        ICollection<Transaction> GetSalesOrders();
+        Task<ICollection<Transaction>> GetSalesOrdersAsync();
     }
 }

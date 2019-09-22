@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
+using GuildWars2.NET.Builders.Endpoints;
 
 namespace GuildWars2.NET.Serialization.JSON
 {
@@ -22,14 +23,14 @@ namespace GuildWars2.NET.Serialization.JSON
                 BaseAddress = new Uri(baseUrl)
             };
         }
-        public string GetJson(string endpoint)
+        public string GetJson(IEndpointBuilder builder)
         {
-            return client.GetStringAsync(endpoint).Result;
+            return client.GetStringAsync(builder.Build()).Result;
         }
 
-        public async Task<string> GetJsonAsync(string endpoint)
+        public async Task<string> GetJsonAsync(IEndpointBuilder builder)
         {
-            return await client.GetStringAsync(endpoint);
+            return await client.GetStringAsync(builder.Build());
         }
     }
 }

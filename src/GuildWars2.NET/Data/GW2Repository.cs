@@ -52,7 +52,7 @@ namespace GuildWars2.NET.Data
             {
                 builder.AddParameter("access_token", ApiKey);
             }
-            string json = retriever.GetJson(builder.Build());
+            string json = retriever.GetJson(builder);
             return deserializer.Deserialize<T>(json);
         }
 
@@ -62,8 +62,16 @@ namespace GuildWars2.NET.Data
             {
                 builder.AddParameter("access_token", ApiKey);
             }
-            string json = await retriever.GetJsonAsync(builder.Build());
+            string json = await retriever.GetJsonAsync(builder);
             return deserializer.Deserialize<T>(json);
+        }
+
+        protected void ValidateToken()
+        {
+            if (string.IsNullOrWhiteSpace(ApiKey))
+            {
+                throw new Exception("This call requires an API Key.");
+            }
         }
     }
 }

@@ -10,11 +10,12 @@ namespace GuildWars2.NET.v2.Commerce.Repositories
 {
     internal class CommerceRepository : GW2Repository, ICommerceRepository
     {
-        public CommerceRepository() : base() { }
+        public CommerceRepository(string apiKey = null) : base(apiKey) { }
 
-        public DeliveryBox GetDeliveryBox(string apiKey)
+        public DeliveryBox GetDeliveryBox()
         {
-            return Retrieve<DeliveryBox>($"commerce/delivery?access_token={apiKey}");
+            ValidateToken();
+            return Retrieve<DeliveryBox>($"commerce/delivery");
         }
 
         public ICollection<string> GetCurrencyTypes()
@@ -95,47 +96,52 @@ namespace GuildWars2.NET.v2.Commerce.Repositories
         /// <summary>
         /// Get transactions for historical purchases for past 90 days.
         /// </summary>
-        public ICollection<Transaction> GetPurchaseHistory(string apiKey)
+        public ICollection<Transaction> GetPurchaseHistory()
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/history/buys")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/history/buys");
             return Retrieve<ICollection<Transaction>>(builder);
         }
 
         /// <summary>
         /// Get transactions for current purchase orders.
         /// </summary>
-        public ICollection<Transaction> GetPurchaseOrders(string apiKey)
+        public ICollection<Transaction> GetPurchaseOrders()
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/current/buys")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/current/buys");
             return Retrieve<ICollection<Transaction>>(builder);
         }
 
         /// <summary>
         /// Get transactions for historical sales for past 90 days.
         /// </summary>
-        public ICollection<Transaction> GetSalesHistory(string apiKey)
+        public ICollection<Transaction> GetSalesHistory()
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/history/sells")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/history/sells");
             return Retrieve<ICollection<Transaction>>(builder);
         }
 
         /// <summary>
         /// Get transactions for current sales orders.
         /// </summary>
-        public ICollection<Transaction> GetSalesOrders(string apiKey)
+        public ICollection<Transaction> GetSalesOrders()
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/current/sells")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/current/sells");
             return Retrieve<ICollection<Transaction>>(builder);
         }
 
         #region Async
-        public async Task<DeliveryBox> GetDeliveryBoxAsync(string apiKey)
+        public async Task<DeliveryBox> GetDeliveryBoxAsync()
         {
-            return await RetrieveAsync<DeliveryBox>($"commerce/delivery?access_token={apiKey}");
+            ValidateToken();
+            return await RetrieveAsync<DeliveryBox>($"commerce/delivery");
         }
 
         public async Task<ICollection<string>> GetCurrencyTypesAsync()
@@ -216,40 +222,44 @@ namespace GuildWars2.NET.v2.Commerce.Repositories
         /// <summary>
         /// Get transactions for historical purchases for past 90 days.
         /// </summary>
-        public async Task<ICollection<Transaction>> GetPurchaseHistoryAsync(string apiKey)
+        public async Task<ICollection<Transaction>> GetPurchaseHistoryAsync()
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/history/buys")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/history/buys");
             return await RetrieveAsync<ICollection<Transaction>>(builder);
         }
 
         /// <summary>
         /// Get transactions for current purchase orders.
         /// </summary>
-        public async Task<ICollection<Transaction>> GetPurchaseOrdersAsync(string apiKey)
+        public async Task<ICollection<Transaction>> GetPurchaseOrdersAsync()
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/current/buys")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/current/buys");
             return await RetrieveAsync<ICollection<Transaction>>(builder);
         }
 
         /// <summary>
         /// Get transactions for historical sales for past 90 days.
         /// </summary>
-        public async Task<ICollection<Transaction>> GetSalesHistoryAsync(string apiKey)
+        public async Task<ICollection<Transaction>> GetSalesHistoryAsync()
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/history/sells")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/history/sells");
             return await RetrieveAsync<ICollection<Transaction>>(builder);
         }
 
         /// <summary>
         /// Get transactions for current sales orders.
         /// </summary>
-        public async Task<ICollection<Transaction>> GetSalesOrdersAsync(string apiKey)
+        public async Task<ICollection<Transaction>> GetSalesOrdersAsync()
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/current/sells")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint("commerce/transactions/current/sells");
             return await RetrieveAsync<ICollection<Transaction>>(builder);
         }
         #endregion

@@ -20,15 +20,7 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetDeliveryBox()
         {
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(apiKey))
-            {
-                AssertCall<DeliveryBox>(repository.GetDeliveryBox(apiKey));
-            }
-            else
-            {
-                Assert.True(false, "API key not found in appsettings.test.json.");
-            }
+            AssertCall<DeliveryBox>(repository.GetDeliveryBox());
         }
 
         [Fact]
@@ -94,72 +86,32 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public void GetPurchaseHistory()
         {
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(apiKey))
-            {
-                AssertCall<List<Transaction>>(repository.GetPurchaseHistory(apiKey));
-            }
-            else
-            {
-                Assert.True(false, "API key not found in appsettings.test.json.");
-            }
+            AssertCall<List<Transaction>>(repository.GetPurchaseHistory());
         }
 
         [Fact]
         public void GetPurchaseOrders()
         {
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(apiKey))
-            {
-                AssertCall<List<Transaction>>(repository.GetPurchaseOrders(apiKey));
-            }
-            else
-            {
-                Assert.True(false, "API key not found in appsettings.test.json.");
-            }
+            AssertCall<List<Transaction>>(repository.GetPurchaseOrders());
         }
 
         [Fact]
         public void GetSalesHistory()
         {
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(apiKey))
-            {
-                AssertCall<List<Transaction>>(repository.GetSalesHistory(apiKey));
-            }
-            else
-            {
-                Assert.True(false, "API key not found in appsettings.test.json.");
-            }
+            AssertCall<List<Transaction>>(repository.GetSalesHistory());
         }
 
         [Fact]
         public void GetSalesOrders()
         {
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(apiKey))
-            {
-                AssertCall<List<Transaction>>(repository.GetSalesOrders(apiKey));
-            }
-            else
-            {
-                Assert.True(false, "API key not found in appsettings.test.json.");
-            }
+            AssertCall<List<Transaction>>(repository.GetSalesOrders());
         }
 
         #region Async
         [Fact]
         public async Task GetDeliveryBoxAsync()
         {
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(apiKey))
-            {
-                AssertCall<DeliveryBox>(await repository.GetDeliveryBoxAsync(apiKey));
-            }
-            else
-            {
-                Assert.True(false, "API key not found in appsettings.test.json.");
-            }
+            AssertCall<DeliveryBox>(await repository.GetDeliveryBoxAsync());
         }
 
         [Fact]
@@ -225,57 +177,25 @@ namespace GuildWars2.NET.Test.Tests
         [Fact]
         public async Task GetPurchaseHistoryAsync()
         {
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(apiKey))
-            {
-                AssertCall<List<Transaction>>(await repository.GetPurchaseHistoryAsync(apiKey));
-            }
-            else
-            {
-                Assert.True(false, "API key not found in appsettings.test.json.");
-            }
+            AssertCall<List<Transaction>>(await repository.GetPurchaseHistoryAsync());
         }
 
         [Fact]
         public async Task GetPurchaseOrdersAsync()
         {
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(apiKey))
-            {
-                AssertCall<List<Transaction>>(await repository.GetPurchaseOrdersAsync(apiKey));
-            }
-            else
-            {
-                Assert.True(false, "API key not found in appsettings.test.json.");
-            }
+            AssertCall<List<Transaction>>(await repository.GetPurchaseOrdersAsync());
         }
 
         [Fact]
         public async Task GetSalesHistoryAsync()
         {
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(apiKey))
-            {
-                AssertCall<List<Transaction>>(await repository.GetSalesHistoryAsync(apiKey));
-            }
-            else
-            {
-                Assert.True(false, "API key not found in appsettings.test.json.");
-            }
+            AssertCall<List<Transaction>>(await repository.GetSalesHistoryAsync());
         }
 
         [Fact]
         public async Task GetSalesOrdersAsync()
         {
-            string apiKey = Config.GetApiKey();
-            if (!string.IsNullOrEmpty(apiKey))
-            {
-                AssertCall<List<Transaction>>(await repository.GetSalesOrdersAsync(apiKey));
-            }
-            else
-            {
-                Assert.True(false, "API key not found in appsettings.test.json.");
-            }
+            AssertCall<List<Transaction>>(await repository.GetSalesOrdersAsync());
         }
         #endregion
     }

@@ -10,7 +10,7 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
 {
     internal class GuildRepository : GW2Repository, IGuildRepository
     {
-        public GuildRepository() : base() { }
+        public GuildRepository(string apiKey = null) : base(apiKey) { }
 
         public ICollection<string> GetBackgroundEmblemIds()
         {
@@ -48,7 +48,7 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
 
         public Guild GetGuild(string id)
         {
-            return Retrieve<Guild>($"guild/{id}");
+            return Retrieve<Guild>($"guild/{id}", new GW2RESTConfig() { IgnoreAuthentication = true });
         }
 
         public string[] GetGuildId(string name)
@@ -59,70 +59,79 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
         /// <summary>
         /// Get guild logs of a guild if the account of the api key is a guild leader.
         /// </summary>
-        public ICollection<GuildLog> GetLogs(string guildId, string apiKey)
+        public ICollection<GuildLog> GetLogs(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/log")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/log");
             return Retrieve<ICollection<GuildLog>>(builder);
         }
 
         /// <summary>
         /// Get guild logs of a guild if the account of the api key is a guild leader, since a certain log ID.
         /// </summary>
-        public ICollection<GuildLog> GetLogsSince(string guildId, string apiKey, string logId)
+        public ICollection<GuildLog> GetLogsSince(string guildId, string logId)
         {
+            ValidateToken();
+
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/log")
-                                                            .AddParameter("since", logId)
-                                                            .AddParameter("access_token", apiKey);
+                                                            .AddParameter("since", logId);
             return Retrieve<ICollection<GuildLog>>(builder);
         }
 
-        public ICollection<GuildMember> GetMembers(string guildId, string apiKey)
+        public ICollection<GuildMember> GetMembers(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/members")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/members");
             return Retrieve<ICollection<GuildMember>>(builder);
         }
 
-        public ICollection<GuildRank> GetRanks(string guildId, string apiKey)
+        public ICollection<GuildRank> GetRanks(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/ranks")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/ranks");
             return Retrieve<ICollection<GuildRank>>(builder);
         }
 
-        public ICollection<GuildStash> GetStash(string guildId, string apiKey)
+        public ICollection<GuildStash> GetStash(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/stash")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/stash");
             return Retrieve<ICollection<GuildStash>>(builder);
         }
 
-        public ICollection<GuildStorage> GetStorage(string guildId, string apiKey)
+        public ICollection<GuildStorage> GetStorage(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/storage")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/storage");
             return Retrieve<ICollection<GuildStorage>>(builder);
         }
 
-        public ICollection<GuildTeam> GetTeams(string guildId, string apiKey)
+        public ICollection<GuildTeam> GetTeams(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/teams")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/teams");
             return Retrieve<ICollection<GuildTeam>>(builder);
         }
 
-        public ICollection<GuildTreasury> GetTreasury(string guildId, string apiKey)
+        public ICollection<GuildTreasury> GetTreasury(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/treasury")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/treasury");
             return Retrieve<ICollection<GuildTreasury>>(builder);
         }
 
-        public ICollection<string> GetUpgradeIds(string guildId, string apiKey)
+        public ICollection<string> GetUpgradeIds(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/upgrades")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/upgrades");
             return Retrieve<ICollection<string>>(builder);
         }
 
@@ -215,7 +224,7 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
 
         public async Task<Guild> GetGuildAsync(string id)
         {
-            return await RetrieveAsync<Guild>($"guild/{id}");
+            return await RetrieveAsync<Guild>($"guild/{id}", new GW2RESTConfig() { IgnoreAuthentication = true });
         }
 
         public async Task<string[]> GetGuildIdAsync(string name)
@@ -226,70 +235,78 @@ namespace GuildWars2.NET.v2.Guilds.Repositories
         /// <summary>
         /// Get guild logs of a guild if the account of the api key is a guild leader.
         /// </summary>
-        public async Task<ICollection<GuildLog>> GetLogsAsync(string guildId, string apiKey)
+        public async Task<ICollection<GuildLog>> GetLogsAsync(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/log")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/log");
             return await RetrieveAsync<ICollection<GuildLog>>(builder);
         }
 
         /// <summary>
         /// Get guild logs of a guild if the account of the api key is a guild leader, since a certain log ID.
         /// </summary>
-        public async Task<ICollection<GuildLog>> GetLogsSinceAsync(string guildId, string apiKey, string logId)
+        public async Task<ICollection<GuildLog>> GetLogsSinceAsync(string guildId, string logId)
         {
+            ValidateToken();
+
             IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/log")
-                                                            .AddParameter("since", logId)
-                                                            .AddParameter("access_token", apiKey);
+                                                            .AddParameter("since", logId);
             return await RetrieveAsync<ICollection<GuildLog>>(builder);
         }
 
-        public async Task<ICollection<GuildMember>> GetMembersAsync(string guildId, string apiKey)
+        public async Task<ICollection<GuildMember>> GetMembersAsync(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/members")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/members");
             return await RetrieveAsync<ICollection<GuildMember>>(builder);
         }
 
-        public async Task<ICollection<GuildRank>> GetRanksAsync(string guildId, string apiKey)
+        public async Task<ICollection<GuildRank>> GetRanksAsync(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/ranks")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/ranks");
             return await RetrieveAsync<ICollection<GuildRank>>(builder);
         }
 
-        public async Task<ICollection<GuildStash>> GetStashAsync(string guildId, string apiKey)
+        public async Task<ICollection<GuildStash>> GetStashAsync(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/stash")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/stash");
             return await RetrieveAsync<ICollection<GuildStash>>(builder);
         }
 
-        public async Task<ICollection<GuildStorage>> GetStorageAsync(string guildId, string apiKey)
+        public async Task<ICollection<GuildStorage>> GetStorageAsync(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/storage")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/storage");
             return await RetrieveAsync<ICollection<GuildStorage>>(builder);
         }
 
-        public async Task<ICollection<GuildTeam>> GetTeamsAsync(string guildId, string apiKey)
+        public async Task<ICollection<GuildTeam>> GetTeamsAsync(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/teams")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/teams");
             return await RetrieveAsync<ICollection<GuildTeam>>(builder);
         }
 
-        public async Task<ICollection<GuildTreasury>> GetTreasuryAsync(string guildId, string apiKey)
+        public async Task<ICollection<GuildTreasury>> GetTreasuryAsync(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/treasury")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/treasury");
             return await RetrieveAsync<ICollection<GuildTreasury>>(builder);
         }
 
-        public async Task<ICollection<string>> GetUpgradeIdsAsync(string guildId, string apiKey)
+        public async Task<ICollection<string>> GetUpgradeIdsAsync(string guildId)
         {
-            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/upgrades")
-                                                            .AddParameter("access_token", apiKey);
+            ValidateToken();
+            IEndpointBuilder builder = new EndpointBuilder().AddEndpoint($"guild/{guildId}/upgrades");
             return await RetrieveAsync<ICollection<string>>(builder);
         }
 

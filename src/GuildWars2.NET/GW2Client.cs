@@ -35,8 +35,6 @@ namespace GuildWars2.NET
         public GW2Client(string apiKey = null)
         {
             Achievements = new AchievementRepository();
-            Commerce = new CommerceRepository();
-            Guilds = new GuildRepository();
             Items = new ItemRepository();
             Misc = new MiscRepository();
             PvE = new PvERepository();
@@ -46,6 +44,8 @@ namespace GuildWars2.NET
             ApiKey = apiKey;
             Account = new AccountRepository(ApiKey);
             Characters = new CharacterRepository(ApiKey);
+            Commerce = new CommerceRepository(ApiKey);
+            Guilds = new GuildRepository(ApiKey);
         }
     }
 }
